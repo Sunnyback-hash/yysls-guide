@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>燕云十六声攻略站 · 国际服/国内服流派攻略、地图探索、配装社区</title>
+<meta name="description" content="燕云十六声（Where Winds Meet）中文攻略站，涵盖国际服和国内服最新流派攻略、心法配装、门派介绍、地图探索、社区配装分享，持续更新。">
+<meta name="keywords" content="燕云十六声,Where Winds Meet,攻略,流派,心法,国际服,国内服,配装,门派,地图">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://yysls-guide.com/">
+<meta property="og:title" content="燕云十六声攻略站 · 流派攻略/地图探索/配装社区">
+<meta property="og:description" content="燕云十六声（Where Winds Meet）中文攻略站，国际服/国内服攻略，流派配装、心法推荐、地图探索、玩家社区。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yysls-guide.com/">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="燕云十六声攻略站">
+<meta name="twitter:description" content="燕云十六声（Where Winds Meet）中文攻略站 - 流派攻略 · 地图探索 · 玩家社区">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;background:#0a0a0f;color:#e0dcd0;line-height:1.7}
+a{color:#d4a843;text-decoration:none;transition:color .3s}
+a:hover{color:#f0c860}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#12121a}
+::-webkit-scrollbar-thumb{background:#3a3a4a;border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:#5a5a6a}
+h1,h2,h3{font-weight:700;letter-spacing:.04em}
+h2{font-size:2rem;text-align:center;margin-bottom:2.5rem;position:relative}
+h2::after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,#d4a843,transparent);margin:.75rem auto 0;border-radius:2px}
+#loader{position:fixed;inset:0;z-index:9999;background:#0a0a0f;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s,visibility .8s}
+#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+#loader .logo-mark{font-size:3rem;font-weight:300;letter-spacing:.3em;color:#d4a843;animation:pulse-mark 1.6s ease-in-out infinite}
+#loader .bar{margin-top:2rem;width:160px;height:2px;background:#1e1e2a;border-radius:2px;overflow:hidden}
+#loader .bar-inner{width:0;height:100%;background:linear-gradient(90deg,#d4a843,#f0c860);animation:load-bar 1.8s ease forwards}
+@keyframes pulse-mark{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes load-bar{0%{width:0}100%{width:100%}}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;background:rgba(10,10,15,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,168,67,.15)}
+.navbar .logo{font-size:1.15rem;font-weight:700;color:#d4a843;letter-spacing:.15em;cursor:pointer}
+.navbar .logo span{color:#f0c860}
+.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+.nav-links a{font-size:.875rem;color:#a09888;transition:color .3s;position:relative;cursor:pointer}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#d4a843;transition:width .3s}
+.nav-links a:hover{color:#e0dcd0}
+.nav-links a:hover::after{width:100%}
+.nav-links a.active-link{color:#d4a843}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.nav-toggle span{display:block;width:24px;height:2px;background:#e0dcd0;transition:.3s}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 20%,rgba(212,168,67,.08) 0%,transparent 70%),radial-gradient(ellipse 60% 50% at 20% 80%,rgba(100,180,255,.05) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 80% 70%,rgba(200,80,60,.04) 0%,transparent 50%);pointer-events:none}
+.hero .bg-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.particle{position:absolute;bottom:-10px;width:2px;height:2px;background:rgba(212,168,67,.3);border-radius:50%;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0) scale(1);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) scale(0);opacity:0}}
+.hero .subtitle-top{font-size:.8rem;letter-spacing:.4em;color:#a09888;margin-bottom:1rem}
+.hero h1{font-size:clamp(2.4rem,7vw,5rem);font-weight:300;background:linear-gradient(135deg,#f0c860 0%,#d4a843 40%,#a08040 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:.15em;margin-bottom:.5rem}
+.hero .sub-en{font-size:clamp(.9rem,2vw,1.2rem);color:#6a6558;font-weight:300;letter-spacing:.3em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero .tagline{max-width:560px;font-size:.95rem;color:#8a8478;margin-bottom:2.5rem}
+.hero .stats{display:flex;gap:3rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem}
+.hero .stat-num{font-size:1.6rem;font-weight:700;color:#d4a843}
+.hero .stat-label{font-size:.75rem;color:#6a6558;letter-spacing:.1em}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 2rem;border-radius:6px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .3s;border:none;text-decoration:none}
+.btn-primary{background:linear-gradient(135deg,#d4a843,#b8922e);color:#0a0a0f}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,168,67,.3)}
+.btn-outline{background:transparent;color:#d4a843;border:1px solid rgba(212,168,67,.4)}
+.btn-outline:hover{background:rgba(212,168,67,.1);border-color:#d4a843}
+.btn-intl{background:linear-gradient(135deg,#3080e0,#2060b0);color:#fff}
+.btn-intl:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(48,128,224,.3)}
+.btn-sm{padding:.4rem 1rem;font-size:.8rem}
+.btn-danger{background:linear-gradient(135deg,#c0392b,#96281b);color:#fff}
+.btn-success{background:linear-gradient(135deg,#27ae60,#1e8449);color:#fff}
+.btn-ghost{background:transparent;color:#a09888;border:1px solid #3a3a4a}
+.btn-ghost:hover{color:#e0dcd0;border-color:#5a5a6a}
+section{padding:5rem 2rem}
+.container{max-width:1100px;margin:0 auto}
+.page-section{padding-top:6rem;min-height:100vh}
+.card{background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.5rem;transition:all .3s}
+.card:hover{border-color:rgba(212,168,67,.2);transform:translateY(-2px)}
+.server-tabs{background:#0e0e18}
+.tab-bar{display:flex;justify-content:center;gap:.5rem;margin-bottom:2.5rem}
+.tab-btn{padding:.6rem 1.8rem;border-radius:6px;font-size:.9rem;font-weight:600;cursor:pointer;background:transparent;color:#706860;border:1px solid rgba(112,104,96,.3);transition:all .3s}
+.tab-btn.active{background:rgba(212,168,67,.12);color:#d4a843;border-color:#d4a843}
+.tab-btn:hover{color:#e0dcd0;border-color:#5a5548}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeUp .5s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.server-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+.server-card{background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.5rem;transition:all .3s}
+.server-card:hover{border-color:rgba(212,168,67,.2);transform:translateY(-2px)}
+.server-card .icon{font-size:1.5rem;margin-bottom:.5rem}
+.server-card h4{font-size:1rem;color:#d4a843;margin-bottom:.5rem}
+.server-card p{font-size:.85rem;color:#8a8478;line-height:1.6}
+.build-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.build-card{background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.5rem;transition:all .3s;position:relative;overflow:hidden;cursor:pointer}
+.build-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#d4a843,transparent)}
+.build-card:hover{border-color:rgba(212,168,67,.25);transform:translateY(-3px)}
+.build-card .meta{font-size:.75rem;color:#6a6558;margin-bottom:.25rem;letter-spacing:.08em}
+.build-card h3{font-size:1.1rem;margin-bottom:.25rem}
+.build-card .sub{font-size:.85rem;color:#8a8478;margin-bottom:.75rem}
+.build-card .tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.75rem}
+.tag{padding:2px 10px;border-radius:10px;font-size:.7rem;font-weight:600}
+.tag-s{background:rgba(212,168,67,.15);color:#d4a843}
+.tag-a{background:rgba(100,180,255,.12);color:#64b4ff}
+.tag-b{background:rgba(120,200,120,.12);color:#78c878}
+.build-card p{font-size:.82rem;color:#7a7468;line-height:1.6}
+.build-card .rating-mini{font-size:.75rem;color:#6a6558;margin-top:.5rem}
+.tip-list{display:grid;gap:1rem}
+.tip-item{display:flex;gap:1rem;align-items:flex-start;background:#12121c;border:1px solid #1e1e2e;border-radius:8px;padding:1.25rem;transition:all .3s}
+.tip-item:hover{border-color:rgba(212,168,67,.2)}
+.tip-num{flex-shrink:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(212,168,67,.12);color:#d4a843;font-weight:700;font-size:.85rem}
+.tip-item h4{font-size:.95rem;margin-bottom:.25rem}
+.tip-item p{font-size:.82rem;color:#7a7468}
+.faction-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.faction-card{background:#12121c;border:1px solid #1e1e2e;border-radius:8px;padding:1.25rem;text-align:center;transition:all .3s}
+.faction-card:hover{border-color:rgba(212,168,67,.2)}
+.faction-card h4{font-size:.95rem;color:#d4a843;margin-bottom:.25rem}
+.faction-card p{font-size:.78rem;color:#7a7468}
+.news-list{display:grid;gap:1rem}
+.news-content{display:none}
+.news-content.active{display:block;animation:fadeUp .5s ease}
+.news-item{display:flex;gap:1rem;align-items:center;background:#12121c;border:1px solid #1e1e2e;border-radius:8px;padding:1.25rem;transition:all .3s}
+.news-item:hover{border-color:rgba(212,168,67,.2)}
+.news-date{flex-shrink:0;width:56px;text-align:center;font-size:.7rem;color:#6a6558;letter-spacing:.05em}
+.news-date .d{font-size:1.2rem;font-weight:700;color:#d4a843;display:block}
+.news-item h4{font-size:.9rem;margin-bottom:.2rem}
+.news-item p{font-size:.78rem;color:#7a7468}
+.cta-section{text-align:center;background:linear-gradient(135deg,rgba(212,168,67,.06),rgba(10,10,15,0));border-top:1px solid rgba(212,168,67,.1)}
+.cta-section h2{margin-bottom:1rem}
+.cta-section p{color:#8a8478;max-width:480px;margin:0 auto 2rem}
+footer{padding:2.5rem 2rem;border-top:1px solid #181825;text-align:center}
+footer p{font-size:.78rem;color:#4a4540}
+footer .links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap}
+footer .links a{font-size:.8rem;color:#6a6558}
+footer .links a:hover{color:#d4a843}
+.search-bar{display:flex;gap:.75rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.search-bar input{flex:1;min-width:200px;padding:.75rem 1rem;border-radius:6px;border:1px solid #2a2a3a;background:#12121c;color:#e0dcd0;font-size:.9rem;outline:none;transition:border-color .3s}
+.search-bar input:focus{border-color:#d4a843}
+.search-bar select{padding:.75rem 1rem;border-radius:6px;border:1px solid #2a2a3a;background:#12121c;color:#e0dcd0;font-size:.9rem;outline:none;cursor:pointer}
+.build-detail{max-width:800px;margin:0 auto}
+.build-detail .back-link{display:inline-flex;align-items:center;gap:.4rem;color:#8a8478;font-size:.85rem;margin-bottom:1.5rem;cursor:pointer;transition:color .3s}
+.build-detail .back-link:hover{color:#d4a843}
+.build-detail h2{text-align:left;margin-bottom:.5rem}
+.build-detail h2::after{margin:.75rem 0 0}
+.build-detail .subtitle{font-size:.9rem;color:#8a8478;margin-bottom:1.5rem}
+.build-detail .section-title{font-size:1rem;color:#d4a843;margin:1.5rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid #1e1e2e}
+.build-detail p{font-size:.88rem;color:#8a8478;line-height:1.8}
+.build-detail .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.build-detail .info-grid{grid-template-columns:1fr}}
+.stars{display:flex;gap:4px;font-size:1.3rem}
+.stars span{cursor:pointer;color:#3a3a4a;transition:color .2s}
+.stars span.active,.stars span.hover{color:#f0c860}
+.rating-display{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem}
+.rating-display .avg{font-size:1.5rem;font-weight:700;color:#f0c860}
+.rating-display .count{font-size:.8rem;color:#6a6558}
+.comment-box{background:#12121c;border:1px solid #1e1e2e;border-radius:8px;padding:1.25rem;margin-bottom:1rem}
+.comment-box textarea{width:100%;padding:.75rem;border-radius:6px;border:1px solid #2a2a3a;background:#0a0a0f;color:#e0dcd0;font-size:.85rem;outline:none;resize:vertical;min-height:80px;transition:border-color .3s;font-family:inherit}
+.comment-box textarea:focus{border-color:#d4a843}
+.comment-item{padding:1rem 0;border-bottom:1px solid #1a1a28}
+.comment-item:last-child{border-bottom:none}
+.comment-item .author{font-size:.82rem;color:#d4a843;font-weight:600}
+.comment-item .time{font-size:.7rem;color:#4a4540;margin-left:.5rem}
+.comment-item .text{font-size:.85rem;color:#8a8478;margin-top:.25rem;line-height:1.5}
+.map-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
+.map-card{background:#12121c;border:1px solid #1e1e2e;border-radius:10px;overflow:hidden;transition:all .3s}
+.map-card:hover{border-color:rgba(212,168,67,.2);transform:translateY(-3px)}
+.map-card .map-banner{height:120px;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700}
+.map-card .map-body{padding:1.25rem}
+.map-card .map-body h3{font-size:1.05rem;margin-bottom:.25rem}
+.map-card .map-body .map-sub{font-size:.78rem;color:#6a6558;margin-bottom:.5rem}
+.map-card .map-body p{font-size:.82rem;color:#7a7468;line-height:1.6}
+.map-card .map-body .points{margin-top:.75rem;display:flex;gap:.4rem;flex-wrap:wrap}
+.community-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:700px){.community-grid{grid-template-columns:1fr}}
+.social-card{display:flex;align-items:center;gap:1rem;background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.25rem;transition:all .3s}
+.social-card:hover{border-color:rgba(212,168,67,.2);transform:translateY(-2px)}
+.social-card .sicon{font-size:2rem;flex-shrink:0}
+.social-card h4{font-size:.95rem;margin-bottom:.15rem}
+.social-card p{font-size:.78rem;color:#6a6558}
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+@media(max-width:700px){.admin-grid{grid-template-columns:1fr}}
+.admin-card{background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.5rem;text-align:center;transition:all .3s;cursor:pointer}
+.admin-card:hover{border-color:rgba(212,168,67,.2)}
+.admin-card .anum{font-size:2rem;font-weight:700;color:#d4a843}
+.admin-card .alabel{font-size:.82rem;color:#6a6558}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:.82rem;color:#8a8478;margin-bottom:.3rem;font-weight:600}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:.65rem .85rem;border-radius:6px;border:1px solid #2a2a3a;background:#0a0a0f;color:#e0dcd0;font-size:.85rem;outline:none;transition:border-color .3s;font-family:inherit}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#d4a843}
+.form-group textarea{min-height:80px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.admin-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.admin-table th{text-align:left;padding:.6rem .8rem;color:#6a6558;font-weight:600;border-bottom:1px solid #1e1e2e}
+.admin-table td{padding:.6rem .8rem;color:#8a8478;border-bottom:1px solid #181825}
+.admin-table tr:hover td{background:rgba(212,168,67,.03)}
+.admin-actions{display:flex;gap:.4rem}
+.toast{position:fixed;bottom:2rem;right:2rem;z-index:9999;padding:.75rem 1.5rem;border-radius:8px;font-size:.85rem;font-weight:600;color:#fff;animation:fadeUp .3s ease;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.toast-success{background:linear-gradient(135deg,#27ae60,#1e8449)}
+.toast-error{background:linear-gradient(135deg,#c0392b,#96281b)}
+.toast-info{background:linear-gradient(135deg,#2c3e50,#34495e)}
+.editing-badge{display:inline-flex;align-items:center;gap:.4rem;padding:2px 10px;border-radius:10px;font-size:.7rem;font-weight:600;background:rgba(39,174,96,.12);color:#27ae60;border:1px solid rgba(39,174,96,.3)}
+.share-section{background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.5rem;margin-bottom:2rem}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(10,10,15,.95);padding:1rem 2rem;border-bottom:1px solid rgba(212,168,67,.15)}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:flex}
+  .server-grid,.build-grid{grid-template-columns:1fr}
+  .hero .stats{gap:1.5rem}
+  section{padding:3rem 1.25rem}
+  h2{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="logo-mark">燕</div><div class="bar"><div class="bar-inner"></div></div></div>
+
+<nav class="navbar">
+  <div class="logo" onclick="navigate('/')">燕云 · <span>攻略站</span></div>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a class="nav-item" data-route="/">首页</a></li>
+    <li><a class="nav-item" data-route="/builds">流派</a></li>
+    <li><a class="nav-item" data-route="/maps">地图</a></li>
+    <li><a class="nav-item" data-route="/quests">任务</a></li>
+    <li><a class="nav-item" data-route="/community">社区</a></li>
+    <li><a class="nav-item" data-route="/admin">管理</a></li>
+  </ul>
+</nav>
+
+<div id="app"></div>
+
+<script>
+// ===== DATA =====
+const STORE_KEY = 'yysls_data';
+const BASE_URL = 'https://yysls-guide.com';
+
+function getStore() { try{const r=localStorage.getItem(STORE_KEY);if(r)return JSON.parse(r)}catch(e){}return null}
+function saveStore(d){localStorage.setItem(STORE_KEY,JSON.stringify(d))}
+
+const D_BUILDS = [
+  {id:'b1',name:'鸣金虹',weapons:'无名剑 + 无名枪',tier:'S',type:'新手首选',xinfa:'易水歌 · 无名心法 · 威猛歌 · 千山法',qishu:'骑龙回马 · 箫吟千浪 · 神龙吐火 · 太白醉月',desc:'消耗耐力打出3发剑气，围绕快速回耐与增伤构建。AOE最强，输出环境安逸。',tags:['S级','AOE最强','新手友好'],weaponTags:['无名剑','无名枪'],xinfaTags:['易水歌','无名心法','威猛歌','千山法']},
+  {id:'b2',name:'唐横刀（斩雪刀）',weapons:'唐横刀',tier:'S',type:'版本答案',xinfa:'易水歌 · 威猛歌 · 移经易武 · 孤忠不辞',qishu:'骑龙回马 · 箫吟千浪',desc:'5/4版本加强，派生技气血伤害30%→36%。双切玩法成版本真神，防反+高爆发连段。',tags:['S级','5/4加强','双切T0'],weaponTags:['唐横刀'],xinfaTags:['易水歌','威猛歌','移经易武','孤忠不辞']},
+  {id:'b3',name:'裂石均 · 陌刀',weapons:'陌刀',tier:'A',type:'副本强势',xinfa:'易水歌 · 威猛歌 · 移经易武 · 孤忠不辞',qishu:'骑龙回马 · 神龙吐火',desc:'5月调整：孤忠不辞气血伤害36%→32%（小削）。防反+战意循环，仍为副本强力选择。',tags:['A级','副本','坦克'],weaponTags:['陌刀'],xinfaTags:['易水歌','威猛歌','移经易武','孤忠不辞']},
+  {id:'b4',name:'破竹鸢（拳套）',weapons:'手甲',tier:'B',type:'5/4加强',xinfa:'易水歌 · 花上月令 · 千山法 · 征人归',qishu:'天下归义',desc:'5月调整：天下归义伤害提升+20%。拳套特殊技伤害+20%，手甲流派迎来复苏。',tags:['B级','加强','手甲'],weaponTags:['手甲'],xinfaTags:['易水歌','花上月令','千山法','征人归']},
+  {id:'b5',name:'牵丝玉',weapons:'九重春色 + 青山执笔',tier:'A',type:'高颜值',xinfa:'易水歌 · 花上月令 · 纵地摘星 · 征人归',qishu:'骑龙回马 · 太白醉月',desc:'分支：飞天玉（机关枪耐力流）· 走地玉（站桩火拳流）。输出环境安逸，颜值高，上限略偏低。',tags:['A级','远程','高颜值'],weaponTags:['九重春色','青山执笔'],xinfaTags:['易水歌','花上月令','纵地摘星','征人归']}
+];
+const D_MAPS = [
+  {id:'m1',name:'清河',order:1,desc:'新手起步区域，建议优先清理蹊跷和传送点。',points:['新手村','清河镇','渡口','竹林秘境'],color:'#4a7c59'},
+  {id:'m2',name:'开封',order:2,desc:'主城区域，大量支线任务和隐藏内容。',points:['皇宫','市集','城郊','码头'],color:'#7c5a3a'},
+  {id:'m3',name:'不见山',order:3,desc:'高等级区域，怪物强度较高，建议准备好再探索。',points:['山顶','洞穴','古寺','瀑布'],color:'#5a4a6a'},
+  {id:'m4',name:'河西',order:4,desc:'沙漠区域，主线重要节点。',points:['绿洲','古城','驿站','峡谷'],color:'#7a6a3a'},
+  {id:'m5',name:'青州',order:5,desc:'2026年4月最新上线主题区域。',points:['蓬山','海岸','码头','村落'],color:'#3a6a7a'},
+  {id:'m6',name:'蓬山',order:6,desc:'2026/5/29开放·青州子区域，伙伴系统所在地。',points:['猫咪据点','大鹅池塘','侠迹入口','镇守台'],color:'#6a5a3a'}
+];
+const D_QUESTS = [
+  {id:'q1',name:'麻布袋',map:'清河',type:'主线',desc:'被玩家誉为"叙事巅峰"的任务，强烈推荐细品剧情。'},
+  {id:'q2',name:'中渡桥之战',map:'开封',type:'主线',desc:'另一叙事巅峰任务，海外玩家同样产生强烈共情。'},
+  {id:'q3',name:'蓬山侠迹',map:'蓬山',type:'探索',desc:'蓬山区域核心玩法之一，完成可获得伙伴系统相关奖励。'},
+  {id:'q4',name:'流火袭星',map:'青州',type:'副本',desc:'5人试剑本，2.6.0B版本新增。'},
+  {id:'q5',name:'龙骧御六合',map:'青州',type:'副本',desc:'10人团队副本，需要团队配合。'}
+];
+
+function initStore(){
+  let s=getStore();
+  if(!s){s={builds:JSON.parse(JSON.stringify(D_BUILDS)),maps:JSON.parse(JSON.stringify(D_MAPS)),quests:JSON.parse(JSON.stringify(D_QUESTS)),comments:{},ratings:{},userBuilds:[]};saveStore(s)}
+  return s;
+}
+
+function toast(m,t){
+  const e=document.createElement('div');e.className='toast toast-'+(t||'success');e.textContent=m;
+  document.body.appendChild(e);setTimeout(()=>{e.style.opacity='0';e.style.transition='opacity .3s';setTimeout(()=>e.remove(),300)},2500);
+}
+
+// ===== ROUTER =====
+function navigate(p){window.history.pushState(null,'',p);router()}
+function matchRoute(path){
+  if(path.match(/^\/build\/(.+)$/))return'buildDetail';
+  const k=path.replace('/','').split('/')[0]||'home';
+  return['builds','maps','quests','community','admin'].includes(k)?k:'home';
+}
+
+// ===== META =====
+function updateMeta(route){
+  const t={home:'燕云十六声攻略站 · 国际服/国内服流派攻略、地图探索、配装社区',builds:'流派攻略 · 燕云十六声攻略站 — 最新Meta配装/心法推荐',buildDetail:'流派详情 · 燕云十六声攻略站',maps:'地图探索 · 燕云十六声攻略站 — 清河/开封/青州/蓬山全区域指南',quests:'任务攻略 · 燕云十六声攻略站 — 主线/支线/副本攻略',community:'玩家社区 · 燕云十六声攻略站 — 配装分享/Discord/B站/TapTap',admin:'内容管理 · 燕云十六声攻略站 — CMS后台'};
+  const d={home:'燕云十六声（Where Winds Meet）中文攻略站，涵盖国际服和国内服最新流派攻略、心法配装、门派介绍、地图探索、社区配装分享。',builds:'2026年5月最新版本流派排行：鸣金虹、唐横刀、裂石均·陌刀、牵丝玉、破竹鸢。附心法配置和输出循环详解。',maps:'燕云十六声全地图探索指南：清河→开封→不见山→河西→青州→蓬山，优先探索顺序和关键点位一览。',quests:'燕云十六声任务攻略大全：麻布袋、中渡桥之战、流火袭星、龙骧御六合等核心任务攻略。',community:'加入燕云十六声玩家社区：Discord国际服讨论、B站视频攻略、TapTap论坛、Steam社区。分享你的配装。'};
+  document.title=t[route]||t.home;const desc=d[route]||d.home;
+  let me=document.querySelector('meta[name="description"]');if(me)me.setAttribute('content',desc);
+  let oe=document.querySelector('meta[property="og:description"]');if(oe)oe.setAttribute('content',desc);
+  let ot=document.querySelector('meta[property="og:title"]');if(ot)ot.setAttribute('content',document.title);
+}
+
+// ===== RENDER =====
+function renderHome(){
+  document.getElementById('app').innerHTML=`<header class="hero"><div class="bg-particles" id="particles"></div>
+    <div class="subtitle-top">—— 网易武侠开放世界 ——</div>
+    <h1>燕云十六声</h1><div class="sub-en">Where Winds Meet</div>
+    <p class="tagline">以五代十国为背景的开放世界武侠RPG，单人沉浸+多人社交双模式。国际服与国内服双版本运营，全球超过8000万玩家踏入江湖。<br><span style="color:#d4a843;font-size:.85rem;display:inline-block;margin-top:.5rem">🔔 袁和平加盟动作总顾问 · 5/29 蓬山+伙伴系统上线 · 国际服 5/28 皇宫大版本</span></p>
+    <div class="stats"><div><div class="stat-num">8000万+</div><div class="stat-label">全球玩家</div></div><div><div class="stat-num">87%</div><div class="stat-label">Steam好评率</div></div><div><div class="stat-num">12</div><div class="stat-label">门派</div></div><div><div class="stat-num">10+</div><div class="stat-label">武器种类</div></div></div>
+    <div class="hero-actions"><a class="btn btn-primary" onclick="navigate('/builds')">📜 查看流派攻略</a><a class="btn btn-outline" onclick="navigate('/maps')">🗺️ 地图探索</a><a class="btn btn-intl" onclick="navigate('/community')">👥 玩家社区</a></div></header>
+    <section class="server-tabs"><div class="container"><h2>服务器 · <span style="font-weight:300;color:#8a8478">Server</span></h2>
+    <div class="tab-bar"><button class="tab-btn active" data-tab="cn">🇨🇳 国内服</button><button class="tab-btn" data-tab="intl">🌍 国际服</button></div>
+    <div class="tab-content active" id="tab-cn"><div class="server-grid">
+      <div class="server-card"><div class="icon">🎮</div><h4>游戏平台</h4><p>PC客户端·网易账号登录·支持云游戏</p></div>
+      <div class="server-card"><div class="icon">💰</div><h4>付费模式</h4><p>免费游玩·外观商城·不卖数值</p></div>
+      <div class="server-card"><div class="icon">🗺️</div><h4>最新版本</h4><p>v2.6.0B「海岱有朋来」(5/15)·新赛季·青州已上线</p></div>
+      <div class="server-card"><div class="icon">⭐</div><h4>评分</h4><p>TapTap 4.7</p></div>
+    </div></div>
+    <div class="tab-content" id="tab-intl"><div class="server-grid">
+      <div class="server-card"><div class="icon">🎮</div><h4>平台</h4><p>Steam·Epic·PS5手柄支持</p></div>
+      <div class="server-card"><div class="icon">💰</div><h4>付费</h4><p>免费游玩·外观商城</p></div>
+      <div class="server-card"><div class="icon">🗺️</div><h4>最新版本</h4><p>5/28 皇宫大版本Imperial Palace·Sandstorm Tavern活动</p></div>
+      <div class="server-card"><div class="icon">⭐</div><h4>评分</h4><p>Steam好评率87-90%</p></div>
+    </div></div></div></section>
+    <section id="factions" style="background:#0e0e18"><div class="container"><h2>门派·<span style="font-weight:300;color:#8a8478">Factions</span></h2><p style="text-align:center;color:#6a6558;margin-bottom:2rem;font-size:.85rem">共12个门派·自由选择·可偷师</p>
+    <div class="faction-grid">${['无门无派·自由探索·全武器兼容','天泉·肉盾/坦克·陌刀','狂澜·输出/防御双修·枪','孤云·均衡输出·剑·新手','三更天·极限输出·双刀','青溪·唯一治疗·扇','醉花阴·更新中','九流门·更新中'].map(s=>{const a=s.split('·');return'<div class="faction-card"><h4>'+a[0]+'</h4><p>'+a.slice(1).join(' · ')+'</p></div>'}).join('')}</div></div></section>
+    <section><div class="container"><h2>新手避坑·<span style="font-weight:300;color:#8a8478">New Player Guide</span></h2>
+    <div class="tip-list">${['长鸣玉优先兑换易水歌·易水歌是80%流派的核心心法，前期长鸣玉千万不要乱花。','金色心法不要分解·所有金色心法后期转流派都可能用到，全部保留。','地图解锁顺序·清河→开封→不见山→河西，优先开蹊跷和传送点。','心法质变节点·无名心法1/4/6重·花上月令3/6重·征人归6重。','国际服玩家注意·Steam版无需加速器·支持多语言·与国服进度不同步。'].map((s,i)=>{const a=s.split('·');return'<div class="tip-item"><div class="tip-num">'+(i+1)+'</div><div><h4>'+a[0]+'</h4><p>'+a.slice(1).join(' · ')+'</p></div></div>'}).join('')}</div></div></section>
+    <section id="news" style="background:#0e0e18"><div class="container"><h2>最新动态·<span style="font-weight:300;color:#8a8478">Updates</span></h2><div class="news-list">
+      ${[['29','蓬山+伙伴系统上线','青州子区域蓬山开放，猫咪(4只)和大鹅(3只)伙伴可跟随采集搜宝箱。'],['21','袁和平加盟任动作总顾问','袁家班优化醉拳、长枪、棍法等武学表现。'],['15','2.6.0B「海岱有朋来」更新','5人本流火袭星·10人团本龙骧御六合·绳镖外观上架。'],['09','止戈保底调平上线','PVP低造诣自动推荐调整属性，养成门槛大幅降低。']].map(n=>'<div class="news-item"><div class="news-date"><span class="d">'+n[0]+'</span>2026/05</div><div><h4>'+n[1]+'</h4><p>'+n[2]+'</p></div></div>').join('')}
+    </div></div></section>
+    <section class="cta-section"><div class="container"><h2>攻略持续更新中</h2><p>流派配装·地图探索·任务攻略·版本解析</p><div class="hero-actions"><a class="btn btn-primary" onclick="navigate('/builds')">📖 浏览流派</a><a class="btn btn-outline" onclick="navigate('/maps')">🗺️ 地图探索</a><a class="btn btn-outline" onclick="navigate('/quests')">📋 任务攻略</a></div></div></section>`;
+  setTimeout(()=>{
+    const el=document.getElementById('particles');if(el)for(let i=0;i<20;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDuration=(8+Math.random()*16)+'s';p.style.animationDelay=Math.random()*8+'s';p.style.width=p.style.height=(1+Math.random()*3)+'px';el.appendChild(p)}
+    document.querySelectorAll('.server-tabs .tab-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.server-tabs .tab-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.server-tabs .tab-content').forEach(x=>x.classList.remove('active'));const t=document.getElementById('tab-'+b.dataset.tab);if(t)t.classList.add('active')}));
+  },50);
+}
+
+function renderBuilds(){
+  const store=getStore();const all=[...(store.builds||[]),...(store.userBuilds||[]).map(b=>({...b,isUser:true}))];const ratings=store.ratings||{};
+  const cards=all.map(b=>{const r=ratings[b.id];const rs=r&&r.count>0?'<span style="color:#f0c860">★</span> '+(r.total/r.count).toFixed(1)+' ('+r.count+'人)':'';return'<div class="build-card" onclick="navigate(\'/build/'+b.id+'\')"><div class="meta">'+b.tier+'-Tier · '+b.type+'</div><h3>'+b.name+(b.isUser?' <span class="editing-badge">玩家分享</span>':'')+'</h3><div class="sub">'+b.weapons+'</div><div class="tags">'+b.tags.map(t=>'<span class="tag '+(t.includes('S')?'tag-s':t.includes('A')?'tag-a':'tag-b')+'">'+t+'</span>').join('')+'</div><p>'+b.desc+'</p>'+(rs?'<div class="rating-mini">'+rs+'</div>':'')+'</div>'}).join('');
+  document.getElementById('app').innerHTML=`<section class="page-section"><div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem"><h2 style="margin-bottom:0">流派攻略·<span style="font-weight:300;color:#8a8478">Builds</span></h2><button class="btn btn-sm btn-primary" onclick="navigate('/community')">✏️ 分享配装</button></div>
+    <div class="search-bar"><input type="text" id="buildSearch" placeholder="搜索流派名称、武器、心法..." oninput="filterBuilds()"><select id="weaponFilter" onchange="filterBuilds()"><option value="">全部武器</option><option value="无名剑">无名剑</option><option value="无名枪">无名枪</option><option value="唐横刀">唐横刀</option><option value="陌刀">陌刀</option><option value="手甲">手甲</option><option value="九重春色">九重春色</option><option value="青山执笔">青山执笔</option></select><select id="tierFilter" onchange="filterBuilds()"><option value="">全部等级</option><option value="S">S-Tier</option><option value="A">A-Tier</option><option value="B">B-Tier</option></select></div>
+    <div class="build-grid" id="buildGrid">${cards}</div>
+    <div style="text-align:center;margin-top:2rem;color:#6a6558;font-size:.82rem">共${all.length}个流派攻略·点击卡片查看详情和评分评论</div></div></section>`;
+}
+function filterBuilds(){
+  const q=(document.getElementById('buildSearch')?.value||'').toLowerCase();const w=document.getElementById('weaponFilter')?.value||'';const t=document.getElementById('tierFilter')?.value||'';
+  const store=getStore();const all=[...(store.builds||[]),...(store.userBuilds||[]).map(b=>({...b,isUser:true}))];const ratings=store.ratings||{};
+  const filtered=all.filter(b=>{if(q&&!b.name.toLowerCase().includes(q)&&!b.weapons.toLowerCase().includes(q)&&!b.xinfa.toLowerCase().includes(q))return false;if(w&&!b.weaponTags?.some(x=>x.includes(w)))return false;if(t&&b.tier!==t)return false;return true});
+  const grid=document.getElementById('buildGrid');if(!grid)return;
+  grid.innerHTML=filtered.map(b=>{const r=ratings[b.id];const rs=r&&r.count>0?'<span style="color:#f0c860">★</span> '+(r.total/r.count).toFixed(1)+' ('+r.count+'人)':'';return'<div class="build-card" onclick="navigate(\'/build/'+b.id+'\')"><div class="meta">'+b.tier+'-Tier · '+b.type+'</div><h3>'+b.name+(b.isUser?' <span class="editing-badge">玩家分享</span>':'')+'</h3><div class="sub">'+b.weapons+'</div><div class="tags">'+b.tags.map(t=>'<span class="tag '+(t.includes('S')?'tag-s':t.includes('A')?'tag-a':'tag-b')+'">'+t+'</span>').join('')+'</div><p>'+b.desc+'</p>'+(rs?'<div class="rating-mini">'+rs+'</div>':'')+'</div>'}).join('');
+}
+
+function renderBuildDetail(id){
+  const store=getStore();const all=[...(store.builds||[]),...(store.userBuilds||[]).map(b=>({...b,isUser:true}))];const build=all.find(b=>b.id===id);
+  if(!build){navigate('/builds');return}
+  const ratings=store.ratings||{};const r=ratings[id]||{total:0,count:0};const avg=r.count>0?(r.total/r.count).toFixed(1):'暂无';const comments=(store.comments||{})[id]||[];
+  document.getElementById('app').innerHTML=`<section class="page-section"><div class="container build-detail">
+    <div class="back-link" onclick="navigate('/builds')">← 返回流派列表</div>
+    <h2>${build.name}${build.isUser?' <span class="editing-badge">玩家分享</span>':''}</h2>
+    <div class="subtitle">${build.weapons} · ${build.tier}-Tier · ${build.type}</div>
+    <div class="rating-display"><div class="avg">${avg}</div><div class="stars">${[1,2,3,4,5].map(i=>'<span onclick="rateBuild(\''+id+'\','+i+')" '+(r.count>0&&i<=Math.round(r.total/r.count)?'class="active"':'')+'>★</span>').join('')}</div><div class="count">${r.count>0?r.count+'人评价':'暂无评分'}</div></div>
+    <div class="info-grid"><div class="card"><div class="section-title">心法</div><p>${build.xinfa}</p></div><div class="card"><div class="section-title">奇术</div><p>${build.qishu||'待补充'}</p></div></div>
+    <div class="card" style="margin-top:1.5rem"><div class="section-title">详情</div><p>${build.desc}</p><div style="margin-top:.75rem;display:flex;gap:.4rem;flex-wrap:wrap">${build.tags.map(t=>'<span class="tag tag-s">'+t+'</span>').join('')}</div></div>
+    <div class="card" style="margin-top:1.5rem"><div class="section-title">评价·评分</div><p style="margin-bottom:.75rem;color:#8a8478;font-size:.85rem">你觉得这个流派怎么样？</p><div class="stars" style="font-size:1.5rem;margin-bottom:1rem">${[1,2,3,4,5].map(i=>'<span onclick="rateBuild(\''+id+'\','+i+')">★</span>').join('')}</div></div>
+    <div class="card" style="margin-top:1.5rem"><div class="section-title">评论(${comments.length})</div><div class="comment-box"><textarea id="commentText" placeholder="写下你的看法..."></textarea><button class="btn btn-sm btn-primary" style="margin-top:.5rem" onclick="addComment('${id}')">发表评论</button></div><div id="commentList">${comments.length===0?'<p style="color:#6a6558;font-size:.85rem;padding:1rem 0">暂无评论</p>':comments.map(c=>'<div class="comment-item"><div><span class="author">'+c.author+'</span><span class="time">'+c.time+'</span></div><div class="text">'+c.text+'</div></div>').join('')}</div></div>
+  </div></section>`;
+}
+
+function renderMaps(){
+  const store=getStore();const maps=store.maps||[];
+  document.getElementById('app').innerHTML=`<section class="page-section"><div class="container"><h2>地图探索·<span style="font-weight:300;color:#8a8478">Maps</span></h2><p style="text-align:center;color:#6a6558;margin-bottom:2rem;font-size:.85rem">推荐探索顺序：清河→开封→不见山→河西→青州→蓬山</p><div class="map-grid">${maps.map(m=>'<div class="map-card"><div class="map-banner" style="background:linear-gradient(135deg,'+m.color+'33,transparent);color:'+m.color+'">'+m.name+'</div><div class="map-body"><p>'+m.desc+'</p><div class="points">'+m.points.map(p=>'<span class="tag tag-s">'+p+'</span>').join('')+'</div></div></div>').join('')}</div></div></section>`;
+}
+
+function renderQuests(){
+  const store=getStore();const quests=store.quests||[];
+  document.getElementById('app').innerHTML=`<section class="page-section"><div class="container"><h2>任务攻略·<span style="font-weight:300;color:#8a8478">Quests</span></h2><p style="text-align:center;color:#6a6558;margin-bottom:2rem;font-size:.85rem">主线·支线·副本·探索任务指南</p><div class="search-bar"><input type="text" id="questSearch" placeholder="搜索任务..." oninput="filterQuests()"><select id="questTypeFilter" onchange="filterQuests()"><option value="">全部类型</option><option value="主线">主线</option><option value="支线">支线</option><option value="副本">副本</option><option value="探索">探索</option></select><select id="questMapFilter" onchange="filterQuests()"><option value="">全部区域</option>${[...new Set(quests.map(q=>q.map))].map(m=>'<option value="'+m+'">'+m+'</option>').join('')}</select></div><div class="tip-list" id="questList">${quests.map(q=>'<div class="tip-item"><div class="tip-num" style="font-size:.7rem">'+q.type+'</div><div><h4>'+q.name+'</h4><p>📍 '+q.map+' · '+q.desc+'</p></div></div>').join('')}</div></div></section>`;
+}
+function filterQuests(){
+  const q=(document.getElementById('questSearch')?.value||'').toLowerCase();const t=document.getElementById('questTypeFilter')?.value||'';const m=document.getElementById('questMapFilter')?.value||'';
+  const store=getStore();const filtered=(store.quests||[]).filter(x=>{if(q&&!x.name.toLowerCase().includes(q)&&!x.desc.toLowerCase().includes(q))return false;if(t&&x.type!==t)return false;if(m&&x.map!==m)return false;return true});
+  const list=document.getElementById('questList');if(!list)return;
+  list.innerHTML=filtered.map(q=>'<div class="tip-item"><div class="tip-num" style="font-size:.7rem">'+q.type+'</div><div><h4>'+q.name+'</h4><p>📍 '+q.map+' · '+q.desc+'</p></div></div>').join('');
+}
+
+function renderCommunity(){
+  const store=getStore();const ub=store.userBuilds||[];
+  document.getElementById('app').innerHTML=`<section class="page-section"><div class="container"><h2>玩家社区·<span style="font-weight:300;color:#8a8478">Community</span></h2><p style="text-align:center;color:#6a6558;margin-bottom:2rem;font-size:.85rem">加入社区·分享你的配装·与其他玩家交流</p>
+    <div class="community-grid" style="margin-bottom:2rem">${[
+      ['💬','Discord 国际社区','国际服玩家聚集地，英文/中文频道','https://discord.gg/wherewindsmeet'],
+      ['📺','B站官方','最新视频攻略、版本预告、玩法解析','https://space.bilibili.com/3546787875972964'],
+      ['📱','TapTap 社区','国内玩家评分、论坛讨论、配装分享','https://www.taptap.cn/app/234251'],
+      ['🎮','Steam 社区','国际服讨论、评测、指南','https://steamcommunity.com/app/3173720']
+    ].map(s=>'<a href="'+s[3]+'" target="_blank" rel="noopener" class="social-card"><div class="sicon">'+s[0]+'</div><div><h4>'+s[1]+'</h4><p>'+s[2]+'</p></div></a>').join('')}</div>
+    <div class="share-section"><h3 style="font-size:1.1rem;color:#d4a843;margin-bottom:1rem">✏️ 分享你的配装</h3>
+    <div class="form-row"><div class="form-group"><label>流派名称</label><input id="ubName" placeholder="如：我的冰火流"></div><div class="form-group"><label>武器</label><input id="ubWeapons" placeholder="如：无名剑+无名枪"></div></div>
+    <div class="form-row"><div class="form-group"><label>心法</label><input id="ubXinfa" placeholder="心法配置"></div><div class="form-group"><label>Tier</label><select id="ubTier"><option value="S">S-Tier</option><option value="A">A-Tier</option><option value="B">B-Tier</option></select></div></div>
+    <div class="form-group"><label>描述</label><textarea id="ubDesc" placeholder="简述流派玩法、核心思路..."></textarea></div>
+    <button class="btn btn-sm btn-primary" onclick="shareBuild()">发布配装</button></div>
+    <h3 style="font-size:1.05rem;color:#d4a843;margin-bottom:1rem;margin-top:2rem">玩家分享的配装 (${ub.length})</h3>
+    <div id="userBuildList">${ub.length===0?'<p style="color:#6a6558;font-size:.85rem">还没有玩家分享配装，来做第一个吧！</p>':ub.map(b=>'<div class="build-card" style="cursor:default;margin-bottom:1rem"><h3>'+b.name+' <span class="editing-badge">玩家分享</span></h3><div class="sub">'+b.weapons+' · '+b.tier+'-Tier</div><p><strong>心法：</strong>'+b.xinfa+'<br>'+b.desc+'</p></div>').join('')}</div></div></section>`;
+}
+
+function renderAdmin(){
+  const store=getStore();const bc=(store.builds||[]).length+(store.userBuilds||[]).length;const mc=(store.maps||[]).length;const qc=(store.quests||[]).length;const cc=Object.values(store.comments||{}).reduce((s,a)=>s+a.length,0);
+  document.getElementById('app').innerHTML=`<section class="page-section"><div class="container"><h2>内容管理·<span style="font-weight:300;color:#8a8478">CMS</span></h2><p style="text-align:center;color:#6a6558;margin-bottom:2rem;font-size:.85rem">管理攻略内容·数据保存在本地浏览器</p>
+    <div class="admin-grid"><div class="admin-card" onclick="showAdminTab('builds')"><div class="anum">${bc}</div><div class="alabel">流派攻略</div></div><div class="admin-card" onclick="showAdminTab('maps')"><div class="anum">${mc}</div><div class="alabel">地图区域</div></div><div class="admin-card" onclick="showAdminTab('quests')"><div class="anum">${qc}</div><div class="alabel">任务攻略</div></div><div class="admin-card" onclick="showAdminTab('comments')"><div class="anum">${cc}</div><div class="alabel">评论</div></div></div>
+    <div style="background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.5rem;margin-bottom:1.5rem"><p style="font-size:.82rem;color:#6a6558;margin-bottom:.75rem">💡 数据存储在浏览器localStorage中，清除浏览器缓存会丢失数据。</p><button class="btn btn-sm btn-outline" onclick="exportData()">📥 导出数据</button><button class="btn btn-sm btn-ghost" onclick="document.getElementById('importInput').click()">📤 导入数据</button><input type="file" id="importInput" accept=".json" style="display:none" onchange="importData(event)"><button class="btn btn-sm btn-danger" style="margin-left:.5rem" onclick="resetData()">🔄 重置</button></div>
+    <div id="adminPanel"><div class="tab-bar"><button class="tab-btn active" onclick="showAdminTab('builds')">流派</button><button class="tab-btn" onclick="showAdminTab('maps')">地图</button><button class="tab-btn" onclick="showAdminTab('quests')">任务</button><button class="tab-btn" onclick="showAdminTab('comments')">评论</button></div>
+    <div id="adminBuilds"></div><div id="adminMaps" style="display:none"></div><div id="adminQuests" style="display:none"></div><div id="adminComments" style="display:none"></div></div></div></section>`;
+  showAdminTab('builds');
+}
+
+function showAdminTab(tab){
+  const store=getStore();
+  document.querySelectorAll('#adminPanel .tab-btn').forEach((b,i)=>{b.classList.toggle('active',['builds','maps','quests','comments'][i]===tab)});
+  ['adminBuilds','adminMaps','adminQuests','adminComments'].forEach(id=>document.getElementById(id).style.display=id==='admin'+tab.charAt(0).toUpperCase()+tab.slice(1)?'block':'none');
+  if(tab==='builds'){
+    const all=[...(store.builds||[]).map(b=>({...b,src:'官方'})),...(store.userBuilds||[]).map(b=>({...b,src:'玩家'}))];
+    document.getElementById('adminBuilds').innerHTML=`<button class="btn btn-sm btn-primary" style="margin-bottom:1rem" onclick="showAddForm()">+ 新增流派</button>
+    <div id="addBuildForm" style="display:none;margin-bottom:1.5rem;padding:1rem;background:#0e0e18;border-radius:8px;border:1px solid #1e1e2e">
+      <div class="form-row"><div class="form-group"><label>名称</label><input id="abName"></div><div class="form-group"><label>武器</label><input id="abWeapons"></div></div>
+      <div class="form-row"><div class="form-group"><label>Tier</label><select id="abTier"><option value="S">S</option><option value="A">A</option><option value="B">B</option></select></div><div class="form-group"><label>类型</label><input id="abType"></div></div>
+      <div class="form-group"><label>心法</label><input id="abXinfa"></div><div class="form-group"><label>描述</label><textarea id="abDesc"></textarea></div>
+      <button class="btn btn-sm btn-success" onclick="saveAdminBuild()">保存</button><button class="btn btn-sm btn-ghost" onclick="document.getElementById('addBuildForm').style.display='none'">取消</button></div>
+    <table class="admin-table"><tr><th>名称</th><th>武器</th><th>Tier</th><th>来源</th><th>操作</th></tr>${all.map(b=>'<tr><td>'+b.name+'</td><td>'+b.weapons+'</td><td>'+b.tier+'</td><td>'+b.src+'</td><td><button class="btn btn-sm btn-ghost" onclick="deleteBuild(\''+b.id+'\')">删除</button></td></tr>').join('')}</table>`;
+  } else if(tab==='maps'){
+    document.getElementById('adminMaps').innerHTML=`<table class="admin-table"><tr><th>名称</th><th>顺序</th><th>描述</th></tr>${(store.maps||[]).map(m=>'<tr><td>'+m.name+'</td><td>'+m.order+'</td><td>'+m.desc+'</td></tr>').join('')}</table>`;
+  } else if(tab==='quests'){
+    document.getElementById('adminQuests').innerHTML=`<table class="admin-table"><tr><th>名称</th><th>区域</th><th>类型</th><th>描述</th></tr>${(store.quests||[]).map(q=>'<tr><td>'+q.name+'</td><td>'+q.map+'</td><td>'+q.type+'</td><td>'+q.desc+'</td></tr>').join('')}</table>`;
+  } else if(tab==='comments'){
+    const all=Object.entries(store.comments||{});
+    document.getElementById('adminComments').innerHTML=all.length===0?'<p style="color:#6a6558;font-size:.85rem">暂无评论</p>':all.map(([bid,cmts])=>'<div style="margin-bottom:1.5rem"><p style="font-size:.85rem;color:#d4a843;margin-bottom:.5rem">Build: '+bid+'</p>'+cmts.map(c=>'<div class="comment-item"><div><span class="author">'+c.author+'</span><span class="time">'+c.time+'</span></div><div class="text">'+c.text+'</div></div>').join('')+'</div>').join('');
+  }
+}
+function showAddForm(){const f=document.getElementById('addBuildForm');f.style.display=f.style.display==='none'?'block':'none'}
+function saveAdminBuild(){
+  const n=document.getElementById('abName')?.value?.trim();if(!n){toast('请输入名称','error');return}
+  const store=getStore();if(!store.builds)store.builds=[];
+  store.builds.push({id:'b'+Date.now(),name:n,weapons:document.getElementById('abWeapons')?.value?.trim()||'',tier:document.getElementById('abTier')?.value||'A',type:document.getElementById('abType')?.value?.trim()||'自定义',xinfa:document.getElementById('abXinfa')?.value?.trim()||'',qishu:'',desc:document.getElementById('abDesc')?.value?.trim()||'',tags:[],weaponTags:[],xinfaTags:[]});
+  saveStore(store);toast('已保存');document.getElementById('addBuildForm').style.display='none';showAdminTab('builds');
+}
+function deleteBuild(id){
+  if(!confirm('确定删除？'))return;const store=getStore();store.builds=(store.builds||[]).filter(b=>b.id!==id);store.userBuilds=(store.userBuilds||[]).filter(b=>b.id!==id);saveStore(store);toast('已删除');showAdminTab('builds');
+}
+function shareBuild(){
+  const n=document.getElementById('ubName')?.value?.trim();if(!n){toast('请输入流派名称','error');return}
+  const store=getStore();if(!store.userBuilds)store.userBuilds=[];
+  store.userBuilds.push({id:'u'+Date.now(),name:n,weapons:document.getElementById('ubWeapons')?.value?.trim()||'',tier:document.getElementById('ubTier')?.value||'A',type:'玩家分享',xinfa:document.getElementById('ubXinfa')?.value?.trim()||'',desc:document.getElementById('ubDesc')?.value?.trim()||'',tags:['玩家分享'],weaponTags:[],xinfaTags:[]});
+  saveStore(store);toast('配装已分享！感谢你的贡献 🎉');
+  ['ubName','ubWeapons','ubXinfa','ubDesc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});
+  renderCommunity();
+}
+function rateBuild(id,val){
+  const store=getStore();if(!store.ratings)store.ratings={};if(!store.ratings[id])store.ratings[id]={total:0,count:0};
+  store.ratings[id].total+=val;store.ratings[id].count+=1;saveStore(store);toast('感谢评分！');renderBuildDetail(id);
+}
+function addComment(id){
+  const t=document.getElementById('commentText')?.value?.trim();if(!t){toast('请输入评论','error');return}
+  const store=getStore();if(!store.comments)store.comments={};if(!store.comments[id])store.comments[id]=[];
+  store.comments[id].push({author:'玩家'+Math.random().toString(36).slice(2,6).toUpperCase(),text:t,time:new Date().toLocaleString('zh-CN')});saveStore(store);toast('评论已发表');renderBuildDetail(id);
+}
+function exportData(){
+  const d=localStorage.getItem(STORE_KEY);if(!d){toast('没有数据','error');return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([d],{type:'application/json'}));a.download='yysls_data_'+new Date().toISOString().slice(0,10)+'.json';a.click();toast('已导出');
+}
+function importData(e){
+  const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=function(ev){try{localStorage.setItem(STORE_KEY,ev.target.result);toast('已导入，刷新页面');setTimeout(()=>location.reload(),1000)}catch(err){toast('导入失败','error')}};r.readAsText(f);
+}
+function resetData(){
+  if(!confirm('确定重置所有数据？评论、评分、玩家分享都会丢失！'))return;localStorage.removeItem(STORE_KEY);initStore();toast('已重置');router();
+}
+
+// ===== ROUTER INIT =====
+function router(){
+  const path=window.location.pathname;const route=matchRoute(path);initStore();updateMeta(route);
+  document.querySelectorAll('.nav-item').forEach(a=>a.classList.toggle('active-link',a.dataset.route===path));
+  switch(route){case'home':renderHome();break;case'builds':renderBuilds();break;case'buildDetail':renderBuildDetail(path.match(/^\/build\/(.+)$/)[1]);break;case'maps':renderMaps();break;case'quests':renderQuests();break;case'community':renderCommunity();break;case'admin':renderAdmin();break;default:renderHome()}
+  window.scrollTo(0,0);
+}
+window.addEventListener('popstate',router);
+document.addEventListener('click',e=>{
+  const t=document.getElementById('navToggle');const l=document.getElementById('navLinks');
+  if(t&&l&&(e.target.closest('#navToggle')||e.target.closest('.nav-item')))l.classList.toggle('open');
+});
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hidden'),500);setTimeout(router,550)});
+if(window.location.pathname==='/')router();
+</script>
+<footer>
+  <div class="links">
+    <a href="https://www.yysls.cn" target="_blank" rel="noopener">国内服官网</a>
+    <a href="https://www.wherewindsmeetgame.com" target="_blank" rel="noopener">International Site</a>
+    <a href="https://steamcommunity.com/app/3173720" target="_blank" rel="noopener">Steam 社区</a>
+  </div>
+  <p>燕云十六声攻略站 · 非官方玩家社区 · 数据来源于公开信息</p>
+  <p style="margin-top:.25rem">Where Winds Meet Guide · Unofficial Fan Site</p>
+</footer>
+</body>
+</html>
