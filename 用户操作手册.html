@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>叠叠消消乐 用户操作手册</title>
+<style>
+  @page { margin: 2.5cm 2cm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'SimSun', '宋体', serif;
+    color: #222; line-height: 1.8; padding: 40px 60px;
+    max-width: 800px; margin: 0 auto;
+  }
+  h1 { text-align: center; font-size: 26px; margin-bottom: 4px; padding-bottom: 8px; }
+  h2 { font-size: 18px; margin-top: 28px; margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 4px; }
+  h3 { font-size: 15px; margin-top: 18px; margin-bottom: 6px; }
+  p { margin-bottom: 8px; text-indent: 2em; font-size: 14px; }
+  p.no-indent { text-indent: 0; }
+  ul, ol { margin: 6px 0 10px 2em; font-size: 14px; }
+  li { margin-bottom: 3px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th, td { border: 1px solid #999; padding: 6px 10px; text-align: left; }
+  th { background: #f0f0f0; }
+  .cover { text-align: center; margin-top: 120px; margin-bottom: 100px; }
+  .cover h1 { font-size: 32px; margin-bottom: 20px; }
+  .cover p { text-indent: 0; font-size: 16px; color: #555; }
+  .toc { margin: 20px 0 30px 2em; }
+  .toc li { margin-bottom: 6px; font-size: 14px; }
+  .page-break { page-break-before: always; }
+  .footer { text-align: center; color: #999; font-size: 12px; margin-top: 40px; border-top: 1px solid #ddd; padding-top: 10px; }
+  .code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 13px; }
+  .note { background: #fef9e7; border-left: 4px solid #f5c842; padding: 8px 14px; margin: 10px 0; font-size: 13px; }
+  .note p { text-indent: 0; margin: 0; }
+  img { max-width: 100%; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>叠叠消消乐</h1>
+  <p>用户操作手册</p>
+  <p style="margin-top:40px">软件版本：v1.0</p>
+  <p>文档版本：v1.0</p>
+  <p style="margin-top:60px; color:#999">2026年5月</p>
+</div>
+
+<div class="page-break"></div>
+
+<h2>目录</h2>
+<ol class="toc">
+  <li>软件概述 …………………………………………………… 3</li>
+  <li>运行环境 …………………………………………………… 3</li>
+  <li>安装与启动 ……………………………………………… 4</li>
+  <li>主界面说明 ……………………………………………… 4</li>
+  <li>游戏操作说明 …………………………………………… 5</li>
+  <li>道具系统 ………………………………………………… 6</li>
+  <li>广告系统 ………………………………………………… 7</li>
+  <li>关卡系统 ………………………………………………… 8</li>
+  <li>统计信息 ………………………………………………… 8</li>
+  <li>版本信息 ………………………………………………… 9</li>
+</ol>
+
+<div class="page-break"></div>
+
+<h2>一、软件概述</h2>
+
+<p>《叠叠消消乐》（英文名：TapCrush）是一款面向移动端的休闲消除类小游戏，适用于抖音小程序平台。游戏借鉴了经典堆叠三消玩法并加以创新，玩家通过点击选取叠放在不同层中的图标砖块，集齐三个相同图标即可消除得分。</p>
+
+<p>本软件的主要特色包括：</p>
+<ul>
+  <li><strong>环形叠层布局</strong>：图标砖块以环形放射状排列，不同层使用不同的渐变色区分，视觉清晰通透。</li>
+  <li><strong>能量爆发系统</strong>：每完成一次消除积攒能量，能量满时自动清除一个被压住的砖块，给予玩家策略性回报。</li>
+  <li><strong>30关渐进难度</strong>：从3层30块到5层60块，难度平滑递增。</li>
+  <li><strong>激励广告系统</strong>：道具用尽或游戏失败时，可通过观看广告获取额外机会。</li>
+  <li><strong>音效反馈</strong>：使用 Web Audio API 实现即时音效，无需外部音频文件。</li>
+</ul>
+
+<h2>二、运行环境</h2>
+
+<h3>2.1 硬件要求</h3>
+<table>
+  <tr><th>项目</th><th>最低配置</th><th>推荐配置</th></tr>
+  <tr><td>操作系统</td><td>iOS 12.0 / Android 8.0</td><td>iOS 15.0+ / Android 11.0+</td></tr>
+  <tr><td>屏幕尺寸</td><td>4.7英寸</td><td>6.0英寸及以上</td></tr>
+  <tr><td>内存</td><td>2GB</td><td>4GB及以上</td></tr>
+  <tr><td>网络</td><td>4G/WiFi</td><td>5G/WiFi</td></tr>
+</table>
+
+<h3>2.2 软件环境</h3>
+<table>
+  <tr><th>平台</th><th>支持版本</th></tr>
+  <tr><td>抖音 App</td><td>v18.0 及以上</td></tr>
+  <tr><td>抖音小程序基础库</td><td>v2.0.0 及以上</td></tr>
+  <tr><td>浏览器 (Web 版)</td><td>Chrome 80+ / Safari 14+ / 移动端现代浏览器</td></tr>
+</table>
+
+<h3>2.3 技术栈</h3>
+<p class="no-indent">本软件采用纯前端技术实现，无需服务器端支持：</p>
+<ul>
+  <li>HTML5 + CSS3 页面布局和样式</li>
+  <li>原生 JavaScript (ES6+) 游戏逻辑</li>
+  <li>Web Audio API 音效生成</li>
+  <li>localStorage 本地数据持久化</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h2>三、安装与启动</h2>
+
+<h3>3.1 抖音小程序版</h3>
+<ol>
+  <li>打开抖音 App，确保已更新至最新版本。</li>
+  <li>在搜索栏输入"叠叠消消乐"。</li>
+  <li>点击搜索结果中的小程序卡片进入游戏。</li>
+  <li>首次加载后即可开始游戏，无需注册或登录。</li>
+</ol>
+
+<h3>3.2 Web 版本</h3>
+<ol>
+  <li>在移动设备或桌面浏览器的地址栏中输入游戏 URL。</li>
+  <li>页面加载完成后自动进入开始画面。</li>
+  <li>建议使用竖屏模式以获得最佳体验。</li>
+</ol>
+
+<div class="note">
+  <p><strong>注意：</strong>本软件为单页应用（SPA），所有资源均内置于一个 HTML 文件中，无需安装任何额外插件或依赖。</p>
+</div>
+
+<h2>四、主界面说明</h2>
+
+<h3>4.1 开始画面</h3>
+<p>启动游戏后进入开始画面，包含以下元素：</p>
+<ul>
+  <li><strong>游戏图标</strong>：中央显示游戏 LOGO。</li>
+  <li><strong>游戏标题</strong>：显示"叠叠消消乐"及英文副标题 "TapCrush"。</li>
+  <li><strong>开始按钮</strong>：点击后进入游戏画面，从第1关开始。</li>
+  <li><strong>统计信息</strong>：显示最高分、总局数、已通关数。</li>
+  <li><strong>辅助按钮</strong>：包含"玩法说明"和"音效开关"按钮。</li>
+  <li><strong>版本号</strong>：页面底部显示当前软件版本。</li>
+</ul>
+
+<h3>4.2 游戏画面</h3>
+<p>游戏画面从上到下依次为：</p>
+<ul>
+  <li><strong>顶部栏</strong>：左侧显示游戏名称，右侧显示当前关卡(Lv.X)、得分、暂停按钮。</li>
+  <li><strong>能量条</strong>：显示当前能量积攒进度（0/3），满格触发能量爆发。</li>
+  <li><strong>游戏盘面</strong>：中央区域，显示环形叠层排列的图标砖块。未被遮盖的砖块可点击，被遮盖的砖块呈灰色不可操作。</li>
+  <li><strong>底部槽位</strong>：最多容纳7个图标，集齐3个相同图标自动消除。</li>
+  <li><strong>道具栏</strong>：包含撤回、洗牌、移出三个道具按钮。</li>
+</ul>
+
+<h3>4.3 暂停画面</h3>
+<p>点击顶部暂停按钮（⏸）后弹出暂停菜单，包含：</p>
+<ul>
+  <li>继续游戏：返回游戏画面。</li>
+  <li>返回主菜单：退出当前对局，回到开始画面。</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h2>五、游戏操作说明</h2>
+
+<h3>5.1 基本玩法</h3>
+<ol>
+  <li>观察盘面中叠放的图标砖块，上层砖块会遮盖下层砖块。</li>
+  <li>点击<strong>未被遮盖</strong>的砖块（显示为彩色且无灰色遮罩），该砖块会移动到底部槽位中。</li>
+  <li>当槽位中集齐 <strong>3个相同图标</strong> 时，自动消除并加100分。</li>
+  <li>消除时产生粒子飞溅特效和得分飘字。</li>
+  <li>消除所有盘面砖块即为过关。</li>
+  <li>槽位满7个且未触发消除时，游戏失败。</li>
+</ol>
+
+<h3>5.2 能量系统</h3>
+<p>能量系统是本游戏的核心创新机制：</p>
+<ul>
+  <li>每成功消除一组（3个相同图标），能量槽增加1点。</li>
+  <li>能量槽最多积累3点。</li>
+  <li>能量满3点时自动触发<strong>"能量爆发"</strong>：随机清除一个被压住的砖块，并额外增加50分。</li>
+  <li>能量爆发时有特殊视觉和音效反馈。</li>
+</ul>
+
+<h3>5.3 游戏结果</h3>
+<ul>
+  <li><strong>过关</strong>：弹出胜利弹窗，显示本关得分。可选择"下一关"继续挑战。</li>
+  <li><strong>失败</strong>：弹出失败弹窗，显示本关得分。可选择"看广告复活"或"重新开始"。</li>
+  <li><strong>全部通关</strong>：完成第30关后弹出通关祝贺，可选择重新从第1关开始。</li>
+</ul>
+
+<h2>六、道具系统</h2>
+
+<p>游戏提供三种辅助道具，每种道具每局可免费使用一次，用尽后可通过观看广告再次获取。</p>
+
+<table>
+  <tr><th>道具</th><th>图标</th><th>功能说明</th></tr>
+  <tr>
+    <td>撤回</td>
+    <td>↩</td>
+    <td>撤销上一次移动操作，将最近移入槽位的砖块放回盘面原位置。适用于误操作挽回。</td>
+  </tr>
+  <tr>
+    <td>洗牌</td>
+    <td>🔀</td>
+    <td>随机重新排列盘面上所有剩余砖块的图标类型，有可能改变局势。适用于卡关时尝试新的排列组合。</td>
+  </tr>
+  <tr>
+    <td>移出</td>
+    <td>✨</td>
+    <td>从盘面上移除3个砖块（优先移除被压住的砖块）。适用于槽位紧张时需要快速减少盘面砖块数量。</td>
+  </tr>
+</table>
+
+<h3>6.1 免费使用</h3>
+<p>每局游戏中，每个道具首次点击可直接免费使用，使用后按钮变为半透明状态并显示📺标记。</p>
+
+<h3>6.2 广告续用</h3>
+<p>免费次数用尽后，点击已使用的道具按钮，弹出确认对话框，选择"看广告获取"即可通过观看激励视频广告获得一次额外使用机会。广告播放完成后道具效果立即生效。</p>
+
+<div class="page-break"></div>
+
+<h2>七、广告系统</h2>
+
+<h3>7.1 激励广告场景</h3>
+<p>本软件在以下场景提供激励视频广告：</p>
+<table>
+  <tr><th>场景</th><th>奖励内容</th><th>是否可选</th></tr>
+  <tr><td>道具用尽后点击道具按钮</td><td>获得该道具的一次额外使用</td><td>是（用户点击确认后播放）</td></tr>
+  <tr><td>游戏失败时</td><td>复活继续游戏（移除槽位中3个砖块）</td><td>是（用户点击"看广告复活"后播放）</td></tr>
+</table>
+
+<h3>7.2 广告播放流程</h3>
+<ol>
+  <li>用户点击触发广告的按钮（道具按钮或复活按钮）。</li>
+  <li>弹出确认对话框，告知用户即将观看广告及奖励内容。</li>
+  <li>用户确认后，展示广告播放画面（含进度条和倒计时）。</li>
+  <li>广告播放完毕，自动关闭广告画面，奖励立即生效。</li>
+  <li>用户也可在确认阶段选择"取消"，放弃本次广告观看。</li>
+</ol>
+
+<div class="note">
+  <p><strong>技术说明：</strong>当前版本使用模拟广告流程（2秒倒计时），接入抖音小程序时需替换为真实的激励视频广告 SDK 调用。</p>
+</div>
+
+<h2>八、关卡系统</h2>
+
+<h3>8.1 关卡结构</h3>
+<p>游戏共设 <strong>30关</strong>，难度逐关递增。递增维度如下：</p>
+<table>
+  <tr><th>关卡区间</th><th>叠层数</th><th>砖块总数</th><th>图标种类</th></tr>
+  <tr><td>Lv.1 - Lv.5</td><td>3层</td><td>30 - 33块</td><td>10 - 11种</td></tr>
+  <tr><td>Lv.6 - Lv.15</td><td>4层</td><td>36 - 45块</td><td>12 - 15种</td></tr>
+  <tr><td>Lv.16 - Lv.30</td><td>5层</td><td>45 - 60块</td><td>15 - 20种</td></tr>
+</table>
+
+<h3>8.2 关卡生成算法</h3>
+<p>每关的盘面布局由程序自动生成，保证每次进入都有不同的排列。生成算法考虑以下因素：</p>
+<ul>
+  <li>总砖块数随关卡递增（Lv.1约30块，Lv.30约60块）。</li>
+  <li>叠层数在Lv.6增至4层，Lv.16增至5层。</li>
+  <li>每层砖块呈环形排列，外圈大、内圈小，不同层使用不同颜色渐变区分。</li>
+  <li>每层内部的图标类型随机排列，每种图标恰好出现3次。</li>
+</ul>
+
+<h3>8.3 关卡进度</h3>
+<p>通过当前关卡后自动进入下一关。完成第30关即全部通关，显示通关祝贺并可选择重新开始。</p>
+
+<div class="page-break"></div>
+
+<h2>九、统计信息</h2>
+
+<h3>9.1 统计项目</h3>
+<p>系统自动记录以下统计数据，数据保存在本地设备中（localStorage），清除浏览器数据会丢失统计信息：</p>
+<table>
+  <tr><th>统计项</th><th>说明</th></tr>
+  <tr><td>最高分</td><td>历史所有对局中的最高得分</td></tr>
+  <tr><td>总局数</td><td>累计进行游戏的总次数</td></tr>
+  <tr><td>已通关</td><td>通关的最高关卡数</td></tr>
+  <tr><td>总消除数</td><td>累计完成的三消次数</td></tr>
+</table>
+
+<h3>9.2 统计查看</h3>
+<p>在开始画面顶部可查看最高分、总局数、已通关三项统计指标。</p>
+
+<h2>十、版本信息</h2>
+
+<table>
+  <tr><th>项目</th><th>内容</th></tr>
+  <tr><td>软件名称</td><td>叠叠消消乐（TapCrush）</td></tr>
+  <tr><td>版本号</td><td>v1.0</td></tr>
+  <tr><td>软件类型</td><td>休闲消除类小游戏</td></tr>
+  <tr><td>运行平台</td><td>抖音小程序 / Web 浏览器</td></tr>
+  <tr><td>开发技术</td><td>HTML5 + CSS3 + JavaScript (ES6+)</td></tr>
+  <tr><td>音效方案</td><td>Web Audio API</td></tr>
+  <tr><td>数据存储</td><td>localStorage</td></tr>
+  <tr><td>联网需求</td><td>仅广告场景需联网</td></tr>
+</table>
+
+<div class="footer">
+  <p>叠叠消消乐 v1.0 — 用户操作手册</p>
+  <p>Copyright © 2026. All rights reserved.</p>
+</div>
+
+</body>
+</html>
