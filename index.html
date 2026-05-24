@@ -7,6 +7,7 @@
 <meta name="description" content="燕云十六声（Where Winds Meet）中文攻略站，涵盖国际服和国内服最新流派攻略、心法配装、门派介绍、地图探索、社区配装分享，持续更新。">
 <meta name="keywords" content="燕云十六声,Where Winds Meet,攻略,流派,心法,国际服,国内服,配装,门派,地图">
 <meta name="robots" content="index,follow">
+<meta name="msvalidate.01" content="17AA00AAF53D8C9FB8F509ACF0B8DECC" />
 <link rel="canonical" href="https://yysls-guide.com/">
 <meta property="og:title" content="燕云十六声攻略站 · 流派攻略/地图探索/配装社区">
 <meta property="og:description" content="燕云十六声（Where Winds Meet）中文攻略站，国际服/国内服攻略，流派配装、心法推荐、地图探索、玩家社区。">
@@ -17,198 +18,338 @@
 <meta name="twitter:title" content="燕云十六声攻略站">
 <meta name="twitter:description" content="燕云十六声（Where Winds Meet）中文攻略站 - 流派攻略 · 地图探索 · 玩家社区">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+/* ===== CSS VARIABLES - 水墨江湖 Theme ===== */
+:root{--bg:#0b0a0f;--surface:#18161c;--card:#1f1d26;--elevated:#25222e;--gold:#c9a04a;--gold-light:#e0b85a;--gold-dark:#a08030;--red:#c0392b;--red-dark:#8b1a1a;--jade:#4a9a7a;--jade-light:#5ab89a;--text:#e8e0d0;--text2:#8a8478;--text3:#5a5548;--border:#2a2730;--radius:12px;--radius-lg:16px;--radius-sm:8px;--shadow:0 4px 24px rgba(0,0,0,.4);--shadow-lg:0 8px 40px rgba(0,0,0,.5);--font:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;background:#0a0a0f;color:#e0dcd0;line-height:1.7}
-a{color:#d4a843;text-decoration:none;transition:color .3s}
-a:hover{color:#f0c860}
-::-webkit-scrollbar{width:8px}
-::-webkit-scrollbar-track{background:#12121a}
-::-webkit-scrollbar-thumb{background:#3a3a4a;border-radius:4px}
-::-webkit-scrollbar-thumb:hover{background:#5a5a6a}
-h1,h2,h3{font-weight:700;letter-spacing:.04em}
-h2{font-size:2rem;text-align:center;margin-bottom:2.5rem;position:relative}
-h2::after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,#d4a843,transparent);margin:.75rem auto 0;border-radius:2px}
-#loader{position:fixed;inset:0;z-index:9999;background:#0a0a0f;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s,visibility .8s}
+body{font-family:var(--font);font-size:1rem;line-height:1.7;color:var(--text);background:var(--bg);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse 60% 40% at 20% 20%,rgba(201,160,74,.05) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 80% 80%,rgba(74,154,122,.04) 0%,transparent 60%),radial-gradient(ellipse 40% 30% at 50% 50%,rgba(192,57,43,.03) 0%,transparent 50%);pointer-events:none;z-index:-1}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--gold);text-decoration:none;transition:all .3s}
+a:hover{color:var(--gold-light)}
+h1,h2,h3,h4{font-weight:700;line-height:1.3;color:var(--text)}
+h1{font-size:clamp(2rem,5vw,3.5rem)}
+h2{font-size:clamp(1.4rem,3.5vw,2.2rem);text-align:center;margin-bottom:2.5rem}
+h3{font-size:clamp(1.1rem,2.5vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--text2)}
+.container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+.section{padding:4rem 0}
+.section-header{text-align:center;margin-bottom:2.5rem}
+.section-header h2{margin-bottom:.75rem}
+.section-header p{max-width:640px;margin:0 auto;color:var(--text2)}
+.section-alt{background:var(--surface)}
+
+/* ===== LOADER ===== */
+#loader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s,visibility .8s}
 #loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-#loader .logo-mark{font-size:3rem;font-weight:300;letter-spacing:.3em;color:#d4a843;animation:pulse-mark 1.6s ease-in-out infinite}
-#loader .bar{margin-top:2rem;width:160px;height:2px;background:#1e1e2a;border-radius:2px;overflow:hidden}
-#loader .bar-inner{width:0;height:100%;background:linear-gradient(90deg,#d4a843,#f0c860);animation:load-bar 1.8s ease forwards}
+#loader .logo-mark{font-size:3.5rem;font-weight:300;letter-spacing:.3em;color:var(--gold);font-family:"KaiTi","STKaiti","楷体",serif;animation:pulse-mark 1.6s ease-in-out infinite}
+#loader .bar{margin-top:2rem;width:180px;height:2px;background:var(--border);border-radius:2px;overflow:hidden}
+#loader .bar-inner{width:0;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));animation:load-bar 1.8s ease forwards}
 @keyframes pulse-mark{0%,100%{opacity:.6}50%{opacity:1}}
 @keyframes load-bar{0%{width:0}100%{width:100%}}
-.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:64px;background:rgba(10,10,15,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,168,67,.15)}
-.navbar .logo{font-size:1.15rem;font-weight:700;color:#d4a843;letter-spacing:.15em;cursor:pointer}
-.navbar .logo span{color:#f0c860}
-.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
-.nav-links a{font-size:.875rem;color:#a09888;transition:color .3s;position:relative;cursor:pointer}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:#d4a843;transition:width .3s}
-.nav-links a:hover{color:#e0dcd0}
-.nav-links a:hover::after{width:100%}
-.nav-links a.active-link{color:#d4a843}
-.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.nav-toggle span{display:block;width:24px;height:2px;background:#e0dcd0;transition:.3s}
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 20%,rgba(212,168,67,.08) 0%,transparent 70%),radial-gradient(ellipse 60% 50% at 20% 80%,rgba(100,180,255,.05) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 80% 70%,rgba(200,80,60,.04) 0%,transparent 50%);pointer-events:none}
-.hero .bg-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.particle{position:absolute;bottom:-10px;width:2px;height:2px;background:rgba(212,168,67,.3);border-radius:50%;animation:rise linear infinite}
-@keyframes rise{0%{transform:translateY(0) scale(1);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) scale(0);opacity:0}}
-.hero .subtitle-top{font-size:.8rem;letter-spacing:.4em;color:#a09888;margin-bottom:1rem}
-.hero h1{font-size:clamp(2.4rem,7vw,5rem);font-weight:300;background:linear-gradient(135deg,#f0c860 0%,#d4a843 40%,#a08040 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:.15em;margin-bottom:.5rem}
-.hero .sub-en{font-size:clamp(.9rem,2vw,1.2rem);color:#6a6558;font-weight:300;letter-spacing:.3em;text-transform:uppercase;margin-bottom:1.5rem}
-.hero .tagline{max-width:560px;font-size:.95rem;color:#8a8478;margin-bottom:2.5rem}
-.hero .stats{display:flex;gap:3rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem}
-.hero .stat-num{font-size:1.6rem;font-weight:700;color:#d4a843}
-.hero .stat-label{font-size:.75rem;color:#6a6558;letter-spacing:.1em}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 2rem;border-radius:6px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .3s;border:none;text-decoration:none}
-.btn-primary{background:linear-gradient(135deg,#d4a843,#b8922e);color:#0a0a0f}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,168,67,.3)}
-.btn-outline{background:transparent;color:#d4a843;border:1px solid rgba(212,168,67,.4)}
-.btn-outline:hover{background:rgba(212,168,67,.1);border-color:#d4a843}
-.btn-intl{background:linear-gradient(135deg,#3080e0,#2060b0);color:#fff}
-.btn-intl:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(48,128,224,.3)}
-.btn-sm{padding:.4rem 1rem;font-size:.8rem}
-.btn-danger{background:linear-gradient(135deg,#c0392b,#96281b);color:#fff}
-.btn-success{background:linear-gradient(135deg,#27ae60,#1e8449);color:#fff}
-.btn-ghost{background:transparent;color:#a09888;border:1px solid #3a3a4a}
-.btn-ghost:hover{color:#e0dcd0;border-color:#5a5a6a}
-section{padding:5rem 2rem}
-.container{max-width:1100px;margin:0 auto}
-.page-section{padding-top:6rem;min-height:100vh}
-.card{background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.5rem;transition:all .3s}
-.card:hover{border-color:rgba(212,168,67,.2);transform:translateY(-2px)}
-.server-tabs{background:#0e0e18}
-.tab-bar{display:flex;justify-content:center;gap:.5rem;margin-bottom:2.5rem}
-.tab-btn{padding:.6rem 1.8rem;border-radius:6px;font-size:.9rem;font-weight:600;cursor:pointer;background:transparent;color:#706860;border:1px solid rgba(112,104,96,.3);transition:all .3s}
-.tab-btn.active{background:rgba(212,168,67,.12);color:#d4a843;border-color:#d4a843}
-.tab-btn:hover{color:#e0dcd0;border-color:#5a5548}
+
+/* ===== HEADER & NAV ===== */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .4s;padding:0 1.5rem}
+.header.scrolled{background:rgba(11,10,15,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,160,74,.12)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:.6rem;font-size:1.1rem;font-weight:700;color:var(--gold);letter-spacing:.08em;cursor:pointer}
+.logo-icon{width:32px;height:32px}
+.logo span{color:var(--gold-light)}
+.nav-list{display:flex;gap:.25rem;list-style:none;align-items:center}
+.nav-link{padding:.45rem 1rem;border-radius:var(--radius-full);font-size:.85rem;color:var(--text2);transition:all .3s;cursor:pointer}
+.nav-link:hover{color:var(--text);background:rgba(201,160,74,.08)}
+.nav-link.active-link{color:var(--gold);background:rgba(201,160,74,.12)}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg)!important;font-weight:700!important}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(201,160,74,.3)}
+.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
+.mobile-toggle span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(11,10,15,.97);backdrop-filter:blur(20px);padding:1rem 1.5rem 2rem;border-bottom:1px solid var(--border);max-height:70vh;overflow-y:auto}
+.mobile-nav.active{display:block;animation:fadeUp .3s ease}
+.mobile-nav-list{list-style:none}
+.mobile-nav-list li a{display:block;padding:.65rem 0;font-size:.9rem;color:var(--text2);border-bottom:1px solid rgba(42,39,48,.5);transition:all .2s}
+.mobile-nav-list li a:hover{color:var(--gold);padding-left:.5rem}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:80px 1.5rem 0;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(201,160,74,.08) 0%,rgba(11,10,15,0) 40%,var(--bg) 100%)}
+.hero-decoration{position:absolute;border-radius:50%;opacity:.4;animation:float 6s ease-in-out infinite}
+.hero-decoration-1{width:350px;height:350px;background:radial-gradient(circle,rgba(201,160,74,.12) 0%,transparent 70%);top:5%;right:-5%;animation-delay:0s}
+.hero-decoration-2{width:250px;height:250px;background:radial-gradient(circle,rgba(74,154,122,.1) 0%,transparent 70%);bottom:20%;left:-5%;animation-delay:2s}
+.hero-decoration-3{width:180px;height:180px;background:radial-gradient(circle,rgba(192,57,43,.08) 0%,transparent 70%);top:40%;left:20%;animation-delay:4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero-content{text-align:center;max-width:800px;margin:0 auto;padding:2rem 0}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,160,74,.1);padding:.4rem 1.2rem;border-radius:var(--radius-full);font-size:.82rem;font-weight:600;color:var(--gold);margin-bottom:1.5rem;border:1px solid rgba(201,160,74,.2);animation:fadeUp .6s ease forwards}
+.hero h1{margin-bottom:.75rem;animation:fadeUp .6s ease forwards;animation-delay:.1s;opacity:0}
+.hero h1 .highlight{position:relative;color:var(--gold)}
+.hero h1 .highlight::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.3}
+.hero .sub-en{font-size:clamp(.9rem,2vw,1.2rem);color:var(--text3);font-weight:400;letter-spacing:.25em;text-transform:uppercase;margin-bottom:1.5rem;font-family:"KaiTi","STKaiti","楷体",serif;animation:fadeUp .6s ease forwards;animation-delay:.2s;opacity:0}
+.hero-tagline{font-size:1.2rem;color:var(--gold);font-style:italic;margin-bottom:1.5rem;animation:fadeUp .6s ease forwards;animation-delay:.25s;opacity:0}
+.hero-description{color:var(--text2);max-width:640px;margin:0 auto 2rem;font-size:.95rem;animation:fadeUp .6s ease forwards;animation-delay:.3s;opacity:0}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem;animation:fadeUp .6s ease forwards;animation-delay:.35s;opacity:0}
+.hero-stats{display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s ease forwards;animation-delay:.4s;opacity:0}
+.hero-stat{text-align:center}
+.hero-stat-value{font-size:1.8rem;font-weight:700;color:var(--gold);font-family:"KaiTi","STKaiti","楷体",serif}
+.hero-stat-label{font-size:.78rem;color:var(--text3);letter-spacing:.05em;margin-top:.15rem}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.7rem 1.8rem;font-family:var(--font);font-size:.9rem;font-weight:600;border:none;border-radius:var(--radius-full);cursor:pointer;transition:all .3s;text-decoration:none}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);box-shadow:0 4px 16px rgba(201,160,74,.25)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,160,74,.35);color:var(--bg)}
+.btn-secondary{background:var(--card);color:var(--gold);border:1px solid rgba(201,160,74,.25)}
+.btn-secondary:hover{background:var(--elevated);border-color:var(--gold);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.btn-outline:hover{background:rgba(201,160,74,.1);color:var(--gold-light);transform:translateY(-2px)}
+.btn-intl{background:linear-gradient(135deg,#3a7abd,#2a5a8a);color:#fff}
+.btn-intl:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(58,122,189,.3)}
+.btn-sm{padding:.4rem 1.1rem;font-size:.8rem}
+.btn-lg{padding:.9rem 2.2rem;font-size:1rem}
+.btn-danger{background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff}
+.btn-success{background:linear-gradient(135deg,var(--jade),#3a8a6a);color:#fff}
+.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border)}
+.btn-ghost:hover{color:var(--text);border-color:var(--text3)}
+
+/* ===== CARDS ===== */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(201,160,74,.2)}
+.card-body{padding:1.5rem}
+.build-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
+.build-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s;cursor:pointer;position:relative}
+.build-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(201,160,74,.2)}
+.build-card .build-banner{height:72px;margin:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;position:relative;overflow:hidden}
+.build-card .build-body{padding:1rem 1.25rem 1.25rem}
+.build-card .meta{font-size:.72rem;color:var(--text3);letter-spacing:.06em;margin-bottom:.2rem;text-transform:uppercase}
+.build-card h3{font-size:1.05rem;margin-bottom:.15rem}
+.build-card .sub{font-size:.82rem;color:var(--text2);margin-bottom:.5rem}
+.build-card .badges{display:flex;gap:.3rem;margin-bottom:.4rem;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:4px;font-size:.62rem;font-weight:700}
+.badge-essence{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg)}
+.badge-hot{background:rgba(220,50,50,.2);color:#ff6b6b;border:1px solid rgba(220,50,50,.3)}
+.badge-new{background:rgba(50,180,220,.2);color:#4dc9f6;border:1px solid rgba(50,180,220,.3)}
+.build-card .tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem}
+.tag{padding:2px 10px;border-radius:10px;font-size:.68rem;font-weight:600}
+.tag-s{background:rgba(201,160,74,.15);color:var(--gold)}
+.tag-a{background:rgba(74,154,122,.12);color:var(--jade-light)}
+.tag-b{background:rgba(90,85,72,.15);color:var(--text2)}
+.build-card p{font-size:.8rem;color:var(--text2);line-height:1.6}
+.build-card .action-bar{display:flex;gap:.4rem;margin-top:.6rem;flex-wrap:wrap}
+.action-btn{display:inline-flex;align-items:center;gap:3px;padding:3px 10px;border-radius:14px;font-size:.72rem;cursor:pointer;transition:all .3s;background:transparent;border:1px solid var(--border);color:var(--text3)}
+.action-btn:hover{border-color:rgba(201,160,74,.3);color:var(--gold)}
+.action-btn.liked{background:rgba(220,50,50,.1);border-color:#dc3232;color:#ff6b6b}
+.action-btn.bookmarked{background:rgba(201,160,74,.1);border-color:var(--gold);color:var(--gold)}
+.action-btn .count{font-weight:700}
+
+/* ===== QUICK NAV GRID ===== */
+.quick-nav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem}
+.quick-nav-item{display:flex;flex-direction:column;gap:.5rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;transition:all .3s;cursor:pointer;text-decoration:none}
+.quick-nav-item:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(201,160,74,.2)}
+.quick-nav-item .q-icon{font-size:1.8rem}
+.quick-nav-item .q-title{font-size:.95rem;font-weight:700;color:var(--text)}
+.quick-nav-item .q-desc{font-size:.78rem;color:var(--text3);line-height:1.5}
+.quick-nav-item .q-count{font-size:.7rem;color:var(--gold);font-weight:600}
+
+/* ===== SERVER TABS ===== */
+.server-tabs{background:var(--surface)}
+.tab-bar{display:flex;justify-content:center;gap:.5rem;margin-bottom:2rem}
+.tab-btn{padding:.5rem 1.5rem;border-radius:var(--radius-full);font-size:.85rem;font-weight:600;cursor:pointer;background:transparent;color:var(--text3);border:1px solid var(--border);transition:all .3s}
+.tab-btn.active{background:rgba(201,160,74,.12);color:var(--gold);border-color:var(--gold)}
+.tab-btn:hover{color:var(--text);border-color:var(--text3)}
 .tab-content{display:none}
 .tab-content.active{display:block;animation:fadeUp .5s ease}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.server-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
-.server-card{background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.5rem;transition:all .3s}
-.server-card:hover{border-color:rgba(212,168,67,.2);transform:translateY(-2px)}
-.server-card .icon{font-size:1.5rem;margin-bottom:.5rem}
-.server-card h4{font-size:1rem;color:#d4a843;margin-bottom:.5rem}
-.server-card p{font-size:.85rem;color:#8a8478;line-height:1.6}
-.build-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
-.build-card{background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.5rem;transition:all .3s;position:relative;overflow:hidden;cursor:pointer}
-.build-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#d4a843,transparent)}
-.build-card:hover{border-color:rgba(212,168,67,.25);transform:translateY(-3px)}
-.build-card .meta{font-size:.75rem;color:#6a6558;margin-bottom:.25rem;letter-spacing:.08em}
-.build-card h3{font-size:1.1rem;margin-bottom:.25rem}
-.build-card .sub{font-size:.85rem;color:#8a8478;margin-bottom:.75rem}
-.build-card .tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.75rem}
-.tag{padding:2px 10px;border-radius:10px;font-size:.7rem;font-weight:600}
-.tag-s{background:rgba(212,168,67,.15);color:#d4a843}
-.tag-a{background:rgba(100,180,255,.12);color:#64b4ff}
-.tag-b{background:rgba(120,200,120,.12);color:#78c878}
-.build-card p{font-size:.82rem;color:#7a7468;line-height:1.6}
-.build-card .rating-mini{font-size:.75rem;color:#6a6558;margin-top:.5rem}
-.tip-list{display:grid;gap:1rem}
-.tip-item{display:flex;gap:1rem;align-items:flex-start;background:#12121c;border:1px solid #1e1e2e;border-radius:8px;padding:1.25rem;transition:all .3s}
-.tip-item:hover{border-color:rgba(212,168,67,.2)}
-.tip-num{flex-shrink:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(212,168,67,.12);color:#d4a843;font-weight:700;font-size:.85rem}
-.tip-item h4{font-size:.95rem;margin-bottom:.25rem}
-.tip-item p{font-size:.82rem;color:#7a7468}
-.faction-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
-.faction-card{background:#12121c;border:1px solid #1e1e2e;border-radius:8px;padding:1.25rem;text-align:center;transition:all .3s}
-.faction-card:hover{border-color:rgba(212,168,67,.2)}
-.faction-card h4{font-size:.95rem;color:#d4a843;margin-bottom:.25rem}
-.faction-card p{font-size:.78rem;color:#7a7468}
-.news-list{display:grid;gap:1rem}
-.news-content{display:none}
-.news-content.active{display:block;animation:fadeUp .5s ease}
-.news-item{display:flex;gap:1rem;align-items:center;background:#12121c;border:1px solid #1e1e2e;border-radius:8px;padding:1.25rem;transition:all .3s}
-.news-item:hover{border-color:rgba(212,168,67,.2)}
-.news-date{flex-shrink:0;width:56px;text-align:center;font-size:.7rem;color:#6a6558;letter-spacing:.05em}
-.news-date .d{font-size:1.2rem;font-weight:700;color:#d4a843;display:block}
-.news-item h4{font-size:.9rem;margin-bottom:.2rem}
-.news-item p{font-size:.78rem;color:#7a7468}
-.cta-section{text-align:center;background:linear-gradient(135deg,rgba(212,168,67,.06),rgba(10,10,15,0));border-top:1px solid rgba(212,168,67,.1)}
-.cta-section h2{margin-bottom:1rem}
-.cta-section p{color:#8a8478;max-width:480px;margin:0 auto 2rem}
-footer{padding:2.5rem 2rem;border-top:1px solid #181825;text-align:center}
-footer p{font-size:.78rem;color:#4a4540}
-footer .links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap}
-footer .links a{font-size:.8rem;color:#6a6558}
-footer .links a:hover{color:#d4a843}
-.search-bar{display:flex;gap:.75rem;margin-bottom:1.5rem;flex-wrap:wrap}
-.search-bar input{flex:1;min-width:200px;padding:.75rem 1rem;border-radius:6px;border:1px solid #2a2a3a;background:#12121c;color:#e0dcd0;font-size:.9rem;outline:none;transition:border-color .3s}
-.search-bar input:focus{border-color:#d4a843}
-.search-bar select{padding:.75rem 1rem;border-radius:6px;border:1px solid #2a2a3a;background:#12121c;color:#e0dcd0;font-size:.9rem;outline:none;cursor:pointer}
-.build-detail{max-width:800px;margin:0 auto}
-.build-detail .back-link{display:inline-flex;align-items:center;gap:.4rem;color:#8a8478;font-size:.85rem;margin-bottom:1.5rem;cursor:pointer;transition:color .3s}
-.build-detail .back-link:hover{color:#d4a843}
-.build-detail h2{text-align:left;margin-bottom:.5rem}
-.build-detail h2::after{margin:.75rem 0 0}
-.build-detail .subtitle{font-size:.9rem;color:#8a8478;margin-bottom:1.5rem}
-.build-detail .section-title{font-size:1rem;color:#d4a843;margin:1.5rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid #1e1e2e}
-.build-detail p{font-size:.88rem;color:#8a8478;line-height:1.8}
+.server-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.server-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;transition:all .3s}
+.server-card:hover{border-color:rgba(201,160,74,.2);transform:translateY(-2px)}
+.server-card .icon{font-size:1.4rem;margin-bottom:.4rem}
+.server-card h4{font-size:.95rem;color:var(--gold);margin-bottom:.3rem}
+.server-card p{font-size:.8rem;color:var(--text2);margin:0}
+
+/* ===== FACTION GRID ===== */
+.faction-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem}
+.faction-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;text-align:center;transition:all .3s}
+.faction-card:hover{border-color:rgba(201,160,74,.2);transform:translateY(-2px)}
+.faction-card h4{font-size:.9rem;color:var(--gold);margin-bottom:.15rem}
+.faction-card p{font-size:.75rem;color:var(--text3);margin:0}
+
+/* ===== TIPS / QUESTS ===== */
+.tip-list{display:grid;gap:.75rem}
+.tip-item{display:flex;gap:.85rem;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;transition:all .3s}
+.tip-item:hover{border-color:rgba(201,160,74,.15)}
+.tip-num{flex-shrink:0;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(201,160,74,.1);color:var(--gold);font-weight:700;font-size:.8rem}
+.tip-item h4{font-size:.9rem;margin-bottom:.2rem}
+.tip-item p{font-size:.78rem;color:var(--text2);margin:0}
+
+/* ===== NEWS ===== */
+.news-list{display:grid;gap:.75rem}
+.news-item{display:flex;gap:1rem;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;transition:all .3s}
+.news-item:hover{border-color:rgba(201,160,74,.15)}
+.news-date{flex-shrink:0;width:56px;text-align:center;font-size:.68rem;color:var(--text3);letter-spacing:.05em}
+.news-date .d{font-size:1.2rem;font-weight:700;color:var(--gold);display:block}
+.news-item h4{font-size:.85rem;margin-bottom:.1rem}
+.news-item p{font-size:.75rem;color:var(--text3);margin:0}
+
+/* ===== TIPS CAROUSEL ===== */
+.tips-carousel{display:flex;gap:.85rem;overflow-x:auto;padding:.5rem 0 1rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.tips-carousel::-webkit-scrollbar{height:4px}
+.tips-carousel::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.tip-card{flex:0 0 210px;scroll-snap-align:start;background:linear-gradient(135deg,#1f1d26,var(--card));border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.15rem;cursor:pointer;transition:all .3s}
+.tip-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.tip-card .tc-icon{font-size:1.4rem;margin-bottom:.4rem}
+.tip-card h4{font-size:.82rem;margin-bottom:.2rem}
+.tip-card p{font-size:.72rem;color:var(--text3);line-height:1.5;margin:0}
+.tip-card .tc-tag{display:inline-block;margin-top:.5rem;padding:2px 8px;border-radius:8px;font-size:.58rem;background:rgba(201,160,74,.1);color:var(--gold)}
+
+/* ===== MAPS ===== */
+.map-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
+.map-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s}
+.map-card:hover{border-color:rgba(201,160,74,.2);transform:translateY(-3px)}
+.map-card .map-banner{height:100px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700}
+.map-card .map-body{padding:1.15rem}
+.map-card .map-body h3{font-size:1rem;margin-bottom:.2rem}
+.map-card .map-body .map-sub{font-size:.75rem;color:var(--text3);margin-bottom:.4rem}
+.map-card .map-body p{font-size:.78rem;color:var(--text2);line-height:1.6;margin:0}
+.map-card .map-body .points{margin-top:.6rem;display:flex;gap:.3rem;flex-wrap:wrap}
+
+/* ===== DETAIL PAGE ===== */
+.build-detail{max-width:780px;margin:0 auto}
+.build-detail .back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--text3);font-size:.82rem;margin-bottom:1.2rem;cursor:pointer;transition:color .3s}
+.build-detail .back-link:hover{color:var(--gold)}
+.build-detail h2{text-align:left;margin-bottom:.3rem}
+.build-detail .subtitle{font-size:.85rem;color:var(--text2);margin-bottom:1rem}
+.build-detail .section-title{font-size:.95rem;color:var(--gold);margin:1.2rem 0 .6rem;padding-bottom:.3rem;border-bottom:1px solid var(--border)}
+.build-detail p{font-size:.85rem;color:var(--text2);line-height:1.8}
 .build-detail .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-@media(max-width:600px){.build-detail .info-grid{grid-template-columns:1fr}}
-.stars{display:flex;gap:4px;font-size:1.3rem}
-.stars span{cursor:pointer;color:#3a3a4a;transition:color .2s}
-.stars span.active,.stars span.hover{color:#f0c860}
 .rating-display{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem}
-.rating-display .avg{font-size:1.5rem;font-weight:700;color:#f0c860}
-.rating-display .count{font-size:.8rem;color:#6a6558}
-.comment-box{background:#12121c;border:1px solid #1e1e2e;border-radius:8px;padding:1.25rem;margin-bottom:1rem}
-.comment-box textarea{width:100%;padding:.75rem;border-radius:6px;border:1px solid #2a2a3a;background:#0a0a0f;color:#e0dcd0;font-size:.85rem;outline:none;resize:vertical;min-height:80px;transition:border-color .3s;font-family:inherit}
-.comment-box textarea:focus{border-color:#d4a843}
-.comment-item{padding:1rem 0;border-bottom:1px solid #1a1a28}
+.rating-display .avg{font-size:1.4rem;font-weight:700;color:var(--gold-light)}
+.rating-display .count{font-size:.75rem;color:var(--text3)}
+.stars{display:flex;gap:3px;font-size:1.2rem}
+.stars span{cursor:pointer;color:var(--border);transition:color .2s}
+.stars span.active,.stars span.hover{color:var(--gold-light)}
+.comment-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;margin-bottom:.75rem}
+.comment-box textarea{width:100%;padding:.65rem;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.82rem;outline:none;resize:vertical;min-height:70px;transition:border-color .3s;font-family:inherit}
+.comment-box textarea:focus{border-color:var(--gold)}
+.comment-item{padding:.85rem 0;border-bottom:1px solid rgba(42,39,48,.5)}
 .comment-item:last-child{border-bottom:none}
-.comment-item .author{font-size:.82rem;color:#d4a843;font-weight:600}
-.comment-item .time{font-size:.7rem;color:#4a4540;margin-left:.5rem}
-.comment-item .text{font-size:.85rem;color:#8a8478;margin-top:.25rem;line-height:1.5}
-.map-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}
-.map-card{background:#12121c;border:1px solid #1e1e2e;border-radius:10px;overflow:hidden;transition:all .3s}
-.map-card:hover{border-color:rgba(212,168,67,.2);transform:translateY(-3px)}
-.map-card .map-banner{height:120px;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700}
-.map-card .map-body{padding:1.25rem}
-.map-card .map-body h3{font-size:1.05rem;margin-bottom:.25rem}
-.map-card .map-body .map-sub{font-size:.78rem;color:#6a6558;margin-bottom:.5rem}
-.map-card .map-body p{font-size:.82rem;color:#7a7468;line-height:1.6}
-.map-card .map-body .points{margin-top:.75rem;display:flex;gap:.4rem;flex-wrap:wrap}
-.community-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-@media(max-width:700px){.community-grid{grid-template-columns:1fr}}
-.social-card{display:flex;align-items:center;gap:1rem;background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.25rem;transition:all .3s}
-.social-card:hover{border-color:rgba(212,168,67,.2);transform:translateY(-2px)}
-.social-card .sicon{font-size:2rem;flex-shrink:0}
-.social-card h4{font-size:.95rem;margin-bottom:.15rem}
-.social-card p{font-size:.78rem;color:#6a6558}
-.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
-@media(max-width:700px){.admin-grid{grid-template-columns:1fr}}
-.admin-card{background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.5rem;text-align:center;transition:all .3s;cursor:pointer}
-.admin-card:hover{border-color:rgba(212,168,67,.2)}
-.admin-card .anum{font-size:2rem;font-weight:700;color:#d4a843}
-.admin-card .alabel{font-size:.82rem;color:#6a6558}
-.form-group{margin-bottom:1rem}
-.form-group label{display:block;font-size:.82rem;color:#8a8478;margin-bottom:.3rem;font-weight:600}
-.form-group input,.form-group textarea,.form-group select{width:100%;padding:.65rem .85rem;border-radius:6px;border:1px solid #2a2a3a;background:#0a0a0f;color:#e0dcd0;font-size:.85rem;outline:none;transition:border-color .3s;font-family:inherit}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#d4a843}
-.form-group textarea{min-height:80px;resize:vertical}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-@media(max-width:600px){.form-row{grid-template-columns:1fr}}
-.admin-table{width:100%;border-collapse:collapse;font-size:.82rem}
-.admin-table th{text-align:left;padding:.6rem .8rem;color:#6a6558;font-weight:600;border-bottom:1px solid #1e1e2e}
-.admin-table td{padding:.6rem .8rem;color:#8a8478;border-bottom:1px solid #181825}
-.admin-table tr:hover td{background:rgba(212,168,67,.03)}
-.admin-actions{display:flex;gap:.4rem}
-.toast{position:fixed;bottom:2rem;right:2rem;z-index:9999;padding:.75rem 1.5rem;border-radius:8px;font-size:.85rem;font-weight:600;color:#fff;animation:fadeUp .3s ease;box-shadow:0 4px 16px rgba(0,0,0,.4)}
-.toast-success{background:linear-gradient(135deg,#27ae60,#1e8449)}
-.toast-error{background:linear-gradient(135deg,#c0392b,#96281b)}
-.toast-info{background:linear-gradient(135deg,#2c3e50,#34495e)}
-.editing-badge{display:inline-flex;align-items:center;gap:.4rem;padding:2px 10px;border-radius:10px;font-size:.7rem;font-weight:600;background:rgba(39,174,96,.12);color:#27ae60;border:1px solid rgba(39,174,96,.3)}
-.share-section{background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.5rem;margin-bottom:2rem}
+.comment-header{display:flex;align-items:center;gap:.4rem;margin-bottom:.15rem}
+.avatar{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:.65rem;font-weight:700;color:#fff;flex-shrink:0}
+.comment-item .author{font-size:.78rem;color:var(--gold);font-weight:600}
+.comment-item .time{font-size:.68rem;color:var(--text3);margin-left:.3rem}
+.comment-item .text{font-size:.8rem;color:var(--text2);margin-top:.15rem;line-height:1.5}
+.reply-btn{font-size:.68rem;color:var(--text3);cursor:pointer;margin-left:.4rem;transition:color .3s}
+.reply-btn:hover{color:var(--gold)}
+.reply-box{display:none;margin:.5rem 0 0 1.5rem}
+.reply-box.open{display:block}
+.reply-item{margin:.2rem 0 .2rem 1.5rem;padding:.3rem 0;border-bottom:1px solid rgba(42,39,48,.3)}
+.reply-item .author{font-size:.72rem;color:var(--gold);font-weight:600}
+.reply-item .text{font-size:.75rem;color:var(--text3)}
+
+/* ===== COMMUNITY ===== */
+.community-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.social-card{display:flex;align-items:center;gap:.85rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.15rem;transition:all .3s;text-decoration:none}
+.social-card:hover{border-color:rgba(201,160,74,.2);transform:translateY(-2px)}
+.social-card .sicon{font-size:1.8rem;flex-shrink:0}
+.social-card h4{font-size:.9rem;margin-bottom:.1rem}
+.social-card p{font-size:.75rem;color:var(--text3);margin:0}
+.share-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:2rem}
+
+/* ===== VIDEO EMBED ===== */
+.video-embed{display:flex;align-items:center;gap:.65rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.7rem 1rem;margin-bottom:1rem;cursor:pointer;transition:all .3s}
+.video-embed:hover{border-color:rgba(201,160,74,.25);background:rgba(201,160,74,.04)}
+.video-embed .play-icon{flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,#fb7299,#e65c8a);color:#fff;font-size:.85rem}
+.video-embed .vi-title{font-size:.82rem;color:var(--text)}
+.video-embed .vi-source{font-size:.68rem;color:var(--text3)}
+
+/* ===== PROGRESS ===== */
+.progress-item{display:flex;align-items:center;gap:.6rem;padding:.4rem 0;border-bottom:1px solid rgba(42,39,48,.5)}
+.progress-item:last-child{border-bottom:none}
+.progress-cb{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:.55rem;color:transparent}
+.progress-cb.done{border-color:var(--jade);background:var(--jade);color:#fff}
+.progress-text{font-size:.8rem;color:var(--text2);flex:1;margin:0}
+.progress-text.done{color:var(--text3);text-decoration:line-through}
+.progress-stat{font-size:.75rem;color:var(--text3);margin-bottom:.5rem;text-align:center}
+.progress-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:1rem}
+.progress-bar-inner{height:100%;background:linear-gradient(90deg,var(--jade),var(--jade-light));border-radius:2px;transition:width .5s ease}
+
+/* ===== RELATED ===== */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.65rem;margin-top:.6rem}
+.related-item{padding:.65rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;transition:all .3s;font-size:.8rem;color:var(--text2)}
+.related-item:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ===== ADMIN ===== */
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+.admin-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;text-align:center;transition:all .3s;cursor:pointer}
+.admin-card:hover{border-color:rgba(201,160,74,.2)}
+.admin-card .anum{font-size:1.8rem;font-weight:700;color:var(--gold)}
+.admin-card .alabel{font-size:.78rem;color:var(--text3)}
+.form-group{margin-bottom:.85rem}
+.form-group label{display:block;font-size:.78rem;color:var(--text2);margin-bottom:.25rem;font-weight:600}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:.6rem .8rem;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.82rem;outline:none;transition:border-color .3s;font-family:inherit}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold)}
+.form-group textarea{min-height:70px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.admin-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.admin-table th{text-align:left;padding:.5rem .7rem;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border)}
+.admin-table td{padding:.5rem .7rem;color:var(--text2);border-bottom:1px solid rgba(42,39,48,.5)}
+.admin-table tr:hover td{background:rgba(201,160,74,.03)}
+.editing-badge{display:inline-flex;align-items:center;gap:.3rem;padding:2px 8px;border-radius:8px;font-size:.65rem;font-weight:600;background:rgba(74,154,122,.12);color:var(--jade-light);border:1px solid rgba(74,154,122,.25)}
+
+/* ===== SEARCH ===== */
+.search-bar{display:flex;gap:.65rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.search-bar input{flex:1;min-width:180px;padding:.65rem 1rem;border-radius:var(--radius-full);border:1px solid var(--border);background:var(--card);color:var(--text);font-size:.85rem;outline:none;transition:border-color .3s}
+.search-bar input:focus{border-color:var(--gold)}
+.search-bar select{padding:.6rem 1rem;border-radius:var(--radius-full);border:1px solid var(--border);background:var(--card);color:var(--text);font-size:.85rem;outline:none;cursor:pointer}
+
+/* ===== TOAST ===== */
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;padding:.65rem 1.25rem;border-radius:var(--radius);font-size:.82rem;font-weight:600;color:#fff;animation:fadeUp .3s ease;box-shadow:var(--shadow-lg)}
+.toast-success{background:linear-gradient(135deg,var(--jade),#3a8a6a)}
+.toast-error{background:linear-gradient(135deg,var(--red),var(--red-dark))}
+.toast-info{background:linear-gradient(135deg,#3a5a7a,#2a4a6a)}
+
+/* ===== CTA ===== */
+.cta-section{text-align:center;background:linear-gradient(135deg,rgba(201,160,74,.06),transparent);border-top:1px solid rgba(201,160,74,.08)}
+.cta-section h2{margin-bottom:.75rem}
+.cta-section p{color:var(--text2);max-width:480px;margin:0 auto 1.5rem}
+
+/* ===== FOOTER ===== */
+.footer{padding:3rem 1.5rem 2rem;border-top:1px solid var(--border)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;max-width:1100px;margin:0 auto}
+.footer-brand p{font-size:.78rem;color:var(--text3);margin-top:.5rem}
+.footer-column h4{font-size:.85rem;color:var(--gold);margin-bottom:.6rem}
+.footer-links{list-style:none;padding:0}
+.footer-links li{margin-bottom:.35rem}
+.footer-links a{font-size:.78rem;color:var(--text3);transition:color .3s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{max-width:1100px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.footer-bottom p{font-size:.72rem;color:var(--text3);margin:0}
+.footer-legal{display:flex;gap:1rem}
+.footer-legal a{font-size:.72rem;color:var(--text3)}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top{position:fixed;bottom:1.5rem;left:1.5rem;width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--border);color:var(--text2);font-size:1.1rem;cursor:pointer;opacity:0;visibility:hidden;transition:all .3s;z-index:999;display:flex;align-items:center;justify-content:center}
+.back-to-top.visible{opacity:1;visibility:visible}
+.back-to-top:hover{background:var(--elevated);border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ===== RESPONSIVE ===== */
 @media(max-width:768px){
-  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(10,10,15,.95);padding:1rem 2rem;border-bottom:1px solid rgba(212,168,67,.15)}
-  .nav-links.open{display:flex}
-  .nav-toggle{display:flex}
-  .server-grid,.build-grid{grid-template-columns:1fr}
+  .nav-list{display:none}
+  .mobile-toggle{display:flex}
+  .server-grid,.community-grid,.admin-grid{grid-template-columns:1fr}
+  .build-grid{grid-template-columns:1fr}
+  .map-grid{grid-template-columns:1fr}
+  .quick-nav-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .build-detail .info-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
   .hero .stats{gap:1.5rem}
-  section{padding:3rem 1.25rem}
-  h2{font-size:1.5rem}
+  .section{padding:2.5rem 0}
+  .hero-stats{gap:1.5rem}
+}
+@media(max-width:480px){
+  .quick-nav-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -216,20 +357,39 @@ footer .links a:hover{color:#d4a843}
 
 <div id="loader"><div class="logo-mark">燕</div><div class="bar"><div class="bar-inner"></div></div></div>
 
-<nav class="navbar">
-  <div class="logo" onclick="navigate('/')">燕云 · <span>攻略站</span></div>
-  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
-  <ul class="nav-links" id="navLinks">
-    <li><a class="nav-item" data-route="/">首页</a></li>
-    <li><a class="nav-item" data-route="/builds">流派</a></li>
-    <li><a class="nav-item" data-route="/maps">地图</a></li>
-    <li><a class="nav-item" data-route="/quests">任务</a></li>
-    <li><a class="nav-item" data-route="/community">社区</a></li>
-    <li><a class="nav-item" data-route="/admin">管理</a></li>
-  </ul>
-</nav>
+<header class="header" id="header">
+  <div class="header-inner">
+    <div class="logo" onclick="navigate('/')">
+      <svg class="logo-icon" viewBox="0 0 100 100"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c9a04a"/><stop offset="100%" style="stop-color:#e0b85a"/></linearGradient></defs><path fill="url(#lg)" d="M50 12C29 12 12 29 12 50s17 38 38 38 38-17 38-38S71 12 50 12zm0 10c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"/><text x="50" y="62" text-anchor="middle" font-size="42" fill="url(#lg)" font-family="serif">燕</text></svg>
+      <span>燕云 · <span>攻略站</span></span>
+    </div>
+    <nav aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a class="nav-link nav-item" data-route="/">首页</a></li>
+        <li><a class="nav-link nav-item" data-route="/builds">流派</a></li>
+        <li><a class="nav-link nav-item" data-route="/maps">地图</a></li>
+        <li><a class="nav-link nav-item" data-route="/quests">任务</a></li>
+        <li><a class="nav-link nav-item" data-route="/community">社区</a></li>
+        <li><a class="nav-link nav-cta nav-item" data-route="/admin">管理</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="mobile-nav-list">
+      <li><a class="nav-item" data-route="/">首页</a></li>
+      <li><a class="nav-item" data-route="/builds">流派攻略</a></li>
+      <li><a class="nav-item" data-route="/maps">地图探索</a></li>
+      <li><a class="nav-item" data-route="/quests">任务攻略</a></li>
+      <li><a class="nav-item" data-route="/community">玩家社区</a></li>
+      <li><a class="nav-item" data-route="/admin">内容管理</a></li>
+    </ul>
+  </nav>
+</header>
 
 <div id="app"></div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
 <script>
 // ===== DATA =====
@@ -240,11 +400,11 @@ function getStore() { try{const r=localStorage.getItem(STORE_KEY);if(r)return JS
 function saveStore(d){localStorage.setItem(STORE_KEY,JSON.stringify(d))}
 
 const D_BUILDS = [
-  {id:'b1',name:'鸣金虹',weapons:'无名剑 + 无名枪',tier:'S',type:'新手首选',xinfa:'易水歌 · 无名心法 · 威猛歌 · 千山法',qishu:'骑龙回马 · 箫吟千浪 · 神龙吐火 · 太白醉月',desc:'消耗耐力打出3发剑气，围绕快速回耐与增伤构建。AOE最强，输出环境安逸。',tags:['S级','AOE最强','新手友好'],weaponTags:['无名剑','无名枪'],xinfaTags:['易水歌','无名心法','威猛歌','千山法']},
-  {id:'b2',name:'唐横刀（斩雪刀）',weapons:'唐横刀',tier:'S',type:'版本答案',xinfa:'易水歌 · 威猛歌 · 移经易武 · 孤忠不辞',qishu:'骑龙回马 · 箫吟千浪',desc:'5/4版本加强，派生技气血伤害30%→36%。双切玩法成版本真神，防反+高爆发连段。',tags:['S级','5/4加强','双切T0'],weaponTags:['唐横刀'],xinfaTags:['易水歌','威猛歌','移经易武','孤忠不辞']},
-  {id:'b3',name:'裂石均 · 陌刀',weapons:'陌刀',tier:'A',type:'副本强势',xinfa:'易水歌 · 威猛歌 · 移经易武 · 孤忠不辞',qishu:'骑龙回马 · 神龙吐火',desc:'5月调整：孤忠不辞气血伤害36%→32%（小削）。防反+战意循环，仍为副本强力选择。',tags:['A级','副本','坦克'],weaponTags:['陌刀'],xinfaTags:['易水歌','威猛歌','移经易武','孤忠不辞']},
-  {id:'b4',name:'破竹鸢（拳套）',weapons:'手甲',tier:'B',type:'5/4加强',xinfa:'易水歌 · 花上月令 · 千山法 · 征人归',qishu:'天下归义',desc:'5月调整：天下归义伤害提升+20%。拳套特殊技伤害+20%，手甲流派迎来复苏。',tags:['B级','加强','手甲'],weaponTags:['手甲'],xinfaTags:['易水歌','花上月令','千山法','征人归']},
-  {id:'b5',name:'牵丝玉',weapons:'九重春色 + 青山执笔',tier:'A',type:'高颜值',xinfa:'易水歌 · 花上月令 · 纵地摘星 · 征人归',qishu:'骑龙回马 · 太白醉月',desc:'分支：飞天玉（机关枪耐力流）· 走地玉（站桩火拳流）。输出环境安逸，颜值高，上限略偏低。',tags:['A级','远程','高颜值'],weaponTags:['九重春色','青山执笔'],xinfaTags:['易水歌','花上月令','纵地摘星','征人归']}
+  {id:'b1',name:'鸣金虹',weapons:'无名剑 + 无名枪',tier:'S',type:'新手首选',xinfa:'易水歌 · 无名心法 · 威猛歌 · 千山法',qishu:'骑龙回马 · 箫吟千浪 · 神龙吐火 · 太白醉月',desc:'消耗耐力打出3发剑气，围绕快速回耐与增伤构建。AOE最强，输出环境安逸。',tags:['S级','AOE最强','新手友好'],weaponTags:['无名剑','无名枪'],xinfaTags:['易水歌','无名心法','威猛歌','千山法'],banner:'#4a6a8a',video:'',essence:true},
+  {id:'b2',name:'唐横刀（斩雪刀）',weapons:'唐横刀',tier:'S',type:'版本答案',xinfa:'易水歌 · 威猛歌 · 移经易武 · 孤忠不辞',qishu:'骑龙回马 · 箫吟千浪',desc:'5/4版本加强，派生技气血伤害30%→36%。双切玩法成版本真神，防反+高爆发连段。',tags:['S级','5/4加强','双切T0'],weaponTags:['唐横刀'],xinfaTags:['易水歌','威猛歌','移经易武','孤忠不辞'],banner:'#8a3a3a',video:'',essence:true},
+  {id:'b3',name:'裂石均 · 陌刀',weapons:'陌刀',tier:'A',type:'副本强势',xinfa:'易水歌 · 威猛歌 · 移经易武 · 孤忠不辞',qishu:'骑龙回马 · 神龙吐火',desc:'5月调整：孤忠不辞气血伤害36%→32%（小削）。防反+战意循环，仍为副本强力选择。',tags:['A级','副本','坦克'],weaponTags:['陌刀'],xinfaTags:['易水歌','威猛歌','移经易武','孤忠不辞'],banner:'#5a6a4a',video:''},
+  {id:'b4',name:'破竹鸢（拳套）',weapons:'手甲',tier:'B',type:'5/4加强',xinfa:'易水歌 · 花上月令 · 千山法 · 征人归',qishu:'天下归义',desc:'5月调整：天下归义伤害提升+20%。拳套特殊技伤害+20%，手甲流派迎来复苏。',tags:['B级','加强','手甲'],weaponTags:['手甲'],xinfaTags:['易水歌','花上月令','千山法','征人归'],banner:'#6a5a4a',video:'',hot:true},
+  {id:'b5',name:'牵丝玉',weapons:'九重春色 + 青山执笔',tier:'A',type:'高颜值',xinfa:'易水歌 · 花上月令 · 纵地摘星 · 征人归',qishu:'骑龙回马 · 太白醉月',desc:'分支：飞天玉（机关枪耐力流）· 走地玉（站桩火拳流）。输出环境安逸，颜值高，上限略偏低。',tags:['A级','远程','高颜值'],weaponTags:['九重春色','青山执笔'],xinfaTags:['易水歌','花上月令','纵地摘星','征人归'],banner:'#6a4a7a',video:'',new:true}
 ];
 const D_MAPS = [
   {id:'m1',name:'清河',order:1,desc:'新手起步区域，建议优先清理蹊跷和传送点。',points:['新手村','清河镇','渡口','竹林秘境'],color:'#4a7c59'},
@@ -264,7 +424,8 @@ const D_QUESTS = [
 
 function initStore(){
   let s=getStore();
-  if(!s){s={builds:JSON.parse(JSON.stringify(D_BUILDS)),maps:JSON.parse(JSON.stringify(D_MAPS)),quests:JSON.parse(JSON.stringify(D_QUESTS)),comments:{},ratings:{},userBuilds:[]};saveStore(s)}
+  if(!s){s={builds:JSON.parse(JSON.stringify(D_BUILDS)),maps:JSON.parse(JSON.stringify(D_MAPS)),quests:JSON.parse(JSON.stringify(D_QUESTS)),comments:{},ratings:{},userBuilds:[],likes:{},bookmarks:{},completed:{quests:[],maps:[]},views:{}};saveStore(s)}
+  if(!s.likes)s.likes={};if(!s.bookmarks)s.bookmarks={};if(!s.completed)s.completed={quests:[],maps:[]};if(!s.views)s.views={};
   return s;
 }
 
@@ -281,7 +442,6 @@ function matchRoute(path){
   return['builds','maps','quests','community','admin'].includes(k)?k:'home';
 }
 
-// ===== META =====
 function updateMeta(route){
   const t={home:'燕云十六声攻略站 · 国际服/国内服流派攻略、地图探索、配装社区',builds:'流派攻略 · 燕云十六声攻略站 — 最新Meta配装/心法推荐',buildDetail:'流派详情 · 燕云十六声攻略站',maps:'地图探索 · 燕云十六声攻略站 — 清河/开封/青州/蓬山全区域指南',quests:'任务攻略 · 燕云十六声攻略站 — 主线/支线/副本攻略',community:'玩家社区 · 燕云十六声攻略站 — 配装分享/Discord/B站/TapTap',admin:'内容管理 · 燕云十六声攻略站 — CMS后台'};
   const d={home:'燕云十六声（Where Winds Meet）中文攻略站，涵盖国际服和国内服最新流派攻略、心法配装、门派介绍、地图探索、社区配装分享。',builds:'2026年5月最新版本流派排行：鸣金虹、唐横刀、裂石均·陌刀、牵丝玉、破竹鸢。附心法配置和输出循环详解。',maps:'燕云十六声全地图探索指南：清河→开封→不见山→河西→青州→蓬山，优先探索顺序和关键点位一览。',quests:'燕云十六声任务攻略大全：麻布袋、中渡桥之战、流火袭星、龙骧御六合等核心任务攻略。',community:'加入燕云十六声玩家社区：Discord国际服讨论、B站视频攻略、TapTap论坛、Steam社区。分享你的配装。'};
@@ -293,114 +453,159 @@ function updateMeta(route){
 
 // ===== RENDER =====
 function renderHome(){
-  document.getElementById('app').innerHTML=`<header class="hero"><div class="bg-particles" id="particles"></div>
-    <div class="subtitle-top">—— 网易武侠开放世界 ——</div>
-    <h1>燕云十六声</h1><div class="sub-en">Where Winds Meet</div>
-    <p class="tagline">以五代十国为背景的开放世界武侠RPG，单人沉浸+多人社交双模式。国际服与国内服双版本运营，全球超过8000万玩家踏入江湖。<br><span style="color:#d4a843;font-size:.85rem;display:inline-block;margin-top:.5rem">🔔 袁和平加盟动作总顾问 · 5/29 蓬山+伙伴系统上线 · 国际服 5/28 皇宫大版本</span></p>
-    <div class="stats"><div><div class="stat-num">8000万+</div><div class="stat-label">全球玩家</div></div><div><div class="stat-num">87%</div><div class="stat-label">Steam好评率</div></div><div><div class="stat-num">12</div><div class="stat-label">门派</div></div><div><div class="stat-num">10+</div><div class="stat-label">武器种类</div></div></div>
-    <div class="hero-actions"><a class="btn btn-primary" onclick="navigate('/builds')">📜 查看流派攻略</a><a class="btn btn-outline" onclick="navigate('/maps')">🗺️ 地图探索</a><a class="btn btn-intl" onclick="navigate('/community')">👥 玩家社区</a></div></header>
-    <section class="server-tabs"><div class="container"><h2>服务器 · <span style="font-weight:300;color:#8a8478">Server</span></h2>
-    <div class="tab-bar"><button class="tab-btn active" data-tab="cn">🇨🇳 国内服</button><button class="tab-btn" data-tab="intl">🌍 国际服</button></div>
-    <div class="tab-content active" id="tab-cn"><div class="server-grid">
-      <div class="server-card"><div class="icon">🎮</div><h4>游戏平台</h4><p>PC客户端·网易账号登录·支持云游戏</p></div>
-      <div class="server-card"><div class="icon">💰</div><h4>付费模式</h4><p>免费游玩·外观商城·不卖数值</p></div>
-      <div class="server-card"><div class="icon">🗺️</div><h4>最新版本</h4><p>v2.6.0B「海岱有朋来」(5/15)·新赛季·青州已上线</p></div>
-      <div class="server-card"><div class="icon">⭐</div><h4>评分</h4><p>TapTap 4.7</p></div>
-    </div></div>
-    <div class="tab-content" id="tab-intl"><div class="server-grid">
-      <div class="server-card"><div class="icon">🎮</div><h4>平台</h4><p>Steam·Epic·PS5手柄支持</p></div>
-      <div class="server-card"><div class="icon">💰</div><h4>付费</h4><p>免费游玩·外观商城</p></div>
-      <div class="server-card"><div class="icon">🗺️</div><h4>最新版本</h4><p>5/28 皇宫大版本Imperial Palace·Sandstorm Tavern活动</p></div>
-      <div class="server-card"><div class="icon">⭐</div><h4>评分</h4><p>Steam好评率87-90%</p></div>
-    </div></div></div></section>
-    <section id="factions" style="background:#0e0e18"><div class="container"><h2>门派·<span style="font-weight:300;color:#8a8478">Factions</span></h2><p style="text-align:center;color:#6a6558;margin-bottom:2rem;font-size:.85rem">共12个门派·自由选择·可偷师</p>
-    <div class="faction-grid">${['无门无派·自由探索·全武器兼容','天泉·肉盾/坦克·陌刀','狂澜·输出/防御双修·枪','孤云·均衡输出·剑·新手','三更天·极限输出·双刀','青溪·唯一治疗·扇','醉花阴·更新中','九流门·更新中'].map(s=>{const a=s.split('·');return'<div class="faction-card"><h4>'+a[0]+'</h4><p>'+a.slice(1).join(' · ')+'</p></div>'}).join('')}</div></div></section>
-    <section><div class="container"><h2>新手避坑·<span style="font-weight:300;color:#8a8478">New Player Guide</span></h2>
-    <div class="tip-list">${['长鸣玉优先兑换易水歌·易水歌是80%流派的核心心法，前期长鸣玉千万不要乱花。','金色心法不要分解·所有金色心法后期转流派都可能用到，全部保留。','地图解锁顺序·清河→开封→不见山→河西，优先开蹊跷和传送点。','心法质变节点·无名心法1/4/6重·花上月令3/6重·征人归6重。','国际服玩家注意·Steam版无需加速器·支持多语言·与国服进度不同步。'].map((s,i)=>{const a=s.split('·');return'<div class="tip-item"><div class="tip-num">'+(i+1)+'</div><div><h4>'+a[0]+'</h4><p>'+a.slice(1).join(' · ')+'</p></div></div>'}).join('')}</div></div></section>
-    <section id="news" style="background:#0e0e18"><div class="container"><h2>最新动态·<span style="font-weight:300;color:#8a8478">Updates</span></h2><div class="news-list">
-      ${[['29','蓬山+伙伴系统上线','青州子区域蓬山开放，猫咪(4只)和大鹅(3只)伙伴可跟随采集搜宝箱。'],['21','袁和平加盟任动作总顾问','袁家班优化醉拳、长枪、棍法等武学表现。'],['15','2.6.0B「海岱有朋来」更新','5人本流火袭星·10人团本龙骧御六合·绳镖外观上架。'],['09','止戈保底调平上线','PVP低造诣自动推荐调整属性，养成门槛大幅降低。']].map(n=>'<div class="news-item"><div class="news-date"><span class="d">'+n[0]+'</span>2026/05</div><div><h4>'+n[1]+'</h4><p>'+n[2]+'</p></div></div>').join('')}
-    </div></div></section>
-    <section class="cta-section"><div class="container"><h2>攻略持续更新中</h2><p>流派配装·地图探索·任务攻略·版本解析</p><div class="hero-actions"><a class="btn btn-primary" onclick="navigate('/builds')">📖 浏览流派</a><a class="btn btn-outline" onclick="navigate('/maps')">🗺️ 地图探索</a><a class="btn btn-outline" onclick="navigate('/quests')">📋 任务攻略</a></div></div></section>`;
+  const store=getStore();const builds=store.builds||[];
+  const likes=store.likes||{};const views=store.views||{};
+  const hotBuilds=builds.filter(b=>b.hot||b.essence).slice(0,3);
+  document.getElementById('app').innerHTML=`
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-decoration hero-decoration-1"></div>
+    <div class="hero-decoration hero-decoration-2"></div>
+    <div class="hero-decoration hero-decoration-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge"><span style="width:6px;height:6px;background:var(--jade);border-radius:50%;display:inline-block;animation:pulse 2s infinite"></span> 网易武侠开放世界 · 五代十国</div>
+    <h1>燕云十六声 <span class="highlight">攻略站</span></h1>
+    <div class="sub-en">Where Winds Meet · 国际服/国内服</div>
+    <p class="hero-tagline">" 醉斩长鲸倚天剑，笑凌骇浪济川舟 "</p>
+    <p class="hero-description">以五代十国为背景的开放世界武侠RPG。单人沉浸+多人社交双模式，全球超过8000万玩家踏入江湖。<br>袁和平加盟动作总顾问 · 5/29 蓬山+伙伴系统上线 · 国际服 5/28 皇宫大版本</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" onclick="navigate('/builds')">📜 流派攻略</a>
+      <a class="btn btn-secondary btn-lg" onclick="navigate('/maps')">🗺️ 地图探索</a>
+      <a class="btn btn-outline btn-lg" onclick="navigate('/community')">👥 玩家社区</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-value">8000万+</div><div class="hero-stat-label">全球玩家</div></div>
+      <div class="hero-stat"><div class="hero-stat-value">87%</div><div class="hero-stat-label">Steam好评率</div></div>
+      <div class="hero-stat"><div class="hero-stat-value">12</div><div class="hero-stat-label">门派</div></div>
+      <div class="hero-stat"><div class="hero-stat-value">10+</div><div class="hero-stat-label">武器种类</div></div>
+    </div>
+  </div>
+</section>
+${hotBuilds.length?`<section class="section" style="background:var(--surface)"><div class="container"><div class="section-header"><h2>🔥 热门推荐</h2><p>本周最受关注的流派攻略</p></div><div class="build-grid">${hotBuilds.map(b=>{const lk=likes[b.id]||0;const vw=views[b.id]||0;return'<div class="build-card" onclick="navigate(\'/build/'+b.id+'\')"><div class="build-banner" style="background:linear-gradient(135deg,'+b.banner+',transparent)"><div class="overlay"></div>'+b.name[0]+'</div><div class="build-body"><div class="meta">'+b.tier+'-Tier · '+b.type+'</div><h3>'+b.name+'</h3><div class="sub">'+b.weapons+'</div><div class="tags">'+b.tags.map(t=>'<span class="tag '+(t.includes('S')?'tag-s':t.includes('A')?'tag-a':'tag-b')+'">'+t+'</span>').join('')+'</div><p>'+b.desc.slice(0,60)+'...</p><div class="action-bar"><span style="font-size:.68rem;color:var(--text3)">❤️ '+lk+' · 👁️ '+vw+'</span></div></div></div>'}).join('')}</div></div></section>`:''}
+<section class="section"><div class="container"><div class="section-header"><h2>⚡ 一分钟攻略</h2><p>速览燕云十六声核心技巧</p></div><div class="tips-carousel">${[['🗡️','易水歌优先级','80%流派核心，长鸣玉优先兑换','心法'],['🛡️','心法别分解','所有金色心法后期都会用到','资源'],['🗺️','探索顺序','清河→开封→不见山→河西','地图'],['💡','质变节点','无名心法1/4/6重是关键','养成'],['🌍','国际服注意','Steam无需加速器·进度不同步','国际服']].map(t=>'<div class="tip-card" onclick="navigate(\'/builds\')"><div class="tc-icon">'+t[0]+'</div><h4>'+t[1]+'</h4><p>'+t[2]+'</p><span class="tc-tag">'+t[3]+'</span></div>').join('')}</div></div></section>
+<section class="section server-tabs"><div class="container"><div class="section-header"><h2>服务器 · <span style="font-weight:300;color:var(--text3)">Server</span></h2></div>
+<div class="tab-bar"><button class="tab-btn active" data-tab="cn">🇨🇳 国内服</button><button class="tab-btn" data-tab="intl">🌍 国际服</button></div>
+<div class="tab-content active" id="tab-cn"><div class="server-grid">
+<div class="server-card"><div class="icon">🎮</div><h4>游戏平台</h4><p>PC客户端 · 网易账号登录 · 支持云游戏</p></div>
+<div class="server-card"><div class="icon">💰</div><h4>付费模式</h4><p>免费游玩 · 外观商城 · 不卖数值</p></div>
+<div class="server-card"><div class="icon">🗺️</div><h4>最新版本</h4><p>v2.6.0B「海岱有朋来」(5/15) · 新赛季 · 青州已上线</p></div>
+<div class="server-card"><div class="icon">⭐</div><h4>评分</h4><p>TapTap 4.7</p></div>
+</div></div>
+<div class="tab-content" id="tab-intl"><div class="server-grid">
+<div class="server-card"><div class="icon">🎮</div><h4>平台</h4><p>Steam · Epic · PS5手柄支持</p></div>
+<div class="server-card"><div class="icon">💰</div><h4>付费</h4><p>免费游玩 · 外观商城</p></div>
+<div class="server-card"><div class="icon">🗺️</div><h4>最新版本</h4><p>5/28 皇宫大版本 · Imperial Palace · Sandstorm Tavern活动</p></div>
+<div class="server-card"><div class="icon">⭐</div><h4>评分</h4><p>Steam好评率87-90%</p></div>
+</div></div></div></section>
+<section class="section" style="background:var(--surface)"><div class="container"><div class="section-header"><h2>🏯 门派 · <span style="font-weight:300;color:var(--text3)">Factions</span></h2><p>共12个门派 · 自由选择 · 可偷师</p></div>
+<div class="faction-grid">${['无门无派·自由探索·全武器兼容','天泉·肉盾坦克·陌刀','狂澜·输出防御双修·枪','孤云·均衡输出·剑·新手','三更天·极限输出·双刀','青溪·唯一治疗·扇','醉花阴·更新中','九流门·更新中'].map(s=>{const a=s.split('·');return'<div class="faction-card"><h4>'+a[0]+'</h4><p>'+a.slice(1).join(' · ')+'</p></div>'}).join('')}</div></div></section>
+<section class="section"><div class="container"><div class="section-header"><h2>📖 社区精华</h2><p>玩家必看的核心技巧</p></div>
+<div class="tip-list">${['长鸣玉优先兑换易水歌·易水歌是80%流派的核心心法，前期长鸣玉千万不要乱花。','金色心法不要分解·所有金色心法后期转流派都可能用到，全部保留。','地图解锁顺序·清河→开封→不见山→河西，优先开蹊跷和传送点。','心法质变节点·无名心法1/4/6重·花上月令3/6重·征人归6重。','国际服玩家注意·Steam版无需加速器·支持多语言·与国服进度不同步。'].map((s,i)=>{const a=s.split('·');return'<div class="tip-item"><div class="tip-num">'+(i+1)+'</div><div><h4>'+a[0]+'</h4><p>'+a.slice(1).join(' · ')+'</p></div></div>'}).join('')}</div></div></section>
+<section class="section" style="background:var(--surface)"><div class="container"><div class="section-header"><h2>📰 最新动态 · <span style="font-weight:300;color:var(--text3)">Updates</span></h2></div>
+<div class="news-list">${[['29','蓬山+伙伴系统上线','青州子区域蓬山开放，猫咪(4只)和大鹅(3只)伙伴可跟随采集搜宝箱。'],['21','袁和平加盟任动作总顾问','袁家班优化醉拳、长枪、棍法等武学表现。'],['15','2.6.0B「海岱有朋来」更新','5人本流火袭星·10人团本龙骧御六合·绳镖外观上架。'],['09','止戈保底调平上线','PVP低造诣自动推荐调整属性，养成门槛大幅降低。']].map(n=>'<div class="news-item"><div class="news-date"><span class="d">'+n[0]+'</span>2026/05</div><div><h4>'+n[1]+'</h4><p>'+n[2]+'</p></div></div>').join('')}</div></div></section>
+<section class="section cta-section"><div class="container"><h2>攻略持续更新中</h2><p>流派配装 · 地图探索 · 任务攻略 · 版本解析</p><div class="hero-actions"><a class="btn btn-primary" onclick="navigate('/builds')">📖 浏览流派</a><a class="btn btn-outline" onclick="navigate('/maps')">🗺️ 地图探索</a><a class="btn btn-outline" onclick="navigate('/quests')">📋 任务攻略</a></div></div></section>`;
   setTimeout(()=>{
-    const el=document.getElementById('particles');if(el)for(let i=0;i<20;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDuration=(8+Math.random()*16)+'s';p.style.animationDelay=Math.random()*8+'s';p.style.width=p.style.height=(1+Math.random()*3)+'px';el.appendChild(p)}
     document.querySelectorAll('.server-tabs .tab-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.server-tabs .tab-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.server-tabs .tab-content').forEach(x=>x.classList.remove('active'));const t=document.getElementById('tab-'+b.dataset.tab);if(t)t.classList.add('active')}));
   },50);
 }
 
 function renderBuilds(){
-  const store=getStore();const all=[...(store.builds||[]),...(store.userBuilds||[]).map(b=>({...b,isUser:true}))];const ratings=store.ratings||{};
-  const cards=all.map(b=>{const r=ratings[b.id];const rs=r&&r.count>0?'<span style="color:#f0c860">★</span> '+(r.total/r.count).toFixed(1)+' ('+r.count+'人)':'';return'<div class="build-card" onclick="navigate(\'/build/'+b.id+'\')"><div class="meta">'+b.tier+'-Tier · '+b.type+'</div><h3>'+b.name+(b.isUser?' <span class="editing-badge">玩家分享</span>':'')+'</h3><div class="sub">'+b.weapons+'</div><div class="tags">'+b.tags.map(t=>'<span class="tag '+(t.includes('S')?'tag-s':t.includes('A')?'tag-a':'tag-b')+'">'+t+'</span>').join('')+'</div><p>'+b.desc+'</p>'+(rs?'<div class="rating-mini">'+rs+'</div>':'')+'</div>'}).join('');
-  document.getElementById('app').innerHTML=`<section class="page-section"><div class="container">
-    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem"><h2 style="margin-bottom:0">流派攻略·<span style="font-weight:300;color:#8a8478">Builds</span></h2><button class="btn btn-sm btn-primary" onclick="navigate('/community')">✏️ 分享配装</button></div>
-    <div class="search-bar"><input type="text" id="buildSearch" placeholder="搜索流派名称、武器、心法..." oninput="filterBuilds()"><select id="weaponFilter" onchange="filterBuilds()"><option value="">全部武器</option><option value="无名剑">无名剑</option><option value="无名枪">无名枪</option><option value="唐横刀">唐横刀</option><option value="陌刀">陌刀</option><option value="手甲">手甲</option><option value="九重春色">九重春色</option><option value="青山执笔">青山执笔</option></select><select id="tierFilter" onchange="filterBuilds()"><option value="">全部等级</option><option value="S">S-Tier</option><option value="A">A-Tier</option><option value="B">B-Tier</option></select></div>
-    <div class="build-grid" id="buildGrid">${cards}</div>
-    <div style="text-align:center;margin-top:2rem;color:#6a6558;font-size:.82rem">共${all.length}个流派攻略·点击卡片查看详情和评分评论</div></div></section>`;
+  const store=getStore();const all=[...(store.builds||[]),...(store.userBuilds||[]).map(b=>({...b,isUser:true}))];const ratings=store.ratings||{};const likes=store.likes||{};const bookmarks=store.bookmarks||{};
+  const cards=all.map(b=>{const r=ratings[b.id];const rs=r&&r.count>0?'<span style="color:var(--gold-light)">★</span> '+(r.total/r.count).toFixed(1)+' ('+r.count+'人)':'';const lk=likes[b.id]||0;const bm=bookmarks[b.id]?' bookmarked':'';const badges=(b.essence?'<span class="badge badge-essence">📌精华</span> ':'')+(b.hot?'<span class="badge badge-hot">🔥热门</span> ':'')+(b.new?'<span class="badge badge-new">🆕新</span> ':'');return'<div class="build-card" onclick="navigate(\'/build/'+b.id+'\')"><div class="build-banner" style="background:linear-gradient(135deg,'+(b.banner||'var(--border)')+',transparent)"><div class="overlay"></div>'+(b.name[0])+'</div><div class="build-body"><div class="meta">'+b.tier+'-Tier · '+b.type+'</div><h3>'+b.name+(b.isUser?' <span class="editing-badge">玩家分享</span>':'')+'</h3><div class="sub">'+b.weapons+'</div>'+badges+'<div class="tags">'+b.tags.map(t=>'<span class="tag '+(t.includes('S')?'tag-s':t.includes('A')?'tag-a':'tag-b')+'">'+t+'</span>').join('')+'</div><p>'+b.desc+'</p>'+(rs?'<div style="font-size:.72rem;color:var(--text3);margin-top:.4rem">'+rs+'</div>':'')+'<div class="action-bar" onclick="event.stopPropagation()"><span class="action-btn'+(lk>0?' liked':'')+'" onclick="toggleLike(\''+b.id+'\',this)">❤️ <span class="count">'+lk+'</span></span><span class="action-btn'+bm+'" onclick="toggleBookmark(\''+b.id+'\',this)">🔖 <span class="count">'+(bookmarks[b.id]?'已收藏':'收藏')+'</span></span></div></div></div>'}).join('');
+  document.getElementById('app').innerHTML=`
+<section class="section" style="padding-top:6rem"><div class="container">
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem"><h2 style="margin-bottom:0">流派攻略</h2><button class="btn btn-sm btn-primary" onclick="navigate('/community')">✏️ 分享配装</button></div>
+<div class="search-bar"><input type="text" id="buildSearch" placeholder="搜索流派名称、武器、心法..." oninput="filterBuilds()"><select id="weaponFilter" onchange="filterBuilds()"><option value="">全部武器</option><option value="无名剑">无名剑</option><option value="无名枪">无名枪</option><option value="唐横刀">唐横刀</option><option value="陌刀">陌刀</option><option value="手甲">手甲</option><option value="九重春色">九重春色</option><option value="青山执笔">青山执笔</option></select><select id="tierFilter" onchange="filterBuilds()"><option value="">全部等级</option><option value="S">S-Tier</option><option value="A">A-Tier</option><option value="B">B-Tier</option></select></div>
+<div class="build-grid" id="buildGrid">${cards}</div>
+<div style="text-align:center;margin-top:2rem;color:var(--text3);font-size:.78rem">共 ${all.length} 个流派攻略 · 点击卡片查看详情和评分评论</div>
+</div></section>`;
 }
 function filterBuilds(){
   const q=(document.getElementById('buildSearch')?.value||'').toLowerCase();const w=document.getElementById('weaponFilter')?.value||'';const t=document.getElementById('tierFilter')?.value||'';
   const store=getStore();const all=[...(store.builds||[]),...(store.userBuilds||[]).map(b=>({...b,isUser:true}))];const ratings=store.ratings||{};
   const filtered=all.filter(b=>{if(q&&!b.name.toLowerCase().includes(q)&&!b.weapons.toLowerCase().includes(q)&&!b.xinfa.toLowerCase().includes(q))return false;if(w&&!b.weaponTags?.some(x=>x.includes(w)))return false;if(t&&b.tier!==t)return false;return true});
   const grid=document.getElementById('buildGrid');if(!grid)return;
-  grid.innerHTML=filtered.map(b=>{const r=ratings[b.id];const rs=r&&r.count>0?'<span style="color:#f0c860">★</span> '+(r.total/r.count).toFixed(1)+' ('+r.count+'人)':'';return'<div class="build-card" onclick="navigate(\'/build/'+b.id+'\')"><div class="meta">'+b.tier+'-Tier · '+b.type+'</div><h3>'+b.name+(b.isUser?' <span class="editing-badge">玩家分享</span>':'')+'</h3><div class="sub">'+b.weapons+'</div><div class="tags">'+b.tags.map(t=>'<span class="tag '+(t.includes('S')?'tag-s':t.includes('A')?'tag-a':'tag-b')+'">'+t+'</span>').join('')+'</div><p>'+b.desc+'</p>'+(rs?'<div class="rating-mini">'+rs+'</div>':'')+'</div>'}).join('');
+  grid.innerHTML=filtered.map(b=>{const r=ratings[b.id];const rs=r&&r.count>0?'<span style="color:var(--gold-light)">★</span> '+(r.total/r.count).toFixed(1)+' ('+r.count+'人)':'';const lk=(store.likes||{})[b.id]||0;const bm=(store.bookmarks||{})[b.id]?' bookmarked':'';const badges=(b.essence?'<span class="badge badge-essence">📌精华</span> ':'')+(b.hot?'<span class="badge badge-hot">🔥热门</span> ':'')+(b.new?'<span class="badge badge-new">🆕新</span> ':'');return'<div class="build-card" onclick="navigate(\'/build/'+b.id+'\')"><div class="build-banner" style="background:linear-gradient(135deg,'+(b.banner||'var(--border)')+',transparent)"><div class="overlay"></div>'+(b.name[0])+'</div><div class="build-body"><div class="meta">'+b.tier+'-Tier · '+b.type+'</div><h3>'+b.name+(b.isUser?' <span class="editing-badge">玩家分享</span>':'')+'</h3><div class="sub">'+b.weapons+'</div>'+badges+'<div class="tags">'+b.tags.map(t=>'<span class="tag '+(t.includes('S')?'tag-s':t.includes('A')?'tag-a':'tag-b')+'">'+t+'</span>').join('')+'</div><p>'+b.desc+'</p>'+(rs?'<div style="font-size:.72rem;color:var(--text3);margin-top:.4rem">'+rs+'</div>':'')+'<div class="action-bar" onclick="event.stopPropagation()"><span class="action-btn'+(lk>0?' liked':'')+'" onclick="toggleLike(\''+b.id+'\',this)">❤️ <span class="count">'+lk+'</span></span><span class="action-btn'+bm+'" onclick="toggleBookmark(\''+b.id+'\',this)">🔖 <span class="count">'+(store.bookmarks[b.id]?'已收藏':'收藏')+'</span></span></div></div></div>'}).join('');
 }
 
 function renderBuildDetail(id){
-  const store=getStore();const all=[...(store.builds||[]),...(store.userBuilds||[]).map(b=>({...b,isUser:true}))];const build=all.find(b=>b.id===id);
+  const store=getStore();if(!store.views)store.views={};store.views[id]=(store.views[id]||0)+1;saveStore(store);
+  const all=[...(store.builds||[]),...(store.userBuilds||[]).map(b=>({...b,isUser:true}))];const build=all.find(b=>b.id===id);
   if(!build){navigate('/builds');return}
-  const ratings=store.ratings||{};const r=ratings[id]||{total:0,count:0};const avg=r.count>0?(r.total/r.count).toFixed(1):'暂无';const comments=(store.comments||{})[id]||[];
-  document.getElementById('app').innerHTML=`<section class="page-section"><div class="container build-detail">
-    <div class="back-link" onclick="navigate('/builds')">← 返回流派列表</div>
-    <h2>${build.name}${build.isUser?' <span class="editing-badge">玩家分享</span>':''}</h2>
-    <div class="subtitle">${build.weapons} · ${build.tier}-Tier · ${build.type}</div>
-    <div class="rating-display"><div class="avg">${avg}</div><div class="stars">${[1,2,3,4,5].map(i=>'<span onclick="rateBuild(\''+id+'\','+i+')" '+(r.count>0&&i<=Math.round(r.total/r.count)?'class="active"':'')+'>★</span>').join('')}</div><div class="count">${r.count>0?r.count+'人评价':'暂无评分'}</div></div>
-    <div class="info-grid"><div class="card"><div class="section-title">心法</div><p>${build.xinfa}</p></div><div class="card"><div class="section-title">奇术</div><p>${build.qishu||'待补充'}</p></div></div>
-    <div class="card" style="margin-top:1.5rem"><div class="section-title">详情</div><p>${build.desc}</p><div style="margin-top:.75rem;display:flex;gap:.4rem;flex-wrap:wrap">${build.tags.map(t=>'<span class="tag tag-s">'+t+'</span>').join('')}</div></div>
-    <div class="card" style="margin-top:1.5rem"><div class="section-title">评价·评分</div><p style="margin-bottom:.75rem;color:#8a8478;font-size:.85rem">你觉得这个流派怎么样？</p><div class="stars" style="font-size:1.5rem;margin-bottom:1rem">${[1,2,3,4,5].map(i=>'<span onclick="rateBuild(\''+id+'\','+i+')">★</span>').join('')}</div></div>
-    <div class="card" style="margin-top:1.5rem"><div class="section-title">评论(${comments.length})</div><div class="comment-box"><textarea id="commentText" placeholder="写下你的看法..."></textarea><button class="btn btn-sm btn-primary" style="margin-top:.5rem" onclick="addComment('${id}')">发表评论</button></div><div id="commentList">${comments.length===0?'<p style="color:#6a6558;font-size:.85rem;padding:1rem 0">暂无评论</p>':comments.map(c=>'<div class="comment-item"><div><span class="author">'+c.author+'</span><span class="time">'+c.time+'</span></div><div class="text">'+c.text+'</div></div>').join('')}</div></div>
-  </div></section>`;
+  const ratings=store.ratings||{};const r=ratings[id]||{total:0,count:0};const avg=r.count>0?(r.total/r.count).toFixed(1):'暂无';const comments=(store.comments||{})[id]||[];const likes=store.likes||{};const bookmarks=store.bookmarks||{};const lk=likes[id]||0;const bm=bookmarks[id]?' bookmarked':'';
+  const related=all.filter(b=>b.id!==id&&b.weaponTags?.some(w=>build.weaponTags?.includes(w))).slice(0,4);
+  const badges=(build.essence?'<span class="badge badge-essence">📌精华</span> ':'')+(build.hot?'<span class="badge badge-hot">🔥热门</span> ':'')+(build.new?'<span class="badge badge-new">🆕新</span> ':'');
+  document.getElementById('app').innerHTML=`
+<section class="section" style="padding-top:6rem"><div class="container build-detail">
+<div class="back-link" onclick="navigate('/builds')">← 返回流派列表</div>
+<h2>${build.name}${build.isUser?' <span class="editing-badge">玩家分享</span>':''}</h2>
+<div class="subtitle">${build.weapons} · ${build.tier}-Tier · ${build.type}${badges?'<br>'+badges:''}</div>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem">
+<span class="action-btn${lk>0?' liked':''}" onclick="toggleLike('${id}',this)">❤️ <span class="count">${lk}</span> 点赞</span>
+<span class="action-btn${bm}" onclick="toggleBookmark('${id}',this)">🔖 ${bookmarks[id]?'已收藏':'收藏'}</span>
+</div>
+<div class="rating-display"><div class="avg">${avg}</div><div class="stars">${[1,2,3,4,5].map(i=>'<span onclick="rateBuild(\''+id+'\','+i+')" '+(r.count>0&&i<=Math.round(r.total/r.count)?'class="active"':'')+'>★</span>').join('')}</div><div class="count">${r.count>0?r.count+'人评价':'暂无评分'}</div></div>
+${build.video?`<div class="video-embed" onclick="window.open('https://www.bilibili.com/video/${build.video}','_blank')"><div class="play-icon">▶</div><div><div class="vi-title">📺 查看B站视频攻略</div><div class="vi-source">BV ${build.video} · 点击跳转B站观看</div></div></div>`:''}
+<div class="info-grid"><div class="card" style="border-radius:var(--radius)"><div style="padding:1rem"><div class="section-title" style="margin-top:0">心法</div><p>${build.xinfa}</p></div></div><div class="card" style="border-radius:var(--radius)"><div style="padding:1rem"><div class="section-title" style="margin-top:0">奇术</div><p>${build.qishu||'待补充'}</p></div></div></div>
+<div class="card" style="border-radius:var(--radius);margin-top:1rem"><div style="padding:1rem"><div class="section-title" style="margin-top:0">详情</div><p>${build.desc}</p><div style="margin-top:.6rem;display:flex;gap:.3rem;flex-wrap:wrap">${build.tags.map(t=>'<span class="tag tag-s">'+t+'</span>').join('')}</div></div></div>
+${related.length?`<div class="card" style="border-radius:var(--radius);margin-top:1rem"><div style="padding:1rem"><div class="section-title" style="margin-top:0">相关流派 · <span style="font-weight:300;color:var(--text3);font-size:.8rem">同武器推荐</span></div><div class="related-grid">${related.map(x=>'<div class="related-item" onclick="navigate(\'/build/'+x.id+'\')">'+x.name+'<br><span style="font-size:.68rem;color:var(--text3)">'+x.weapons+' · '+x.tier+'-Tier</span></div>').join('')}</div></div></div>`:''}
+<div class="card" style="border-radius:var(--radius);margin-top:1rem"><div style="padding:1rem"><div class="section-title" style="margin-top:0">评价 · 评分</div><p style="margin-bottom:.5rem;color:var(--text2);font-size:.82rem">你觉得这个流派怎么样？</p><div class="stars" style="font-size:1.4rem">${[1,2,3,4,5].map(i=>'<span onclick="rateBuild(\''+id+'\','+i+')">★</span>').join('')}</div></div></div>
+<div class="card" style="border-radius:var(--radius);margin-top:1rem"><div style="padding:1rem"><div class="section-title" style="margin-top:0">评论 (${comments.length})</div><div class="comment-box"><textarea id="commentText" placeholder="写下你的看法..."></textarea><button class="btn btn-sm btn-primary" style="margin-top:.5rem" onclick="addComment('${id}')">发表评论</button></div><div id="commentList">${comments.length===0?'<p style="color:var(--text3);font-size:.82rem;padding:.5rem 0">暂无评论，来写第一条吧！</p>':comments.map((c,ci)=>'<div class="comment-item"><div class="comment-header"><span class="avatar" style="background:'+['#c9a04a','#5a8ab8','#5ab89a','#dc5252','#b08ac8'][ci%5]+'">'+c.author[0]+'</span><span class="author">'+c.author+'</span><span class="time">'+c.time+'</span><span class="reply-btn" onclick="showReply('+ci+')">回复</span></div><div class="text">'+c.text+'</div><div class="reply-box" id="replyBox'+ci+'"><textarea id="replyText'+ci+'" style="width:100%;padding:.5rem;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.78rem;outline:none;resize:none;min-height:36px;font-family:inherit" placeholder="回复..."></textarea><button class="btn btn-sm btn-ghost" style="margin-top:.25rem" onclick="addReply('+ci+',\'${id}\')">回复</button></div>'+(c.replies||[]).map(ri=>'<div class="reply-item"><span class="author">'+ri.author+'</span> <span class="text">'+ri.text+'</span></div>').join('')+'</div>').join('')}</div></div></div>
+</div></section>`;
 }
 
 function renderMaps(){
-  const store=getStore();const maps=store.maps||[];
-  document.getElementById('app').innerHTML=`<section class="page-section"><div class="container"><h2>地图探索·<span style="font-weight:300;color:#8a8478">Maps</span></h2><p style="text-align:center;color:#6a6558;margin-bottom:2rem;font-size:.85rem">推荐探索顺序：清河→开封→不见山→河西→青州→蓬山</p><div class="map-grid">${maps.map(m=>'<div class="map-card"><div class="map-banner" style="background:linear-gradient(135deg,'+m.color+'33,transparent);color:'+m.color+'">'+m.name+'</div><div class="map-body"><p>'+m.desc+'</p><div class="points">'+m.points.map(p=>'<span class="tag tag-s">'+p+'</span>').join('')+'</div></div></div>').join('')}</div></div></section>`;
+  const store=getStore();const maps=store.maps||[];const done=store.completed?.maps||[];
+  document.getElementById('app').innerHTML=`
+<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>🗺️ 地图探索</h2><p>推荐探索顺序：清河 → 开封 → 不见山 → 河西 → 青州 → 蓬山</p></div>
+<div class="progress-stat">已完成 ${done.length}/${maps.length} 个区域</div><div class="progress-bar"><div class="progress-bar-inner" style="width:${maps.length?(done.length/maps.length*100).toFixed(0):0}%"></div></div>
+<div class="map-grid">${maps.map(m=>{const dd=done.includes(m.id);return'<div class="map-card"><div class="map-banner" style="background:linear-gradient(135deg,'+m.color+'33,transparent);color:'+m.color+'">'+m.name+'</div><div class="map-body"><div class="progress-item" style="border:none;padding:0 0 .4rem;margin-bottom:.4rem"><div class="progress-cb'+(dd?' done':'')+'" onclick="toggleComplete(\'maps\',\''+m.id+'\')"></div><span class="progress-text'+(dd?' done':'')+'">已探索完成</span></div><p>'+m.desc+'</p><div class="points">'+m.points.map(p=>'<span class="tag tag-s">'+p+'</span>').join('')+'</div></div></div>'}).join('')}</div></div></section>`;
 }
 
 function renderQuests(){
-  const store=getStore();const quests=store.quests||[];
-  document.getElementById('app').innerHTML=`<section class="page-section"><div class="container"><h2>任务攻略·<span style="font-weight:300;color:#8a8478">Quests</span></h2><p style="text-align:center;color:#6a6558;margin-bottom:2rem;font-size:.85rem">主线·支线·副本·探索任务指南</p><div class="search-bar"><input type="text" id="questSearch" placeholder="搜索任务..." oninput="filterQuests()"><select id="questTypeFilter" onchange="filterQuests()"><option value="">全部类型</option><option value="主线">主线</option><option value="支线">支线</option><option value="副本">副本</option><option value="探索">探索</option></select><select id="questMapFilter" onchange="filterQuests()"><option value="">全部区域</option>${[...new Set(quests.map(q=>q.map))].map(m=>'<option value="'+m+'">'+m+'</option>').join('')}</select></div><div class="tip-list" id="questList">${quests.map(q=>'<div class="tip-item"><div class="tip-num" style="font-size:.7rem">'+q.type+'</div><div><h4>'+q.name+'</h4><p>📍 '+q.map+' · '+q.desc+'</p></div></div>').join('')}</div></div></section>`;
+  const store=getStore();const quests=store.quests||[];const done=store.completed?.quests||[];
+  document.getElementById('app').innerHTML=`
+<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>📋 任务攻略</h2><p>主线 · 支线 · 副本 · 探索任务指南</p></div>
+<div class="progress-stat">已完成 ${done.length}/${quests.length} 个任务</div><div class="progress-bar"><div class="progress-bar-inner" style="width:${quests.length?(done.length/quests.length*100).toFixed(0):0}%"></div></div>
+<div class="search-bar"><input type="text" id="questSearch" placeholder="搜索任务..." oninput="filterQuests()"><select id="questTypeFilter" onchange="filterQuests()"><option value="">全部类型</option><option value="主线">主线</option><option value="支线">支线</option><option value="副本">副本</option><option value="探索">探索</option></select><select id="questMapFilter" onchange="filterQuests()"><option value="">全部区域</option>${[...new Set(quests.map(q=>q.map))].map(m=>'<option value="'+m+'">'+m+'</option>').join('')}</select></div>
+<div class="tip-list" id="questList">${quests.map(q=>{const dd=done.includes(q.id);return'<div class="tip-item"><div class="tip-num" style="font-size:.65rem">'+q.type+'</div><div><div class="progress-item" style="border:none;padding:0 0 .2rem"><div class="progress-cb'+(dd?' done':'')+'" onclick="toggleComplete(\'quests\',\''+q.id+'\')"></div><h4 style="margin:0;font-size:.9rem'+(dd?';color:var(--text3);text-decoration:line-through':'')+'">'+q.name+'</h4></div><p style="font-size:.78rem;color:var(--text2);margin:0">📍 '+q.map+' · '+q.desc+'</p></div></div>'}).join('')}</div></div></section>`;
 }
 function filterQuests(){
   const q=(document.getElementById('questSearch')?.value||'').toLowerCase();const t=document.getElementById('questTypeFilter')?.value||'';const m=document.getElementById('questMapFilter')?.value||'';
   const store=getStore();const filtered=(store.quests||[]).filter(x=>{if(q&&!x.name.toLowerCase().includes(q)&&!x.desc.toLowerCase().includes(q))return false;if(t&&x.type!==t)return false;if(m&&x.map!==m)return false;return true});
   const list=document.getElementById('questList');if(!list)return;
-  list.innerHTML=filtered.map(q=>'<div class="tip-item"><div class="tip-num" style="font-size:.7rem">'+q.type+'</div><div><h4>'+q.name+'</h4><p>📍 '+q.map+' · '+q.desc+'</p></div></div>').join('');
+  const done=store.completed?.quests||[];
+  list.innerHTML=filtered.map(q=>{const dd=done.includes(q.id);return'<div class="tip-item"><div class="tip-num" style="font-size:.65rem">'+q.type+'</div><div><div class="progress-item" style="border:none;padding:0 0 .2rem"><div class="progress-cb'+(dd?' done':'')+'" onclick="toggleComplete(\'quests\',\''+q.id+'\')"></div><h4 style="margin:0;font-size:.9rem'+(dd?';color:var(--text3);text-decoration:line-through':'')+'">'+q.name+'</h4></div><p style="font-size:.78rem;color:var(--text2);margin:0">📍 '+q.map+' · '+q.desc+'</p></div></div>'}).join('');
 }
 
 function renderCommunity(){
   const store=getStore();const ub=store.userBuilds||[];
-  document.getElementById('app').innerHTML=`<section class="page-section"><div class="container"><h2>玩家社区·<span style="font-weight:300;color:#8a8478">Community</span></h2><p style="text-align:center;color:#6a6558;margin-bottom:2rem;font-size:.85rem">加入社区·分享你的配装·与其他玩家交流</p>
-    <div class="community-grid" style="margin-bottom:2rem">${[
-      ['💬','Discord 国际社区','国际服玩家聚集地，英文/中文频道','https://discord.gg/wherewindsmeet'],
-      ['📺','B站官方','最新视频攻略、版本预告、玩法解析','https://space.bilibili.com/3546787875972964'],
-      ['📱','TapTap 社区','国内玩家评分、论坛讨论、配装分享','https://www.taptap.cn/app/234251'],
-      ['🎮','Steam 社区','国际服讨论、评测、指南','https://steamcommunity.com/app/3173720']
-    ].map(s=>'<a href="'+s[3]+'" target="_blank" rel="noopener" class="social-card"><div class="sicon">'+s[0]+'</div><div><h4>'+s[1]+'</h4><p>'+s[2]+'</p></div></a>').join('')}</div>
-    <div class="share-section"><h3 style="font-size:1.1rem;color:#d4a843;margin-bottom:1rem">✏️ 分享你的配装</h3>
-    <div class="form-row"><div class="form-group"><label>流派名称</label><input id="ubName" placeholder="如：我的冰火流"></div><div class="form-group"><label>武器</label><input id="ubWeapons" placeholder="如：无名剑+无名枪"></div></div>
-    <div class="form-row"><div class="form-group"><label>心法</label><input id="ubXinfa" placeholder="心法配置"></div><div class="form-group"><label>Tier</label><select id="ubTier"><option value="S">S-Tier</option><option value="A">A-Tier</option><option value="B">B-Tier</option></select></div></div>
-    <div class="form-group"><label>描述</label><textarea id="ubDesc" placeholder="简述流派玩法、核心思路..."></textarea></div>
-    <button class="btn btn-sm btn-primary" onclick="shareBuild()">发布配装</button></div>
-    <h3 style="font-size:1.05rem;color:#d4a843;margin-bottom:1rem;margin-top:2rem">玩家分享的配装 (${ub.length})</h3>
-    <div id="userBuildList">${ub.length===0?'<p style="color:#6a6558;font-size:.85rem">还没有玩家分享配装，来做第一个吧！</p>':ub.map(b=>'<div class="build-card" style="cursor:default;margin-bottom:1rem"><h3>'+b.name+' <span class="editing-badge">玩家分享</span></h3><div class="sub">'+b.weapons+' · '+b.tier+'-Tier</div><p><strong>心法：</strong>'+b.xinfa+'<br>'+b.desc+'</p></div>').join('')}</div></div></section>`;
+  document.getElementById('app').innerHTML=`
+<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>👥 玩家社区</h2><p>加入社区 · 分享你的配装 · 与其他玩家交流</p></div>
+<div class="community-grid" style="margin-bottom:2rem">${[
+  ['💬','Discord 国际社区','国际服玩家聚集地，英文/中文频道','https://discord.gg/wherewindsmeet'],
+  ['📺','B站官方','最新视频攻略、版本预告、玩法解析','https://space.bilibili.com/3546787875972964'],
+  ['📱','TapTap 社区','国内玩家评分、论坛讨论、配装分享','https://www.taptap.cn/app/234251'],
+  ['🎮','Steam 社区','国际服讨论、评测、指南','https://steamcommunity.com/app/3173720']
+].map(s=>'<a href="'+s[3]+'" target="_blank" rel="noopener" class="social-card"><div class="sicon">'+s[0]+'</div><div><h4>'+s[1]+'</h4><p>'+s[2]+'</p></div></a>').join('')}</div>
+<div class="share-section"><h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:.75rem">✏️ 分享你的配装</h3>
+<div class="form-row"><div class="form-group"><label>流派名称</label><input id="ubName" placeholder="如：我的冰火流"></div><div class="form-group"><label>武器</label><input id="ubWeapons" placeholder="如：无名剑+无名枪"></div></div>
+<div class="form-row"><div class="form-group"><label>心法</label><input id="ubXinfa" placeholder="心法配置"></div><div class="form-group"><label>Tier</label><select id="ubTier"><option value="S">S-Tier</option><option value="A">A-Tier</option><option value="B">B-Tier</option></select></div></div>
+<div class="form-group"><label>描述</label><textarea id="ubDesc" placeholder="简述流派玩法、核心思路..."></textarea></div>
+<button class="btn btn-sm btn-primary" onclick="shareBuild()">发布配装</button></div>
+<h3 style="font-size:1rem;color:var(--gold);margin-bottom:.75rem;margin-top:1.5rem">玩家分享的配装 (${ub.length})</h3>
+<div id="userBuildList">${ub.length===0?'<p style="color:var(--text3);font-size:.82rem">还没有玩家分享配装，来做第一个吧！</p>':ub.map(b=>'<div class="build-card" style="cursor:default;margin-bottom:.75rem"><div class="build-body"><h3>'+b.name+' <span class="editing-badge">玩家分享</span></h3><div class="sub">'+b.weapons+' · '+b.tier+'-Tier</div><p><strong>心法：</strong>'+b.xinfa+'<br>'+b.desc+'</p></div></div>').join('')}</div></div></section>`;
 }
 
 function renderAdmin(){
   const store=getStore();const bc=(store.builds||[]).length+(store.userBuilds||[]).length;const mc=(store.maps||[]).length;const qc=(store.quests||[]).length;const cc=Object.values(store.comments||{}).reduce((s,a)=>s+a.length,0);
-  document.getElementById('app').innerHTML=`<section class="page-section"><div class="container"><h2>内容管理·<span style="font-weight:300;color:#8a8478">CMS</span></h2><p style="text-align:center;color:#6a6558;margin-bottom:2rem;font-size:.85rem">管理攻略内容·数据保存在本地浏览器</p>
-    <div class="admin-grid"><div class="admin-card" onclick="showAdminTab('builds')"><div class="anum">${bc}</div><div class="alabel">流派攻略</div></div><div class="admin-card" onclick="showAdminTab('maps')"><div class="anum">${mc}</div><div class="alabel">地图区域</div></div><div class="admin-card" onclick="showAdminTab('quests')"><div class="anum">${qc}</div><div class="alabel">任务攻略</div></div><div class="admin-card" onclick="showAdminTab('comments')"><div class="anum">${cc}</div><div class="alabel">评论</div></div></div>
-    <div style="background:#12121c;border:1px solid #1e1e2e;border-radius:10px;padding:1.5rem;margin-bottom:1.5rem"><p style="font-size:.82rem;color:#6a6558;margin-bottom:.75rem">💡 数据存储在浏览器localStorage中，清除浏览器缓存会丢失数据。</p><button class="btn btn-sm btn-outline" onclick="exportData()">📥 导出数据</button><button class="btn btn-sm btn-ghost" onclick="document.getElementById('importInput').click()">📤 导入数据</button><input type="file" id="importInput" accept=".json" style="display:none" onchange="importData(event)"><button class="btn btn-sm btn-danger" style="margin-left:.5rem" onclick="resetData()">🔄 重置</button></div>
-    <div id="adminPanel"><div class="tab-bar"><button class="tab-btn active" onclick="showAdminTab('builds')">流派</button><button class="tab-btn" onclick="showAdminTab('maps')">地图</button><button class="tab-btn" onclick="showAdminTab('quests')">任务</button><button class="tab-btn" onclick="showAdminTab('comments')">评论</button></div>
-    <div id="adminBuilds"></div><div id="adminMaps" style="display:none"></div><div id="adminQuests" style="display:none"></div><div id="adminComments" style="display:none"></div></div></div></section>`;
+  document.getElementById('app').innerHTML=`
+<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>⚙️ 内容管理</h2><p>管理攻略内容 · 数据保存在本地浏览器</p></div>
+<div class="admin-grid"><div class="admin-card" onclick="showAdminTab('builds')"><div class="anum">${bc}</div><div class="alabel">流派攻略</div></div><div class="admin-card" onclick="showAdminTab('maps')"><div class="anum">${mc}</div><div class="alabel">地图区域</div></div><div class="admin-card" onclick="showAdminTab('quests')"><div class="anum">${qc}</div><div class="alabel">任务攻略</div></div><div class="admin-card" onclick="showAdminTab('comments')"><div class="anum">${cc}</div><div class="alabel">评论</div></div></div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:1.25rem"><p style="font-size:.78rem;color:var(--text3);margin-bottom:.6rem">💡 数据存储在浏览器 localStorage 中，清除浏览器缓存会丢失数据。</p><button class="btn btn-sm btn-outline" onclick="exportData()">📥 导出数据</button><button class="btn btn-sm btn-ghost" onclick="document.getElementById('importInput').click()">📤 导入数据</button><input type="file" id="importInput" accept=".json" style="display:none" onchange="importData(event)"><button class="btn btn-sm btn-danger" style="margin-left:.4rem" onclick="resetData()">🔄 重置</button></div>
+<div id="adminPanel"><div class="tab-bar"><button class="tab-btn active" onclick="showAdminTab('builds')">流派</button><button class="tab-btn" onclick="showAdminTab('maps')">地图</button><button class="tab-btn" onclick="showAdminTab('quests')">任务</button><button class="tab-btn" onclick="showAdminTab('comments')">评论</button></div>
+<div id="adminBuilds"></div><div id="adminMaps" style="display:none"></div><div id="adminQuests" style="display:none"></div><div id="adminComments" style="display:none"></div></div></div></section>`;
   showAdminTab('builds');
 }
 
@@ -410,8 +615,8 @@ function showAdminTab(tab){
   ['adminBuilds','adminMaps','adminQuests','adminComments'].forEach(id=>document.getElementById(id).style.display=id==='admin'+tab.charAt(0).toUpperCase()+tab.slice(1)?'block':'none');
   if(tab==='builds'){
     const all=[...(store.builds||[]).map(b=>({...b,src:'官方'})),...(store.userBuilds||[]).map(b=>({...b,src:'玩家'}))];
-    document.getElementById('adminBuilds').innerHTML=`<button class="btn btn-sm btn-primary" style="margin-bottom:1rem" onclick="showAddForm()">+ 新增流派</button>
-    <div id="addBuildForm" style="display:none;margin-bottom:1.5rem;padding:1rem;background:#0e0e18;border-radius:8px;border:1px solid #1e1e2e">
+    document.getElementById('adminBuilds').innerHTML=`<button class="btn btn-sm btn-primary" style="margin-bottom:.75rem" onclick="showAddForm()">+ 新增流派</button>
+    <div id="addBuildForm" style="display:none;margin-bottom:1.25rem;padding:.85rem;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border)">
       <div class="form-row"><div class="form-group"><label>名称</label><input id="abName"></div><div class="form-group"><label>武器</label><input id="abWeapons"></div></div>
       <div class="form-row"><div class="form-group"><label>Tier</label><select id="abTier"><option value="S">S</option><option value="A">A</option><option value="B">B</option></select></div><div class="form-group"><label>类型</label><input id="abType"></div></div>
       <div class="form-group"><label>心法</label><input id="abXinfa"></div><div class="form-group"><label>描述</label><textarea id="abDesc"></textarea></div>
@@ -423,14 +628,14 @@ function showAdminTab(tab){
     document.getElementById('adminQuests').innerHTML=`<table class="admin-table"><tr><th>名称</th><th>区域</th><th>类型</th><th>描述</th></tr>${(store.quests||[]).map(q=>'<tr><td>'+q.name+'</td><td>'+q.map+'</td><td>'+q.type+'</td><td>'+q.desc+'</td></tr>').join('')}</table>`;
   } else if(tab==='comments'){
     const all=Object.entries(store.comments||{});
-    document.getElementById('adminComments').innerHTML=all.length===0?'<p style="color:#6a6558;font-size:.85rem">暂无评论</p>':all.map(([bid,cmts])=>'<div style="margin-bottom:1.5rem"><p style="font-size:.85rem;color:#d4a843;margin-bottom:.5rem">Build: '+bid+'</p>'+cmts.map(c=>'<div class="comment-item"><div><span class="author">'+c.author+'</span><span class="time">'+c.time+'</span></div><div class="text">'+c.text+'</div></div>').join('')+'</div>').join('');
+    document.getElementById('adminComments').innerHTML=all.length===0?'<p style="color:var(--text3);font-size:.82rem">暂无评论</p>':all.map(([bid,cmts])=>'<div style="margin-bottom:1.25rem"><p style="font-size:.82rem;color:var(--gold);margin-bottom:.4rem">Build: '+bid+'</p>'+cmts.map(c=>'<div class="comment-item"><div class="comment-header"><span class="avatar" style="background:var(--gold)">'+c.author[0]+'</span><span class="author">'+c.author+'</span><span class="time">'+c.time+'</span></div><div class="text">'+c.text+'</div></div>').join('')+'</div>').join('');
   }
 }
 function showAddForm(){const f=document.getElementById('addBuildForm');f.style.display=f.style.display==='none'?'block':'none'}
 function saveAdminBuild(){
   const n=document.getElementById('abName')?.value?.trim();if(!n){toast('请输入名称','error');return}
   const store=getStore();if(!store.builds)store.builds=[];
-  store.builds.push({id:'b'+Date.now(),name:n,weapons:document.getElementById('abWeapons')?.value?.trim()||'',tier:document.getElementById('abTier')?.value||'A',type:document.getElementById('abType')?.value?.trim()||'自定义',xinfa:document.getElementById('abXinfa')?.value?.trim()||'',qishu:'',desc:document.getElementById('abDesc')?.value?.trim()||'',tags:[],weaponTags:[],xinfaTags:[]});
+  store.builds.push({id:'b'+Date.now(),name:n,weapons:document.getElementById('abWeapons')?.value?.trim()||'',tier:document.getElementById('abTier')?.value||'A',type:document.getElementById('abType')?.value?.trim()||'自定义',xinfa:document.getElementById('abXinfa')?.value?.trim()||'',qishu:'',desc:document.getElementById('abDesc')?.value?.trim()||'',tags:[],weaponTags:[],xinfaTags:[],banner:'#5a5a6a'});
   saveStore(store);toast('已保存');document.getElementById('addBuildForm').style.display='none';showAdminTab('builds');
 }
 function deleteBuild(id){
@@ -465,6 +670,33 @@ function resetData(){
   if(!confirm('确定重置所有数据？评论、评分、玩家分享都会丢失！'))return;localStorage.removeItem(STORE_KEY);initStore();toast('已重置');router();
 }
 
+// ===== INTERACTIONS =====
+function toggleLike(id,el){
+  const store=getStore();if(!store.likes)store.likes={};store.likes[id]=(store.likes[id]||0)+1;saveStore(store);
+  if(el){el.classList.add('liked');const c=el.querySelector('.count');if(c)c.textContent=store.likes[id]}
+}
+function toggleBookmark(id,el){
+  const store=getStore();if(!store.bookmarks)store.bookmarks={};store.bookmarks[id]=!store.bookmarks[id];saveStore(store);
+  if(el){el.classList.toggle('bookmarked',store.bookmarks[id]);const c=el.querySelector('.count');if(c)c.textContent=store.bookmarks[id]?'已收藏':'收藏'}
+  toast(store.bookmarks[id]?'已收藏':'已取消收藏','info');
+}
+function toggleComplete(type,id){
+  const store=getStore();if(!store.completed)store.completed={quests:[],maps:[]};
+  const arr=store.completed[type];const idx=arr.indexOf(id);
+  if(idx>-1)arr.splice(idx,1);else arr.push(id);saveStore(store);
+  if(type==='quests')renderQuests();else renderMaps();
+}
+function showReply(ci){
+  const box=document.getElementById('replyBox'+ci);if(box)box.classList.toggle('open');
+}
+function addReply(ci,buildId){
+  const text=document.getElementById('replyText'+ci)?.value?.trim();if(!text)return;
+  const store=getStore();if(!store.comments)store.comments={};if(!store.comments[buildId])store.comments[buildId]=[];
+  if(!store.comments[buildId][ci].replies)store.comments[buildId][ci].replies=[];
+  store.comments[buildId][ci].replies.push({author:'玩家'+Math.random().toString(36).slice(2,5).toUpperCase(),text:text});
+  saveStore(store);toast('回复成功');renderBuildDetail(buildId);
+}
+
 // ===== ROUTER INIT =====
 function router(){
   const path=window.location.pathname;const route=matchRoute(path);initStore();updateMeta(route);
@@ -473,21 +705,66 @@ function router(){
   window.scrollTo(0,0);
 }
 window.addEventListener('popstate',router);
-document.addEventListener('click',e=>{
-  const t=document.getElementById('navToggle');const l=document.getElementById('navLinks');
-  if(t&&l&&(e.target.closest('#navToggle')||e.target.closest('.nav-item')))l.classList.toggle('open');
-});
 window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hidden'),500);setTimeout(router,550)});
+
+// ===== HEADER SCROLL + MOBILE TOGGLE =====
+window.addEventListener('scroll',()=>{const h=document.getElementById('header');if(h)h.classList.toggle('scrolled',window.scrollY>50)});
+document.getElementById('mobileToggle')?.addEventListener('click',function(){document.getElementById('mobileNav')?.classList.toggle('active')});
+
+// ===== BACK TO TOP =====
+const btt=document.getElementById('backToTop');
+window.addEventListener('scroll',()=>{if(btt)btt.classList.toggle('visible',window.scrollY>500)});
+btt?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// ===== CLOSE MOBILE NAV ON NAV CLICK =====
+document.addEventListener('click',e=>{
+  if(e.target.closest('.nav-item')){const mn=document.getElementById('mobileNav');if(mn)mn.classList.remove('active')}
+});
 if(window.location.pathname==='/')router();
 </script>
-<footer>
-  <div class="links">
-    <a href="https://www.yysls.cn" target="_blank" rel="noopener">国内服官网</a>
-    <a href="https://www.wherewindsmeetgame.com" target="_blank" rel="noopener">International Site</a>
-    <a href="https://steamcommunity.com/app/3173720" target="_blank" rel="noopener">Steam 社区</a>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo" onclick="navigate('/')">
+        <svg class="logo-icon" viewBox="0 0 100 100"><defs><linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c9a04a"/><stop offset="100%" style="stop-color:#e0b85a"/></linearGradient></defs><path fill="url(#lg2)" d="M50 12C29 12 12 29 12 50s17 38 38 38 38-17 38-38S71 12 50 12z"/><text x="50" y="62" text-anchor="middle" font-size="42" fill="url(#lg2)" font-family="serif">燕</text></svg>
+        <span>燕云 · 攻略站</span>
+      </div>
+      <p>燕云十六声（Where Winds Meet）非官方玩家攻略社区 · 数据来源于公开信息</p>
+    </div>
+    <div class="footer-column">
+      <h4>攻略</h4>
+      <ul class="footer-links">
+        <li><a onclick="navigate('/builds')" style="cursor:pointer">流派攻略</a></li>
+        <li><a onclick="navigate('/maps')" style="cursor:pointer">地图探索</a></li>
+        <li><a onclick="navigate('/quests')" style="cursor:pointer">任务攻略</a></li>
+        <li><a onclick="navigate('/community')" style="cursor:pointer">玩家社区</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>社区</h4>
+      <ul class="footer-links">
+        <li><a href="https://discord.gg/wherewindsmeet" target="_blank" rel="noopener">Discord</a></li>
+        <li><a href="https://space.bilibili.com/3546787875972964" target="_blank" rel="noopener">B站官方</a></li>
+        <li><a href="https://steamcommunity.com/app/3173720" target="_blank" rel="noopener">Steam社区</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>相关</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.yysls.cn" target="_blank" rel="noopener">国内服官网</a></li>
+        <li><a href="https://www.wherewindsmeetgame.com" target="_blank" rel="noopener">International Site</a></li>
+        <li><a onclick="navigate('/admin')" style="cursor:pointer">内容管理</a></li>
+      </ul>
+    </div>
   </div>
-  <p>燕云十六声攻略站 · 非官方玩家社区 · 数据来源于公开信息</p>
-  <p style="margin-top:.25rem">Where Winds Meet Guide · Unofficial Fan Site</p>
+  <div class="footer-bottom">
+    <p>© 2026 燕云十六声攻略站 · 非官方玩家社区 · Where Winds Meet Guide · Unofficial Fan Site</p>
+    <div class="footer-legal">
+      <span style="font-size:.72rem;color:var(--text3)">Powered by Claude Code</span>
+    </div>
+  </div>
 </footer>
+
 </body>
 </html>
