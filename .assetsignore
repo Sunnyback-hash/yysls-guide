@@ -1,0 +1,8 @@
+_worker.js
+node_modules
+.git
+.wrangler
+.workbuddy
+.claude
+*.zip
+用户操作手册.html
