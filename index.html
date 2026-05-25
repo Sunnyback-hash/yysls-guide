@@ -667,7 +667,7 @@ function toggleLang() {
 }
 
 function getStore() { try{const r=localStorage.getItem(STORE_KEY);if(r)return JSON.parse(r)}catch(e){}return null}
-function saveStore(d){localStorage.setItem(STORE_KEY,JSON.stringify(d))}
+function saveStore(d){try{localStorage.setItem(STORE_KEY,JSON.stringify(d))}catch(e){console.error('saveStore failed',e)}}
 
 const D_BUILDS = [
   {id:'b1',name:'鸣金虹',name_en:'MingJinHong (Sword+Spear)',weapons:'无名剑 + 无名枪',weapons_en:'Nameless Sword + Nameless Spear',tier:'S',type:'新手首选',type_en:'Beginner Pick',xinfa:'易水歌 · 无名心法 · 威猛歌 · 千山法',qishu:'骑龙回马 · 箫吟千浪 · 神龙吐火 · 太白醉月',desc:'消耗耐力打出3发剑气，围绕快速回耐与增伤构建。AOE最强，输出环境安逸。',desc_en:'Spends stamina to fire 3剑气 (sword waves). Built around fast stamina recovery and damage amp. Best AOE, safe playstyle.',tags:['S级','AOE最强','新手友好'],tags_en:['S-Tier','Best AOE','Beginner Friendly'],weaponTags:['无名剑','无名枪'],weaponTags_en:['Nameless Sword','Nameless Spear'],xinfaTags:['易水歌','无名心法','威猛歌','千山法'],banner:'#4a6a8a',video:'',essence:true},
@@ -1440,7 +1440,7 @@ document.addEventListener('click',e=>{
   const mn=document.getElementById('mobileNav');
   if(mn)mn.classList.remove('active');
 });
-if(window.location.pathname==='/')router();
+try{if(window.location.pathname==='/')router()}catch(e){console.error('router error',e);hideLoader()}
 </script>
 
 <footer class="footer">
