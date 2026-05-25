@@ -1413,9 +1413,13 @@ function router(){
   updateNavbar();
   updateFooter();
   window.scrollTo(0,0);
+  const l=document.getElementById('loader');if(l)l.classList.add('hidden');
 }
 window.addEventListener('popstate',router);
-window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hidden'),500);setTimeout(router,550)});
+function hideLoader(){const l=document.getElementById('loader');if(l)l.classList.add('hidden')}
+document.addEventListener('DOMContentLoaded',()=>setTimeout(hideLoader,300));
+window.addEventListener('load',()=>{setTimeout(hideLoader,300);setTimeout(router,350)});
+setTimeout(hideLoader,3000);
 
 // ===== HEADER SCROLL + MOBILE TOGGLE =====
 window.addEventListener('scroll',()=>{const h=document.getElementById('header');if(h)h.classList.toggle('scrolled',window.scrollY>50)});
