@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>燕云十六声攻略站 · 国际服/国内服流派攻略、地图探索、配装社区</title>
+<meta name="description" content="燕云十六声（Where Winds Meet）中文攻略站，涵盖国际服和国内服最新流派攻略、心法配装、门派介绍、地图探索、社区配装分享，持续更新。">
+<meta name="keywords" content="燕云十六声,Where Winds Meet,攻略,流派,心法,国际服,国内服,配装,门派,地图">
+<meta name="robots" content="index,follow">
+<meta name="msvalidate.01" content="17AA00AAF53D8C9FB8F509ACF0B8DECC" />
+<link rel="canonical" href="https://yysls-guide.com/">
+<meta property="og:title" content="燕云十六声攻略站 · 流派攻略/地图探索/配装社区">
+<meta property="og:description" content="燕云十六声（Where Winds Meet）中文攻略站，国际服/国内服攻略，流派配装、心法推荐、地图探索、玩家社区。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yysls-guide.com/">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="燕云十六声攻略站">
+<meta name="twitter:description" content="燕云十六声（Where Winds Meet）中文攻略站 - 流派攻略 · 地图探索 · 玩家社区">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3362391181724689" crossorigin="anonymous"></script>
+<style>
+/* ===== CSS VARIABLES - 水墨江湖 Theme ===== */
+:root{--bg:#0b0a0f;--surface:#18161c;--card:#1f1d26;--elevated:#25222e;--gold:#c9a04a;--gold-light:#e0b85a;--gold-dark:#a08030;--red:#c0392b;--red-dark:#8b1a1a;--jade:#4a9a7a;--jade-light:#5ab89a;--text:#e8e0d0;--text2:#8a8478;--text3:#5a5548;--border:#2a2730;--radius:12px;--radius-lg:16px;--radius-sm:8px;--shadow:0 4px 24px rgba(0,0,0,.4);--shadow-lg:0 8px 40px rgba(0,0,0,.5);--font:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);font-size:1rem;line-height:1.7;color:var(--text);background:var(--bg);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse 60% 40% at 20% 20%,rgba(201,160,74,.05) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 80% 80%,rgba(74,154,122,.04) 0%,transparent 60%),radial-gradient(ellipse 40% 30% at 50% 50%,rgba(192,57,43,.03) 0%,transparent 50%);pointer-events:none;z-index:-1}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--gold);text-decoration:none;transition:all .3s}
+a:hover{color:var(--gold-light)}
+h1,h2,h3,h4{font-weight:700;line-height:1.3;color:var(--text)}
+h1{font-size:clamp(2rem,5vw,3.5rem)}
+h2{font-size:clamp(1.4rem,3.5vw,2.2rem);text-align:center;margin-bottom:2.5rem}
+h3{font-size:clamp(1.1rem,2.5vw,1.4rem)}
+p{margin-bottom:1rem;color:var(--text2)}
+.container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+.section{padding:4rem 0}
+.section-header{text-align:center;margin-bottom:2.5rem}
+.section-header h2{margin-bottom:.75rem}
+.section-header p{max-width:640px;margin:0 auto;color:var(--text2)}
+.section-alt{background:var(--surface)}
+
+/* ===== LOADER ===== */
+#loader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s,visibility .8s}
+#loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+#loader .logo-mark{font-size:3.5rem;font-weight:300;letter-spacing:.3em;color:var(--gold);font-family:"KaiTi","STKaiti","楷体",serif;animation:pulse-mark 1.6s ease-in-out infinite}
+#loader .bar{margin-top:2rem;width:180px;height:2px;background:var(--border);border-radius:2px;overflow:hidden}
+#loader .bar-inner{width:0;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));animation:load-bar 1.8s ease forwards}
+@keyframes pulse-mark{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes load-bar{0%{width:0}100%{width:100%}}
+
+/* ===== HEADER & NAV ===== */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .4s;padding:0 1.5rem}
+.header.scrolled{background:rgba(11,10,15,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,160,74,.12)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:.6rem;font-size:1.1rem;font-weight:700;color:var(--gold);letter-spacing:.08em;cursor:pointer}
+.logo-icon{width:32px;height:32px}
+.logo span{color:var(--gold-light)}
+.nav-list{display:flex;gap:.25rem;list-style:none;align-items:center}
+.nav-link{padding:.45rem 1rem;border-radius:var(--radius-full);font-size:.85rem;color:var(--text2);transition:all .3s;cursor:pointer}
+.nav-link:hover{color:var(--text);background:rgba(201,160,74,.08)}
+.nav-link.active-link{color:var(--gold);background:rgba(201,160,74,.12)}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg)!important;font-weight:700!important}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(201,160,74,.3)}
+.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px}
+.mobile-toggle span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(11,10,15,.97);backdrop-filter:blur(20px);padding:1rem 1.5rem 2rem;border-bottom:1px solid var(--border);max-height:70vh;overflow-y:auto}
+.mobile-nav.active{display:block;animation:fadeUp .3s ease}
+.mobile-nav-list{list-style:none}
+.mobile-nav-list li a{display:block;padding:.65rem 0;font-size:.9rem;color:var(--text2);border-bottom:1px solid rgba(42,39,48,.5);transition:all .2s}
+.mobile-nav-list li a:hover{color:var(--gold);padding-left:.5rem}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:80px 1.5rem 0;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-1}
+.hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(201,160,74,.08) 0%,rgba(11,10,15,0) 40%,var(--bg) 100%)}
+.hero-decoration{position:absolute;border-radius:50%;opacity:.4;animation:float 6s ease-in-out infinite}
+.hero-decoration-1{width:350px;height:350px;background:radial-gradient(circle,rgba(201,160,74,.12) 0%,transparent 70%);top:5%;right:-5%;animation-delay:0s}
+.hero-decoration-2{width:250px;height:250px;background:radial-gradient(circle,rgba(74,154,122,.1) 0%,transparent 70%);bottom:20%;left:-5%;animation-delay:2s}
+.hero-decoration-3{width:180px;height:180px;background:radial-gradient(circle,rgba(192,57,43,.08) 0%,transparent 70%);top:40%;left:20%;animation-delay:4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero-content{text-align:center;max-width:800px;margin:0 auto;padding:2rem 0}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,160,74,.1);padding:.4rem 1.2rem;border-radius:var(--radius-full);font-size:.82rem;font-weight:600;color:var(--gold);margin-bottom:1.5rem;border:1px solid rgba(201,160,74,.2);animation:fadeUp .6s ease forwards}
+.hero h1{margin-bottom:.75rem;animation:fadeUp .6s ease forwards;animation-delay:.1s;opacity:0}
+.hero h1 .highlight{position:relative;color:var(--gold)}
+.hero h1 .highlight::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.3}
+.hero .sub-en{font-size:clamp(.9rem,2vw,1.2rem);color:var(--text3);font-weight:400;letter-spacing:.25em;text-transform:uppercase;margin-bottom:1.5rem;font-family:"KaiTi","STKaiti","楷体",serif;animation:fadeUp .6s ease forwards;animation-delay:.2s;opacity:0}
+.hero-tagline{font-size:1.2rem;color:var(--gold);font-style:italic;margin-bottom:1.5rem;animation:fadeUp .6s ease forwards;animation-delay:.25s;opacity:0}
+.hero-description{color:var(--text2);max-width:640px;margin:0 auto 2rem;font-size:.95rem;animation:fadeUp .6s ease forwards;animation-delay:.3s;opacity:0}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem;animation:fadeUp .6s ease forwards;animation-delay:.35s;opacity:0}
+.hero-stats{display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s ease forwards;animation-delay:.4s;opacity:0}
+.hero-stat{text-align:center}
+.hero-stat-value{font-size:1.8rem;font-weight:700;color:var(--gold);font-family:"KaiTi","STKaiti","楷体",serif}
+.hero-stat-label{font-size:.78rem;color:var(--text3);letter-spacing:.05em;margin-top:.15rem}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.7rem 1.8rem;font-family:var(--font);font-size:.9rem;font-weight:600;border:none;border-radius:var(--radius-full);cursor:pointer;transition:all .3s;text-decoration:none}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);box-shadow:0 4px 16px rgba(201,160,74,.25)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,160,74,.35);color:var(--bg)}
+.btn-secondary{background:var(--card);color:var(--gold);border:1px solid rgba(201,160,74,.25)}
+.btn-secondary:hover{background:var(--elevated);border-color:var(--gold);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.btn-outline:hover{background:rgba(201,160,74,.1);color:var(--gold-light);transform:translateY(-2px)}
+.btn-intl{background:linear-gradient(135deg,#3a7abd,#2a5a8a);color:#fff}
+.btn-intl:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(58,122,189,.3)}
+.btn-sm{padding:.4rem 1.1rem;font-size:.8rem}
+.btn-lg{padding:.9rem 2.2rem;font-size:1rem}
+.btn-danger{background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff}
+.btn-success{background:linear-gradient(135deg,var(--jade),#3a8a6a);color:#fff}
+.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border)}
+.btn-ghost:hover{color:var(--text);border-color:var(--text3)}
+
+/* ===== CARDS ===== */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(201,160,74,.2)}
+.card-body{padding:1.5rem}
+.build-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
+.build-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s;cursor:pointer;position:relative}
+.build-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(201,160,74,.2)}
+.build-card .build-banner{height:72px;margin:0;display:flex;align-items:center;justify-content:center;font-size:1.5rem;position:relative;overflow:hidden}
+.build-card .build-body{padding:1rem 1.25rem 1.25rem}
+.build-card .meta{font-size:.72rem;color:var(--text3);letter-spacing:.06em;margin-bottom:.2rem;text-transform:uppercase}
+.build-card h3{font-size:1.05rem;margin-bottom:.15rem}
+.build-card .sub{font-size:.82rem;color:var(--text2);margin-bottom:.5rem}
+.build-card .badges{display:flex;gap:.3rem;margin-bottom:.4rem;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:4px;font-size:.62rem;font-weight:700}
+.badge-essence{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg)}
+.badge-hot{background:rgba(220,50,50,.2);color:#ff6b6b;border:1px solid rgba(220,50,50,.3)}
+.badge-new{background:rgba(50,180,220,.2);color:#4dc9f6;border:1px solid rgba(50,180,220,.3)}
+.build-card .tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem}
+.tag{padding:2px 10px;border-radius:10px;font-size:.68rem;font-weight:600}
+.tag-s{background:rgba(201,160,74,.15);color:var(--gold)}
+.tag-a{background:rgba(74,154,122,.12);color:var(--jade-light)}
+.tag-b{background:rgba(90,85,72,.15);color:var(--text2)}
+.build-card p{font-size:.8rem;color:var(--text2);line-height:1.6}
+.build-card .action-bar{display:flex;gap:.4rem;margin-top:.6rem;flex-wrap:wrap}
+.action-btn{display:inline-flex;align-items:center;gap:3px;padding:3px 10px;border-radius:14px;font-size:.72rem;cursor:pointer;transition:all .3s;background:transparent;border:1px solid var(--border);color:var(--text3)}
+.action-btn:hover{border-color:rgba(201,160,74,.3);color:var(--gold)}
+.action-btn.liked{background:rgba(220,50,50,.1);border-color:#dc3232;color:#ff6b6b}
+.action-btn.bookmarked{background:rgba(201,160,74,.1);border-color:var(--gold);color:var(--gold)}
+.action-btn .count{font-weight:700}
+
+/* ===== QUICK NAV GRID ===== */
+.quick-nav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1rem}
+.quick-nav-item{display:flex;flex-direction:column;gap:.5rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;transition:all .3s;cursor:pointer;text-decoration:none}
+.quick-nav-item:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:rgba(201,160,74,.2)}
+.quick-nav-item .q-icon{font-size:1.8rem}
+.quick-nav-item .q-title{font-size:.95rem;font-weight:700;color:var(--text)}
+.quick-nav-item .q-desc{font-size:.78rem;color:var(--text3);line-height:1.5}
+.quick-nav-item .q-count{font-size:.7rem;color:var(--gold);font-weight:600}
+
+/* ===== SERVER TABS ===== */
+.server-tabs{background:var(--surface)}
+.tab-bar{display:flex;justify-content:center;gap:.5rem;margin-bottom:2rem}
+.tab-btn{padding:.5rem 1.5rem;border-radius:var(--radius-full);font-size:.85rem;font-weight:600;cursor:pointer;background:transparent;color:var(--text3);border:1px solid var(--border);transition:all .3s}
+.tab-btn.active{background:rgba(201,160,74,.12);color:var(--gold);border-color:var(--gold)}
+.tab-btn:hover{color:var(--text);border-color:var(--text3)}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeUp .5s ease}
+.server-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.server-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;transition:all .3s}
+.server-card:hover{border-color:rgba(201,160,74,.2);transform:translateY(-2px)}
+.server-card .icon{font-size:1.4rem;margin-bottom:.4rem}
+.server-card h4{font-size:.95rem;color:var(--gold);margin-bottom:.3rem}
+.server-card p{font-size:.8rem;color:var(--text2);margin:0}
+
+/* ===== FACTION GRID ===== */
+.faction-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem}
+.faction-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;text-align:center;transition:all .3s}
+.faction-card:hover{border-color:rgba(201,160,74,.2);transform:translateY(-2px)}
+.faction-card h4{font-size:.9rem;color:var(--gold);margin-bottom:.15rem}
+.faction-card p{font-size:.75rem;color:var(--text3);margin:0}
+
+/* ===== TIPS / QUESTS ===== */
+.tip-list{display:grid;gap:.75rem}
+.tip-item{display:flex;gap:.85rem;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;transition:all .3s}
+.tip-item:hover{border-color:rgba(201,160,74,.15)}
+.tip-num{flex-shrink:0;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(201,160,74,.1);color:var(--gold);font-weight:700;font-size:.8rem}
+.tip-item h4{font-size:.9rem;margin-bottom:.2rem}
+.tip-item p{font-size:.78rem;color:var(--text2);margin:0}
+
+/* ===== NEWS ===== */
+.news-list{display:grid;gap:.75rem}
+.news-item{display:flex;gap:1rem;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;transition:all .3s}
+.news-item:hover{border-color:rgba(201,160,74,.15)}
+.news-date{flex-shrink:0;width:56px;text-align:center;font-size:.68rem;color:var(--text3);letter-spacing:.05em}
+.news-date .d{font-size:1.2rem;font-weight:700;color:var(--gold);display:block}
+.news-item h4{font-size:.85rem;margin-bottom:.1rem}
+.news-item p{font-size:.75rem;color:var(--text3);margin:0}
+
+/* ===== TIPS CAROUSEL ===== */
+.tips-carousel{display:flex;gap:.85rem;overflow-x:auto;padding:.5rem 0 1rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.tips-carousel::-webkit-scrollbar{height:4px}
+.tips-carousel::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+.tip-card{flex:0 0 210px;scroll-snap-align:start;background:linear-gradient(135deg,#1f1d26,var(--card));border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.15rem;cursor:pointer;transition:all .3s}
+.tip-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.tip-card .tc-icon{font-size:1.4rem;margin-bottom:.4rem}
+.tip-card h4{font-size:.82rem;margin-bottom:.2rem}
+.tip-card p{font-size:.72rem;color:var(--text3);line-height:1.5;margin:0}
+.tip-card .tc-tag{display:inline-block;margin-top:.5rem;padding:2px 8px;border-radius:8px;font-size:.58rem;background:rgba(201,160,74,.1);color:var(--gold)}
+
+/* ===== MAPS ===== */
+.map-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
+.map-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s}
+.map-card:hover{border-color:rgba(201,160,74,.2);transform:translateY(-3px)}
+.map-card .map-banner{height:100px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700}
+.map-card .map-body{padding:1.15rem}
+.map-card .map-body h3{font-size:1rem;margin-bottom:.2rem}
+.map-card .map-body .map-sub{font-size:.75rem;color:var(--text3);margin-bottom:.4rem}
+.map-card .map-body p{font-size:.78rem;color:var(--text2);line-height:1.6;margin:0}
+.map-card .map-body .points{margin-top:.6rem;display:flex;gap:.3rem;flex-wrap:wrap}
+
+/* ===== DETAIL PAGE ===== */
+.build-detail{max-width:780px;margin:0 auto}
+.build-detail .back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--text3);font-size:.82rem;margin-bottom:1.2rem;cursor:pointer;transition:color .3s}
+.build-detail .back-link:hover{color:var(--gold)}
+.build-detail h2{text-align:left;margin-bottom:.3rem}
+.build-detail .subtitle{font-size:.85rem;color:var(--text2);margin-bottom:1rem}
+.build-detail .section-title{font-size:.95rem;color:var(--gold);margin:1.2rem 0 .6rem;padding-bottom:.3rem;border-bottom:1px solid var(--border)}
+.build-detail p{font-size:.85rem;color:var(--text2);line-height:1.8}
+.build-detail .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.rating-display{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem}
+.rating-display .avg{font-size:1.4rem;font-weight:700;color:var(--gold-light)}
+.rating-display .count{font-size:.75rem;color:var(--text3)}
+.stars{display:flex;gap:3px;font-size:1.2rem}
+.stars span{cursor:pointer;color:var(--border);transition:color .2s}
+.stars span.active,.stars span.hover{color:var(--gold-light)}
+.comment-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.1rem;margin-bottom:.75rem}
+.comment-box textarea{width:100%;padding:.65rem;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.82rem;outline:none;resize:vertical;min-height:70px;transition:border-color .3s;font-family:inherit}
+.comment-box textarea:focus{border-color:var(--gold)}
+.comment-item{padding:.85rem 0;border-bottom:1px solid rgba(42,39,48,.5)}
+.comment-item:last-child{border-bottom:none}
+.comment-header{display:flex;align-items:center;gap:.4rem;margin-bottom:.15rem}
+.avatar{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;font-size:.65rem;font-weight:700;color:#fff;flex-shrink:0}
+.comment-item .author{font-size:.78rem;color:var(--gold);font-weight:600}
+.comment-item .time{font-size:.68rem;color:var(--text3);margin-left:.3rem}
+.comment-item .text{font-size:.8rem;color:var(--text2);margin-top:.15rem;line-height:1.5}
+.reply-btn{font-size:.68rem;color:var(--text3);cursor:pointer;margin-left:.4rem;transition:color .3s}
+.reply-btn:hover{color:var(--gold)}
+.reply-box{display:none;margin:.5rem 0 0 1.5rem}
+.reply-box.open{display:block}
+.reply-item{margin:.2rem 0 .2rem 1.5rem;padding:.3rem 0;border-bottom:1px solid rgba(42,39,48,.3)}
+.reply-item .author{font-size:.72rem;color:var(--gold);font-weight:600}
+.reply-item .text{font-size:.75rem;color:var(--text3)}
+
+/* ===== COMMUNITY ===== */
+.community-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.social-card{display:flex;align-items:center;gap:.85rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.15rem;transition:all .3s;text-decoration:none}
+.social-card:hover{border-color:rgba(201,160,74,.2);transform:translateY(-2px)}
+.social-card .sicon{font-size:1.8rem;flex-shrink:0}
+.social-card h4{font-size:.9rem;margin-bottom:.1rem}
+.social-card p{font-size:.75rem;color:var(--text3);margin:0}
+.share-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:2rem}
+
+/* ===== VIDEO EMBED ===== */
+.video-embed{display:flex;align-items:center;gap:.65rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.7rem 1rem;margin-bottom:1rem;cursor:pointer;transition:all .3s}
+.video-embed:hover{border-color:rgba(201,160,74,.25);background:rgba(201,160,74,.04)}
+.video-embed .play-icon{flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,#fb7299,#e65c8a);color:#fff;font-size:.85rem}
+.video-embed .vi-title{font-size:.82rem;color:var(--text)}
+.video-embed .vi-source{font-size:.68rem;color:var(--text3)}
+
+/* ===== PROGRESS ===== */
+.progress-item{display:flex;align-items:center;gap:.6rem;padding:.4rem 0;border-bottom:1px solid rgba(42,39,48,.5)}
+.progress-item:last-child{border-bottom:none}
+.progress-cb{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:.55rem;color:transparent}
+.progress-cb.done{border-color:var(--jade);background:var(--jade);color:#fff}
+.progress-text{font-size:.8rem;color:var(--text2);flex:1;margin:0}
+.progress-text.done{color:var(--text3);text-decoration:line-through}
+.progress-stat{font-size:.75rem;color:var(--text3);margin-bottom:.5rem;text-align:center}
+.progress-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:1rem}
+.progress-bar-inner{height:100%;background:linear-gradient(90deg,var(--jade),var(--jade-light));border-radius:2px;transition:width .5s ease}
+
+/* ===== RELATED ===== */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.65rem;margin-top:.6rem}
+.related-item{padding:.65rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;transition:all .3s;font-size:.8rem;color:var(--text2)}
+.related-item:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ===== ADMIN ===== */
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+.admin-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;text-align:center;transition:all .3s;cursor:pointer}
+.admin-card:hover{border-color:rgba(201,160,74,.2)}
+.admin-card .anum{font-size:1.8rem;font-weight:700;color:var(--gold)}
+.admin-card .alabel{font-size:.78rem;color:var(--text3)}
+.form-group{margin-bottom:.85rem}
+.form-group label{display:block;font-size:.78rem;color:var(--text2);margin-bottom:.25rem;font-weight:600}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:.6rem .8rem;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.82rem;outline:none;transition:border-color .3s;font-family:inherit}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold)}
+.form-group textarea{min-height:70px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.admin-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.admin-table th{text-align:left;padding:.5rem .7rem;color:var(--text3);font-weight:600;border-bottom:1px solid var(--border)}
+.admin-table td{padding:.5rem .7rem;color:var(--text2);border-bottom:1px solid rgba(42,39,48,.5)}
+.admin-table tr:hover td{background:rgba(201,160,74,.03)}
+.editing-badge{display:inline-flex;align-items:center;gap:.3rem;padding:2px 8px;border-radius:8px;font-size:.65rem;font-weight:600;background:rgba(74,154,122,.12);color:var(--jade-light);border:1px solid rgba(74,154,122,.25)}
+
+/* ===== SEARCH ===== */
+.search-bar{display:flex;gap:.65rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.search-bar input{flex:1;min-width:180px;padding:.65rem 1rem;border-radius:var(--radius-full);border:1px solid var(--border);background:var(--card);color:var(--text);font-size:.85rem;outline:none;transition:border-color .3s}
+.search-bar input:focus{border-color:var(--gold)}
+.search-bar select{padding:.6rem 1rem;border-radius:var(--radius-full);border:1px solid var(--border);background:var(--card);color:var(--text);font-size:.85rem;outline:none;cursor:pointer}
+
+/* ===== TOAST ===== */
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;padding:.65rem 1.25rem;border-radius:var(--radius);font-size:.82rem;font-weight:600;color:#fff;animation:fadeUp .3s ease;box-shadow:var(--shadow-lg)}
+.toast-success{background:linear-gradient(135deg,var(--jade),#3a8a6a)}
+.toast-error{background:linear-gradient(135deg,var(--red),var(--red-dark))}
+.toast-info{background:linear-gradient(135deg,#3a5a7a,#2a4a6a)}
+
+/* ===== CTA ===== */
+.cta-section{text-align:center;background:linear-gradient(135deg,rgba(201,160,74,.06),transparent);border-top:1px solid rgba(201,160,74,.08)}
+.cta-section h2{margin-bottom:.75rem}
+.cta-section p{color:var(--text2);max-width:480px;margin:0 auto 1.5rem}
+
+/* ===== FOOTER ===== */
+.footer{padding:3rem 1.5rem 2rem;border-top:1px solid var(--border)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2rem;max-width:1100px;margin:0 auto}
+.footer-brand p{font-size:.78rem;color:var(--text3);margin-top:.5rem}
+.footer-column h4{font-size:.85rem;color:var(--gold);margin-bottom:.6rem}
+.footer-links{list-style:none;padding:0}
+.footer-links li{margin-bottom:.35rem}
+.footer-links a{font-size:.78rem;color:var(--text3);transition:color .3s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{max-width:1100px;margin:1.5rem auto 0;padding-top:1.25rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
+.footer-bottom p{font-size:.72rem;color:var(--text3);margin:0}
+.footer-legal{display:flex;gap:1rem}
+.footer-legal a{font-size:.72rem;color:var(--text3)}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top{position:fixed;bottom:1.5rem;left:1.5rem;width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--border);color:var(--text2);font-size:1.1rem;cursor:pointer;opacity:0;visibility:hidden;transition:all .3s;z-index:999;display:flex;align-items:center;justify-content:center}
+.back-to-top.visible{opacity:1;visibility:visible}
+.back-to-top:hover{background:var(--elevated);border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .nav-list{display:none}
+  .mobile-toggle{display:flex}
+  .server-grid,.community-grid,.admin-grid{grid-template-columns:1fr}
+  .build-grid{grid-template-columns:1fr}
+  .map-grid{grid-template-columns:1fr}
+  .quick-nav-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .build-detail .info-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .hero .stats{gap:1.5rem}
+  .section{padding:2.5rem 0}
+  .hero-stats{gap:1.5rem}
+}
+@media(max-width:480px){
+  .quick-nav-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+/* ===== LANGUAGE SWITCH ===== */
+.lang-btn{background:transparent;border:1px solid var(--border);color:var(--text2);padding:.3rem .7rem;border-radius:var(--radius-full);font-size:.78rem;cursor:pointer;transition:all .3s;font-family:var(--font);font-weight:600;white-space:nowrap}
+.lang-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ===== CLUE HUNTING ===== */
+.clue-grid{display:grid;gap:1.25rem}
+.clue-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s}
+.clue-card:hover{border-color:rgba(201,160,74,.2)}
+.clue-card .clue-header{display:flex;align-items:center;gap:.6rem;padding:.9rem 1.15rem;cursor:pointer;transition:all .3s;font-size:.95rem;font-weight:700;color:var(--text);border-bottom:1px solid var(--border)}
+.clue-card .clue-header:hover{background:rgba(201,160,74,.04)}
+.clue-card .clue-header .arrow{font-size:.65rem;color:var(--text3);transition:transform .3s;margin-left:auto}
+.clue-card .clue-header .arrow.open{transform:rotate(90deg)}
+.clue-card .clue-body{padding:0;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
+.clue-card .clue-body.open{max-height:2000px;padding:.5rem 1.15rem 1rem}
+.clue-row{display:flex;align-items:center;gap:.6rem;padding:.45rem 0;border-bottom:1px solid rgba(42,39,48,.4)}
+.clue-row:last-child{border-bottom:none}
+.clue-row .clue-cb{width:20px;height:20px;border-radius:50%;border:2px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:.55rem;color:transparent}
+.clue-row .clue-cb.done{border-color:var(--jade);background:var(--jade);color:#fff}
+.clue-row .clue-name{font-size:.82rem;color:var(--text2);flex:1;margin:0}
+.clue-row .clue-name.done{color:var(--text3);text-decoration:line-through}
+.clue-row .clue-type{font-size:.65rem;padding:2px 8px;border-radius:8px;background:rgba(201,160,74,.1);color:var(--gold)}
+.clue-progress{text-align:center;margin-bottom:1.25rem}
+.clue-progress span{font-size:.82rem;color:var(--text3)}
+.clue-stat-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin:.6rem 0}
+.clue-stat-bar-inner{height:100%;background:linear-gradient(90deg,var(--jade),var(--jade-light));border-radius:2px;transition:width .5s ease}
+
+/* ===== SHE FU ===== */
+.shefu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
+.shefu-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s;padding:1.25rem;text-align:center}
+.shefu-card:hover{border-color:rgba(201,160,74,.2);transform:translateY(-3px)}
+.shefu-card .sf-icon{font-size:2.2rem;margin-bottom:.6rem}
+.shefu-card h3{font-size:1rem;color:var(--gold);margin-bottom:.35rem}
+.shefu-card p{font-size:.78rem;color:var(--text2);line-height:1.6;margin:0}
+.shefu-card .sf-meaning{font-size:.68rem;color:var(--text3);margin-top:.5rem;font-style:italic}
+.shefu-intro{max-width:720px;margin:0 auto 2rem;text-align:center}
+.shefu-intro p{color:var(--text2);font-size:.9rem;line-height:1.8;margin-bottom:.75rem}
+.shefu-quiz{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:1rem}
+.shefu-quiz h4{font-size:.9rem;color:var(--gold);margin-bottom:.6rem}
+.shefu-quiz .quiz-options{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem}
+.shefu-quiz .quiz-option{padding:.6rem 1rem;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);color:var(--text2);font-size:.82rem;cursor:pointer;transition:all .3s;text-align:left;font-family:var(--font)}
+.shefu-quiz .quiz-option:hover{border-color:var(--gold);color:var(--text)}
+.shefu-quiz .quiz-option.correct{border-color:var(--jade);background:rgba(74,154,122,.12);color:var(--jade-light)}
+.shefu-quiz .quiz-option.wrong{border-color:var(--red);background:rgba(192,57,43,.1);color:#ff6b6b}
+.shefu-quiz .quiz-feedback{font-size:.78rem;margin-top:.4rem;padding:.5rem 0;display:none}
+.shefu-quiz .quiz-feedback.show{display:block}
+
+/* ===== GUIDE SECTION ===== */
+.guide-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:.85rem}
+.guide-section-header{display:flex;align-items:center;gap:.6rem;padding:.85rem 1.15rem;cursor:pointer;transition:all .3s;font-weight:700;font-size:.9rem;color:var(--gold);border-bottom:1px solid var(--border);user-select:none}
+.guide-section-header:hover{background:rgba(201,160,74,.04)}
+.guide-section-header .arrow{font-size:.6rem;color:var(--text3);transition:transform .3s;margin-left:auto;flex-shrink:0}
+.guide-section-header .arrow.open{transform:rotate(90deg)}
+.guide-section-body{padding:0 1.15rem;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+.guide-section-body.open{max-height:8000px;padding:.75rem 1.15rem 1.15rem}
+.guide-overview-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.65rem;margin-bottom:1.15rem}
+.guide-overview-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.85rem;text-align:center}
+.guide-overview-card .lr{font-size:1.1rem;font-weight:700;color:var(--gold);margin-bottom:.25rem}
+.guide-overview-card .lt{display:inline-block;padding:1px 8px;border-radius:6px;font-size:.6rem;font-weight:600;margin-bottom:.35rem}
+.guide-overview-card .ld{font-size:.72rem;color:var(--text2);line-height:1.6;margin:0}
+.guide-summary{background:linear-gradient(135deg,rgba(201,160,74,.08),rgba(74,154,122,.06));border:1px solid rgba(201,160,74,.18);border-radius:var(--radius);padding:.85rem 1.15rem;margin-bottom:1.15rem}
+.guide-summary p{font-size:.8rem;color:var(--text2);line-height:1.8;margin:0}
+.tag-gold{background:rgba(201,160,74,.13);color:var(--gold)}
+.tag-red{background:rgba(192,57,43,.12);color:#ff6b6b}
+.tag-green{background:rgba(74,154,122,.1);color:var(--jade-light)}
+.tag-blue{background:rgba(58,122,189,.1);color:#6ab0f6}
+.guide-list{list-style:none;padding:0}
+.guide-list li{padding:.45rem 0;border-bottom:1px solid rgba(42,39,48,.3);font-size:.8rem;color:var(--text2);line-height:1.7;display:flex;gap:.5rem;align-items:flex-start}
+.guide-list li:last-child{border-bottom:none}
+.guide-list li::before{content:'▸';color:var(--gold);flex-shrink:0;font-weight:700;font-size:.7rem;margin-top:.2rem}
+.guide-sub-title{font-size:.85rem;font-weight:700;color:var(--text);margin:.65rem 0 .35rem;padding-left:.5rem;border-left:3px solid var(--gold)}
+.guide-highlight{background:rgba(201,160,74,.06);border-radius:3px;padding:1px 4px;color:var(--gold-light);font-weight:600}
+@media(max-width:768px){.guide-overview-cards{grid-template-columns:1fr}}
+
+/* ===== TOOLS ===== */
+.tool-calculator{margin-top:.5rem;display:flex;flex-direction:column;gap:.5rem}
+.tool-calculator .calc-row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.tool-calculator label{font-size:.78rem;color:var(--text2);min-width:80px}
+.tool-calculator input{width:100px;padding:.35rem .5rem;border-radius:4px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:.78rem;outline:none;font-family:var(--font)}
+.tool-calculator input:focus{border-color:var(--gold)}
+.tool-calculator .calc-result{font-size:.9rem;font-weight:700;color:var(--gold);margin-top:.3rem}
+.tool-reset-timer{text-align:center;padding:1rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.85rem}
+.tool-reset-timer .timer-value{font-size:1.8rem;font-weight:700;color:var(--gold);font-family:monospace}
+.tool-reset-timer .timer-label{font-size:.75rem;color:var(--text3);margin-top:.2rem}
+@media(max-width:768px){.tool-calculator .calc-row{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="logo-mark">燕</div><div class="bar"><div class="bar-inner"></div></div></div>
+
+<header class="header" id="header">
+  <div class="header-inner">
+    <div class="logo" onclick="navigate('/')">
+      <svg class="logo-icon" viewBox="0 0 100 100"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c9a04a"/><stop offset="100%" style="stop-color:#e0b85a"/></linearGradient></defs><path fill="url(#lg)" d="M50 12C29 12 12 29 12 50s17 38 38 38 38-17 38-38S71 12 50 12zm0 10c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"/><text x="50" y="62" text-anchor="middle" font-size="42" fill="url(#lg)" font-family="serif">燕</text></svg>
+      <span>燕云 · <span>攻略站</span></span>
+    </div>
+    <nav aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a class="nav-link nav-item" data-route="/" data-i18n="navHome">首页</a></li>
+        <li><a class="nav-link nav-item" data-route="/newbie" data-i18n="navNewbie">新手入门</a></li>
+        <li><a class="nav-link nav-item" data-route="/builds" data-i18n="navBuilds">流派</a></li>
+        <li><a class="nav-link nav-item" data-route="/maps" data-i18n="navMaps">地图</a></li>
+        <li><a class="nav-link nav-item" data-route="/quests" data-i18n="navQuests">任务</a></li>
+        <li><a class="nav-link nav-item" data-route="/dungeons" data-i18n="navDungeons">副本攻略</a></li>
+        <li><a class="nav-link nav-item" data-route="/clues" data-i18n="navClues">蹊跷</a></li>
+        <li><a class="nav-link nav-item" data-route="/shefu" data-i18n="navShefu">射覆</a></li>
+        <li><a class="nav-link nav-item" data-route="/tools" data-i18n="navTools">工具箱</a></li>
+        <li><a class="nav-link nav-item" data-route="/community" data-i18n="navCommunity">社区</a></li>
+        <li><button class="lang-btn" id="langBtn" onclick="toggleLang()">🌐 EN</button></li>
+      </ul>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="mobile-nav-list">
+      <li><a class="nav-item" data-route="/" data-i18n="navHome">首页</a></li>
+      <li><a class="nav-item" data-route="/newbie" data-i18n="navNewbie">新手入门</a></li>
+      <li><a class="nav-item" data-route="/builds" data-i18n="navBuilds">流派攻略</a></li>
+      <li><a class="nav-item" data-route="/maps" data-i18n="navMaps">地图探索</a></li>
+      <li><a class="nav-item" data-route="/quests" data-i18n="navQuests">任务攻略</a></li>
+      <li><a class="nav-item" data-route="/dungeons" data-i18n="navDungeons">副本攻略</a></li>
+      <li><a class="nav-item" data-route="/clues" data-i18n="navClues">抓蹊跷</a></li>
+      <li><a class="nav-item" data-route="/shefu" data-i18n="navShefu">射覆</a></li>
+      <li><a class="nav-item" data-route="/tools" data-i18n="navTools">工具箱</a></li>
+      <li><a class="nav-item" data-route="/community" data-i18n="navCommunity">玩家社区</a></li>
+      <li><a class="nav-item" data-route="/admin" data-i18n="navAdmin">内容管理</a></li>
+      <li style="padding:.65rem 0"><button class="lang-btn" onclick="toggleLang()">🌐 EN</button></li>
+    </ul>
+  </nav>
+</header>
+
+<div id="app"></div>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<script>
+// ===== DATA =====
+const STORE_KEY = 'yysls_data';
+const BASE_URL = 'https://yysls-guide.com';
+
+// ===== I18N =====
+const LANG_DATA = {
+  'zh-CN': {
+    navHome:'首页', navNewbie:'新手入门', navBuilds:'流派', navMaps:'地图', navQuests:'任务', navDungeons:'副本攻略', navClues:'蹊跷', navShefu:'射覆', navTools:'工具箱', navCommunity:'社区', navAdmin:'管理',
+    heroBadge:'网易武侠开放世界 · 五代十国',
+    heroTitle1:'燕云十六声', heroTitle2:'攻略站', heroSub:'Where Winds Meet · 国际服/国内服',
+    heroTagline:'" 醉斩长鲸倚天剑，笑凌骇浪济川舟 "',
+    heroDesc:'以五代十国为背景的开放世界武侠RPG。单人沉浸+多人社交双模式，全球超过8000万玩家踏入江湖。<br>袁和平加盟动作总顾问 · 5/29 蓬山+伙伴系统上线 · 国际服 5/28 皇宫大版本',
+    heroBtnBuilds:'📜 流派攻略', heroBtnMaps:'🗺️ 地图探索', heroBtnCommunity:'👥 玩家社区',
+    globalPlayers:'全球玩家', steamRating:'Steam好评率', factions:'门派', weaponTypes:'武器种类',
+    hotRecommend:'🔥 热门推荐', hotDesc:'本周最受关注的流派攻略',
+    quickTips:'⚡ 一分钟攻略', tipsSub:'速览燕云十六声核心技巧',
+    servers:'服务器 · Server',
+    factionTitle:'🏯 门派 · Factions',
+    factionDesc:'共12个门派 · 自由选择 · 可偷师',
+    communityHighlights:'📖 社区精华',
+    latestUpdates:'📰 最新动态 · Updates',
+    ctaTitle:'攻略持续更新中', ctaDesc:'流派配装 · 地图探索 · 任务攻略 · 版本解析',
+    buildTitle:'流派攻略', shareBuild:'✏️ 分享配装', buildsSearchPH:'搜索流派名称、武器、心法...', buildsAllWeapons:'全部武器', buildsAllTier:'全部等级', buildsTotalText:'共 {n} 个流派攻略 · 点击卡片查看详情和评分评论', buildsTabBuilds:'流派攻略', buildsTabGuide:'入门到毕业通用路线',
+    mapTitle:'🗺️ 地图探索', mapDesc:'推荐探索顺序：清河 → 开封 → 不见山 → 河西 → 青州 → 蓬山', mapsCompleted:'已完成 {done}/{total} 个区域', mapExplored:'${t('mapExplored')}', mapPoints:'关键点位',
+    questTitle:'📋 任务攻略', questDesc:'主线 · 支线 · 副本 · 探索任务指南', questsSearchPH:'搜索任务...', questsAllTypes:'全部类型', questsAllMaps:'全部区域', questCompleted:'已完成',
+    communityTitle:'👥 玩家社区', communityDesc:'加入社区 · 分享你的配装 · 与其他玩家交流',
+    adminTitle:'⚙️ 内容管理', adminDesc:'管理攻略内容 · 数据保存在本地浏览器',
+    clueTitle:'🔍 抓蹊跷', clueDesc:'追踪各区域隐藏收集品进度 · 点击勾选标记已找到的蹊跷',
+    shefuTitle:'🎭 射覆', shefuDesc:'传统射覆文化介绍 · 谜题卡片 · 互动猜谜',
+    shefuIntroTitle:'什么是射覆？',
+    shefuIntroP1:'射覆是起源于汉代的一种传统猜物游戏。"射"即猜度，"覆"即覆盖。游戏规则是：将一物用器皿覆盖，猜测者通过卦象或推理来推断覆盖下是何物。',
+    shefuIntroP2:'在燕云十六声中，射覆作为一种文化小游戏融入江湖探索。玩家需要根据上下文线索，推测被"覆"住的答案。以下为射覆文化卡片和互动猜谜。',
+    shefuQuizTitle:'🎯 互动猜谜', shefuQuizDesc:'根据提示猜出答案！点击选项查看是否正确。',
+    ctipDesc:'玩家必看的核心技巧',
+    ctaBtnQuests:'📋 任务攻略',
+    homeTabCN:'🇨🇳 国内服', homeTabIntl:'🌍 国际服',
+    serverCN1T:'游戏平台', serverCN1D:'PC客户端 · 网易账号登录 · 支持云游戏',
+    serverCN2T:'付费模式', serverCN2D:'免费游玩 · 外观商城 · 不卖数值',
+    serverCN3T:'最新版本', serverCN3D:'v2.6.0B「海岱有朋来」(5/15) · 新赛季 · 青州已上线',
+    serverCN4T:'评分', serverCN4D:'TapTap 4.7',
+    serverIntl1T:'平台', serverIntl1D:'Steam · Epic · PS5手柄支持',
+    serverIntl2T:'付费', serverIntl2D:'免费游玩 · 外观商城',
+    serverIntl3T:'最新版本', serverIntl3D:'5/28 皇宫大版本 · Imperial Palace · Sandstorm Tavern活动',
+    serverIntl4T:'评分', serverIntl4D:'Steam好评率87-90%',
+    buildsTabBuilds:'流派攻略', buildsTabGuide:'入门到毕业通用路线',
+    buildsSearchPlaceholder:'搜索流派名称、武器、心法...', buildsAllWeapons:'全部武器', buildsAllTier:'全部等级', buildsTotal:'{n} 个流派攻略 · 点击卡片查看详情和评分评论', buildsClickHint:'{n} 个流派攻略 · 点击查看详情',
+    detailBack:'← 返回流派列表', detailLikes:'点赞', detailBookmarked:'已收藏', detailBookmark:'收藏',
+    detailRatingNone:'暂无评分', detailRatingTitle:'评价 · 评分', detailRatingPrompt:'你觉得这个流派怎么样？',
+    detailCommentPlaceholder:'写下你的看法...', detailPostComment:'发表评论', detailNoComments:'${t('detailNoComments')}', detailReply:'回复',
+    detailXinfa:'心法', detailQishu:'奇术', detailDetail:'详情', detailRelated:'相关流派 · ',
+    detailVideoBilibili:'📺 查看B站视频攻略', detailVideoSub:'点击跳转B站观看', detailToBeConfirmed:'待补充', detailReviews:'人评价',
+    mapExplored:'${t('mapExplored')}', mapPoints:'关键点位',
+    questCompleted:'已完成', questsSearchPlaceholder:'搜索任务...', questsAllTypes:'全部类型', questsAllMaps:'全部区域',
+    communityShareTitle:'${t('communityShareTitle')}', communityBuildName:'流派名称', communityWeapon:'武器', communityXinfa:'心法', communityTierLabel:'Tier', communityDescLabel:'描述',
+    communityPublish:'发布配装', communityPlayerBuilds:'玩家分享的配装 ({n})', communityNoBuilds:'${t('communityNoBuilds')}', communityFirstBuild:'来做第一个吧！',
+    adminDataWarning:'💡 数据存储在浏览器 localStorage 中，清除浏览器缓存会丢失数据。',
+    adminExport:'📥 导出数据', adminImport:'📤 导入数据', adminReset:'🔄 重置', adminAddBuild:'+ 新增流派',
+    adminSave:'保存', adminCancel:'取消', adminDelete:'删除', adminConfirmDelete:'确定删除？', adminNoComments:'暂无评论',
+    adminTitle:'⚙️ 内容管理', adminDesc:'管理攻略内容 · 数据保存在本地浏览器',
+    adminBuilds:'流派攻略', adminMaps:'地图', adminQuests:'任务攻略', adminComments:'评论',
+    adminName:'名称', adminWeapon:'武器', adminTier:'Tier', adminSource:'来源', adminActions:'操作',
+    adminOrder:'顺序', adminDesc:'描述', adminType:'类型', adminArea:'区域', adminOfficial:'官方', adminPlayer:'玩家',
+    newbieOverview1:'1. 选服务器', newbieOverview1Desc:'国际服 vs 国内服 · 版本/进度/社区按需选择',
+    newbieOverview2:'2. 选流派', newbieOverview2Desc:'新手推荐 · 鸣金虹/牵丝玉操作简单成型快',
+    newbieOverview3:'3. 开始闯荡', newbieOverview3Desc:'主线→蹊跷→副本按顺序推进',
+    newbieSummary:'🎯 以下6个版块覆盖从建号到毕业的全流程。点击展开查看详细内容，萌新建议按顺序阅读。',
+    dungeonsAllTypes:'全部类型', dungeonsAllMaps:'全部区域', dungeonBossDetail:'📋 BOSS详情',
+    dungeonPlayers:'人 · Lv.', dungeonReward:'🎁 ', dungeonLocation:'📍 ',
+    toolsCalcTitle:'伤害计算器', toolsCalcDesc:'输入面板属性估算流派DPS（仅供参考）', toolsCalcAtk:'攻击力', toolsCalcCrit:'会心率(%)', toolsCalcCritDmg:'会心伤害(%)', toolsCalcBonus:'增伤(%)',
+    toolsCalcResult:'估算DPS：',
+    toolsTimerTitle:'每周重置倒计时', toolsChecklistTitle:'每周必做清单', toolsLinksTitle:'实用工具链接', toolsFAQTitle:'❓ 常见问题',
+    clueProgress:'收集进度', cluesFound:'已找到', total:'共', found:'个', toolsTimerName1:'周四重置（副本/世界BOSS）', toolsTimerName2:'周一重置（周常/商店）'
+    langSwitch:'🌐 EN',
+    newbieTitle:'🌱 新手入门', newbieDesc:'从创建角色到满级，最全面的新人指南',
+    dungeonTitle:'⚔️ 副本&BOSS攻略', dungeonDesc:'所有副本、团队副本和世界BOSS的详细机制与配装建议',
+    toolsTitle:'🧰 工具箱 & 问答', toolsDesc:'实用工具 · 每周重置倒计时 · 常见问题合集',
+    quickNavTitle:'📌 全站导航', quickNavDesc:'快速找到你需要的攻略',
+    qnNewbie:'从零开始入门 · 服务器/流派选择/避坑指南', qnBuilds:'最新Meta配装 · S/A/B级流派',
+    qnDungeons:'副本机制 · BOSS打法 · 掉落一览', qnMaps:'清河→开封→不见山→河西→青州→蓬山',
+    qnClues:'全地图隐藏收集品追踪', qnTools:'计算器 · 重置倒计时 · 常见FAQ',
+    qnCommunity:'Discord · B站 · 配装分享',
+    footerNewbie:'新手入门', footerDungeons:'副本攻略', footerTools:'工具箱', footerNewTitle:'新内容',
+    footerDesc:'燕云十六声（Where Winds Meet）非官方玩家攻略社区 · 数据来源于公开信息',
+    footerGuide:'攻略', footerCommunity:'社区', footerRelated:'相关',
+    footerBuilds:'流派攻略', footerMaps:'地图探索', footerQuests:'任务攻略', footerCommunityLink:'玩家社区',
+    footerAdmin:'内容管理', footerCopyright:'© 2026 燕云十六声攻略站 · 非官方玩家社区 · Where Winds Meet Guide · Unofficial Fan Site',
+    questsProgress:'已完成 {done}/{total} 个任务',
+    questCompleted:'已完成',
+    detailComments:'评论 ({n})', detailSameWeapon:'同武器推荐',
+  },
+  en: {
+    navHome:'Home', navNewbie:'Newbie', navBuilds:'Builds', navMaps:'Maps', navQuests:'Quests', navDungeons:'Dungeons', navClues:'Clues', navShefu:'She Fu', navTools:'Tools', navCommunity:'Community', navAdmin:'Admin',
+    heroBadge:'NetEase Wuxia Open World · Five Dynasties & Ten Kingdoms',
+    heroTitle1:'Where Winds Meet', heroTitle2:'Guide',
+    heroSub:'International · CN Server Guides',
+    heroTagline:'"Drunk with sword, laughing across the stormy seas"',
+    heroDesc:'An open-world Wuxia RPG set in the Five Dynasties and Ten Kingdoms period. Single-player immersion + multiplayer social modes. 80M+ players worldwide.<br>Yuen Woo-ping as action consultant · Pengshan & Companion System 5/29 · Intl Palace update 5/28',
+    heroBtnBuilds:'📜 Builds', heroBtnMaps:'🗺️ Maps', heroBtnCommunity:'👥 Community',
+    globalPlayers:'Players', steamRating:'Steam Rating', factions:'Factions', weaponTypes:'Weapons',
+    hotRecommend:'🔥 Hot Builds', hotDesc:'Most popular builds this week',
+    quickTips:'⚡ Quick Tips', tipsSub:'Essential tips at a glance',
+    servers:'Servers',
+    factionTitle:'🏯 Factions',
+    factionDesc:'12 factions · Free choice · Cross-class learning',
+    communityHighlights:'📖 Community Tips',
+    latestUpdates:'📰 Latest Updates',
+    ctaTitle:'Guides Updated Regularly', ctaDesc:'Builds · Maps · Quests · Patch Analysis',
+    buildTitle:'Build Guides', shareBuild:'✏️ Share Build',
+    buildsTabBuilds:'Builds', buildsTabGuide:'Beginner→Endgame', buildsSearchPlaceholder:'Search builds, weapons...', buildsAllWeapons:'All Weapons', buildsAllTier:'All Tiers', buildsTotal:'{n} builds total · Click card for details & ratings', buildsClickHint:'{n} builds · Click for details',
+    detailBack:'← Back to Builds', detailLikes:'Like', detailBookmarked:'Bookmarked', detailBookmark:'Bookmark', detailRatingNone:'No ratings', detailRatingTitle:'Rating & Comments', detailRatingPrompt:'What do you think of this build?', detailCommentPlaceholder:'Write your thoughts...', detailPostComment:'Post Comment', detailNoComments:'No comments yet', detailFirstComment:'Be the first to comment!', detailReply:'Reply', detailVideoBilibili:'📺 Watch Bilibili Video Guide', detailXinfa:'Xinfa (Inner Arts)', detailQishu:'Qishu (Special Skills)', detailDetail:'Details', detailRelated:'Related Builds · <span style="font-weight:300;color:var(--text3);font-size:.8rem">Same weapon</span>',
+    mapTitle:'🗺️ Map Exploration', mapDesc:'Recommended order: Qinhe → Kaifeng → Bujianshan → Hexi → Qingzhou → Pengshan',
+    mapsCompleted:'{n} of {total} regions explored',
+    questTitle:'📋 Quest Guides', questDesc:'Main · Side · Instance · Exploration Quests',
+    questsAllTypes:'All Types', questsAllMaps:'All Maps', questsSearchPlaceholder:'Search quests...',
+    questCompleted:'Completed',
+    mapExplored:'Explored', mapPoints:'Points',
+    ctipDesc:'Essential tips you must know',
+    ctaBtnQuests:'📋 Quests',
+    homeTabCN:'🇨🇳 CN Server', homeTabIntl:'🌍 Intl Server',
+    serverCN1T:'Platform', serverCN1D:'PC Client · NetEase account · Cloud gaming supported',
+    serverCN2T:'Payment Model', serverCN2D:'Free to play · Cosmetic shop · No pay-to-win',
+    serverCN3T:'Latest Version', serverCN3D:'v2.6.0B "Friends from the Sea" (5/15) · New Season · Qingzhou launched',
+    serverCN4T:'Rating', serverCN4D:'TapTap 4.7',
+    serverIntl1T:'Platform', serverIntl1D:'Steam · Epic · PS5 controller support',
+    serverIntl2T:'Payment', serverIntl2D:'Free to play · Cosmetic shop',
+    serverIntl3T:'Latest Version', serverIntl3D:'5/28 Palace update · Imperial Palace · Sandstorm Tavern event',
+    serverIntl4T:'Rating', serverIntl4D:'Steam 87-90% positive',
+    buildsTabBuilds:'Builds', buildsTabGuide:'Beginner→Endgame',
+    detailVideoSub:'Click to watch on Bilibili', detailToBeConfirmed:'TBD', detailReviews:'reviews',
+    toolsCalcTitle:'Damage Calculator',
+    toolsTimerTitle:'Weekly Reset Timer', toolsChecklistTitle:'Weekly Checklist', toolsLinksTitle:'Useful Links',
+    communityTitle:'👥 Community', communityDesc:'Join the community · Share your builds · Connect with players',
+    communityShareTitle:'✏️ Share Your Build', communityBuildName:'Build Name', communityWeapon:'Weapon', communityXinfa:'Xinfa Config', communityTierLabel:'Tier', communityDescLabel:'Description', communityPublish:'Publish Build', communityPlayerBuilds:'Player Shared Builds ({n})', communityNoBuilds:'No shared builds yet — be the first!', communityFirstBuild:'Be the first to share a build!',
+    adminTitle:'⚙️ Content Admin', adminDesc:'Manage guide content · Data stored in browser localStorage',
+    adminDataWarning:'💡 Data is stored in browser localStorage. Clearing browser cache will lose data.',
+    adminExport:'📥 Export', adminImport:'📤 Import', adminReset:'🔄 Reset', adminAddBuild:'+ Add Build', adminSave:'Save', adminCancel:'Cancel', adminDelete:'Delete', adminConfirmDelete:'Confirm delete?', adminNoComments:'No comments',
+    adminBuilds:'Builds', adminMaps:'Maps', adminQuests:'Quests', adminComments:'Comments',
+    adminName:'Name', adminWeapon:'Weapon', adminTier:'Tier', adminSource:'Source', adminActions:'Actions',
+    adminOrder:'Order', adminDesc:'Desc', adminType:'Type', adminArea:'Area', adminOfficial:'Official', adminPlayer:'Player',
+    clueTitle:'🔍 Clue Hunting', clueDesc:'Track hidden collectibles across each map · Click to mark found clues',
+    clueProgress:'Collection Progress', cluesFound:'Found', total:'Total', found:'found',
+    langSwitch:'🌐 中',
+    newbieTitle:'🌱 Newbie Guide', newbieDesc:'From character creation to max level — the complete beginner guide',
+    newbieOverview1:'1. Choose Server', newbieOverview1Desc:'Intl vs CN · Version/Progress/Community', newbieOverview2:'2. Choose Build', newbieOverview2Desc:'MingJinHong/QianSiYu — easy to learn', newbieOverview3:'3. Start Playing', newbieOverview3Desc:'Main Quest → Clues → Dungeons in order', newbieSummary:'🎯 The 6 sections below cover everything from character creation to endgame. New players should read in order.',
+    dungeonTitle:'⚔️ Dungeons & Bosses', dungeonDesc:'Detailed mechanics, builds and loot tables for all dungeons and world bosses',
+    dungeonsAllTypes:'All Types', dungeonsAllMaps:'All Maps', dungeonBossDetail:'📋 Boss Details',
+    toolsTitle:'🧰 Tools & FAQ', toolsDesc:'Damage calculator · Weekly reset timer · Frequently asked questions',
+    toolsCalcDesc:'Input your stats to estimate DPS (for reference only)', toolsCalcAtk:'ATK', toolsCalcCrit:'Crit Rate(%)', toolsCalcCritDmg:'Crit DMG(%)', toolsCalcBonus:'DMG Bonus(%)', toolsCalcResult:'Est. DPS: ',
+    toolsTimerName1:'Thursday Reset (Dungeons/WB)', toolsTimerName2:'Monday Reset (Weeklies/Shop)',
+    toolsFAQTitle:'❓ FAQ',
+    quickNavTitle:'📌 Site Navigation', quickNavDesc:'Find the guide you need fast',
+    qnNewbie:'Server selection · Class guide · Beginner tips', qnBuilds:'Latest meta builds · S/A/B tier',
+    qnDungeons:'Boss mechanics · Strategies · Loot', qnMaps:'Qinhe→Kaifeng→Bujianshan→Hexi→Qingzhou→Pengshan',
+    qnClues:'Hidden collectible tracker per map', qnTools:'Calculator · Reset timer · FAQ',
+    qnCommunity:'Discord · Bilibili · Share builds',
+    footerNewbie:'Newbie', footerDungeons:'Dungeons', footerTools:'Tools', footerNewTitle:'New',
+    footerDesc:'Where Winds Meet unofficial fan guide community · Data from public sources',
+    footerGuide:'Guide', footerCommunity:'Community', footerRelated:'Related',
+    footerBuilds:'Builds', footerMaps:'Maps', footerQuests:'Quests', footerCommunityLink:'Community',
+    footerAdmin:'Admin', footerCopyright:'© 2026 Where Winds Meet Guide · Unofficial Fan Site',
+    questsProgress:'{done}/{total} quests completed',
+    questCompleted:'Completed',
+    detailVideoBilibili:'📺 Watch Bilibili Video Guide', detailComments:'Comments ({n})', detailSameWeapon:'Same Weapon',
+  }
+};
+let currentLang = localStorage.getItem('yysls_lang') || 'zh-CN';
+function t(key) { return LANG_DATA[currentLang]?.[key] || LANG_DATA['zh-CN']?.[key] || key; }
+function __t(zh, en) { return currentLang === 'en' ? (en || zh) : zh; }
+function toggleLang() {
+  currentLang = currentLang === 'zh-CN' ? 'en' : 'zh-CN';
+  localStorage.setItem('yysls_lang', currentLang);
+  document.querySelectorAll('.lang-btn').forEach(function(btn){btn.textContent = t('langSwitch');});
+  updateNavbar();
+  router();
+  toast(currentLang==='en'?'🌐 Switched to English':'🌐 已切换为中文','info');
+}
+
+function getStore() { try{const r=localStorage.getItem(STORE_KEY);if(r)return JSON.parse(r)}catch(e){}return null}
+function saveStore(d){localStorage.setItem(STORE_KEY,JSON.stringify(d))}
+
+const D_BUILDS = [
+  {id:'b1',name:'鸣金虹',name_en:'MingJinHong (Sword+Spear)',weapons:'无名剑 + 无名枪',weapons_en:'Nameless Sword + Nameless Spear',tier:'S',type:'新手首选',type_en:'Beginner Pick',xinfa:'易水歌 · 无名心法 · 威猛歌 · 千山法',qishu:'骑龙回马 · 箫吟千浪 · 神龙吐火 · 太白醉月',desc:'消耗耐力打出3发剑气，围绕快速回耐与增伤构建。AOE最强，输出环境安逸。',desc_en:'Spends stamina to fire 3剑气 (sword waves). Built around fast stamina recovery and damage amp. Best AOE, safe playstyle.',tags:['S级','AOE最强','新手友好'],tags_en:['S-Tier','Best AOE','Beginner Friendly'],weaponTags:['无名剑','无名枪'],weaponTags_en:['Nameless Sword','Nameless Spear'],xinfaTags:['易水歌','无名心法','威猛歌','千山法'],banner:'#4a6a8a',video:'',essence:true},
+  {id:'b2',name:'唐横刀（斩雪刀）',name_en:'Tang HengDao (Snow Cleaver)',weapons:'唐横刀',weapons_en:'Tang HengDao',tier:'S',type:'版本答案',type_en:'Meta Pick',xinfa:'易水歌 · 威猛歌 · 移经易武 · 孤忠不辞',qishu:'骑龙回马 · 箫吟千浪',desc:'5/4版本加强，派生技气血伤害30%→36%。双切玩法成版本真神，防反+高爆发连段。',desc_en:'5/4 buff: skill dmg 30%→36%. Dual-wield meta, parry-counter + high burst combo.',tags:['S级','5/4加强','双切T0'],tags_en:['S-Tier','5/4 Buffed','Dual-Wield T0'],weaponTags:['唐横刀'],weaponTags_en:['Tang HengDao'],xinfaTags:['易水歌','威猛歌','移经易武','孤忠不辞'],banner:'#8a3a3a',video:'',essence:true},
+  {id:'b3',name:'裂石均 · 陌刀',name_en:'LieShiJun (Blade Staff)',weapons:'陌刀',weapons_en:'Blade Staff',tier:'A',type:'副本强势',type_en:'Dungeon Strong',xinfa:'易水歌 · 威猛歌 · 移经易武 · 孤忠不辞',qishu:'骑龙回马 · 神龙吐火',desc:'5月调整：孤忠不辞气血伤害36%→32%（小削）。防反+战意循环，仍为副本强力选择。',desc_en:'May patch: dmg 36%→32% (small nerf). Parry + resolve cycle, still a top dungeon pick.',tags:['A级','副本','坦克'],tags_en:['A-Tier','Dungeon','Tank'],weaponTags:['陌刀'],weaponTags_en:['Blade Staff'],xinfaTags:['易水歌','威猛歌','移经易武','孤忠不辞'],banner:'#5a6a4a',video:''},
+  {id:'b4',name:'破竹鸢（拳套）',name_en:'PoZhuYuan (Gauntlets)',weapons:'手甲',weapons_en:'Gauntlets',tier:'B',type:'5/4加强',type_en:'5/4 Buffed',xinfa:'易水歌 · 花上月令 · 千山法 · 征人归',qishu:'天下归义',desc:'5月调整：天下归义伤害提升+20%。拳套特殊技伤害+20%，手甲流派迎来复苏。',desc_en:'May patch: special skill +20% dmg. Gauntlet builds returning to meta.',tags:['B级','加强','手甲'],tags_en:['B-Tier','Buffed','Gauntlets'],weaponTags:['手甲'],weaponTags_en:['Gauntlets'],xinfaTags:['易水歌','花上月令','千山法','征人归'],banner:'#6a5a4a',video:'',hot:true},
+  {id:'b5',name:'牵丝玉',name_en:'QianSiYu (Silk Jade)',weapons:'九重春色 + 青山执笔',weapons_en:'Nine Springs + Green Brush',tier:'A',type:'高颜值',type_en:'High Style',xinfa:'易水歌 · 花上月令 · 纵地摘星 · 征人归',qishu:'骑龙回马 · 太白醉月',desc:'分支：飞天玉（机关枪耐力流）· 走地玉（站桩火拳流）。输出环境安逸，颜值高，上限略偏低。',desc_en:'Branches: Flying Jade (machine-gun stamina) / Ground Jade (turret fire fist). Safe, stylish, slightly lower ceiling.',tags:['A级','远程','高颜值'],tags_en:['A-Tier','Ranged','Stylish'],weaponTags:['九重春色','青山执笔'],weaponTags_en:['Nine Springs','Green Brush'],xinfaTags:['易水歌','花上月令','纵地摘星','征人归'],banner:'#6a4a7a',video:'',new:true}
+];
+const D_MAPS = [
+  {id:'m1',name:'清河',name_en:'Qinhe',order:1,desc:'新手起步区域，建议优先清理蹊跷和传送点。',desc_en:'Beginner area — prioritize clues and waypoints.',points:['新手村','清河镇','渡口','竹林秘境'],points_en:['Starter Village','Qinhe Town','Ferry','Bamboo Forest'],color:'#4a7c59'},
+  {id:'m2',name:'开封',name_en:'Kaifeng',order:2,desc:'主城区域，大量支线任务和隐藏内容。',desc_en:'Main city area — many side quests and hidden content.',points:['皇宫','市集','城郊','码头'],points_en:['Imperial Palace','Market','Suburbs','Docks'],color:'#7c5a3a'},
+  {id:'m3',name:'不见山',name_en:'Bujianshan',order:3,desc:'高等级区域，怪物强度较高，建议准备好再探索。',desc_en:'High-level area — tough mobs, prepare before exploring.',points:['山顶','洞穴','古寺','瀑布'],points_en:['Peak','Cave','Ancient Temple','Waterfall'],color:'#5a4a6a'},
+  {id:'m4',name:'河西',name_en:'Hexi',order:4,desc:'沙漠区域，主线重要节点。',desc_en:'Desert region — important main quest hub.',points:['绿洲','古城','驿站','峡谷'],points_en:['Oasis','Ancient City','Post Station','Canyon'],color:'#7a6a3a'},
+  {id:'m5',name:'青州',name_en:'Qingzhou',order:5,desc:'2026年4月最新上线主题区域。',desc_en:'Newest region (April 2026).',points:['蓬山','海岸','码头','村落'],points_en:['Pengshan','Coast','Docks','Village'],color:'#3a6a7a'},
+  {id:'m6',name:'蓬山',name_en:'Pengshan',order:6,desc:'2026/5/29开放·青州子区域，伙伴系统所在地。',desc_en:'Opens 2026/5/29 · Qingzhou sub-region, companion system hub.',points:['猫咪据点','大鹅池塘','侠迹入口','镇守台'],points_en:['Cat Base','Goose Pond','Hero Path','Guardian Platform'],color:'#6a5a3a'}
+];
+const D_QUESTS = [
+  {id:'q1',name:'麻布袋',name_en:'Sack of Hemp',map:'清河',map_en:'Qinhe',type:'主线',type_en:'Main',desc:'被玩家誉为"叙事巅峰"的任务，强烈推荐细品剧情。',desc_en:'Praised as "narrative peak" — highly recommended for story lovers.'},
+  {id:'q2',name:'中渡桥之战',name_en:'Zhongdu Bridge Battle',map:'开封',map_en:'Kaifeng',type:'主线',type_en:'Main',desc:'另一叙事巅峰任务，海外玩家同样产生强烈共情。',desc_en:'Another narrative masterpiece — resonates strongly with overseas players.'},
+  {id:'q3',name:'蓬山侠迹',name_en:'Pengshan Hero Path',map:'蓬山',map_en:'Pengshan',type:'探索',type_en:'Exploration',desc:'蓬山区域核心玩法之一，完成可获得伙伴系统相关奖励。',desc_en:'Core Pengshan activity — rewards companion system items.'},
+  {id:'q4',name:'流火袭星',name_en:'Flowing Fire Starstrike',map:'青州',map_en:'Qingzhou',type:'副本',type_en:'Dungeon',desc:'5人试剑本，2.6.0B版本新增。',desc_en:'5-player instance, added in v2.6.0B.'},
+  {id:'q5',name:'龙骧御六合',name_en:'Dragon Soaring Six Realms',map:'青州',map_en:'Qingzhou',type:'副本',type_en:'Dungeon',desc:'10人团队副本，需要团队配合。',desc_en:'10-player raid — requires coordinated teamwork.'}
+];
+
+const D_CLUES = [
+  {id:'c1',map:'qinhe',label:'清河',label_en:'Qinhe',items:[
+    {id:'c1_1',name:'悬壶济世',name_en:'Healing the World',type:'探索',type_en:'Exploration'},{id:'c1_2',name:'清河镇秘道',name_en:'Qinhe Secret Path',type:'探索',type_en:'Exploration'},{id:'c1_3',name:'渡口遗书',name_en:'Ferry Letter',type:'收集',type_en:'Collectible'},{id:'c1_4',name:'竹林石碑',name_en:'Bamboo Stele',type:'收集',type_en:'Collectible'},{id:'c1_5',name:'瀑布宝箱',name_en:'Waterfall Chest',type:'宝箱',type_en:'Chest'},
+  ]},
+  {id:'c2',map:'kaifeng',label:'开封',label_en:'Kaifeng',items:[
+    {id:'c2_1',name:'皇宫密卷',name_en:'Palace Scroll',type:'收集',type_en:'Collectible'},{id:'c2_2',name:'市集暗号',name_en:'Market Cipher',type:'解谜',type_en:'Puzzle'},{id:'c2_3',name:'城郊古墓',name_en:'Suburb Tomb',type:'探索',type_en:'Exploration'},{id:'c2_4',name:'码头夜话',name_en:'Docks Night Talk',type:'收集',type_en:'Collectible'},{id:'c2_5',name:'酒肆暗格',name_en:'Tavern Hidden',type:'解谜',type_en:'Puzzle'},
+  ]},
+  {id:'c3',map:'bujianshan',label:'不见山',label_en:'Bujianshan',items:[
+    {id:'c3_1',name:'山顶古卷',name_en:'Peak Ancient Scroll',type:'收集',type_en:'Collectible'},{id:'c3_2',name:'洞穴壁画',name_en:'Cave Murals',type:'探索',type_en:'Exploration'},{id:'c3_3',name:'古寺禅音',name_en:'Temple Chant',type:'收集',type_en:'Collectible'},{id:'c3_4',name:'瀑布秘径',name_en:'Waterfall Path',type:'探索',type_en:'Exploration'},
+  ]},
+  {id:'c4',map:'hexi',label:'河西',label_en:'Hexi',items:[
+    {id:'c4_1',name:'绿洲遗珍',name_en:'Oasis Relic',type:'宝箱',type_en:'Chest'},{id:'c4_2',name:'古城机关',name_en:'Ancient City Mechanism',type:'解谜',type_en:'Puzzle'},{id:'c4_3',name:'驿站传闻',name_en:'Station Rumor',type:'收集',type_en:'Collectible'},{id:'c4_4',name:'峡谷石刻',name_en:'Canyon Carving',type:'探索',type_en:'Exploration'},
+  ]},
+  {id:'c5',map:'qingzhou',label:'青州',label_en:'Qingzhou',items:[
+    {id:'c5_1',name:'海岸漂流瓶',name_en:'Coast Message Bottle',type:'收集',type_en:'Collectible'},{id:'c5_2',name:'码头藏宝图',name_en:'Docks Treasure Map',type:'宝箱',type_en:'Chest'},{id:'c5_3',name:'村落隐士',name_en:'Village Hermit',type:'探索',type_en:'Exploration'},{id:'c5_4',name:'荒塔秘卷',name_en:'Desolate Tower Scroll',type:'收集',type_en:'Collectible'},{id:'c5_5',name:'乱石阵',name_en:'Stone Maze',type:'解谜',type_en:'Puzzle'},
+  ]},
+  {id:'c6',map:'pengshan',label:'蓬山',label_en:'Pengshan',items:[
+    {id:'c6_1',name:'猫咪据点',name_en:'Cat Base',type:'收集',type_en:'Collectible'},{id:'c6_2',name:'大鹅池塘',name_en:'Goose Pond',type:'收集',type_en:'Collectible'},{id:'c6_3',name:'侠迹入口',name_en:'Hero Path Entrance',type:'探索',type_en:'Exploration'},{id:'c6_4',name:'镇守台密道',name_en:'Guardian Secret',type:'探索',type_en:'Exploration'},{id:'c6_5',name:'山顶祭坛',name_en:'Peak Altar',type:'解谜',type_en:'Puzzle'},
+  ]},
+];
+
+const D_SHEFU = [
+  {icon:'📜',name:'射覆起源',name_en:'Origins of She Fu',desc:'射覆起源于汉代，最初由东方朔记载于《汉书》。古人以蓍草占卜后猜覆盖之物，后演变为文人和民间的一种智力游戏。',desc_en:'She Fu originated in the Han Dynasty, first recorded in the Book of Han. The ancients would divine with yarrow stalks, then guess the covered item, later evolving into an intellectual game.',meaning:'Cover-Guess — Han Dynasty origin',meaning_en:'Cover-Guess — Han Dynasty origin'},
+  {icon:'🎯',name:'猜物术',name_en:'Item Guessing Art',desc:'将一物品用器皿（瓯、盂、盒等）覆盖。猜测者不能直接看，只能通过线索、卦象或推理来判断覆盖下的物品是什么。',desc_en:'An item is covered by a vessel (bowl, jar, box). The guesser cannot see it directly and must use clues, hexagrams, or deduction.',meaning:'Item covered, guess by deduction',meaning_en:'Item covered, guess by deduction'},
+  {icon:'☯️',name:'卦象法',name_en:'Hexagram Method',desc:'高级玩法：猜测者起卦（如用六爻），根据卦辞和爻辞来推敲覆盖下的物品类别。需要通晓《易经》基础。',desc_en:'Advanced: the guesser performs divination (e.g., 6-line method) and interprets hexagram text to deduce the covered item. Requires I-Ching knowledge.',meaning:'Hexagram divination method',meaning_en:'Hexagram divination method'},
+  {icon:'🧩',name:'推理法',name_en:'Deduction Method',desc:'平民玩法：覆盖者给出三个与物品相关的提示（如颜色、形状、用途），猜测者根据提示推理。',desc_en:'Casual play: the hider gives 3 hints (color, shape, use) and the guesser deduces from them.',meaning:'Deduction via 3 clues',meaning_en:'Deduction via 3 clues'},
+  {icon:'📖',name:'文化价值',name_en:'Cultural Value',desc:'射覆是中国古代"通物"智慧的体现，融合了占卜、逻辑和文学。在游戏中体验这一传统，可以感受古人的智慧趣味。',desc_en:'She Fu embodies the ancient Chinese wisdom of "understanding things", blending divination, logic, and literature.',meaning:'Cultural heritage of ancient wisdom',meaning_en:'Cultural heritage of ancient wisdom'},
+  {icon:'🎮',name:'游戏中',name_en:'In Game',desc:'在燕云十六声中，射覆以探索谜题的形式融入江湖。玩家在特定位置触发射覆挑战，根据场景线索猜出答案，获得奖励。',desc_en:'In Where Winds Meet, She Fu appears as exploration puzzles. Players trigger challenges at specific locations, guess answers from scene clues, and earn rewards.',meaning:'In-game puzzle mini-game',meaning_en:'In-game puzzle mini-game'},
+];
+
+const D_SHEFU_QUIZZES = [
+  {q:'"长在深闺人未识" 射一物',q_en:'"Hidden in deep chambers, none know her" — guess the item',options:['桂花','牡丹','桃花','杏花'],options_en:['Osmanthus','Peony','Peach Blossom','Apricot'],answer:0,hint:'此花常被用来形容杨贵妃的美丽与哀愁。',hint_en:'This flower is used to describe Yang Guifei\'s beauty and sorrow.'},
+  {q:'"千里送鹅毛" 射一成语',q_en:'"A thousand li for a goose feather" — guess the idiom',options:['礼轻情意重','一毛不拔','轻如鸿毛','毛遂自荐'],options_en:['The gift itself is light but the meaning is heavy','Stingy','Light as a feather','Self-recommendation'],answer:0,hint:'礼物虽然微薄，但饱含深情。',hint_en:'The gift is modest, but full of heartfelt meaning.'},
+  {q:'"不是花中偏爱菊" 射一人',q_en:'"It\'s not that I favor the chrysanthemum among flowers" — guess the person',options:['屈原','陶渊明','李白','杜甫'],options_en:['Qu Yuan','Tao Yuanming','Li Bai','Du Fu'],answer:1,hint:'此诗人以爱菊著称，号五柳先生。',hint_en:'This poet is known for loving chrysanthemums, styled "Master Five Willows".'},
+  {q:'"一江春水向东流" 射一词牌',q_en:'"A river of spring water flows east" — guess the poetic form',options:['菩萨蛮','虞美人','浣溪沙','蝶恋花'],options_en:['Bodhisattva Man','Yu Mei Ren','Silk-Washing Stream','Butterfly Lingers'],answer:1,hint:'南唐后主李煜的千古名作以此词牌写成。',hint_en:'Li Yu\'s timeless masterpiece was written in this poetic form.'},
+  {q:'"半部春秋" 射一字',q_en:'"Half of Spring and Autumn" — guess the character',options:['秦','春','秋','夏'],options_en:['Qin','Spring','Autumn','Summer'],answer:0,hint:'"半部"即取一半，"春秋"各取一半组合。',hint_en:'"Half" means take half of each character "Spring" and "Autumn" and combine them.'},
+];
+
+// ===== NEWBIE GUIDE DATA =====
+const D_NEWBIE = [
+  {icon:'🎮',title:'游戏模式选择',title_en:'Game Mode Selection',items:[
+    '单人沉浸模式：纯单机体验，剧情/探索/副本均可单人完成，适合社恐和剧情党',
+    '多人社交模式：可与好友组队副本、PVP、探索，单人内容不受影响',
+    '${__t('国际服 vs 国内服','Intl vs CN')}：国际服Steam/Epic，进度落后约1-2个月，支持多语言；国内服PC客户端，版本领先',
+    '服务器选择建议：延迟敏感选就近服务器，国际服玩家推荐NA/EU/ASIA',
+    '双模式自由切换：游戏内随时切换单人/多人，角色数据互通',
+  ],items_en:[
+    'Solo Mode: pure single-player experience, suitable for story lovers',
+    'Multiplayer Mode: team up for dungeons, PVP, exploration',
+    'Intl vs CN: Intl on Steam/Epic, ~1-2 months behind CN; CN on PC client, ahead on patches',
+    'Server: pick the closest for low latency, Intl players choose NA/EU/ASIA',
+    'Free switching: switch between solo/multi anytime, character data shared',
+  ]},
+  {icon:'⚔️',title:'流派选择指南',title_en:'Build Selection Guide',items:[
+    '新手首选 · 鸣金虹（无名剑+无名枪）：S级，AOE最强，输出环境安逸，操作简单',
+    '新手次选 · 牵丝玉（九重春色+青山执笔）：A级，远程安逸，适合不喜欢近战的玩家',
+    '进阶选择 · 唐横刀：S级，双切玩法上限极高，需要较好的操作和反应',
+    '坦克选择 · 裂石均（陌刀）：A级，副本强势，防反+战意循环，组队需求大',
+    '避坑提醒：前期选定1-2个流派深度培养，不要分散资源尝试所有流派',
+  ],items_en:[
+    'Beginner pick · MingJinHong (Sword+Spear): S-Tier, best AOE, easy to play',
+    '2nd pick · QianSiYu (Silk Jade): A-Tier, ranged, safe playstyle',
+    'Advanced · Tang HengDao: S-Tier, dual-wield, high ceiling, needs skill',
+    'Tank · LieShiJun (Blade Staff): A-Tier, dungeon meta, high party demand',
+    'Tip: pick 1-2 builds to focus on early, don\'t spread resources thin',
+  ]},
+  {icon:'📖',title:'核心系统速览',title_en:'Core Systems Overview',items:[
+    '心法系统：易水歌是80%流派核心。长鸣玉优先兑换易水歌，心法1/4/6/9重有质变',
+    '奇术系统：主动技能，骑龙回马必带。准备输出/生存/功能三套奇术组合',
+    '防反系统：格挡反击是燕云战斗核心，所有高难内容必备技能',
+    '装备系统：前期用过渡装，96级后开始追求金装。PVP和PVE装备分开',
+    '洗练系统：优先洗武器攻击词条，再洗防具减伤，最后洗饰品特效',
+  ],items_en:[
+    'Xinfa System: YiShuiGe is core for 80% of builds. Priority buy with ChangMingYu. Breakpoints at 1/4/6/9',
+    'Qishu System: active skills. QiLongHuiMa is essential. Prepare DPS/survival/utility sets',
+    'Parry System: block-counter is the combat core, essential for all hard content',
+    'Gear System: use transitional gear early, chase gold gear after 96. PVP and PVE separate',
+    'Refine System: prioritize weapon ATK lines, then armor DEF, then accessory effects',
+  ]},
+  {icon:'📈',title:'1-40级快速升级路线',title_en:'1-40 Leveling Guide',items:[
+    '优先主线任务：主线解锁传送点、基础功能和大部分系统',
+    '见闻和蹊跷：每个地图的蹊跷给大量经验和资源，优先清理',
+    '心法经验本：每天必刷，长鸣玉每周限购也要换心法经验',
+    '周常任务：奖励大头，每周必须完成。副本武库和试剑本每周必打',
+    '探索度奖励：探索度80%以上的区域有额外奖励，不必强求100%',
+  ],items_en:[
+    'Main quests first: they unlock waypoints, basic features, and most systems',
+    'Clues: each map\'s clues give lots of EXP and resources, clear them early',
+    'Xinfa EXP dungeon: run daily. Also buy xinfa EXP with weekly limited ChangMingYu',
+    'Weeklies: main reward source. Dungeons and trial instance every week',
+    'Exploration rewards: 80%+ on a map gives bonus rewards, 100% not required',
+  ]},
+  {icon:'⚠️',title:'新手十大避坑',title_en:'Top 10 Pitfalls',items:[
+    '不要用长鸣玉换其他心法，前期只换易水歌，这是80%流派核心',
+    '所有金色心法不要分解！后期转流派全部会用上',
+    '不要在交易行乱花钱，前期资源很紧张，装备用过渡装即可',
+    '不要跳过剧情，很多关键心法和装备在支线任务里',
+    '不要同时养3个以上流派，资源会严重分散',
+    '不要为了凑装分牺牲套装效果，套装效果比装分重要',
+    '不要忽略防反练习，后期高难本和PVP全靠这个',
+    '长鸣玉每周限购的心法经验记得买完',
+    '零氪微氪不要买外观，外观不增加任何战力',
+    '国际服和国内服进度不同步，看攻略时注意区分版本',
+  ],items_en:[
+    'Don\'t spend ChangMingYu on other xinfa — only YiShuiGe early game, core for 80% of builds',
+    'Never dismantle gold xinfa — you\'ll need them later when switching builds',
+    'Don\'t waste money in the auction house — resources are tight early on',
+    'Don\'t skip story — many key xinfa and gear are in side quests',
+    'Don\'t raise 3+ builds simultaneously — resources will be stretched',
+    'Don\'t sacrifice set bonuses for gear score — set effects matter more',
+    'Don\'t neglect parry practice — essential for endgame and PVP',
+    'Buy the weekly limited xinfa EXP with ChangMingYu',
+    'F2P/low-spender: don\'t buy cosmetics, they don\'t increase power',
+    'Intl and CN servers have different patch schedules — note the version when reading guides',
+  ]},
+  {icon:'💎',title:'资源管理心得',title_en:'Resource Management',items:[
+    '长鸣玉：优先级 易水歌 > 心法经验 > 其他，绝不乱花',
+    '心力：每天刷心法经验本，多余的刷装备本',
+    '铜钱：前期节约，主要用在洗练和强化',
+    '每周资源：副本 > 世界BOSS > 周常 > 日常，时间少跳日常保周常',
+    '心法经验：优先升到6重解锁全部词条，再考虑升9重',
+  ],items_en:[
+    'ChangMingYu: YiShuiGe > Xinfa EXP > others — never waste',
+    'Stamina: run xinfa EXP dungeon daily, spend extra on gear dungeons',
+    'Copper coins: save early, mainly use for refining and enhancement',
+    'Weekly priority: Dungeons > World Bosses > Weeklies > Dailies',
+    'Xinfa EXP: prioritize 6 stacks to unlock all bonuses, then consider 9',
+  ]},
+];
+
+const D_DUNGEONS = [
+  {id:'d1',name:'流火袭星',name_en:'Flowing Fire Starstrike',type:'副本',type_en:'Dungeon',players:5,level:96,map:'青州',map_en:'Qingzhou',difficulty:'A',banner:'#c0392b',
+    bosses:[
+      {name:'火袭将军',name_en:'Blaze General',mechanics:['扇形火焰AOE','召唤火柱·分散站位','全屏灼烧·跳跃躲避'],mechanics_en:['Cone Fire AOE','Fire Pillars: Spread','Full-screen Burn: Jump'],tips:'坦克拉背对人群，DPS分散，躲开地面火圈',tips_en:'Tank faces boss away, DPS spread, avoid ground fire circles'},
+      {name:'星陨使徒',name_en:'Starfall Apostle',mechanics:['陨石标记·分摊','星辰碎裂·远离','黑洞吸引·反跑'],mechanics_en:['Meteor Mark: Stack','Star Shatter: Run Away','Black Hole: Reverse Sprint'],tips:'陨石点名集合分摊，黑洞出现反向跑出',tips_en:'Stack for meteor, reverse sprint when black hole appears'}
+    ],rewards:'金装胚子 · 心法残页 · 突破材料',rewards_en:'Gold Gear Base · Xinfa Pages · Breakthrough Mats'},
+  {id:'d2',name:'龙骧御六合',name_en:'Dragon Soaring Six Realms',type:'团队副本',type_en:'Raid',players:10,level:100,map:'青州',map_en:'Qingzhou',difficulty:'S',banner:'#8a3a3a',
+    bosses:[
+      {name:'龙骧将军',name_en:'Dragon Soaring General',mechanics:['龙威·全屏压制','冲锋·T吃技能','龙息·侧面躲避'],mechanics_en:['Dragon Awe: Full Screen','Charge: Tank Absorb','Dragon Breath: Sidestep'],tips:'龙威期间奶妈注意抬血，冲锋T开减伤',tips_en:'Healer focus during Dragon Awe, Tank use mitigation for charge'},
+      {name:'六合阵眼',name_en:'Six Realms Core',mechanics:['六合结界·分站','阵眼守护·集火','崩坏·远离'],mechanics_en:['Six Realms: Spread','Core Guard: Focus Fire','Collapse: Move Away'],tips:'六合结界按6个方向分站，集火打掉阵眼',tips_en:'6 directions for Six Realms, focus fire the core'}
+    ],rewards:'顶级金装 · 心法9重材料 · 外观',rewards_en:'Top Gold Gear · Xinfa Lv9 Mats · Cosmetics'},
+  {id:'d3',name:'武库试炼',name_en:'Armory Trial',type:'副本',type_en:'Dungeon',players:5,level:80,map:'开封',map_en:'Kaifeng',difficulty:'B',banner:'#5a6a4a',
+    bosses:[
+      {name:'机关守卫',name_en:'Mechanical Guardian',mechanics:['旋转刀阵·跳跃','落石·躲避','核心暴露·集火'],mechanics_en:['Spinning Blade: Jump','Falling Rocks: Dodge','Core Exposed: Focus Fire'],tips:'刀阵跳起来躲，核心暴露时全力输出',tips_en:'Jump over blade spin, burst when core is exposed'}
+    ],rewards:'金装胚子 · 心法经验',rewards_en:'Gold Gear Base · Xinfa EXP'},
+  {id:'d4',name:'世界BOSS·九幽',name_en:'World Boss: Jiuyou',type:'世界BOSS',type_en:'World Boss',players:10,level:96,map:'河西',map_en:'Hexi',difficulty:'A',banner:'#4a3a6a',
+    bosses:[
+      {name:'九幽魔君',name_en:'Jiuyou Demon Lord',mechanics:['暗影波·侧闪','幽冥召唤·清小怪','噬魂·远离中圈'],mechanics_en:['Shadow Wave: Sidestep','Nether Summon: Clear Adds','Soul Drain: Leave Center'],tips:'暗影波侧闪，小怪优先清理，噬魂出中圈',tips_en:'Sidestep shadow waves, clear adds first, leave center for soul drain'}
+    ],rewards:'金色心法残页 · 装备 · 突破材料',rewards_en:'Gold Xinfa Pages · Gear · Breakthrough Mats'},
+  {id:'d5',name:'世界BOSS·镇守',name_en:'World Boss: Guardian',type:'世界BOSS',type_en:'World Boss',players:10,level:90,map:'清河',map_en:'Qinhe',difficulty:'B',banner:'#6a5a3a',
+    bosses:[
+      {name:'镇守石卫',name_en:'Guardian Stone Sentinel',mechanics:['岩石护盾·破盾','震地·跳跃','巨石投掷·横向移动'],mechanics_en:['Rock Shield: Break It','Ground Pound: Jump','Boulder Toss: Strafe'],tips:'破盾后输出窗口，震地时跳跃躲避',tips_en:'Burn shield for DPS window, jump to avoid ground pound'}
+    ],rewards:'心法残页 · 装备',rewards_en:'Xinfa Pages · Gear'},
+  {id:'d6',name:'蓬山镇守台',name_en:'Pengshan Guardian Platform',type:'副本',type_en:'Dungeon',players:5,level:100,map:'蓬山',map_en:'Pengshan',difficulty:'A',banner:'#5a7a4a',
+    bosses:[
+      {name:'镇守武卫',name_en:'Guardian Sentinel',mechanics:['连斩·格挡','气浪·跳跃','绝技·QTE'],mechanics_en:['Combo Slash: Parry','Shockwave: Jump','Ultimate: QTE'],tips:'连斩可以格挡反击，气浪跳跃躲避，绝技触发QTE',tips_en:'Parry combo slashes, jump over shockwaves, trigger QTE for ultimate'}
+    ],rewards:'伙伴材料 · 金装 · 心法经验',rewards_en:'Companion Mats · Gold Gear · Xinfa EXP'},
+];
+
+const D_TOOLS = [
+  {icon:'📊',id:'dmgCalc',name:'伤害计算器',name_en:'Damage Calculator',desc:'输入面板属性估算流派DPS',desc_en:'Estimate DPS from your stats',type:'calculator'},
+  {icon:'⏱️',id:'resetTimer',name:'每周重置倒计时',name_en:'Weekly Reset Timer',desc:'副本/周常重置剩余时间',desc_en:'Time until dungeon/weekly reset',type:'timer'},
+  {icon:'📅',id:'weeklyChecklist',name:'每周必做清单',name_en:'Weekly Checklist',desc:'副本 · 世界BOSS · 周常任务',desc_en:'Dungeons · World Bosses · Weeklies',type:'checklist'},
+  {icon:'🔗',id:'externalLinks',name:'实用工具链接',name_en:'Useful Links',desc:'玩家制作的攻略工具站',desc_en:'Player-made guide tools',type:'links'},
+];
+
+const D_FAQ = [
+  {q:'国际服和国内服能联机吗？',q_en:'Can Intl and CN servers play together?',a:'不能。国际服（Steam/Epic）和国内服（PC客户端）服务器完全独立，进度不互通，无法联机。',a_en:'No. Intl (Steam/Epic) and CN (PC client) servers are completely independent — progress and play are separate.'},
+  {q:'零氪/微氪能玩得舒服吗？',q_en:'Can F2P/low-spenders enjoy the game?',a:'完全可以。外观商城不卖数值，所有副本和探索内容免费。零氪推荐鸣金虹流派，不吃装备。',a_en:'Absolutely. Cosmetics shop doesn\'t sell stats, all dungeons and exploration are free. F2P recommended build: MingJinHong.'},
+  {q:'Steam国际服需要加速器吗？',q_en:'Does Steam Intl need a VPN?',a:'不需要。Steam版直连即可游玩。如需更低延迟，可选加速器就近节点。',a_en:'No. Steam version works without VPN. Use a gaming VPN only if you want lower latency.'},
+  {q:'金色心法分解了怎么办？',q_en:'What if I dismantled a gold xinfa?',a:'如果不小心分解了金心法，可以在交易行重新购买。强烈建议锁住所有金心法避免误操作。',a_en:'You can buy it back from the auction house. Strongly recommend locking all gold xinfa to prevent accidents.'},
+  {q:'流派能中途更换吗？',q_en:'Can I switch builds mid-game?',a:'可以。燕云十六声支持自由切换流派，但需要重新培养对应心法。前期建议选定1-2个流派深耕。',a_en:'Yes. You can freely switch builds, but you\'ll need to level up the corresponding xinfa. Stick to 1-2 builds early.'},
+  {q:'防反怎么练？',q_en:'How to practice parry?',a:'找低级怪练习格挡时机，攻击前摇时按格挡。训练场有反击教学，推荐从清河小怪开始练习。',a_en:'Practice timing on low-level mobs — block during attack wind-ups. The training ground has a parry tutorial. Start with Qinhe mobs.'},
+  {q:'每周必做有哪些？',q_en:'What are the must-do weeklies?',a:'副本（武库+试剑本）> 世界BOSS > 周常任务 > 心法经验本。时间少可跳日常，周常和副本是大头。',a_en:'Dungeons (Armory + Trial) > World Bosses > Weekly Quests > Xinfa EXP. Skip dailies if short on time, weeklies and dungeons are the main rewards.'},
+  {q:'洗练优先洗什么？',q_en:'What should I prioritize for refining?',a:'武器攻击词条 > 防具减伤 > 饰品特效。不要平均分配洗练材料，优先洗武器。',a_en:'Weapon ATK lines > Armor DEF > Accessory effects. Don\'t spread materials evenly — prioritize weapon.'},
+  {q:'游戏中卡住了怎么办？',q_en:'What if I\'m stuck in the game?',a:'检查主线等级要求、确认心法配置、卡BUG可重登解决。也可在Discord或社区求助。',a_en:'Check main quest level requirements, verify xinfa setup, relog if stuck on a bug. Ask for help on Discord or community.'},
+];
+
+function initStore(){
+  let s=getStore();
+  if(!s){s={builds:JSON.parse(JSON.stringify(D_BUILDS)),maps:JSON.parse(JSON.stringify(D_MAPS)),quests:JSON.parse(JSON.stringify(D_QUESTS)),comments:{},ratings:{},userBuilds:[],likes:{},bookmarks:{},completed:{quests:[],maps:[]},views:{}};saveStore(s)}
+  if(!s.likes)s.likes={};if(!s.bookmarks)s.bookmarks={};if(!s.completed)s.completed={quests:[],maps:[]};if(!s.views)s.views={};
+  if(!s.clueProgress)s.clueProgress={};if(!s.shefuAnswers)s.shefuAnswers=[];
+  return s;
+}
+
+function toast(m,t){
+  const e=document.createElement('div');e.className='toast toast-'+(t||'success');e.textContent=m;
+  document.body.appendChild(e);setTimeout(()=>{e.style.opacity='0';e.style.transition='opacity .3s';setTimeout(()=>e.remove(),300)},2500);
+}
+
+// ===== ROUTER =====
+function navigate(p){window.history.pushState(null,'',p);router()}
+function matchRoute(path){
+  if(path.match(/^\/build\/(.+)$/))return'buildDetail';
+  const k=path.replace('/','').split('/')[0]||'home';
+  return['newbie','builds','maps','quests','dungeons','tools','community','admin','clues','shefu'].includes(k)?k:'home';
+}
+
+function updateMeta(route){
+  const t={home:'燕云十六声攻略站 · 国际服/国内服流派攻略、地图探索、配装社区',newbie:'新手入门 · 燕云十六声攻略站 — 从零开始的完整新人指南',builds:'流派攻略 · 燕云十六声攻略站 — 最新Meta配装/心法推荐',buildDetail:'流派详情 · 燕云十六声攻略站',maps:'地图探索 · 燕云十六声攻略站 — 清河/开封/青州/蓬山全区域指南',quests:'任务攻略 · 燕云十六声攻略站 — 主线/支线/副本攻略',dungeons:'副本攻略 · 燕云十六声攻略站 — 流火袭星/龙骧御六合全BOSS机制',tools:'工具箱 · 燕云十六声攻略站 — 伤害计算器/每周重置/常见FAQ',community:'玩家社区 · 燕云十六声攻略站 — 配装分享/Discord/B站/TapTap',admin:'内容管理 · 燕云十六声攻略站 — CMS后台',clues:'抓蹊跷 · 燕云十六声 — 全地图隐藏收集品追踪',shefu:'射覆 · 燕云十六声攻略站 — 传统射覆文化介绍与猜谜'};
+  const d={home:'燕云十六声（Where Winds Meet）中文攻略站，涵盖国际服和国内服最新流派攻略、心法配装、门派介绍、地图探索、社区配装分享。',newbie:'燕云十六声新手入门指南：服务器选择、流派推荐（无名剑/枪新手首选）、1-40级快速升级路线、心法/装备/奇术核心系统详解、新手避坑大全。',builds:'2026年5月最新版本流派排行：鸣金虹、唐横刀、裂石均·陌刀、牵丝玉、破竹鸢。附心法配置和输出循环详解。',maps:'燕云十六声全地图探索指南：清河→开封→不见山→河西→青州→蓬山，优先探索顺序和关键点位一览。',quests:'燕云十六声任务攻略大全：麻布袋、中渡桥之战、流火袭星、龙骧御六合等核心任务攻略。',dungeons:'燕云十六声副本攻略大全：流火袭星（5人）、龙骧御六合（10人）、世界BOSS机制详解、推荐配装和掉落奖励一览。',tools:'燕云十六声玩家工具箱：伤害计算器、每周重置倒计时、装备对比工具、心法升级成本表、常见问题FAQ。',community:'加入燕云十六声玩家社区：Discord国际服讨论、B站视频攻略、TapTap论坛、Steam社区。分享你的配装。',clues:'燕云十六声全地图蹊跷（隐藏收集品）追踪列表：清河、开封、不见山、河西、青州、蓬山。',shefu:'燕云十六声射覆文化介绍——汉代传统猜谜游戏，包含射覆起源、卦象法、推理法及互动猜谜。'};
+  document.title=t[route]||t.home;const desc=d[route]||d.home;
+  let me=document.querySelector('meta[name="description"]');if(me)me.setAttribute('content',desc);
+  let oe=document.querySelector('meta[property="og:description"]');if(oe)oe.setAttribute('content',desc);
+  let ot=document.querySelector('meta[property="og:title"]');if(ot)ot.setAttribute('content',document.title);
+}
+
+// ===== RENDER =====
+function renderHome(){
+  const store=getStore();const builds=store.builds||[];
+  const likes=store.likes||{};const views=store.views||{};
+  const hotBuilds=builds.filter(b=>b.hot||b.essence).slice(0,3);
+  document.getElementById('app').innerHTML=`
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-decoration hero-decoration-1"></div>
+    <div class="hero-decoration hero-decoration-2"></div>
+    <div class="hero-decoration hero-decoration-3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge"><span style="width:6px;height:6px;background:var(--jade);border-radius:50%;display:inline-block;animation:pulse 2s infinite"></span> ${t('heroBadge')}</div>
+    <h1>${t('heroTitle1')} <span class="highlight">${t('heroTitle2')}</span></h1>
+    <div class="sub-en">${t('heroSub')}</div>
+    <p class="hero-tagline">${t('heroTagline')}</p>
+    <p class="hero-description">${t('heroDesc')}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary btn-lg" onclick="navigate('/builds')">${t('heroBtnBuilds')}</a>
+      <a class="btn btn-secondary btn-lg" onclick="navigate('/maps')">${t('heroBtnMaps')}</a>
+      <a class="btn btn-outline btn-lg" onclick="navigate('/community')">${t('heroBtnCommunity')}</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-value">8000万+</div><div class="hero-stat-label">${t('globalPlayers')}</div></div>
+      <div class="hero-stat"><div class="hero-stat-value">87%</div><div class="hero-stat-label">${t('steamRating')}</div></div>
+      <div class="hero-stat"><div class="hero-stat-value">12</div><div class="hero-stat-label">${t('factions')}</div></div>
+      <div class="hero-stat"><div class="hero-stat-value">10+</div><div class="hero-stat-label">${t('weaponTypes')}</div></div>
+    </div>
+  </div>
+</section>
+<section class="section" style="background:var(--surface)"><div class="container"><div class="section-header"><h2>${t('quickNavTitle')}</h2><p>${t('quickNavDesc')}</p></div><div class="quick-nav-grid">
+<a class="quick-nav-item" onclick="navigate('/newbie')"><div class="q-icon">🌱</div><div class="q-title">${t('navNewbie')}</div><div class="q-desc">${t('qnNewbie')}</div></a>
+<a class="quick-nav-item" onclick="navigate('/builds')"><div class="q-icon">📜</div><div class="q-title">${t('navBuilds')}</div><div class="q-desc">${t('qnBuilds')}</div></a>
+<a class="quick-nav-item" onclick="navigate('/dungeons')"><div class="q-icon">⚔️</div><div class="q-title">${t('navDungeons')}</div><div class="q-desc">${t('qnDungeons')}</div></a>
+<a class="quick-nav-item" onclick="navigate('/maps')"><div class="q-icon">🗺️</div><div class="q-title">${t('navMaps')}</div><div class="q-desc">${t('qnMaps')}</div></a>
+<a class="quick-nav-item" onclick="navigate('/clues')"><div class="q-icon">🔍</div><div class="q-title">${t('navClues')}</div><div class="q-desc">${t('qnClues')}</div></a>
+<a class="quick-nav-item" onclick="navigate('/tools')"><div class="q-icon">🧰</div><div class="q-title">${t('navTools')}</div><div class="q-desc">${t('qnTools')}</div></a>
+<a class="quick-nav-item" onclick="navigate('/community')"><div class="q-icon">👥</div><div class="q-title">${t('navCommunity')}</div><div class="q-desc">${t('qnCommunity')}</div></a>
+</div></div></section>
+${hotBuilds.length?`<section class="section" style="background:var(--surface)"><div class="container"><div class="section-header"><h2>${t('hotRecommend')}</h2><p>${t('hotDesc')}</p></div><div class="build-grid">${hotBuilds.map(b=>{const lk=likes[b.id]||0;const vw=views[b.id]||0;return'<div class="build-card" onclick="navigate(\'/build/'+b.id+'\')"><div class="build-banner" style="background:linear-gradient(135deg,'+b.banner+',transparent)"><div class="overlay"></div>'+__t(b.name,b.name_en)[0]+'</div><div class="build-body"><div class="meta">'+b.tier+'-Tier · '+__t(b.type,b.type_en)+'</div><h3>'+__t(b.name,b.name_en)+'</h3><div class="sub">'+__t(b.weapons,b.weapons_en)+'</div><div class="tags">'+b.tags.map((t,i)=>'<span class="tag '+(t.includes('S')?'tag-s':t.includes('A')?'tag-a':'tag-b')+'">'+__t(t,b.tags_en[i])+'</span>').join('')+'</div><p>'+__t(b.desc,b.desc_en).slice(0,60)+'...</p><div class="action-bar"><span style="font-size:.68rem;color:var(--text3)">❤️ '+lk+' · 👁️ '+vw+'</span></div></div></div>'}).join('')}</div></div></section>`:''}
+<section class="section"><div class="container"><div class="section-header"><h2>${t('quickTips')}</h2><p>${t('tipsSub')}</p></div><div class="tips-carousel">${[[__t('🗡️','🗡️'),__t('易水歌优先级','YiShuiGe Priority'),__t('80%流派核心，长鸣玉优先兑换','Core xinfa for 80% of builds, priority buy'),__t('心法','Xinfa')],[__t('🛡️','🛡️'),__t('心法别分解','Keep Gold Xinfa'),__t('所有金色心法后期都会用到','All gold xinfa useful endgame'),__t('资源','Resources')],[__t('🗺️','🗺️'),__t('探索顺序','Exploration Order'),__t('清河→开封→不见山→河西','Qinhe→Kaifeng→Bujianshan→Hexi'),__t('地图','Map')],[__t('💡','💡'),__t('质变节点','Breakpoints'),__t('无名心法1/4/6重是关键','Nameless xinfa lv1/4/6 matter most'),__t('养成','Growth')],[__t('🌍','🌍'),__t('国际服注意','Intl Server Tips'),__t('Steam无需加速器·进度不同步','No VPN needed, progress behind CN'),__t('国际服','Intl')]].map(t=>'<div class="tip-card" onclick="navigate(\'/builds\')"><div class="tc-icon">'+t[0]+'</div><h4>'+t[1]+'</h4><p>'+t[2]+'</p><span class="tc-tag">'+t[3]+'</span></div>').join('')}</div></div></section>
+<section class="section server-tabs"><div class="container"><div class="section-header"><h2>${t('servers')}</h2></div>
+<div class="tab-bar"><button class="tab-btn active" data-tab="cn">${t('homeTabCN')}</button><button class="tab-btn" data-tab="intl">${t('homeTabIntl')}</button></div>
+<div class="tab-content active" id="tab-cn"><div class="server-grid">
+<div class="server-card"><div class="icon">🎮</div><h4>${t('serverCN1T')}</h4><p>${t('serverCN1D')}</p></div>
+<div class="server-card"><div class="icon">💰</div><h4>${t('serverCN2T')}</h4><p>${t('serverCN2D')}</p></div>
+<div class="server-card"><div class="icon">🗺️</div><h4>${t('serverCN3T')}</h4><p>${t('serverCN3D')}</p></div>
+<div class="server-card"><div class="icon">⭐</div><h4>${t('serverCN4T')}</h4><p>${t('serverCN4D')}</p></div>
+</div></div>
+<div class="tab-content" id="tab-intl"><div class="server-grid">
+<div class="server-card"><div class="icon">🎮</div><h4>${t('serverIntl1T')}</h4><p>${t('serverIntl1D')}</p></div>
+<div class="server-card"><div class="icon">💰</div><h4>${t('serverIntl2T')}</h4><p>${t('serverIntl2D')}</p></div>
+<div class="server-card"><div class="icon">🗺️</div><h4>${t('serverIntl3T')}</h4><p>${t('serverIntl3D')}</p></div>
+<div class="server-card"><div class="icon">⭐</div><h4>${t('serverIntl4T')}</h4><p>${t('serverIntl4D')}</p></div>
+</div></div></div></section>
+<section class="section" style="background:var(--surface)"><div class="container"><div class="section-header"><h2>${t('factionTitle')}</h2><p>${t('factionDesc')}</p></div>
+<div class="faction-grid">${[__t('无门无派·自由探索·全武器兼容','Unaffiliated·Any Weapon·Free Exploration'),__t('天泉·肉盾坦克·陌刀','Tianquan·Tank·Blade Staff'),__t('狂澜·输出防御双修·枪','Kuanglan·DPS/Tank Hybrid·Spear'),__t('孤云·均衡输出·剑·新手','Guyun·Balanced·Sword·Beginner'),__t('三更天·极限输出·双刀','Sangengtian·Pure DPS·Dual Blades'),__t('青溪·唯一治疗·扇','Qingxi·Healer·Fan'),__t('醉花阴·更新中','Zuihuayin·Coming Soon'),__t('九流门·更新中','Jiuliumen·Coming Soon')].map(s=>{const a=s.split('·');return'<div class="faction-card"><h4>'+a[0]+'</h4><p>'+a.slice(1).join(' · ')+'</p></div>'}).join('')}</div></div></section>
+<section class="section"><div class="container"><div class="section-header"><h2>${t('communityHighlights')}</h2><p>${t('ctipDesc')}</p></div>
+<div class="tip-list">${[__t('长鸣玉优先兑换易水歌·易水歌是80%流派的核心心法，前期长鸣玉千万不要乱花。','ChangMingYu: only exchange YiShuiGe · Core xinfa for 80% of builds'),
+__t('金色心法不要分解·所有金色心法后期转流派都可能用到，全部保留。','Keep all gold xinfa · You will need them later when switching builds'),
+__t('地图解锁顺序·清河→开封→不见山→河西，优先开蹊跷和传送点。','Map unlock order: Qinhe→Kaifeng→Bujianshan→Hexi, prioritize clues and waypoints'),
+__t('心法质变节点·无名心法1/4/6重·花上月令3/6重·征人归6重。','Xinfa breakpoints: Nameless 1/4/6 · Huashang 3/6 · Zhengren 6'),
+__t('国际服玩家注意·Steam版无需加速器·支持多语言·与国服进度不同步。','Intl players: Steam no VPN needed · Multi-language · Progress behind CN server')].map((s,i)=>{const a=s.split('·');return'<div class="tip-item"><div class="tip-num">'+(i+1)+'</div><div><h4>'+a[0]+'</h4><p>'+a.slice(1).join(' · ')+'</p></div></div>'}).join('')}</div></div></section>
+<section class="section" style="background:var(--surface)"><div class="container"><div class="section-header"><h2>${t('latestUpdates')}</h2></div>
+<div class="news-list">${[['29',__t('蓬山+伙伴系统上线','Pengshan + Companion System'),__t('青州子区域蓬山开放，猫咪(4只)和大鹅(3只)伙伴可跟随采集搜宝箱。','Qingzhou sub-region Pengshan opens, cat (4) and goose (3) companions can follow and collect treasure.')],['21',__t('袁和平加盟任动作总顾问','Yuen Woo-ping as Action Director'),__t('袁家班优化醉拳、长枪、棍法等武学表现。','Yuen Clan optimizes Drunken Fist, Spear, Staff combat animations.')],['15',__t('2.6.0B「海岱有朋来」更新','v2.6.0B "Friends from the Sea"'),__t('5人本流火袭星·10人团本龙骧御六合·绳镖外观上架。','5P Flowing Fire Starstrike · 10P Dragon Soaring Six Realms · Rope Dart skin')],['09',__t('止戈保底调平上线','PVP Balance Adjustment'),__t('PVP低造诣自动推荐调整属性，养成门槛大幅降低。','PVP auto stat adjustment, gear threshold greatly reduced.')]].map(n=>'<div class="news-item"><div class="news-date"><span class="d">'+n[0]+'</span>2026/05</div><div><h4>'+n[1]+'</h4><p>'+n[2]+'</p></div></div>').join('')}</div></div></section>
+<section class="section cta-section"><div class="container"><h2>${t('ctaTitle')}</h2><p>${t('ctaDesc')}</p><div class="hero-actions"><a class="btn btn-primary" onclick="navigate('/builds')">${t('heroBtnBuilds')}</a><a class="btn btn-outline" onclick="navigate('/maps')">${t('heroBtnMaps')}</a><a class="btn btn-outline" onclick="navigate('/quests')">${t('ctaBtnQuests')}</a></div></div></section>`;
+  setTimeout(()=>{
+    document.querySelectorAll('.server-tabs .tab-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.server-tabs .tab-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.server-tabs .tab-content').forEach(x=>x.classList.remove('active'));const t=document.getElementById('tab-'+b.dataset.tab);if(t)t.classList.add('active')}));
+  },50);
+}
+
+function renderBuilds(){
+  const store=getStore();const all=[...(store.builds||[]),...(store.userBuilds||[]).map(b=>({...b,isUser:true}))];const ratings=store.ratings||{};const likes=store.likes||{};const bookmarks=store.bookmarks||{};
+  const cards=all.map(b=>{const r=ratings[b.id];const rs=r&&r.count>0?'<span style="color:var(--gold-light)">★</span> '+(r.total/r.count).toFixed(1)+' ('+r.count+'人)':'';const lk=likes[b.id]||0;const bm=bookmarks[b.id]?' bookmarked':'';const badges=(b.essence?'<span class="badge badge-essence">📌'+__t('精华','Essence')+'</span> ':'')+(b.hot?'<span class="badge badge-hot">🔥'+__t('热门','Hot')+'</span> ':'')+(b.new?'<span class="badge badge-new">🆕'+__t('新','New')+'</span> ':'');return'<div class="build-card" onclick="navigate(\'/build/'+b.id+'\')"><div class="build-banner" style="background:linear-gradient(135deg,'+(b.banner||'var(--border)')+',transparent)"><div class="overlay"></div>'+__t(b.name,b.name_en)[0]+'</div><div class="build-body"><div class="meta">'+b.tier+'-Tier · '+__t(b.type,b.type_en)+'</div><h3>'+__t(b.name,b.name_en)+(b.isUser?' <span class="editing-badge">'+__t('玩家分享','Shared')+'</span>':'')+'</h3><div class="sub">'+__t(b.weapons,b.weapons_en)+'</div>'+badges+'<div class="tags">'+b.tags.map((t,i)=>'<span class="tag '+(t.includes('S')?'tag-s':t.includes('A')?'tag-a':'tag-b')+'">'+__t(t,(b.tags_en||[])[i]||t)+'</span>').join('')+'</div><p>'+__t(b.desc,b.desc_en)+'</p>'+(rs?'<div style="font-size:.72rem;color:var(--text3);margin-top:.4rem">'+rs+'</div>':'')+'<div class="action-bar" onclick="event.stopPropagation()"><span class="action-btn'+(lk>0?' liked':'')+'" onclick="toggleLike(\''+b.id+'\',this)">❤️ <span class="count">'+lk+'</span></span><span class="action-btn'+bm+'" onclick="toggleBookmark(\''+b.id+'\',this)">🔖 <span class="count">'+(bookmarks[b.id]?t('detailBookmarked'):t('detailBookmark'))+'</span></span></div></div></div>'}).join('');
+  document.getElementById('app').innerHTML=`
+<section class="section" style="padding-top:6rem"><div class="container">
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1rem"><h2 style="margin-bottom:0">${t('buildTitle')}</h2><button class="btn btn-sm btn-primary" onclick="navigate('/community')">${t('shareBuild')}</button></div>
+<div class="tab-bar" style="margin-bottom:1.25rem">
+  <button class="tab-btn ${currentBuildsTab==='builds'?'active':''}" onclick="switchBuildsTab('builds')">${t('buildsTabBuilds')}</button>
+  <button class="tab-btn ${currentBuildsTab==='guide'?'active':''}" onclick="switchBuildsTab('guide')">${t('buildsTabGuide')}</button>
+</div>
+${currentBuildsTab==='guide'?renderBuildGuideContent():`
+<div class="search-bar"><input type="text" id="buildSearch" placeholder="${t('buildsSearchPlaceholder')}" oninput="filterBuilds()"><select id="weaponFilter" onchange="filterBuilds()"><option value="">${t('buildsAllWeapons')}</option><option value="无名剑">无名剑</option><option value="无名枪">无名枪</option><option value="唐横刀">唐横刀</option><option value="陌刀">陌刀</option><option value="手甲">手甲</option><option value="九重春色">九重春色</option><option value="青山执笔">青山执笔</option></select><select id="tierFilter" onchange="filterBuilds()"><option value="">${t('buildsAllTier')}</option><option value="S">S-Tier</option><option value="A">A-Tier</option><option value="B">B-Tier</option></select></div>
+<div class="build-grid" id="buildGrid">${cards}</div>
+<div style="text-align:center;margin-top:2rem;color:var(--text3);font-size:.78rem">${t('buildsTotal').replace('{n}',all.length)}</div>
+`}
+</div></section>`;
+}
+function filterBuilds(){
+  const q=(document.getElementById('buildSearch')?.value||'').toLowerCase();const w=document.getElementById('weaponFilter')?.value||'';const t=document.getElementById('tierFilter')?.value||'';
+  const store=getStore();const all=[...(store.builds||[]),...(store.userBuilds||[]).map(b=>({...b,isUser:true}))];const ratings=store.ratings||{};
+  const filtered=all.filter(b=>{if(q&&!b.name.toLowerCase().includes(q)&&!b.weapons.toLowerCase().includes(q)&&!b.xinfa.toLowerCase().includes(q))return false;if(w&&!b.weaponTags?.some(x=>x.includes(w)))return false;if(t&&b.tier!==t)return false;return true});
+  const grid=document.getElementById('buildGrid');if(!grid)return;
+  grid.innerHTML=filtered.map(b=>{const r=ratings[b.id];const rs=r&&r.count>0?'<span style="color:var(--gold-light)">★</span> '+(r.total/r.count).toFixed(1)+' ('+r.count+'人)':'';const lk=(store.likes||{})[b.id]||0;const bm=(store.bookmarks||{})[b.id]?' bookmarked':'';const badges=(b.essence?'<span class="badge badge-essence">📌'+__t('精华','Essence')+'</span> ':'')+(b.hot?'<span class="badge badge-hot">🔥'+__t('热门','Hot')+'</span> ':'')+(b.new?'<span class="badge badge-new">🆕'+__t('新','New')+'</span> ':'');return'<div class="build-card" onclick="navigate(\'/build/'+b.id+'\')"><div class="build-banner" style="background:linear-gradient(135deg,'+(b.banner||'var(--border)')+',transparent)"><div class="overlay"></div>'+__t(b.name,b.name_en)[0]+'</div><div class="build-body"><div class="meta">'+b.tier+'-Tier · '+__t(b.type,b.type_en)+'</div><h3>'+__t(b.name,b.name_en)+(b.isUser?' <span class="editing-badge">'+__t('玩家分享','Shared')+'</span>':'')+'</h3><div class="sub">'+__t(b.weapons,b.weapons_en)+'</div>'+badges+'<div class="tags">'+b.tags.map((t,i)=>'<span class="tag '+(t.includes('S')?'tag-s':t.includes('A')?'tag-a':'tag-b')+'">'+__t(t,(b.tags_en||[])[i]||t)+'</span>').join('')+'</div><p>'+__t(b.desc,b.desc_en)+'</p>'+(rs?'<div style="font-size:.72rem;color:var(--text3);margin-top:.4rem">'+rs+'</div>':'')+'<div class="action-bar" onclick="event.stopPropagation()"><span class="action-btn'+(lk>0?' liked':'')+'" onclick="toggleLike(\''+b.id+'\',this)">❤️ <span class="count">'+lk+'</span></span><span class="action-btn'+bm+'" onclick="toggleBookmark(\''+b.id+'\',this)">🔖 <span class="count">'+(store.bookmarks[b.id]?t('detailBookmarked'):t('detailBookmark'))+'</span></span></div></div></div>'}).join('');
+}
+
+function renderBuildDetail(id){
+  const store=getStore();if(!store.views)store.views={};store.views[id]=(store.views[id]||0)+1;saveStore(store);
+  const all=[...(store.builds||[]),...(store.userBuilds||[]).map(b=>({...b,isUser:true}))];const build=all.find(b=>b.id===id);
+  if(!build){navigate('/builds');return}
+  const ratings=store.ratings||{};const r=ratings[id]||{total:0,count:0};const avg=r.count>0?(r.total/r.count).toFixed(1):t('detailRatingNone');const comments=(store.comments||{})[id]||[];const likes=store.likes||{};const bookmarks=store.bookmarks||{};const lk=likes[id]||0;const bm=bookmarks[id]?' bookmarked':'';
+  const related=all.filter(b=>b.id!==id&&b.weaponTags?.some(w=>build.weaponTags?.includes(w))).slice(0,4);
+  const badges=(build.essence?'<span class="badge badge-essence">📌'+__t('精华','Essence')+'</span> ':'')+(build.hot?'<span class="badge badge-hot">🔥'+__t('热门','Hot')+'</span> ':'')+(build.new?'<span class="badge badge-new">🆕'+__t('新','New')+'</span> ':'');
+  document.getElementById('app').innerHTML=`
+<section class="section" style="padding-top:6rem"><div class="container build-detail">
+<div class="back-link" onclick="navigate('/builds')">${t('detailBack')}</div>
+<h2>${__t(build.name,build.name_en)}${build.isUser?' <span class="editing-badge">'+__t('玩家分享','Shared')+'</span>':''}</h2>
+<div class="subtitle">${__t(build.weapons,build.weapons_en)} · ${build.tier}-Tier · ${__t(build.type,build.type_en)}${badges?'<br>'+badges:''}</div>
+<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem">
+<span class="action-btn${lk>0?' liked':''}" onclick="toggleLike('${id}',this)">❤️ <span class="count">${lk}</span> ${t('detailLikes')}</span>
+<span class="action-btn${bm}" onclick="toggleBookmark('${id}',this)">🔖 ${bookmarks[id]?t('detailBookmarked'):t('detailBookmark')}</span>
+</div>
+<div class="rating-display"><div class="avg">${avg}</div><div class="stars">${[1,2,3,4,5].map(i=>'<span onclick="rateBuild(\''+id+'\','+i+')" '+(r.count>0&&i<=Math.round(r.total/r.count)?'class="active"':'')+'>★</span>').join('')}</div><div class="count">${r.count>0?r.count+' '+t('detailReviews'):t('detailRatingNone')}</div></div>
+${build.video?`<div class="video-embed" onclick="window.open('https://www.bilibili.com/video/${build.video}','_blank')"><div class="play-icon">▶</div><div><div class="vi-title">${t('detailVideoBilibili')}</div><div class="vi-source">BV ${build.video} · ${t('detailVideoSub')}</div></div></div>`:''}
+<div class="info-grid"><div class="card" style="border-radius:var(--radius)"><div style="padding:1rem"><div class="section-title" style="margin-top:0">${t('detailXinfa')}</div><p>${build.xinfa}</p></div></div><div class="card" style="border-radius:var(--radius)"><div style="padding:1rem"><div class="section-title" style="margin-top:0">${t('detailQishu')}</div><p>${build.qishu||t('detailToBeConfirmed')}</p></div></div></div>
+<div class="card" style="border-radius:var(--radius);margin-top:1rem"><div style="padding:1rem"><div class="section-title" style="margin-top:0">${t('detailDetail')}</div><p>${build.desc}</p><div style="margin-top:.6rem;display:flex;gap:.3rem;flex-wrap:wrap">${build.tags.map((t,i)=>'<span class="tag tag-s">'+__t(t,(build.tags_en||[])[i]||t)+'</span>').join('')}</div></div></div>
+${related.length?`<div class="card" style="border-radius:var(--radius);margin-top:1rem"><div style="padding:1rem"><div class="section-title" style="margin-top:0">${t('detailRelated')}<span style="font-weight:300;color:var(--text3);font-size:.8rem">${t('detailSameWeapon')}</span></div><div class="related-grid">${related.map(x=>'<div class="related-item" onclick="navigate(\'/build/'+x.id+'\')">'+__t(x.name,x.name_en)+'<br><span style="font-size:.68rem;color:var(--text3)">'+__t(x.weapons,x.weapons_en)+' · '+x.tier+'-Tier</span></div>').join('')}</div></div></div>`:''}
+<div class="card" style="border-radius:var(--radius);margin-top:1rem"><div style="padding:1rem"><div class="section-title" style="margin-top:0">${t('detailRatingTitle')}</div><p style="margin-bottom:.5rem;color:var(--text2);font-size:.82rem">${t('detailRatingPrompt')}</p><div class="stars" style="font-size:1.4rem">${[1,2,3,4,5].map(i=>'<span onclick="rateBuild(\''+id+'\','+i+')">★</span>').join('')}</div></div></div>
+<div class="card" style="border-radius:var(--radius);margin-top:1rem"><div style="padding:1rem"><div class="section-title" style="margin-top:0">${t('detailComments').replace('{n}',comments.length)}</div><div class="comment-box"><textarea id="commentText" placeholder="${t('detailCommentPlaceholder')}"></textarea><button class="btn btn-sm btn-primary" style="margin-top:.5rem" onclick="addComment('${id}')">${t('detailPostComment')}</button></div><div id="commentList">${comments.length===0?'<p style="color:var(--text3);font-size:.82rem;padding:.5rem 0">${t('detailNoComments')}</p>':comments.map((c,ci)=>'<div class="comment-item"><div class="comment-header"><span class="avatar" style="background:'+['#c9a04a','#5a8ab8','#5ab89a','#dc5252','#b08ac8'][ci%5]+'">'+c.author[0]+'</span><span class="author">'+c.author+'</span><span class="time">'+c.time+'</span><span class="reply-btn" onclick="showReply('+ci+')">${t('detailReply')}</span></div><div class="text">'+c.text+'</div><div class="reply-box" id="replyBox'+ci+'"><textarea id="replyText'+ci+'" style="width:100%;padding:.5rem;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:.78rem;outline:none;resize:none;min-height:36px;font-family:inherit" placeholder="${t('detailCommentPlaceholder')}"></textarea><button class="btn btn-sm btn-ghost" style="margin-top:.25rem" onclick="addReply('+ci+',\'${id}\')">${t('detailReply')}</button></div>'+(c.replies||[]).map(ri=>'<div class="reply-item"><span class="author">'+ri.author+'</span> <span class="text">'+ri.text+'</span></div>').join('')+'</div>').join('')}</div></div></div>
+</div></section>`;
+}
+
+function renderMaps(){
+  const store=getStore();const maps=store.maps||[];const done=store.completed?.maps||[];
+  document.getElementById('app').innerHTML=`
+<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>🗺️ 地图探索</h2><p>推荐探索顺序：清河 → 开封 → 不见山 → 河西 → 青州 → 蓬山</p></div>
+<div class="progress-stat">${t('mapsCompleted').replace('{done}',done.length).replace('{total}',maps.length)}</div><div class="progress-bar"><div class="progress-bar-inner" style="width:${maps.length?(done.length/maps.length*100).toFixed(0):0}%"></div></div>
+<div class="map-grid">${maps.map(m=>{const dd=done.includes(m.id);return'<div class="map-card"><div class="map-banner" style="background:linear-gradient(135deg,'+m.color+'33,transparent);color:'+m.color+'">'+__t(m.name,m.name_en)+'</div><div class="map-body"><div class="progress-item" style="border:none;padding:0 0 .4rem;margin-bottom:.4rem"><div class="progress-cb'+(dd?' done':'')+'" onclick="toggleComplete(\'maps\',\''+m.id+'\')"></div><span class="progress-text'+(dd?' done':'')+'">${t('mapExplored')}</span></div><p>'+__t(m.desc,m.desc_en)+'</p><div class="points">'+m.points.map((p,i)=>'<span class="tag tag-s">'+__t(p,(m.points_en||[])[i]||p)+'</span>').join('')+'</div></div></div>'}).join('')}</div></div></section>`;
+}
+
+function renderQuests(){
+  const store=getStore();const quests=store.quests||[];const done=store.completed?.quests||[];
+  document.getElementById('app').innerHTML=`
+<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>📋 任务攻略</h2><p>主线 · 支线 · 副本 · 探索任务指南</p></div>
+<div class="progress-stat">${t('questsProgress').replace('{done}',done.length).replace('{total}',quests.length)}</div><div class="progress-bar"><div class="progress-bar-inner" style="width:${quests.length?(done.length/quests.length*100).toFixed(0):0}%"></div></div>
+<div class="search-bar"><input type="text" id="questSearch" placeholder="${t('questsSearchPlaceholder')}" oninput="filterQuests()"><select id="questTypeFilter" onchange="filterQuests()"><option value="">${t('questsAllTypes')}</option><option value="主线">${__t('主线','Main')}</option><option value="支线">${__t('支线','Side')}</option><option value="副本">${__t('副本','Dungeon')}</option><option value="探索">${__t('探索','Exploration')}</option></select><select id="questMapFilter" onchange="filterQuests()"><option value="">${t('questsAllMaps')}</option>${[...new Map(quests.map(q=>[q.map,q]))].map(([_,q])=>'<option value="'+q.map+'">'+__t(q.map,q.map_en)+'</option>').join('')}</select></div>
+<div class="tip-list" id="questList">${quests.map(q=>{const dd=done.includes(q.id);return'<div class="tip-item"><div class="tip-num" style="font-size:.65rem">'+__t(q.type,q.type_en)+'</div><div><div class="progress-item" style="border:none;padding:0 0 .2rem"><div class="progress-cb'+(dd?' done':'')+'" onclick="toggleComplete(\'quests\',\''+q.id+'\')"></div><h4 style="margin:0;font-size:.9rem'+(dd?';color:var(--text3);text-decoration:line-through':'')+'">'+__t(q.name,q.name_en)
++'</h4></div><p style="font-size:.78rem;color:var(--text2);margin:0">📍 '+__t(q.map,q.map_en)+' · '+__t(q.desc,q.desc_en)+'</p></div></div>'}).join('')}</div></div></section>`;
+}
+function filterQuests(){
+  const q=(document.getElementById('questSearch')?.value||'').toLowerCase();const t=document.getElementById('questTypeFilter')?.value||'';const m=document.getElementById('questMapFilter')?.value||'';
+  const store=getStore();const filtered=(store.quests||[]).filter(x=>{if(q&&!__t(x.name,x.name_en).toLowerCase().includes(q)&&!x.desc.toLowerCase().includes(q))return false;if(t&&x.type!==t)return false;if(m&&x.map!==m)return false;return true});
+  const list=document.getElementById('questList');if(!list)return;
+  const done=store.completed?.quests||[];
+  list.innerHTML=filtered.map(q=>{const dd=done.includes(q.id);return'<div class="tip-item"><div class="tip-num" style="font-size:.65rem">'+__t(q.type,q.type_en)+'</div><div><div class="progress-item" style="border:none;padding:0 0 .2rem"><div class="progress-cb'+(dd?' done':'')+'" onclick="toggleComplete(\'quests\',\''+q.id+'\')"></div><h4 style="margin:0;font-size:.9rem'+(dd?';color:var(--text3);text-decoration:line-through':'')+'">'+__t(q.name,q.name_en)
++'</h4></div><p style="font-size:.78rem;color:var(--text2);margin:0">📍 '+__t(q.map,q.map_en)+' · '+__t(q.desc,q.desc_en)+'</p></div></div>'}).join('');
+}
+
+function renderCommunity(){
+  const store=getStore();const ub=store.userBuilds||[];
+  document.getElementById('app').innerHTML=`
+<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>👥 玩家社区</h2><p>加入社区 · 分享你的配装 · 与其他玩家交流</p></div>
+<div class="community-grid" style="margin-bottom:2rem">${[
+  ['💬','Discord 国际社区','国际服玩家聚集地，英文/中文频道','https://discord.gg/wherewindsmeet'],
+  ['📺','B站官方','最新视频攻略、版本预告、玩法解析','https://space.bilibili.com/3546787875972964'],
+  ['📱','TapTap 社区','国内玩家评分、论坛讨论、配装分享','https://www.taptap.cn/app/234251'],
+  ['🎮','Steam 社区','国际服讨论、评测、指南','https://steamcommunity.com/app/3173720']
+].map(s=>'<a href="'+s[3]+'" target="_blank" rel="noopener" class="social-card"><div class="sicon">'+s[0]+'</div><div><h4>'+s[1]+'</h4><p>'+s[2]+'</p></div></a>').join('')}</div>
+<div class="share-section"><h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:.75rem">${t('communityShareTitle')}</h3>
+<div class="form-row"><div class="form-group"><label>${t('communityBuildName')}</label><input id="ubName" placeholder="${__t('如：我的冰火流','e.g. My Ice-Fire Build')}"></div><div class="form-group"><label>${t('communityWeapon')}</label><input id="ubWeapons" placeholder="${__t('如：无名剑+无名枪','e.g. Sword + Spear')}"></div></div>
+<div class="form-row"><div class="form-group"><label>${t('communityXinfa')}</label><input id="ubXinfa" placeholder="${t('communityXinfa')}"></div><div class="form-group"><label>${t('communityTierLabel')}</label><select id="ubTier"><option value="S">S-Tier</option><option value="A">A-Tier</option><option value="B">B-Tier</option></select></div></div>
+<div class="form-group"><label>${t('communityDescLabel')}</label><textarea id="ubDesc" placeholder="${__t('简述流派玩法、核心思路...','Describe your build...')}"></textarea></div>
+<button class="btn btn-sm btn-primary" onclick="shareBuild()">${t('communityPublish')}</button></div>
+<h3 style="font-size:1rem;color:var(--gold);margin-bottom:.75rem;margin-top:1.5rem">${t('communityPlayerBuilds').replace('{n}',ub.length)}</h3>
+<div id="userBuildList">${ub.length===0?'<p style="color:var(--text3);font-size:.82rem">${t('communityNoBuilds')}</p>':ub.map(b=>'<div class="build-card" style="cursor:default;margin-bottom:.75rem"><div class="build-body"><h3>'+b.name+' <span class="editing-badge">${__t('玩家分享','Shared')}</span></h3><div class="sub">'+b.weapons+' · '+b.tier+'-Tier</div><p><strong>${t('detailXinfa')}：</strong>'+b.xinfa+'<br>'+b.desc+'</p></div></div>').join('')}</div></div></section>`;
+}
+
+function renderAdmin(){
+  const store=getStore();const bc=(store.builds||[]).length+(store.userBuilds||[]).length;const mc=(store.maps||[]).length;const qc=(store.quests||[]).length;const cc=Object.values(store.comments||{}).reduce((s,a)=>s+a.length,0);
+  document.getElementById('app').innerHTML=`
+<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>${t('adminTitle')}</h2><p>${t('adminDesc')}</p></div>
+<div class="admin-grid"><div class="admin-card" onclick="showAdminTab('builds')"><div class="anum">${bc}</div><div class="alabel">${t('adminBuilds')}</div></div><div class="admin-card" onclick="showAdminTab('maps')"><div class="anum">${mc}</div><div class="alabel">${t('adminMaps')}</div></div><div class="admin-card" onclick="showAdminTab('quests')"><div class="anum">${qc}</div><div class="alabel">${t('adminQuests')}</div></div><div class="admin-card" onclick="showAdminTab('comments')"><div class="anum">${cc}</div><div class="alabel">${t('adminComments')}</div></div></div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:1.25rem"><p style="font-size:.78rem;color:var(--text3);margin-bottom:.6rem">💡 数据存储在浏览器 localStorage 中，清除浏览器缓存会丢失数据。</p><button class="btn btn-sm btn-outline" onclick="exportData()">📥 导出数据</button><button class="btn btn-sm btn-ghost" onclick="document.getElementById('importInput').click()">📤 导入数据</button><input type="file" id="importInput" accept=".json" style="display:none" onchange="importData(event)"><button class="btn btn-sm btn-danger" style="margin-left:.4rem" onclick="resetData()">🔄 重置</button></div>
+<div id="adminPanel"><div class="tab-bar"><button class="tab-btn active" onclick="showAdminTab('builds')">${t('adminBuilds')}</button><button class="tab-btn" onclick="showAdminTab('maps')">${t('adminMaps')}</button><button class="tab-btn" onclick="showAdminTab('quests')">${t('adminQuests')}</button><button class="tab-btn" onclick="showAdminTab('comments')">${t('adminComments')}</button></div>
+<div id="adminBuilds"></div><div id="adminMaps" style="display:none"></div><div id="adminQuests" style="display:none"></div><div id="adminComments" style="display:none"></div></div></div></section>`;
+  showAdminTab('builds');
+}
+
+function showAdminTab(tab){
+  const store=getStore();
+  document.querySelectorAll('#adminPanel .tab-btn').forEach((b,i)=>{b.classList.toggle('active',['builds','maps','quests','comments'][i]===tab)});
+  ['adminBuilds','adminMaps','adminQuests','adminComments'].forEach(id=>document.getElementById(id).style.display=id==='admin'+tab.charAt(0).toUpperCase()+tab.slice(1)?'block':'none');
+  if(tab==='builds'){
+    const all=[...(store.builds||[]).map(b=>({...b,src:__t('官方','Official')})),...(store.userBuilds||[]).map(b=>({...b,src:__t('玩家','Player')}))];
+    document.getElementById('adminBuilds').innerHTML=`<button class="btn btn-sm btn-primary" style="margin-bottom:.75rem" onclick="showAddForm()">${t('adminAddBuild')}</button>
+    <div id="addBuildForm" style="display:none;margin-bottom:1.25rem;padding:.85rem;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border)">
+      <div class="form-row"><div class="form-group"><label>${t('adminName')}</label><input id="abName"></div><div class="form-group"><label>${t('communityWeapon')}</label><input id="abWeapons"></div></div>
+      <div class="form-row"><div class="form-group"><label>${t('communityTierLabel')}</label><select id="abTier"><option value="S">S</option><option value="A">A</option><option value="B">B</option></select></div><div class="form-group"><label>${t('adminType')}</label><input id="abType"></div></div>
+      <div class="form-group"><label>${t('communityXinfa')}</label><input id="abXinfa"></div><div class="form-group"><label>${t('communityDescLabel')}</label><textarea id="abDesc"></textarea></div>
+      <button class="btn btn-sm btn-success" onclick="saveAdminBuild()">${t('adminSave')}</button><button class="btn btn-sm btn-ghost" onclick="document.getElementById('addBuildForm').style.display='none'">${t('adminCancel')}</button></div>
+    <table class="admin-table"><tr><th>${t('adminName')}</th><th>${t('adminWeapon')}</th><th>${t('adminTier')}</th><th>${t('adminSource')}</th><th>${t('adminActions')}</th></tr>${all.map(b=>'<tr><td>'+b.name+'</td><td>'+b.weapons+'</td><td>'+b.tier+'</td><td>'+b.src+'</td><td><button class="btn btn-sm btn-ghost" onclick="deleteBuild(\''+b.id+'\')">${t('adminDelete')}</button></td></tr>').join('')}</table>`;
+  } else if(tab==='maps'){
+    document.getElementById('adminMaps').innerHTML=`<table class="admin-table"><tr><th>${t('adminName')}</th><th>${t('adminOrder')}</th><th>${t('adminDesc')}</th></tr>${(store.maps||[]).map(m=>'<tr><td>'+m.name+'</td><td>'+m.order+'</td><td>'+m.desc+'</td></tr>').join('')}</table>`;
+  } else if(tab==='quests'){
+    document.getElementById('adminQuests').innerHTML=`<table class="admin-table"><tr><th>${t('adminName')}</th><th>${t('adminArea')}</th><th>${t('adminType')}</th><th>${t('adminDesc')}</th></tr>${(store.quests||[]).map(q=>'<tr><td>'+__t(q.name,q.name_en)
++'</td><td>'+q.map+'</td><td>'+__t(q.type,q.type_en)+'</td><td>'+q.desc+'</td></tr>').join('')}</table>`;
+  } else if(tab==='comments'){
+    const all=Object.entries(store.comments||{});
+    document.getElementById('adminComments').innerHTML=all.length===0?'<p style="color:var(--text3);font-size:.82rem">${t('adminNoComments')}</p>':all.map(([bid,cmts])=>'<div style="margin-bottom:1.25rem"><p style="font-size:.82rem;color:var(--gold);margin-bottom:.4rem">Build: '+bid+'</p>'+cmts.map(c=>'<div class="comment-item"><div class="comment-header"><span class="avatar" style="background:var(--gold)">'+c.author[0]+'</span><span class="author">'+c.author+'</span><span class="time">'+c.time+'</span></div><div class="text">'+c.text+'</div></div>').join('')+'</div>').join('');
+  }
+}
+function showAddForm(){const f=document.getElementById('addBuildForm');f.style.display=f.style.display==='none'?'block':'none'}
+function saveAdminBuild(){
+  const n=document.getElementById('abName')?.value?.trim();if(!n){toast('请输入名称','error');return}
+  const store=getStore();if(!store.builds)store.builds=[];
+  store.builds.push({id:'b'+Date.now(),name:n,weapons:document.getElementById('abWeapons')?.value?.trim()||'',tier:document.getElementById('abTier')?.value||'A',type:document.getElementById('abType')?.value?.trim()||'自定义',xinfa:document.getElementById('abXinfa')?.value?.trim()||'',qishu:'',desc:document.getElementById('abDesc')?.value?.trim()||'',tags:[],weaponTags:[],xinfaTags:[],banner:'#5a5a6a'});
+  saveStore(store);toast('已保存');document.getElementById('addBuildForm').style.display='none';showAdminTab('builds');
+}
+function deleteBuild(id){
+  if(!confirm(t('adminConfirmDelete')))return;const store=getStore();store.builds=(store.builds||[]).filter(b=>b.id!==id);store.userBuilds=(store.userBuilds||[]).filter(b=>b.id!==id);saveStore(store);toast('已删除');showAdminTab('builds');
+}
+function shareBuild(){
+  const n=document.getElementById('ubName')?.value?.trim();if(!n){toast('请输入流派名称','error');return}
+  const store=getStore();if(!store.userBuilds)store.userBuilds=[];
+  store.userBuilds.push({id:'u'+Date.now(),name:n,weapons:document.getElementById('ubWeapons')?.value?.trim()||'',tier:document.getElementById('ubTier')?.value||'A',type:'玩家分享',xinfa:document.getElementById('ubXinfa')?.value?.trim()||'',desc:document.getElementById('ubDesc')?.value?.trim()||'',tags:['玩家分享'],weaponTags:[],xinfaTags:[]});
+  saveStore(store);toast('配装已分享！感谢你的贡献 🎉');
+  ['ubName','ubWeapons','ubXinfa','ubDesc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});
+  renderCommunity();
+}
+function rateBuild(id,val){
+  const store=getStore();if(!store.ratings)store.ratings={};if(!store.ratings[id])store.ratings[id]={total:0,count:0};
+  store.ratings[id].total+=val;store.ratings[id].count+=1;saveStore(store);toast('感谢评分！');renderBuildDetail(id);
+}
+function addComment(id){
+  const t=document.getElementById('commentText')?.value?.trim();if(!t){toast('请输入评论','error');return}
+  const store=getStore();if(!store.comments)store.comments={};if(!store.comments[id])store.comments[id]=[];
+  store.comments[id].push({author:'玩家'+Math.random().toString(36).slice(2,6).toUpperCase(),text:t,time:new Date().toLocaleString('zh-CN')});saveStore(store);toast('评论已发表');renderBuildDetail(id);
+}
+function exportData(){
+  const d=localStorage.getItem(STORE_KEY);if(!d){toast('没有数据','error');return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([d],{type:'application/json'}));a.download='yysls_data_'+new Date().toISOString().slice(0,10)+'.json';a.click();toast('已导出');
+}
+function importData(e){
+  const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=function(ev){try{localStorage.setItem(STORE_KEY,ev.target.result);toast('已导入，刷新页面');setTimeout(()=>location.reload(),1000)}catch(err){toast('导入失败','error')}};r.readAsText(f);
+}
+function resetData(){
+  if(!confirm('确定重置所有数据？评论、评分、玩家分享都会丢失！'))return;localStorage.removeItem(STORE_KEY);initStore();toast('已重置');router();
+}
+
+// ===== INTERACTIONS =====
+function toggleLike(id,el){
+  const store=getStore();if(!store.likes)store.likes={};store.likes[id]=(store.likes[id]||0)+1;saveStore(store);
+  if(el){el.classList.add('liked');const c=el.querySelector('.count');if(c)c.textContent=store.likes[id]}
+}
+function toggleBookmark(id,el){
+  const store=getStore();if(!store.bookmarks)store.bookmarks={};store.bookmarks[id]=!store.bookmarks[id];saveStore(store);
+  if(el){el.classList.toggle('bookmarked',store.bookmarks[id]);const c=el.querySelector('.count');if(c)c.textContent=store.bookmarks[id]?t('detailBookmarked'):t('detailBookmark')}
+  toast(store.bookmarks[id]?'已收藏':'已取消收藏','info');
+}
+function toggleComplete(type,id){
+  const store=getStore();if(!store.completed)store.completed={quests:[],maps:[]};
+  const arr=store.completed[type];const idx=arr.indexOf(id);
+  if(idx>-1)arr.splice(idx,1);else arr.push(id);saveStore(store);
+  if(type==='quests')renderQuests();else renderMaps();
+}
+function showReply(ci){
+  const box=document.getElementById('replyBox'+ci);if(box)box.classList.toggle('open');
+}
+function addReply(ci,buildId){
+  const text=document.getElementById('replyText'+ci)?.value?.trim();if(!text)return;
+  const store=getStore();if(!store.comments)store.comments={};if(!store.comments[buildId])store.comments[buildId]=[];
+  if(!store.comments[buildId][ci].replies)store.comments[buildId][ci].replies=[];
+  store.comments[buildId][ci].replies.push({author:'玩家'+Math.random().toString(36).slice(2,5).toUpperCase(),text:text});
+  saveStore(store);toast('回复成功');renderBuildDetail(buildId);
+}
+
+// ===== CLUE HUNTING =====
+function renderClues(){
+  const store=getStore();const progress=store.clueProgress||{};const allItems=D_CLUES.flatMap(c=>c.items);
+  const foundCount=allItems.filter(i=>progress[i.id]).length;const totalCount=allItems.length;
+  document.getElementById('app').innerHTML=
+    '<section class="section" style="padding-top:6rem"><div class="container">'+
+    '<div class="section-header"><h2>'+t('clueTitle')+'</h2><p>'+t('clueDesc')+'</p></div>'+
+    '<div class="clue-progress" id="clueProgressDisplay"><span>'+t('clueProgress')+'：'+foundCount+'/'+totalCount+' '+t('found')+'</span></div>'+
+    '<div class="clue-stat-bar"><div class="clue-stat-bar-inner" style="width:'+(totalCount?(foundCount/totalCount*100).toFixed(0):0)+'%"></div></div>'+
+    '<div class="clue-grid">'+D_CLUES.map(c=>renderClueCards(c,progress)).join('')+'</div>'+
+    '</div></section>';
+}
+function renderClueCards(mapData,progress){
+  const items=mapData.items||[];const done=items.filter(i=>progress[i.id]).length;
+  return '<div class="clue-card"><div class="clue-header" onclick="toggleClueSection(this)"><span>🗺️ '+__t(mapData.label,mapData.label_en)+'</span><span style="font-size:.72rem;color:var(--text3);margin-left:.5rem">('+done+'/'+items.length+')</span><span class="arrow">›</span></div><div class="clue-body">'+
+    items.map(i=>{
+      const dd=!!progress[i.id];
+      return '<div class="clue-row"><div class="clue-cb'+(dd?' done':'')+'" onclick="toggleClue(\''+i.id+'\',this)">'+(dd?'✓':'')+'</div><span class="clue-name'+(dd?' done':'')+'">'+__t(i.name,i.name_en)+'</span><span class="clue-type">'+__t(i.type,i.type_en)+'</span></div>';
+    }).join('')+'</div></div>';
+}
+function toggleClueSection(el){
+  const body=el.nextElementSibling;const arrow=el.querySelector('.arrow');
+  if(body){body.classList.toggle('open')}
+  if(arrow){arrow.classList.toggle('open')}
+}
+function updateNavbar(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;
+    if(key && t(key)!==key) el.textContent=t(key);
+  });
+}
+function updateFooter(){
+  const ids=['footerDesc','footerGuideTitle','footerBuilds','footerMaps','footerQuests','footerCommunity','footerCommunityTitle','footerRelatedTitle','footerAdmin','footerCopyright','footerNewTitle'];
+  const keys=['footerDesc','footerGuide','footerBuilds','footerMaps','footerQuests','footerCommunityLink','footerCommunity','footerRelated','footerAdmin','footerCopyright','footerNewTitle'];
+  ids.forEach((id,i)=>{const el=document.getElementById(id);if(el)el.textContent=t(keys[i])});
+}
+function toggleClue(id,el){
+  const store=getStore();if(!store.clueProgress)store.clueProgress={};
+  store.clueProgress[id]=!store.clueProgress[id];saveStore(store);
+  if(el){el.classList.toggle('done',store.clueProgress[id]);el.textContent=store.clueProgress[id]?'✓':'';const nameEl=el.nextElementSibling;if(nameEl){nameEl.classList.toggle('done',store.clueProgress[id])}}
+  const allItems=D_CLUES.flatMap(c=>c.items);const progress=store.clueProgress||{};
+  const foundCount=allItems.filter(i=>progress[i.id]).length;const totalCount=allItems.length;
+  const pd=document.getElementById('clueProgressDisplay');
+  if(pd){pd.innerHTML='<span>'+t('clueProgress')+'：'+foundCount+'/'+totalCount+' '+t('found')+'</span>'}
+  const bar=document.querySelector('.clue-stat-bar-inner');
+  if(bar){bar.style.width=(totalCount?(foundCount/totalCount*100).toFixed(0):0)+'%'}
+}
+function updateClueNav(){}
+
+// ===== SHE FU =====
+function renderShefu(){
+  document.getElementById('app').innerHTML=
+    '<section class="section" style="padding-top:6rem"><div class="container">'+
+    '<div class="section-header"><h2>'+t('shefuTitle')+'</h2><p>'+t('shefuDesc')+'</p></div>'+
+    '<div class="shefu-intro"><h3 style="color:var(--gold);margin-bottom:.5rem">'+t('shefuIntroTitle')+'</h3><p>'+t('shefuIntroP1')+'</p><p>'+t('shefuIntroP2')+'</p></div>'+
+    '<div class="shefu-grid">'+D_SHEFU.map(s=>'<div class="shefu-card"><div class="sf-icon">'+s.icon+'</div><h3>'+__t(s.name,s.name_en)+'</h3><p>'+__t(s.desc,s.desc_en)+'</p><div class="sf-meaning">'+__t(s.meaning,s.meaning_en)+'</div></div>').join('')+'</div>'+
+    '<div style="margin-top:2.5rem"><h3 style="text-align:center;color:var(--gold);margin-bottom:.75rem">'+t('shefuQuizTitle')+'</h3><p style="text-align:center;color:var(--text2);font-size:.85rem;margin-bottom:1rem">'+t('shefuQuizDesc')+'</p>'+
+    D_SHEFU_QUIZZES.map((q,qi)=>renderShefuQuiz(q,qi)).join('')+'</div>'+
+    '</div></section>';
+}
+function renderShefuQuiz(q,qi){
+  const store=getStore();const answers=store.shefuAnswers||[];
+  return '<div class="shefu-quiz"><h4>#'+(qi+1)+' '+__t(q.q,q.q_en)+'</h4><div class="quiz-options" id="quizOpts'+qi+'">'+
+    (currentLang === 'en' ? q.options_en : q.options).map((opt,oi)=>{
+      let cls='quiz-option';
+      if(answers[qi]!==undefined){cls+=oi===q.answer?' correct':(oi===answers[qi]?' wrong':'')}
+      return '<button class="'+cls+'" onclick="answerShefu('+qi+','+oi+','+q.answer+')" '+(answers[qi]!==undefined?'disabled':'')+'>'+opt+'</button>';
+    }).join('')+
+    '</div><div class="quiz-feedback'+(answers[qi]!==undefined?' show':'')+'" id="quizFb'+qi+'">'+
+    (answers[qi]!==undefined?'<span style="color:'+(answers[qi]===q.answer?'var(--jade-light)':'var(--red)')+'">'+(answers[qi]===q.answer?__t('✓ 正确！','✓ Correct!'):__t('✗ 不正确','✗ Incorrect'))+'</span> · '+__t(q.hint,q.hint_en):'')+
+    '</div></div>';
+}
+function answerShefu(qi,oi,ai){
+  const store=getStore();if(!store.shefuAnswers)store.shefuAnswers=[];
+  store.shefuAnswers[qi]=oi;saveStore(store);
+  const parent=document.getElementById('quizOpts'+qi);
+  if(parent){Array.from(parent.children).forEach((btn,i)=>{btn.classList.remove('correct','wrong');if(i===ai)btn.classList.add('correct');if(i===oi&&oi!==ai)btn.classList.add('wrong');btn.disabled=true})}
+  const fb=document.getElementById('quizFb'+qi);
+  if(fb){fb.className='quiz-feedback show';fb.innerHTML='<span style="color:'+(oi===ai?'var(--jade-light)':'var(--red)')+'">'+(oi===ai?__t('✓ 正确！','✓ Correct!'):__t('✗ 不正确','✗ Incorrect'))+'</span> · '+__t(D_SHEFU_QUIZZES[qi].hint,D_SHEFU_QUIZZES[qi].hint_en)}
+}
+
+// ===== GUIDE SECTION =====
+let currentBuildsTab = 'builds';
+function switchBuildsTab(tab){
+  currentBuildsTab = tab;
+  renderBuilds();
+}
+function toggleGuideSection(header){
+  const body=header.nextElementSibling;const arrow=header.querySelector('.arrow');
+  if(body)body.classList.toggle('open');
+  if(arrow)arrow.classList.toggle('open');
+}
+function renderBuildGuideContent(){
+  const guideSections = [
+    {title:'第一部分：1-40级 新手开荒',items:[
+      '优先推主线开地图，主线解锁传送点和基础功能',
+      '先找蹊跷（隐藏收集品），每个地图的蹊跷给大量经验和资源',
+      '长鸣玉只换<span class="guide-highlight">易水歌</span>，这是80%流派的核心心法，不要乱花',
+      '心法不分等级，心法经验本每天记得刷（长鸣玉每周限购也要换心法经验）',
+      '所有金色心法不要分解！后期转流派全部会用上',
+      '装备用过渡装即可，不需要在这个阶段追求金色装备',
+      '探索等级随主线走，不要刻意刷，自然升级',
+      '每周副本必须打（尤其是武库和试剑本），给大量心法经验和装备',
+      '无名心法<span class="guide-highlight">1/4/6重</span>是质变节点，优先升到这些等级',
+      '国际服玩家注意：Steam版无需加速器，但进度与国服不同步',
+      '⚠️ 避坑：不要用长鸣玉换其他心法，前期只换易水歌',
+      '⚠️ 避坑：不要在交易行乱花钱，前期资源很紧张',
+      '⚠️ 避坑：不要跳过剧情，很多关键心法和装备在支线任务里',
+    ]},
+    {title:'第二部分：41-96级 中期养成',items:[
+      '确定1-2个主力流派深度培养，不要分散资源',
+      '奇术准备3套：输出一套、生存一套、功能一套（骑龙回马必带）',
+      '每周必须刷：副本（心法经验+金装胚子）、野外BOSS（心法残页）、周常任务（长鸣玉）',
+      '处决机制：对小怪和精英怪有血量阈值处决，熟悉后刷怪效率翻倍',
+      '心法优先升到6重解锁全部词条，再考虑升9重',
+      '防反（格挡反击）是中期必须掌握的技巧，后期高难本和PVP全靠这个',
+      '花上月令3/6重、征人归6重是关键质变节点，优先升级',
+      '可以开始尝试不同流派的组合，找到最适合自己手感的搭配',
+      '世界BOSS每天打，掉落金色心法残页和装备',
+      '探索度达到80%以上的区域可以获得额外奖励',
+      '加入一个活跃门派或帮会，组队副本效率高很多',
+      '⚠️ 避坑：不要同时养3个以上流派，资源会严重分散',
+    ]},
+    {title:'第三部分：96-105级 后期毕业',items:[
+      '金装毕业：刷副本获取金装胚子，洗练核心词条',
+      'PVP装备和PVE装备分两套，不要混用',
+      '全流派可以尝试了，资源积累足够支撑切换',
+      '高难副本（龙骧御六合、流火袭星）每周必打，出顶级装备',
+      '心法9重是最终目标，但性价比不如先把多个心法升到6重',
+      '洗练策略：先洗武器攻击词条，再洗防具减伤，最后洗饰品特效',
+      '属性搭配：根据流派需求堆叠会心/破防/攻击等属性，不要平均分配',
+      '奇术搭配要抠细节：不同场景换不同的奇术组合',
+      'PVP入门：先练防反和骗招，不要急着打排位',
+      '国际服5/28皇宫版本、国服5/29蓬山版本，新内容第一时间体验',
+      '金装词条毕业后再考虑外观和收藏品',
+      '⚠️ 避坑：不要为了凑装分牺牲套装效果，套装效果比装分重要',
+    ]},
+    {title:'第四部分：通用避坑指南',items:[
+      '零氪/微氪：长鸣玉只换易水歌和心法经验，外观不增加战力不要买',
+      '零氪/微氪：所有金色心法保留，不要分解！后期转流派都用得上',
+      '时间少：优先做周常和副本，日常可以跳，周常奖励是大头',
+      '时间少：挂机刷心法经验本，每天挂满收益',
+      '操作提升：先练防反（格挡反击），这是燕云战斗系统的核心',
+      '操作提升：学会看BOSS出招前摇，多打几次训练场熟悉节奏',
+    ]},
+  ];
+  return `<div class="guide-summary"><p>🎯 零氪微氪都能用｜1级到105级一步到位，全程不踩坑、不浪费！刚入坑的萌新、卡级中期玩家、想快速毕业的上班族、零氪/微氪党，这篇攻略帮你规划好每一阶段的路线。</p></div>
+  <div class="guide-overview-cards">
+    <div class="guide-overview-card"><div class="lr">1-40级</div><span class="lt tag-gold">新手开荒</span><p class="ld">优先主线开地图<br>先找蹊跷开基础<br>长鸣玉只换易水歌</p></div>
+    <div class="guide-overview-card"><div class="lr">41-96级</div><span class="lt tag-blue">中期养成</span><p class="ld">确定流派往深走<br>心法要集中升级<br>每周副本必须刷</p></div>
+    <div class="guide-overview-card"><div class="lr">96-105级</div><span class="lt tag-red">后期毕业</span><p class="ld">金装洗练收尾<br>全流派可尝试<br>PVP/PVE自由切换</p></div>
+  </div>
+  ${guideSections.map(s=>'<div class="guide-section"><div class="guide-section-header" onclick="toggleGuideSection(this)">'+s.title+'<span class="arrow">›</span></div><div class="guide-section-body"><ul class="guide-list">'+s.items.map(i=>'<li>'+i+'</li>').join('')+'</ul></div></div>').join('')}`;
+}
+
+// ===== NEW PAGES =====
+function renderNewbie(){
+  document.getElementById('app').innerHTML=`<section class="section" style="padding-top:6rem"><div class="container">
+<div class="section-header"><h2>${t('newbieTitle')}</h2><p>${t('newbieDesc')}</p></div>
+<div class="guide-overview-cards">
+  <div class="guide-overview-card"><div class="lr">${t('newbieOverview1')}</div><span class="lt tag-gold">${__t('国际服 vs 国内服','Intl vs CN')}</span><p class="ld">${t('newbieOverview1Desc')}</p></div>
+  <div class="guide-overview-card"><div class="lr">${t('newbieOverview2')}</div><span class="lt tag-blue">${__t('新手推荐','Beginner Pick')}</span><p class="ld">${t('newbieOverview2Desc')}</p></div>
+  <div class="guide-overview-card"><div class="lr">${t('newbieOverview3')}</div><span class="lt tag-green">${__t('开荒准备','Starter Prep')}</span><p class="ld">${t('newbieOverview3Desc')}</p></div>
+</div>
+<div class="guide-summary"><p>${t('newbieSummary')}</p></div>
+${D_NEWBIE.map(s=>'<div class="guide-section"><div class="guide-section-header" onclick="toggleGuideSection(this)">'+s.icon+' '+__t(s.title,s.title_en)+'<span class="arrow">›</span></div><div class="guide-section-body"><ul class="guide-list">'+(currentLang==='en'?s.items_en:s.items).map(i=>'<li>'+i+'</li>').join('')+'</ul></div></div>').join('')}
+</div></section>`;
+}
+
+function renderDungeons(){
+  document.getElementById('app').innerHTML=`<section class="section" style="padding-top:6rem"><div class="container">
+<div class="section-header"><h2>${t('dungeonTitle')}</h2><p>${t('dungeonDesc')}</p></div>
+<div class="search-bar">
+<select id="dungeonTypeFilter" onchange="filterDungeons()"><option value="">${t('questsAllTypes')}</option><option value="副本">${__t('副本','Dungeon')}</option><option value="团队副本">${__t('团队副本','Raid')}</option><option value="世界BOSS">${__t('世界BOSS','World Boss')}</option></select>
+<select id="dungeonMapFilter" onchange="filterDungeons()"><option value="">${t('questsAllMaps')}</option><option value="清河">${__t('清河','Qinhe')}</option><option value="开封">${__t('开封','Kaifeng')}</option><option value="青州">${__t('青州','Qingzhou')}</option><option value="河西">${__t('河西','Hexi')}</option><option value="蓬山">${__t('蓬山','Pengshan')}</option></select>
+</div>
+<div class="map-grid" id="dungeonGrid">${D_DUNGEONS.map(d=>{
+  const dc=d.difficulty==='S'?'var(--red)':d.difficulty==='A'?'var(--gold)':'var(--jade-light)';
+  return '<div class="map-card"><div class="map-banner" style="background:linear-gradient(135deg,'+d.banner+'33,transparent);color:'+d.banner+'">'+__t(d.name,d.name_en)+'</div><div class="map-body"><div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem"><span class="tag tag-s">'+d.type+'</span><span class="tag" style="background:rgba(201,160,74,.1);color:'+dc+';border:1px solid '+dc+'44">'+d.difficulty+'级</span><span style="font-size:.72rem;color:var(--text3)">👥 '+d.players+__t('人',' players') · Lv.'+d.level+'</span></div><p style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">📍 '+d.map+'</p><p style="font-size:.82rem;color:var(--text2);margin-bottom:.4rem">🎁 '+d.rewards+'</p><div class="guide-section" style="margin-bottom:0"><div class="guide-section-header" style="padding:.5rem .75rem;font-size:.82rem;border-bottom:none" onclick="toggleGuideSection(this)">📋 BOSS详情 <span class="arrow">›</span></div><div class="guide-section-body" style="padding:0 .75rem">'+d.bosses.map((b,bi)=>'<div style="padding:.5rem 0;border-bottom:'+(bi<d.bosses.length-1?'1px solid var(--border)':'none')+'"><div style="font-size:.85rem;font-weight:700;color:var(--gold);margin-bottom:.2rem">'+(bi+1)+'. '+__t(b.name,b.name_en)+'</div><div style="font-size:.72rem;color:var(--text2);line-height:1.6;margin-bottom:.2rem"><strong>${__t('机制：','Mechanics:')}</strong>'+(currentLang==='en'?b.mechanics_en:b.mechanics).join(' · ')+'</div><div style="font-size:.72rem;color:var(--jade-light);line-height:1.6"><strong>${__t('打法：','Strategy:')}</strong>'+__t(b.tips,b.tips_en)+'</div></div>').join('')+'</div></div></div></div>'
+}).join('')}</div>
+</div></section>`;
+}
+function filterDungeons(){
+  const t=document.getElementById('dungeonTypeFilter')?.value||'';const m=document.getElementById('dungeonMapFilter')?.value||'';
+  const g=document.getElementById('dungeonGrid');if(!g)return;
+  g.innerHTML=D_DUNGEONS.filter(d=>{if(t&&d.type!==t)return false;if(m&&d.map!==m)return false;return true}).map(d=>{
+    const dc=d.difficulty==='S'?'var(--red)':d.difficulty==='A'?'var(--gold)':'var(--jade-light)';
+    return '<div class="map-card"><div class="map-banner" style="background:linear-gradient(135deg,'+d.banner+'33,transparent);color:'+d.banner+'">'+__t(d.name,d.name_en)+'</div><div class="map-body"><div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem"><span class="tag tag-s">'+d.type+'</span><span class="tag" style="background:rgba(201,160,74,.1);color:'+dc+';border:1px solid '+dc+'44">'+d.difficulty+'级</span><span style="font-size:.72rem;color:var(--text3)">👥 '+d.players+__t('人',' players') · Lv.'+d.level+'</span></div><p style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">📍 '+d.map+'</p><p style="font-size:.82rem;color:var(--text2);margin-bottom:.4rem">🎁 '+d.rewards+'</p><div class="guide-section" style="margin-bottom:0"><div class="guide-section-header" style="padding:.5rem .75rem;font-size:.82rem;border-bottom:none" onclick="toggleGuideSection(this)">📋 BOSS详情 <span class="arrow">›</span></div><div class="guide-section-body" style="padding:0 .75rem">'+d.bosses.map((b,bi)=>'<div style="padding:.5rem 0;border-bottom:'+(bi<d.bosses.length-1?'1px solid var(--border)':'none')+'"><div style="font-size:.85rem;font-weight:700;color:var(--gold);margin-bottom:.2rem">'+(bi+1)+'. '+__t(b.name,b.name_en)+'</div><div style="font-size:.72rem;color:var(--text2);line-height:1.6;margin-bottom:.2rem"><strong>${__t('机制：','Mechanics:')}</strong>'+(currentLang==='en'?b.mechanics_en:b.mechanics).join(' · ')+'</div><div style="font-size:.72rem;color:var(--jade-light);line-height:1.6"><strong>${__t('打法：','Strategy:')}</strong>'+__t(b.tips,b.tips_en)+'</div></div>').join('')+'</div></div></div></div>'
+  }).join('');
+}
+
+function renderTools(){
+  const now=new Date();
+  const nextThu=new Date(now);nextThu.setDate(now.getDate()+(4+7-now.getDay())%7||7);nextThu.setHours(4,0,0,0);
+  const nextMon=new Date(now);nextMon.setDate(now.getDate()+(1+7-now.getDay())%7||7);nextMon.setHours(4,0,0,0);
+  const resetItems=[{name:__t('周四重置（副本/世界BOSS）','Thu Reset (Dungeons/WB)'),time:nextThu},{name:__t('周一重置（周常/商店）','Mon Reset (Weeklies/Shop)'),time:nextMon}];
+  document.getElementById('app').innerHTML=`<section class="section" style="padding-top:6rem"><div class="container">
+<div class="section-header"><h2>${t('toolsTitle')}</h2><p>${t('toolsDesc')}</p></div>
+<div class="build-grid" style="margin-bottom:2rem">
+  <div class="build-card" style="cursor:default"><div class="build-body">
+    <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem"><span style="font-size:1.5rem">📊</span><h3 style="margin:0;font-size:.95rem">${t('toolsCalcTitle')}</h3></div>
+    <p style="font-size:.78rem;color:var(--text3);margin-bottom:.6rem">${t('toolsCalcDesc')}</p>
+    <div class="tool-calculator">
+      <div class="calc-row"><label>${t('toolsCalcAtk')}</label><input id="calcAtk" type="number" value="1000" oninput="calcDmgEstimate()"></div>
+      <div class="calc-row"><label>${t('toolsCalcCrit')}</label><input id="calcCrit" type="number" value="30" oninput="calcDmgEstimate()"></div>
+      <div class="calc-row"><label>${t('toolsCalcCritDmg')}</label><input id="calcCritDmg" type="number" value="150" oninput="calcDmgEstimate()"></div>
+      <div class="calc-row"><label>${t('toolsCalcBonus')}</label><input id="calcDmgBonus" type="number" value="20" oninput="calcDmgEstimate()"></div>
+      <div class="calc-result">${t('toolsCalcResult')}<span id="calcResult">1,950</span></div>
+    </div>
+  </div></div>
+  <div class="build-card" style="cursor:default"><div class="build-body">
+    <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem"><span style="font-size:1.5rem">⏱️</span><h3 style="margin:0;font-size:.95rem">${t('toolsTimerTitle')}</h3></div>
+    ${resetItems.map(ri=>{const d=ri.time-now;const days=Math.floor(d/86400000);const hrs=Math.floor((d%86400000)/3600000);const mins=Math.floor((d%3600000)/60000);return '<div class="tool-reset-timer"><div class="timer-value">'+(days>0?days+__t('天 ','d '):'')+hrs+__t('时 ','h ')+mins+__t('分 ','m')+'</div><div class="timer-label">'+ri.name+'</div></div>'}).join('')}
+  </div></div>
+  <div class="build-card" style="cursor:default"><div class="build-body">
+    <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem"><span style="font-size:1.5rem">📅</span><h3 style="margin:0;font-size:.95rem">${t('toolsChecklistTitle')}</h3></div>
+    <ul class="guide-list">${['${__t('副本：武库+试剑本（金装胚子+心法经验）','Dungeons: Armory+Trial (Gold Gear+Xinfa EXP)')}','${__t('世界BOSS：每天打，掉落金心法残页','World Bosses: daily, gold xinfa pages')}','${__t('周常任务：长鸣玉+心法经验，奖励大头','Weeklies: ChangMingYu+Xinfa EXP, main rewards')}','${__t('心法经验本：每天挂满收益','Xinfa EXP dungeon: max daily')}','${__t('探索：每周清几个区域的蹊跷','Exploration: clear clues weekly')}','${__t('交易行：查看心法残页价格波动','AH: check xinfa page prices')}'].map(i=>'<li>'+i+'</li>').join('')}</ul>
+  </div></div>
+  <div class="build-card" style="cursor:default"><div class="build-body">
+    <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem"><span style="font-size:1.5rem">🔗</span><h3 style="margin:0;font-size:.95rem">${t('toolsLinksTitle')}</h3></div>
+    <ul class="guide-list"><li><a href="https://space.bilibili.com/3546787875972964" target="_blank" rel="noopener" style="color:var(--gold)">${__t('B站官方攻略','Bilibili Official')}</a></li><li><a href="https://discord.gg/wherewindsmeet" target="_blank" rel="noopener" style="color:var(--gold)">${__t('Discord国际社区','Discord Community')}</a></li><li><a href="https://steamcommunity.com/app/3173720" target="_blank" rel="noopener" style="color:var(--gold)">${__t('Steam社区指南','Steam Guides')}</a></li><li><a href="https://www.taptap.cn/app/234251" target="_blank" rel="noopener" style="color:var(--gold)">${__t('TapTap论坛','TapTap Forum')}</a></li><li><a href="https://yysls.cn" target="_blank" rel="noopener" style="color:var(--gold)">${__t('国内服官网','CN Official Site')}</a></li><li><a href="https://www.wherewindsmeetgame.com" target="_blank" rel="noopener" style="color:var(--gold)">${__t('国际服官网','Intl Official Site')}</a></li></ul>
+  </div></div>
+</div>
+<h2 style="font-size:1.2rem;margin-bottom:1rem">${t('toolsFAQTitle')}</h2>
+${D_FAQ.map((faq,i)=>'<div class="guide-section"><div class="guide-section-header" onclick="toggleGuideSection(this)"><span style="color:var(--gold);font-weight:700">Q'+(i+1)+'</span> '+__t(faq.q,faq.q_en)+'<span class="arrow">›</span></div><div class="guide-section-body"><ul class="guide-list"><li style="color:var(--text)">'+__t(faq.a,faq.a_en)+'</li></ul></div></div>').join('')}
+</div></section>`;
+  if(typeof calcDmgEstimate==='function')calcDmgEstimate();
+}
+function calcDmgEstimate(){
+  const atk=parseFloat(document.getElementById('calcAtk')?.value)||0;
+  const crit=parseFloat(document.getElementById('calcCrit')?.value)||0;
+  const critDmg=parseFloat(document.getElementById('calcCritDmg')?.value)||0;
+  const dmgBonus=parseFloat(document.getElementById('calcDmgBonus')?.value)||0;
+  const base=atk*(1+dmgBonus/100);const critMult=1+(crit/100)*(critDmg/100);
+  const est=Math.round(base*critMult);
+  const el=document.getElementById('calcResult');if(el)el.textContent=est.toLocaleString();
+}
+
+// ===== ROUTER INIT =====
+function router(){
+  const path=window.location.pathname;const route=matchRoute(path);initStore();updateMeta(route);
+  document.querySelectorAll('.nav-item').forEach(a=>a.classList.toggle('active-link',a.dataset.route===path));
+  switch(route){case'home':renderHome();break;case'builds':renderBuilds();break;case'buildDetail':renderBuildDetail(path.match(/^\/build\/(.+)$/)[1]);break;case'maps':renderMaps();break;case'quests':renderQuests();break;case'community':renderCommunity();break;case'admin':renderAdmin();break;case'clues':renderClues();break;case'shefu':renderShefu();break;case'newbie':renderNewbie();break;case'dungeons':renderDungeons();break;case'tools':renderTools();break;default:renderHome()}
+  updateNavbar();
+  updateFooter();
+  window.scrollTo(0,0);
+  const l=document.getElementById('loader');if(l)l.classList.add('hidden');
+}
+window.addEventListener('popstate',router);
+function hideLoader(){const l=document.getElementById('loader');if(l)l.classList.add('hidden')}
+document.addEventListener('DOMContentLoaded',()=>setTimeout(hideLoader,300));
+window.addEventListener('load',()=>{setTimeout(hideLoader,300);setTimeout(router,350)});
+setTimeout(hideLoader,3000);
+
+// ===== HEADER SCROLL + MOBILE TOGGLE =====
+window.addEventListener('scroll',()=>{const h=document.getElementById('header');if(h)h.classList.toggle('scrolled',window.scrollY>50)});
+document.getElementById('mobileToggle')?.addEventListener('click',function(){document.getElementById('mobileNav')?.classList.toggle('active')});
+
+// ===== BACK TO TOP =====
+const btt=document.getElementById('backToTop');
+window.addEventListener('scroll',()=>{if(btt)btt.classList.toggle('visible',window.scrollY>500)});
+btt?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// ===== NAV CLICK HANDLER =====
+document.addEventListener('click',e=>{
+  const navItem=e.target.closest('.nav-item');
+  if(!navItem)return;
+  const route=navItem.dataset.route;
+  if(route)navigate(route);
+  const mn=document.getElementById('mobileNav');
+  if(mn)mn.classList.remove('active');
+});
+if(window.location.pathname==='/')router();
+</script>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo" onclick="navigate('/')">
+        <svg class="logo-icon" viewBox="0 0 100 100"><defs><linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c9a04a"/><stop offset="100%" style="stop-color:#e0b85a"/></linearGradient></defs><path fill="url(#lg2)" d="M50 12C29 12 12 29 12 50s17 38 38 38 38-17 38-38S71 12 50 12z"/><text x="50" y="62" text-anchor="middle" font-size="42" fill="url(#lg2)" font-family="serif">燕</text></svg>
+        <span>燕云 · 攻略站</span>
+      </div>
+      <p id="footerDesc">燕云十六声（Where Winds Meet）非官方玩家攻略社区 · 数据来源于公开信息</p>
+    </div>
+    <div class="footer-column">
+      <h4 id="footerGuideTitle">攻略</h4>
+      <ul class="footer-links">
+        <li><a onclick="navigate('/builds')" style="cursor:pointer">流派攻略</a></li>
+        <li><a onclick="navigate('/maps')" style="cursor:pointer">地图探索</a></li>
+        <li><a onclick="navigate('/quests')" style="cursor:pointer">任务攻略</a></li>
+        <li><a onclick="navigate('/community')" style="cursor:pointer">玩家社区</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4 id="footerCommunityTitle">社区</h4>
+      <ul class="footer-links">
+        <li><a href="https://discord.gg/wherewindsmeet" target="_blank" rel="noopener">Discord</a></li>
+        <li><a href="https://space.bilibili.com/3546787875972964" target="_blank" rel="noopener">B站官方</a></li>
+        <li><a href="https://steamcommunity.com/app/3173720" target="_blank" rel="noopener">Steam社区</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4 id="footerNewTitle">新内容</h4>
+      <ul class="footer-links">
+        <li><a onclick="navigate('/newbie')" style="cursor:pointer" data-i18n="footerNewbie">新手入门</a></li>
+        <li><a onclick="navigate('/dungeons')" style="cursor:pointer" data-i18n="footerDungeons">副本攻略</a></li>
+        <li><a onclick="navigate('/tools')" style="cursor:pointer" data-i18n="footerTools">工具箱</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4 id="footerRelatedTitle">相关</h4>
+      <ul class="footer-links">
+        <li><a href="https://www.yysls.cn" target="_blank" rel="noopener">国内服官网</a></li>
+        <li><a href="https://www.wherewindsmeetgame.com" target="_blank" rel="noopener">International Site</a></li>
+        <li><a onclick="navigate('/admin')" style="cursor:pointer">内容管理</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p id="footerCopyright">© 2026 燕云十六声攻略站 · 非官方玩家社区 · Where Winds Meet Guide · Unofficial Fan Site</p>
+    <div class="footer-legal">
+      <span style="font-size:.72rem;color:var(--text3)">Powered by Claude Code</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
