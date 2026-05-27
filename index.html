@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -437,11 +437,18 @@ p{margin-bottom:1rem;color:var(--text2)}
 .tool-reset-timer .timer-value{font-size:1.8rem;font-weight:700;color:var(--gold);font-family:monospace}
 .tool-reset-timer .timer-label{font-size:.75rem;color:var(--text3);margin-top:.2rem}
 @media(max-width:768px){.tool-calculator .calc-row{flex-direction:column;align-items:flex-start}}
+
+/* ===== ARTICLE / BLOG STYLES ===== */
+.article-hero{padding:8rem 0 3rem;text-align:center;background:linear-gradient(180deg,rgba(201,160,74,.08),transparent)}.article-hero h1{font-size:2rem;color:var(--gold);margin-bottom:.5rem}
+.article-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.25rem;margin-top:1.5rem}.article-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all .3s}.article-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:var(--shadow-lg)}.article-card-img{width:100%;height:180px;object-fit:cover;display:block}.article-card-body{padding:1rem}.article-card-body .meta{font-size:.72rem;color:var(--text3);margin-bottom:.35rem}.article-card-body h3{font-size:1rem;color:var(--text);margin-bottom:.4rem;line-height:1.4}.article-card-body p{font-size:.78rem;color:var(--text2);line-height:1.6}.article-tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.5rem}.article-tags .tag{font-size:.62rem;padding:2px 8px;border-radius:4px;background:rgba(201,160,74,.1);color:var(--gold);border:1px solid rgba(201,160,74,.2)}
+.article-detail{max-width:800px;margin:0 auto;padding:6rem 1rem 3rem}.article-detail .back-link{margin-bottom:1.5rem}.article-detail .article-meta{font-size:.82rem;color:var(--text3);margin-bottom:1rem}.article-detail .article-cover{width:100%;max-height:400px;object-fit:cover;border-radius:var(--radius);margin-bottom:1.5rem}.article-detail h1{font-size:1.6rem;color:var(--gold);margin-bottom:.5rem;line-height:1.3}.article-detail h2{font-size:1.15rem;color:var(--gold-light);margin:1.5rem 0 .6rem;border-left:3px solid var(--gold);padding-left:.7rem}.article-detail h3{font-size:1rem;color:var(--text);margin:1.2rem 0 .4rem}.article-detail p{font-size:.9rem;color:var(--text2);line-height:1.8;margin-bottom:.7rem}.article-detail ul,.article-detail ol{padding-left:1.2rem;margin-bottom:.7rem}.article-detail li{font-size:.88rem;color:var(--text2);line-height:1.7;margin-bottom:.25rem}.article-detail .highlight-box{padding:.8rem 1rem;background:rgba(201,160,74,.06);border-left:3px solid var(--gold);border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:.8rem 0;font-size:.85rem;color:var(--text2)}.article-detail .tip-box{padding:.8rem 1rem;background:rgba(74,154,122,.08);border-left:3px solid var(--jade);border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:.8rem 0;font-size:.85rem;color:var(--text2)}.article-detail table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.82rem}.article-detail td,.article-detail th{border:1px solid var(--border);padding:.5rem .7rem;text-align:left}.article-detail th{background:var(--surface);color:var(--gold)}.article-detail img{max-width:100%;border-radius:var(--radius-sm);margin:.8rem 0}
+.article-section-nav{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;justify-content:center}.article-section-nav a{padding:.35rem 1rem;border:1px solid var(--border);border-radius:20px;font-size:.78rem;color:var(--text2);cursor:pointer;transition:all .3s}.article-section-nav a:hover,.article-section-nav a.active{border-color:var(--gold);color:var(--gold);background:rgba(201,160,74,.08)}
+@media(max-width:600px){.article-grid{grid-template-columns:1fr}.article-detail{padding:4rem .75rem 2rem}.article-detail h1{font-size:1.25rem}}
 </style>
 </head>
 <body>
 
-<div id="loader"><div class="logo-mark">燕</div><div class="bar"><div class="bar-inner"></div></div></div>
+<div id="loader"><div class="logo-mark">WWM</div><div class="bar"><div class="bar-inner"></div></div></div>
 
 <header class="header" id="header">
   <div class="header-inner">
@@ -453,12 +460,16 @@ p{margin-bottom:1rem;color:var(--text2)}
       <ul class="nav-list">
         <li><a class="nav-link nav-item" data-route="/" data-i18n="navHome">首页</a></li>
         <li><a class="nav-link nav-item" data-route="/newbie" data-i18n="navNewbie">新手入门</a></li>
+        <li><a class="nav-link nav-item" data-route="/articles" data-i18n="navArticles">攻略文章</a></li>
         <li><a class="nav-link nav-item" data-route="/builds" data-i18n="navBuilds">流派</a></li>
         <li><a class="nav-link nav-item" data-route="/maps" data-i18n="navMaps">地图</a></li>
         <li><a class="nav-link nav-item" data-route="/quests" data-i18n="navQuests">任务</a></li>
         <li><a class="nav-link nav-item" data-route="/dungeons" data-i18n="navDungeons">副本攻略</a></li>
         <li><a class="nav-link nav-item" data-route="/clues" data-i18n="navClues">蹊跷</a></li>
         <li><a class="nav-link nav-item" data-route="/shefu" data-i18n="navShefu">射覆</a></li>
+        <li><a class="nav-link nav-item" data-route="/equipment" data-i18n="navEquipment">装备</a></li>
+        <li><a class="nav-link nav-item" data-route="/pvp" data-i18n="navPVP">PVP</a></li>
+        <li><a class="nav-link nav-item" data-route="/events" data-i18n="navEvents">活动</a></li>
         <li><a class="nav-link nav-item" data-route="/tools" data-i18n="navTools">工具箱</a></li>
         <li><a class="nav-link nav-item" data-route="/community" data-i18n="navCommunity">社区</a></li>
         <li><button class="lang-btn" id="langBtn" onclick="toggleLang()">🌐 EN</button></li>
@@ -470,12 +481,16 @@ p{margin-bottom:1rem;color:var(--text2)}
     <ul class="mobile-nav-list">
       <li><a class="nav-item" data-route="/" data-i18n="navHome">首页</a></li>
       <li><a class="nav-item" data-route="/newbie" data-i18n="navNewbie">新手入门</a></li>
+      <li><a class="nav-item" data-route="/articles" data-i18n="navArticles">攻略文章</a></li>
       <li><a class="nav-item" data-route="/builds" data-i18n="navBuilds">流派攻略</a></li>
       <li><a class="nav-item" data-route="/maps" data-i18n="navMaps">地图探索</a></li>
       <li><a class="nav-item" data-route="/quests" data-i18n="navQuests">任务攻略</a></li>
       <li><a class="nav-item" data-route="/dungeons" data-i18n="navDungeons">副本攻略</a></li>
       <li><a class="nav-item" data-route="/clues" data-i18n="navClues">抓蹊跷</a></li>
       <li><a class="nav-item" data-route="/shefu" data-i18n="navShefu">射覆</a></li>
+      <li><a class="nav-item" data-route="/equipment" data-i18n="navEquipment">装备</a></li>
+      <li><a class="nav-item" data-route="/pvp" data-i18n="navPVP">PVP</a></li>
+      <li><a class="nav-item" data-route="/events" data-i18n="navEvents">活动</a></li>
       <li><a class="nav-item" data-route="/tools" data-i18n="navTools">工具箱</a></li>
       <li><a class="nav-item" data-route="/community" data-i18n="navCommunity">玩家社区</a></li>
       <li><a class="nav-item" data-route="/admin" data-i18n="navAdmin">内容管理</a></li>
@@ -496,7 +511,7 @@ const BASE_URL = 'https://yysls-guide.com';
 // ===== I18N =====
 const LANG_DATA = {
   'zh-CN': {
-    navHome:'首页', navNewbie:'新手入门', navBuilds:'流派', navMaps:'地图', navQuests:'任务', navDungeons:'副本攻略', navClues:'蹊跷', navShefu:'射覆', navTools:'工具箱', navCommunity:'社区', navAdmin:'管理',
+    navHome:'首页', navNewbie:'新手入门', navArticles:'攻略文章', navBuilds:'流派', navMaps:'地图', navQuests:'任务', navDungeons:'副本攻略', navEquipment:'装备', navPVP:'PVP', navEvents:'活动', navClues:'蹊跷', navShefu:'射覆', navTools:'工具箱', navCommunity:'社区', navAdmin:'管理',
     heroBadge:'网易武侠开放世界 · 五代十国',
     heroTitle1:'燕云十六声', heroTitle2:'攻略站', heroSub:'Where Winds Meet · 国际服/国内服',
     heroTagline:'" 醉斩长鲸倚天剑，笑凌骇浪济川舟 "',
@@ -566,21 +581,21 @@ const LANG_DATA = {
     dungeonTitle:'⚔️ 副本&BOSS攻略', dungeonDesc:'所有副本、团队副本和世界BOSS的详细机制与配装建议',
     toolsTitle:'🧰 工具箱 & 问答', toolsDesc:'实用工具 · 每周重置倒计时 · 常见问题合集',
     quickNavTitle:'📌 全站导航', quickNavDesc:'快速找到你需要的攻略',
-    qnNewbie:'从零开始入门 · 服务器/流派选择/避坑指南', qnBuilds:'最新Meta配装 · S/A/B级流派',
+    qnNewbie:'从零开始入门 · 服务器/流派选择/避坑指南', qnBuilds:'最新Meta配装 · S/A/B级流派', qnEquipment:'装备套装 · 材料收集 · 洗练优先级', qnPVP:'竞技场 · 据点战 · PVP配装', qnEvents:'版本更新 · 活动资讯 · 赛季动态',
     qnDungeons:'副本机制 · BOSS打法 · 掉落一览', qnMaps:'清河→开封→不见山→河西→青州→蓬山',
     qnClues:'全地图隐藏收集品追踪', qnTools:'计算器 · 重置倒计时 · 常见FAQ',
     qnCommunity:'Discord · B站 · 配装分享',
-    footerNewbie:'新手入门', footerDungeons:'副本攻略', footerTools:'工具箱', footerNewTitle:'新内容',
+    footerNewbie:'新手入门', footerDungeons:'副本攻略', footerEquipment:'装备', footerPVP:'PVP', footerEvents:'活动', footerTools:'工具箱', footerNewTitle:'新内容',
     footerDesc:'燕云十六声（Where Winds Meet）非官方玩家攻略社区 · 数据来源于公开信息',
     footerGuide:'攻略', footerCommunity:'社区', footerRelated:'相关',
     footerBuilds:'流派攻略', footerMaps:'地图探索', footerQuests:'任务攻略', footerCommunityLink:'玩家社区',
-    footerAdmin:'内容管理', footerCopyright:'© 2026 燕云十六声攻略站 · 非官方玩家社区 · Where Winds Meet Guide · Unofficial Fan Site',
+    footerAdmin:'内容管理', footerCopyright:'© 2026 燕云十六声攻略站 · 非官方玩家社区 · Where Winds Meet Guide · Unofficial Fan Site', footerCNSite:'国内服官网',
     questsProgress:'已完成 {done}/{total} 个任务',
     questCompleted:'已完成',
     detailComments:'评论 ({n})', detailSameWeapon:'同武器推荐',
   },
   en: {
-    navHome:'Home', navNewbie:'Newbie', navBuilds:'Builds', navMaps:'Maps', navQuests:'Quests', navDungeons:'Dungeons', navClues:'Clues', navShefu:'She Fu', navTools:'Tools', navCommunity:'Community', navAdmin:'Admin',
+    navHome:'Home', navNewbie:'Newbie', navArticles:'Articles', navBuilds:'Builds', navMaps:'Maps', navQuests:'Quests', navDungeons:'Dungeons', navEquipment:'Equip', navPVP:'PVP', navEvents:'Events', navClues:'Clues', navShefu:'She Fu', navTools:'Tools', navCommunity:'Community', navAdmin:'Admin',
     heroBadge:'NetEase Wuxia Open World · Five Dynasties & Ten Kingdoms',
     heroTitle1:'Where Winds Meet', heroTitle2:'Guide',
     heroSub:'International · CN Server Guides',
@@ -640,22 +655,22 @@ const LANG_DATA = {
     toolsTimerName1:'Thursday Reset (Dungeons/WB)', toolsTimerName2:'Monday Reset (Weeklies/Shop)',
     toolsFAQTitle:'❓ FAQ',
     quickNavTitle:'📌 Site Navigation', quickNavDesc:'Find the guide you need fast',
-    qnNewbie:'Server selection · Class guide · Beginner tips', qnBuilds:'Latest meta builds · S/A/B tier',
+    qnNewbie:'Server selection · Class guide · Beginner tips', qnBuilds:'Latest meta builds · S/A/B tier', qnEquipment:'Gear sets · Material farming · Refining priority', qnPVP:'Arena · Territory Wars · PVP builds', qnEvents:'Patches · Events · Season updates',
     qnDungeons:'Boss mechanics · Strategies · Loot', qnMaps:'Qinhe→Kaifeng→Bujianshan→Hexi→Qingzhou→Pengshan',
     qnClues:'Hidden collectible tracker per map', qnTools:'Calculator · Reset timer · FAQ',
     qnCommunity:'Discord · Bilibili · Share builds',
-    footerNewbie:'Newbie', footerDungeons:'Dungeons', footerTools:'Tools', footerNewTitle:'New',
+    footerNewbie:'Newbie', footerDungeons:'Dungeons', footerEquipment:'Equip', footerPVP:'PVP', footerEvents:'Events', footerTools:'Tools', footerNewTitle:'New',
     footerDesc:'Where Winds Meet unofficial fan guide community · Data from public sources',
     footerGuide:'Guide', footerCommunity:'Community', footerRelated:'Related',
     footerBuilds:'Builds', footerMaps:'Maps', footerQuests:'Quests', footerCommunityLink:'Community',
-    footerAdmin:'Admin', footerCopyright:'© 2026 Where Winds Meet Guide · Unofficial Fan Site',
+    footerAdmin:'Admin', footerCopyright:'© 2026 Where Winds Meet Guide · Unofficial Fan Site', footerCNSite:'CN Official Site',
     questsProgress:'{done}/{total} quests completed',
     questCompleted:'Completed',
     detailVideoBilibili:'📺 Watch Bilibili Video Guide', detailComments:'Comments ({n})', detailSameWeapon:'Same Weapon',
   }
 };
-let currentLang = localStorage.getItem('yysls_lang') || 'zh-CN';
-function t(key) { return LANG_DATA[currentLang]?.[key] || LANG_DATA['zh-CN']?.[key] || key; }
+let currentLang = localStorage.getItem('yysls_lang') || 'en';
+function t(key) { return LANG_DATA[currentLang]?.[key] || LANG_DATA['en']?.[key] || LANG_DATA['zh-CN']?.[key] || key; }
 function __t(zh, en) { return currentLang === 'en' ? (en || zh) : zh; }
 function toggleLang() {
   currentLang = currentLang === 'zh-CN' ? 'en' : 'zh-CN';
@@ -851,6 +866,55 @@ const D_DUNGEONS = [
     ],rewards:'伙伴材料 · 金装 · 心法经验',rewards_en:'Companion Mats · Gold Gear · Xinfa EXP'},
 ];
 
+const D_EQUIPMENT = [
+  {id:'e1',name:'武器',name_en:'Weapons',slots:['无名剑','无名枪','唐横刀','陌刀','手甲','九重春色','青山执笔','扇','双刀','绳镖','戟','盾'],priority:'攻击力 > 会心 > 破防 > 增伤',priority_en:'ATK > Crit > DEF Pen > DMG Bonus',
+    sets:[
+      {name:'鸣金套',name_en:'MingJin Set',bonus:'2件：攻击力+8% · 4件：剑气伤害+15%',bonus_en:'2pc: ATK+8% · 4pc: Sword Wave DMG+15%',rating:'S',classes:['鸣金虹']},
+      {name:'裂石套',name_en:'LieShi Set',bonus:'2件：防御+10% · 4件：战意回复+20%',bonus_en:'2pc: DEF+10% · 4pc: Resolve Regen+20%',rating:'A',classes:['裂石均·陌刀']},
+      {name:'牵丝套',name_en:'QianSi Set',bonus:'2件：会心+5% · 4件：远程伤害+12%',bonus_en:'2pc: Crit+5% · 4pc: Ranged DMG+12%',rating:'A',classes:['牵丝玉']},
+      {name:'破竹套',name_en:'PoZhu Set',bonus:'2件：攻击回复+3% · 4件：拳套伤害+18%',bonus_en:'2pc: ATK Heal+3% · 4pc: Gauntlet DMG+18%',rating:'B',classes:['破竹鸢']},
+    ]},
+  {id:'e2',name:'防具',name_en:'Armor',slots:['头盔','胸甲','护腕','腰带','靴子'],priority:'减伤 > 气血 > 防御',priority_en:'DMG Reduction > HP > DEF',
+    sets:[{name:'天泉套',name_en:'Tianquan Set',bonus:'2件：减伤+10% · 4件：格挡回复+25%',bonus_en:'2pc: DMG Reduction+10% · 4pc: Block Regen+25%',rating:'S',classes:['天泉·陌刀']}]},
+  {id:'e3',name:'饰品',name_en:'Accessories',slots:['项链','戒指(×2)','玉佩'],priority:'特效 > 套装效果 > 基础属性',priority_en:'Effects > Set Bonus > Base Stats',
+    sets:[{name:'会心套',name_en:'Crit Set',bonus:'2件：会心率+8%',bonus_en:'2pc: Crit Rate+8%',rating:'S',classes:['通用']},{name:'破防套',name_en:'DEF Pen Set',bonus:'2件：破防+10%',bonus_en:'2pc: DEF Pen+10%',rating:'A',classes:['PVP']}]},
+  {id:'e4',name:'材料',name_en:'Materials',items:[
+    {name:'长鸣玉',name_en:'ChangMing Yu',use:'兑换心法 · 限购心法经验',use_en:'Exchange for Xinfa · Limited Xinfa EXP',source:'周常 · 副本 · 活动',source_en:'Weeklies · Dungeons · Events',rarity:'金色'},
+    {name:'心法残页',name_en:'Xinfa Pages',use:'心法升级',use_en:'Xinfa leveling',source:'副本 · 世界BOSS · 分解',source_en:'Dungeons · World Bosses · Dismantle',rarity:'紫色'},
+    {name:'精炼石',name_en:'Refining Stones',use:'装备洗练/精炼',use_en:'Gear refine/upgrade',source:'副本 · 分解装备',source_en:'Dungeons · Dismantle Gear',rarity:'蓝色'},
+    {name:'突破丹',name_en:'Breakthrough Pills',use:'心法突破',use_en:'Xinfa breakthrough',source:'周常 · 活动兑换',source_en:'Weeklies · Event Shop',rarity:'金色'},
+  ]},
+  {id:'e5',name:'洗练优先级',name_en:'Refining Priority',rules:[
+    '武器：攻击力 > 会心率 > 破防 > 增伤（优先洗满攻击词条）',
+    '防具：减伤 > 气血% > 防御（坦克优先减伤，DPS优先气血）',
+    '饰品：特效等级 > 套装激活 > 基础属性（不要平均分配洗练材料）',
+    '注意：金装词条毕业后再考虑外观和收藏品，套装效果比装分重要',
+  ],rules_en:[
+    'Weapon: ATK > Crit Rate > DEF Pen > DMG Bonus (max ATK first)',
+    'Armor: DMG Reduction > HP% > DEF (tanks prioritize reduction, DPS prioritize HP)',
+    'Accessories: Effect Level > Set Bonus > Base Stats (don\'t spread materials)',
+    'Note: Finish gear lines before cosmetics. Set bonus > item level.',
+  ]},
+];
+
+const D_PVP = [
+  {id:'p1',name:'止戈·论剑',name_en:'ZhiGe · Arena',type:'1v1',type_en:'1v1 Duel',desc:'1v1公平竞技，系统自动平衡部分属性。低造诣玩家自动推荐调整属性，养成门槛大幅降低。',desc_en:'1v1 fair arena. Auto stat balancing. Gear threshold greatly reduced per 5/9 patch.',tier:'PVP核心',tier_en:'Core PVP',tips:['防反是核心，练好格挡反击赢一半','骗招：故意露出破绽引诱对手出招后反击','心法推荐：易水歌+孤忠不辞+移经易武','装备洗练优先破防和会心'],tips_en:['Parry is key — master block-counter to win half your matches','Bait: intentionally expose weaknesses to lure opponent attacks','Recommended xinfa: YiShuiGe + GuZhongBuCi + YiJingYiWu','Prioritize DEF Pen and Crit on gear']},
+  {id:'p2',name:'据点战',name_en:'Territory War',type:'多人',type_en:'Multiplayer',desc:'大型团队PVP，争夺据点获取积分。适合团队配合型玩家。',desc_en:'Large-scale team PVP, capture points for score. Best for team-play oriented players.',tier:'PVP团队',tier_en:'Team PVP',tips:['跟团走，不要单打独斗','治疗职业（青溪扇）在据点战中非常关键','控制技能优先级最高','注意小地图上敌方动向'],tips_en:['Stay with the group, don\'t solo','Healers (Qingxi Fan) are crucial in territory wars','CC skills have highest priority','Watch minimap for enemy movements']},
+  {id:'p3',name:'乱斗模式',name_en:'Free-for-All',type:'多人',type_en:'Multiplayer',desc:'多人混战模式，击杀获取积分。适合操作型玩家秀操作。',desc_en:'Multiplayer brawl, score by kills. For mechanical players to show off.',tier:'PVP娱乐',tier_en:'Casual PVP',tips:['优先击杀残血敌人','走位拉扯，不要被多人集火','AOE心法和奇术在这种模式很强','保命技能留到关键时刻'],tips_en:['Focus low HP enemies first','Kite and reposition, avoid being focused','AOE xinfa and qishu are strong here','Save escape skills for关键时刻']},
+  {id:'p4',name:'PVP装备',name_en:'PVP Gear',type:'配装',type_en:'Gear Guide',desc:'PVP装备与PVE分开，独立洗练。推荐优先堆砌破防和会心抗性。',desc_en:'PVP gear is separate from PVE. Prioritize DEF Pen and Crit Resistance.',tier:'配装推荐',tier_en:'Gear Tips',tips:['PVP装备和PVE装备分两套，不要混用','破防 > 会心 > 气血 > 防御（PVP属性优先级）','会心抗性在PVP中非常重要','防反饰品推荐优先获取'],tips_en:['Keep separate PVP and PVE gear sets','DEF Pen > Crit > HP > DEF (PVP priority)','Crit resistance is very important in PVP','Prioritize parry-boosting accessories']},
+];
+
+const D_EVENTS = [
+  {date:'2026/05/29',title:'蓬山+伙伴系统上线',title_en:'Pengshan + Companion System',type:'版本更新',type_en:'Patch',desc:'青州子区域蓬山开放，猫咪(4只)和大鹅(3只)伙伴可跟随收集。',desc_en:'Qingzhou sub-region Pengshan opens. Cat (4) and goose (3) companions can follow and collect.',tag:'最新',tag_en:'New'},
+  {date:'2026/05/28',title:'国际服皇宫大版本',title_en:'Intl Server Palace Update',type:'版本更新',type_en:'Patch',desc:'Imperial Palace区域开放 · Sandstorm Tavern活动上线。',desc_en:'Imperial Palace area opens · Sandstorm Tavern event launches.',tag:'最新',tag_en:'New'},
+  {date:'2026/05/15',title:'v2.6.0B「海岱有朋来」',title_en:'v2.6.0B "Friends from the Sea"',type:'版本更新',type_en:'Patch',desc:'5人本流火袭星 · 10人团本龙骧御六合 · 绳镖外观上架。',desc_en:'5P Flowing Fire Starstrike · 10P Dragon Soaring Six Realms · Rope Dart skin.',tag:'重要',tag_en:'Major'},
+  {date:'2026/05/09',title:'止戈保底调平上线',title_en:'PVP Balance Adjustment',type:'系统优化',type_en:'System Update',desc:'PVP低造诣自动推荐调整属性，养成门槛大幅降低。',desc_en:'PVP auto stat adjustment for low-SP players, gear threshold greatly reduced.',tag:'更新',tag_en:'Update'},
+  {date:'2026/05/04',title:'唐横刀加强',title_en:'Tang HengDao Buff',type:'平衡调整',type_en:'Balance',desc:'派生技气血伤害30%→36%。唐横刀双切玩法成版本真神。',desc_en:'Skill dmg 30%→36%. Tang HengDao becomes top-tier dual-wield.',tag:'加强',tag_en:'Buff'},
+  {date:'2026/04/28',title:'青州版本上线',title_en:'Qingzhou Region Launch',type:'版本更新',type_en:'Patch',desc:'全新区域青州开放，等级上限提升至105级。',desc_en:'New Qingzhou region opens. Level cap raised to 105.',tag:'重要',tag_en:'Major'},
+  {date:'2026/04/14',title:'袁和平加盟动作顾问',title_en:'Yuen Woo-ping Joins as Action Director',type:'新闻',type_en:'News',desc:'袁家班优化醉拳、长枪、棍法等武学表现。',desc_en:'Yuen Clan optimizes Drunken Fist, Spear, Staff combat animations.',tag:'新闻',tag_en:'News'},
+  {date:'2026/04/01',title:'S4赛季开启',title_en:'Season 4 Launch',type:'赛季',type_en:'Season',desc:'全新赛季内容、排位重置、赛季奖励更新。',desc_en:'New season content, ranked reset, season rewards updated.',tag:'赛季',tag_en:'Season'},
+];
+
 const D_TOOLS = [
   {icon:'📊',id:'dmgCalc',name:'伤害计算器',name_en:'Damage Calculator',desc:'输入面板属性估算流派DPS',desc_en:'Estimate DPS from your stats',type:'calculator'},
   {icon:'⏱️',id:'resetTimer',name:'每周重置倒计时',name_en:'Weekly Reset Timer',desc:'副本/周常重置剩余时间',desc_en:'Time until dungeon/weekly reset',type:'timer'},
@@ -870,6 +934,89 @@ const D_FAQ = [
   {q:'游戏中卡住了怎么办？',q_en:'What if I\'m stuck in the game?',a:'检查主线等级要求、确认心法配置、卡BUG可重登解决。也可在Discord或社区求助。',a_en:'Check main quest level requirements, verify xinfa setup, relog if stuck on a bug. Ask for help on Discord or community.'},
 ];
 
+// ===== ARTICLE IMAGE GENERATOR =====
+function articleImg(g,i){const c=g.split(',');return 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27800%27 height=%27400%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 style=%27stop-color:'+c[1]+'%27/%3E%3Cstop offset=%27100%25%27 style=%27stop-color:'+c[2]+'%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%27800%27 height=%27400%27 fill=%27url(%23g)%27/%3E%3Ctext x=%27400%27 y=%27210%27 text-anchor=%27middle%27 font-size=%2764%27%3E'+encodeURIComponent(i)+'%3C/text%3E%3C/svg%3E'}
+
+// ===== ARTICLES DATA =====
+const ARTICLES = {
+newbie:[
+{id:'an1',title:'燕云十六声新手入门攻略：从零开始开荒指南',summary:'涵盖服务器选择、初始流派推荐、1-40升级路线和零氪微氪生存技巧等核心内容。',s:[{h:'服务器选择',p:['燕云十六声有国际服（Steam/Epic）和国内服两个版本。国际服进度落后但无需加速器直连，国内服更新更快社区更活跃。新手建议根据所在地区选择，语言无障碍选国内服体验更完整。']},{h:'初始流派推荐',p:['新手开局推荐剑+枪组合，是最友好的双武器搭配。剑提供均衡输出和格挡能力，枪提供远程压制和AOE清怪。前期无需极致搭配，先用顺手武器打通主线，40级后再根据喜好选择主力流派。']},{h:'1-40级快速升级路线',p:['优先推主线任务，主线解锁传送点和基础功能，是前期最高效的升级方式。沿途做蹊跷收集可获得大量经验和资源。每周副本必打（武库+试剑本）给心法经验和装备。长鸣玉只换易水歌心法，不要乱花在其他心法上。']}],t:['新手攻略','燕云十六声','开荒','国际服对比'],g:'135deg,#8B6914,#4A9A7A',i:'🌱'},
+{id:'an2',title:'燕云十六声国际服与国内服六个核心区别详解',summary:'服务器选择困难？本文从更新进度、玩家社区、付费模式、联机方式等多个维度对比国际服和国内服差异。',s:[{h:'更新进度差异',p:['国际服版本落后国内服约1-2个月。国内服已更新至蓬山版本（2026年5月），国际服预计5/28开启皇宫版本。选择国际服意味着新内容要晚体验到，但也有更稳定的版本环境和更多的bug修复时间。']},{h:'社区与生态',p:['国内服社区以B站、TapTap为主，玩家基数大、攻略资源丰富。国际服以Discord、Steam社区为核心，多语言环境适合海外玩家。两边交易行物价差距较大，国内服因为玩家多物价更稳定。']},{h:'付费与联机',p:['两版本付费模式一致——外观商城不卖数值。但国际服Steam版本可使用Steam钱包支付。国际服和国内服联机不互通，建议和好友选择同一服务器。Steam国际服无需加速器即可直连游玩。']}],t:['国际服','国内服','服务器对比','燕云十六声'],g:'135deg,#3A5A8A,#8B6914',i:'🌍'},
+{id:'an3',title:'燕云十六声新手流派推荐：2026全流派强度排名',summary:'2026年最新流派强度排行榜，涵盖鸣金虹、唐横刀、无名剑法等主流流派，帮助新手选择最适合自己的本命流派。',s:[{h:'S级流派推荐',p:['鸣金虹流派出众的综合能力使其稳居S级榜首，适合大多数战斗场景。唐横刀以高爆发单体输出紧随其后，是BOSS战首选。无名剑法作为新手初始流派表现均衡，搭配易水歌心法后强度显著提升。']},{h:'A级流派分析',p:['青山执笔远程流派适合风筝打法，PVE表现优秀但PVP稍弱。九重春色双刀流操作上限高，适合有动作游戏基础的玩家。陌刀流派坦度高、操作简单，适合新手坦克位。']},{h:'新手选择建议',p:['纯新手建议先玩无名剑法+枪的组合，上手简单且能体验游戏核心玩法。有一定动作游戏基础的玩家可以直奔鸣金虹或唐横刀。每个流派都有独特的战斗风格，建议40级前多尝试不同武器组合找到手感。']}],t:['流派推荐','强度排名','新手','2026'],g:'135deg,#C0392B,#C9A04A',i:'📜'},
+{id:'an4',title:'燕云十六声1-40级快速升级路线与避坑指南',summary:'从建号到40级最快几天能到？本文整理最短升级路线、经验获取效率对比和常见避坑技巧。',s:[{h:'主线优先原则',p:['1-40级最效率的升级方式就是纯推主线。主线任务给的经验值最高，同时解锁传送点、功能NPC和基础系统。建议在35级前不做任何支线，专注主线到开封地图解锁。']},{h:'每日必做清单',p:['每天上线第一件事：刷心法经验本（挂满收益）。其次做世界BOSS（掉落金心法残页）。每周副本刷新第一时间打武库和试剑本。长鸣玉每周限购的心法经验必须换完。']},{h:'常见避坑提醒',p:['不要用长鸣玉换易水歌以外的任何心法。不要分解任何金色心法。不要在前期追求金色装备，过渡紫装完全够用。不要跳过剧情对话，很多关键线索和奇术藏在支线对话中。']}],t:['升级攻略','1-40级','避坑','新手教程'],g:'135deg,#4A9A7A,#8B6914',i:'⚡'},
+{id:'an5',title:'燕云十六声零氪微氪玩家全方位生存指南',summary:'零氪玩家也能玩得舒服！从资源分配、心法选择到装备规划，全方位教你如何高效利用免费资源打造强力角色。',s:[{h:'资源规划策略',p:['零氪玩家最重要的原则：资源集中投入。长鸣玉只换易水歌，心法经验优先升级主力流派需要的核心心法。不要同时养多个流派，建议选定1-2个流派深耕。每周副本和心法经验本是最高效的免费资源获取途径。']},{h:'装备选择技巧',p:['零氪玩家不要追求金装毕业速度。紫装过渡完全够打通所有PVE内容。世界BOSS的免费金装胚子每周必打。洗练材料优先洗武器攻击词条，收益最高。防具用副本掉落即可。']},{h:'社交与经济系统',p:['加入活跃门派或帮会可以获得组队加成和免费心法残页。交易行是零氪玩家获取金心法的重要途径，关注心法残页价格波动低价买入。多参与社区活动有时会有免费福利。']}],t:['零氪','微氪','生存指南','资源规划'],g:'135deg,#5A4A7A,#4A9A7A',i:'💰'},
+],
+builds:[
+{id:'ab1',title:'燕云十六声S级流派排行榜：2026年5月最新Meta',summary:'每月更新的流派强度排行榜，基于最新版本数据和玩家社区反馈，涵盖PVE和PVP双维度表现分析。',s:[{h:'T0级别流派',p:['鸣金虹持续稳坐T0宝座，综合能力全面，PVE和PVP都有优秀表现。易水歌心法是核心，80%流派都需要。唐横刀在单体BOSS战中表现突出，配合征人归心法可以达到最高爆发输出。']},{h:'T1级别流派',p:['无名剑法作为新手初始流派，搭配花上月令和无名心法后强度不比T0差太多。青山执笔在远程风筝场景下表现亮眼。陌刀在团队本中作为坦克位不可或缺。九重春色双刀在高操作玩家手中上限极高。']},{h:'Meta环境分析',p:['当前版本PVE环境中，鸣金虹和唐横刀占据主流。PVP环境中防反能力更重要的九重春色和青山执笔更受欢迎。建议至少练一个PVE主力流派和一个PVP流派。']}],t:['流派排行','Meta','强度榜','2026年5月'],g:'135deg,#C0392B,#5A4A7A',i:'📜'},
+{id:'ab2',title:'燕云十六声明鸣金虹流派：完整配装与输出循环详解',summary:'鸣金虹是当前版本最强势流派之一，本文详细拆解心法搭配、装备选择、奇术组合和完美输出循环。',s:[{h:'核心心法搭配',p:['鸣金虹核心心法是易水歌（必带）和无名心法。第三个心法位推荐花上月令或征人归。易水歌优先升到6重解锁全部词条，无名心法1/4/6重是关键质变节点。']},{h:'装备词条优先级',p:['武器优先洗攻击百分比和会心。防具词条选择减伤和气血。饰品推荐会心伤害和破防。套装效果优先堆叠攻击和会心属性，两件套比四件套灵活。']},{h:'输出循环技巧',p:['起手式使用枪的远程攻击接近敌人，切剑打核心输出。格挡反击是鸣金虹的核心机制，成功格挡后接重击可以触发额外伤害。连招核心：格挡→重击→轻击×3→技能→切枪扫射。']}],t:['鸣金虹','配装攻略','输出循环','心法推荐'],g:'135deg,#C9A04A,#C0392B',i:'⚔️'},
+{id:'ab3',title:'燕云十六声唐横刀流派输出循环与心法配装全攻略',summary:'唐横刀以高爆发的单体输出著称，本文详细解析唐横刀的最佳心法组合、装备词条优先级和完美输出循环。',s:[{h:'心法选择策略',p:['唐横刀核心心法是征人归（必带），提供大量暴击伤害加成。副心法推荐易水歌提供基础属性，第三个位置选破阵子提升破防能力。征人归6重是质变节点，可大幅提升爆发伤害。']},{h:'装备词条优先级',p:['武器词条必须堆会心和攻击百分比。唐横刀依赖暴击触发extra效果。防具选择减伤属性保证生存。饰品优先堆会心伤害和破防。套装属性推荐两件攻击+两件会心。']},{h:'输出循环详解',p:['唐横刀核心输出靠蓄力重击。起手蓄力重击触发破甲，接轻击×5打出连段，技能穿插在轻击中取消后摇。注意BOSS出招前摇灵活使用格挡和闪避。爆发期开征人归buff后全技能输出。']}],t:['唐横刀','配装攻略','输出循环','心法'],g:'135deg,#8B6914,#C0392B',i:'🗡️'},
+{id:'ab4',title:'燕云十六声无名剑法心法搭配与进阶玩法指南',summary:'无名剑法是每个玩家最早接触的流派，但后期搭配正确心法后强度惊人。本文详解无名剑法的进阶玩法。',s:[{h:'心法搭配路线',p:['无名剑法适配心法范围很广，新手期推荐无名心法+易水歌的组合。进阶阶段加入花上月令3/6重提供额外输出。完全体搭配为无名心法6重+易水歌6重+花上月令3重以上。']},{h:'装备与属性要求',p:['无名剑法对属性要求很均衡，建议会心50%以上、攻击2000+。武器优先攻击百分比，饰品选会心伤害。装备套装推荐2+2混搭最大化属性收益。']},{h:'进阶操作技巧',p:['无名剑法的核心是剑气攒放机制。轻攻击攒剑气，重攻击释放剑气造成额外伤害。进阶技巧：利用闪避取消重击后摇，在BOSS攻击间隙打出完美连段。配合格挡反击可打出额外剑气伤害。']}],t:['无名剑法','心法搭配','进阶','剑法攻略'],g:'135deg,#4A7A5A,#8B6914',i:'⚔️'},
+{id:'ab5',title:'燕云十六声各流派心法优先级完整推荐',summary:'心法是燕云十六声最核心的养成系统。本文汇总主流流派的心法优先级排序，帮助玩家合理分配心法升级资源。',s:[{h:'S级心法推荐',p:['易水歌是当前版本使用率最高的心法，适合80%流派。无名心法泛用性极强，1/4/6重是关键质变节点。征人归是T0级别输出心法，唐横刀和爆发流派的标配。']},{h:'心法升级策略',p:['先升核心心法到6重解锁全部词条。平均升级多个心法到6重不如先升一个到9重？实测多个6重心法性价比更高。所有金色心法不要分解，后期转流派都可能用到。']},{h:'流派心法参考表',p:['鸣金虹：易水歌>无名>花上月令。唐横刀：征人归>易水歌>破阵子。无名剑法：无名>易水歌>花上月令。陌刀：坚壁>易水歌>征人归。九重春色：花上月令>无名>易水歌。']}],t:['心法推荐','优先级','升级','流派搭配'],g:'135deg,#5A4A7A,#C9A04A',i:'📖'},
+],
+maps:[
+{id:'am1',title:'燕云十六声全地图探索顺序与优先级完整攻略',summary:'燕云十六声六大区域探索指南，从清河到蓬山的最优探索路线，含奖励优先级和收集要点。',s:[{h:'探索顺序建议',p:['建议探索顺序：清河（1-30级）→ 开封（31-60级）→ 不见山（61-75级）→ 河西（76-90级）→ 青州（91-100级）→ 蓬山（100-105级）。每个区域探索度达到80%可获得额外奖励。']},{h:'探索核心机制',p:['每个地图有蹊跷（隐藏收集品）、传送点、世界BOSS、副本入口和支线任务。优先开传送点方便后续移动，再清蹊跷拿心法残页和装备。宝箱和采集点顺路做即可。']},{h:'探索奖励汇总',p:['全地图探索100%累计可获得：金色心法残页×30+、长鸣玉×2000+、金色装备胚子×10+、大量心法经验和历练。探索是零氪玩家获取资源的主要途径之一。']}],t:['地图探索','清河','开封','不见山','河西','青州','蓬山'],g:'135deg,#3A5A8A,#4A9A7A',i:'🗺️'},
+{id:'am2',title:'燕云十六声清河区域全收集攻略：蹊跷与宝箱位置',summary:'清河作为新手地图藏着大量收集品。本文标注了所有蹊跷、隐藏宝箱和世界BOSS位置，新手必看。',s:[{h:'清河蹊跷全收集',p:['清河区域共有24个蹊跷收集点，分布在村落、山林和河岸三个区域。建议按区域划分逐个清完，每个蹊跷给心法残页和大量经验。河边和山顶的蹊跷最容易遗漏，记得用感知技能扫描。']},{h:'隐藏宝箱位置',p:['清河隐藏宝箱共15个，分布在主线沿线和岔路末端。注意观察场景中的发光点，部分宝箱需要解锁机关或击败守卫才能获取。最有价值的两个金宝箱在清河镇和碧波潭。']},{h:'世界BOSS与精英怪',p:['清河的世界BOSS是白额山君·虎，推荐等级25+。掉落金色心法残页和紫装胚子。精英怪刷新时间30分钟，顺路清掉给额外经验和材料。每日首次击杀有额外奖励。']}],t:['清河','全收集','蹊跷','宝箱','世界BOSS'],g:'135deg,#4A9A7A,#3A5A8A',i:'🗺️'},
+{id:'am3',title:'燕云十六声开封地图探索攻略：隐藏要素与路线优化',summary:'开封是中期核心区域，复杂度远高于清河。本文提供最优探索路线和隐藏要素全解析。',s:[{h:'开封区域划分',p:['开封分为内城、外城和郊野三大区域。内城以建筑和街道为主，外城有大量NPC和商店，郊野分布世界BOSS和精英怪。建议从郊野开始探索积累等级，再进内城完成主线。']},{h:'隐藏收集品位置',p:['开封共有32个蹊跷和20+隐藏宝箱。内城屋顶和地道藏有大量蹊跷，需要使用轻功和攀爬到达。郊野的河边洞穴和古墓有高级宝箱。开封共有3个金宝箱，分别在内城塔顶、郊野古墓和外城商会仓库。']},{h:'传送点与快捷路线',p:['开封有8个传送点，建议优先解锁内城中心、东门和南门三个传送点。郊野传送点可在探索途中顺路解锁。快捷路线：从东门进→内城中心→南门出→郊野，沿途覆盖最多内容。']}],t:['开封','探索攻略','蹊跷','宝箱','传送点'],g:'135deg,#8B6914,#5A4A7A',i:'🏯'},
+{id:'am4',title:'燕云十六声不见山区域探索路线与隐藏要素盘点',summary:'不见山是高等级区域，地形复杂且隐藏内容极多。本文提供最高效的探索路线和所有隐藏要素位置。',s:[{h:'不见山地形分析',p:['不见山以山地和洞穴为主，垂直地形丰富。建议从山脚开始→半山腰→山顶→后山，逐层向上探索。利用轻功和攀爬可以到达很多隐藏平台，这些位置藏有高品质宝箱和蹊跷。']},{h:'隐藏要素全盘点',p:['不见山有28个蹊跷和12个隐藏宝箱。山腰洞穴内有一个金宝箱需要完成机关谜题才能打开。山顶有3个世界BOSS刷新点，推荐等级70+。后山悬崖下的隐藏区域有全地图唯一的心法9重突破材料。']},{h:'探索效率优化',p:['建议组队探索不见山，分工协作效率更高。先解锁传送点再清蹊跷，最后清理精英怪和世界BOSS。山腰的回复点较少，建议带足回复药。夜间探索注意照明。']}],t:['不见山','探索路线','隐藏要素','高等级'],g:'135deg,#5A4A7A,#C0392B',i:'⛰️'},
+{id:'am5',title:'燕云十六声河西区域通关技巧与全收集指南',summary:'河西是后期区域，怪物强度高且谜题复杂。本文提供通关技巧、装备要求和全收集路线。',s:[{h:'入场准备',p:['进入河西前建议等级75+，装备评分4000+，核心心法6重以上。河西怪物伤害明显提升，新手到这里会感受到难度跃升。准备足够的回复药和修理工具，死亡惩罚较高。']},{h:'区域特点与应对',p:['河西以荒漠和遗迹为主，视野开阔但掩体少。远程怪物较多，建议携带远程武器或技能。区域内有沙尘暴机制会降低视野，注意观察小地图。夜晚温度降低会有持续伤害，带足保暖道具。']},{h:'全收集路线',p:['河西共有20个蹊跷和10个隐藏宝箱。遗迹内的蹊跷和宝箱需要解谜才能获得。荒漠中的世界BOSS铁骨沙蝎掉落金色防具胚子。全收集奖励包含限定称号和外观。']}],t:['河西','通关攻略','全收集','后期区域'],g:'135deg,#C9A04A,#C0392B',i:'🏜️'},
+],
+quests:[
+{id:'aq1',title:'燕云十六声主线任务全流程图文攻略',summary:'涵盖国际服和国内服全部主线关卡，含BOSS打法、任务选择和奖励汇总，保证不卡关。',s:[{h:'序章至清河',p:['序章教学关结束后进入清河区域。清河主线主要围绕门派选择和基础系统解锁。关键节点：加入第一个门派后解锁心法系统，完成清河主线后解锁开封传送。推荐等级25+前往开封。']},{h:'开封至不见山',p:['开封主线难度提升，开始出现多BOSS战。建议30-40级再挑战开封主线。关键支线任务"流火袭星"关系到5人副本解锁，必须完成。不见山主线涉及多场连续的BOSS战，注意补给。']},{h:'河西至最终章',p:['河西主线解锁最终战斗系统。青州和蓬山主线是当前版本的终局内容，推荐95级后再挑战。国际服主线进度落后国内服约一个版本，皇宫主线预计5/28上线。']}],t:['主线任务','全流程','攻略','流程'],g:'135deg,#3A5A8A,#C9A04A',i:'📜'},
+{id:'aq2',title:'燕云十六声流火袭星副本任务解锁与通关攻略',summary:'流火袭星是5人副本的核心任务线。本文详解该副本的解锁条件、前置任务链和BOSS机制。',s:[{h:'任务解锁条件',p:['流火袭星副本的解锁需要完成开封主线"星落之声"任务线，该任务链共7个步骤。完成全部前置任务后，在开封NPC流火处接取最终任务。推荐等级70+，装备评分3500+。']},{h:'BOSS机制详解',p:['副本共3个BOSS。一号BOSS需要打断关键技能。二号BOSS有AOE阶段需分散站位。最终BOSS在50%血以下进入狂暴阶段，需要坦克开减伤技能并快速集火。每个BOSS都有单独的机制需要熟悉。']},{h:'通关奖励与掉落',p:['流火袭星每周首次通关必得金色装备胚子×1、心法残页×5、长鸣玉×100。额外掉落含金色防具和饰品。有概率掉落限定外观。每周刷新后建议第一时间通关获取奖励。']}],t:['流火袭星','副本任务','BOSS机制','解锁条件'],g:'135deg,#C0392B,#8B6914',i:'⚔️'},
+{id:'aq3',title:'燕云十六声龙骧御六合10人团本任务攻略大全',summary:'龙骧御六合是目前最高难度10人团本。本文详解任务流程、BOSS机制、团队配置推荐和通关奖励。',s:[{h:'前置任务与准入',p:['龙骧御六合需要完成全部主线任务及流火袭星副本通关。推荐等级95+，装备评分5000+，推荐团队成员配备至少一个坦克、两个治疗和七个输出。开荒建议在有语音沟通的环境下进行。']},{h:'BOSS机制全解析',p:['团本共4个BOSS，每个都有独特的机制。一号BOSS考验坦克拉怪和DPS转火能力。二号BOSS全团AOE频繁，考验治疗团刷和走位。三号BOSS有分线机制需要团队分工。最终BOSS多阶段战斗，需要全团配合。']},{h:'团队配置推荐',p:['推荐配置1坦2奶7输出。坦克推荐陌刀或天泉流派，治疗推荐青溪，输出推荐鸣金虹和唐横刀。每个团队成员需要了解BOSS所有阶段的机制，一个失误可能导致全团灭。']}],t:['龙骧御六合','团本','10人','BOSS攻略'],g:'135deg,#5A4A7A,#C0392B',i:'👥'},
+{id:'aq4',title:'燕云十六声支线任务奖励汇总与完成优先级',summary:'燕云十六声有大量优质支线任务，给心法残页、长鸣玉和金装胚子。本文汇总所有高价值支线任务及完成方法。',s:[{h:'S级奖励支线',p:['"流火奇缘"任务线给金色心法残页×10，是所有支线中奖励最丰厚的。"古道热肠"系列给限定外观，必须在开封找到NPC林娘接取。"风起云涌"给金装胚子×3，是装备提升的重要来源。']},{h:'A级推荐支线',p:['"百晓生"系列给大量阅历和经验，适合升级。"匠心独运"给洗练材料，装备养成必备。"江湖轶事"给称号和成就点数，收集党必做。这些任务难度不高但奖励性价比极高。']},{h:'支线规划建议',p:['建议优先完成S级奖励支线再推主线。支线任务不会过期，但部分限时活动支线会在版本更新后下架。使用任务追踪功能标记高价值支线，避免遗漏。']}],t:['支线任务','奖励汇总','优先级','心法残页'],g:'135deg,#4A9A7A,#C9A04A',i:'📋'},
+{id:'aq5',title:'燕云十六声每日周常任务规划：最高效的资源获取路线',summary:'时间有限如何最大化资源收益？本文提供每日/每周任务最优规划方案，上班族和学生党必备。',s:[{h:'每日必做排序',p:['心法经验本（耗时10分钟，收益最高）> 世界BOSS（5分钟，金心法残页）> 日常任务（10分钟，长鸣玉）。如果时间特别少，至少打完心法经验本。可以挂机完成，后台运行即可。']},{h:'每周刷新清单',p:['副本（武库+试剑本，每周重置，给金装和心法经验）> 周常任务（长鸣玉+心法经验，奖励大头）> 交易行扫货（周五周六价格低）> 探索度补全。周常和副本是每周最重要的内容。']},{h:'时间管理技巧',p:['周四周一凌晨4点刷新，建议周四晚清副本，周一晚清周常。碎片时间做探索和收集。组队做日常可以大幅提高效率。挂机刷心法经验本时可以做其他事情。']}],t:['日常任务','周常','资源规划','时间管理'],g:'135deg,#8B6914,#4A9A7A',i:'📅'},
+],
+dungeons:[
+{id:'ad1',title:'燕云十六声5人副本攻略大全：机制详解与通关技巧',summary:'汇总燕云十六声所有5人副本的BOSS机制、灭团点处理和通关技巧，手把手教你打通每个副本。',s:[{h:'武库副本',p:['武库是入门级5人本，推荐等级60+。一号BOSS铁甲卫士需要坦克拉面向，DPS躲扇形AOE。二号BOSS机关统领在50%血后会释放全屏技能，需要躲在柱子后面规避。三号BOSS库藏守卫需要清理小怪再输出。整个副本难度适中，适合新手熟悉副本机制。']},{h:'试剑副本',p:['试剑本是较高难度的5人本，推荐等级75+。BOSS以多阶段战斗为主，每个阶段机制不同。需要团队分工明确：坦克拉BOSS面向远离人群，治疗注意驱散debuff，DPS转火处理召唤物。最终BOSS在30%血以下会连续释放必杀技，需要全体躲避。']},{h:'通用通关技巧',p:['进本前检查装备耐久和药水。坦克优先堆减伤和气血属性。治疗注意节奏不要过量治疗浪费蓝量。DPS注意走位不要贪输出。副本内死亡可以复活但会损失时间评分，影响额外奖励。']}],t:['5人副本','武库','试剑本','通关技巧'],g:'135deg,#3A5A8A,#4A9A7A',i:'⚔️'},
+{id:'ad2',title:'燕云十六声10人团本龙骧御六合全BOSS机制与打法详解',summary:'当前版本最难团队副本龙骧御六合的全BOSS机制解析、站位攻略和团队分工，开荒必备。',s:[{h:'一号BOSS裂天',p:['裂天是入门级BOSS，技能机制简单但数值高。坦克需要保持BOSS面向远离人群，每次裂天释放"裂地击"时主T开启减伤。全团需要分散5码站位躲避AOE。30%血进入第二阶段，增加"裂空斩"技能，需要指定DPS打断。']},{h:'二号BOSS玄甲',p:['玄甲是考验治疗的BOSS，全团持续掉血和随机点名机制。被点名的玩家需要出人群。BOSS会周期召唤小怪需要DPS优先清理。坦克在BOSS释放"铁壁"时需要开启大招减伤。治疗保留群加技能应对点名后的AOE伤害。']},{h:'三号BOSS与最终BOSS',p:['三号BOSS分线机制：队伍分成两组分别处理两个区域的机关。全部完成后合线面对最终形态。最终BOSS苍穹之主四阶段战斗，每个阶段转场需要全团集合规避全屏技。通关必掉金色装备和限定称号。']}],t:['龙骧御六合','团本','BOSS机制','开荒攻略'],g:'135deg,#5A4A7A,#C0392B',i:'👥'},
+{id:'ad3',title:'燕云十六声世界BOSS刷新位置与打法全攻略',summary:'全地图世界BOSS刷新点、推荐等级和掉落一览，含单人SOLO和组队打法技巧。',s:[{h:'清河世界BOSS',p:['白额山君·虎位于清河镇北侧山林中，推荐等级25+。技能以近战爪击和扑击为主，注意躲开正面扇形范围。单刷难度中等，掉落金心法残页和紫装。组队刷效率更高，2-3人即可轻松击杀。']},{h:'开封世界BOSS',p:['开封共有两个世界BOSS。铁甲鳄龟在郊野河边，推荐等级40+，特点防御极高需要破防。幽冥蛇女在古墓入口，推荐等级50+，技能有毒伤dot需要解毒。两个BOSS都掉落金装胚子和心法残页。']},{h:'高等级世界BOSS',p:['不见山的修罗将军（70+）和河西的铁骨沙蝎（85+）是高等级世界BOSS。需要组队挑战，单人几乎不可能打过。掉落金色装备和心法9重材料。世界BOSS每日首次击杀有额外奖励，建议组队每天清完。']}],t:['世界BOSS','刷新位置','击杀攻略','掉落'],g:'135deg,#C0392B,#8B6914',i:'🐉'},
+{id:'ad4',title:'燕云十六声武库副本全通攻略：BOSS机制与通关路线',summary:'武库副本是日常必刷的5人本，机制巧妙。本文提供完整通关路线、BOSS机制解析和DPS输出策略。',s:[{h:'副本路线选择',p:['武库副本有三条路线可选，推荐走中路效率最高。中路BOSS数量最少但奖励相同。左侧路线有额外精英怪掉落材料，适合需要特定材料的玩家。右侧路线宝箱数量最多适合收集党。']},{h:'BOSS机制详解',p:['一号BOSS铁甲卫士注意坦克面向，原地重击和扫击有前摇动作容易判断。二号BOSS机关统领50%血时注意找柱子挡全屏技，柱子会被BOSS摧毁，注意提前移动到下一个柱子。最终BOSS库藏守卫的灭团点是小怪处理不及时。']},{h:'效率刷本次数',p:['武库每天可以刷5次，每周有3次特殊奖励。建议每天刷完5次拿经验和材料。组队刷比单人效率高3倍以上。使用匹配功能可以快速组队。']}],t:['武库副本','通关攻略','BOSS机制','日常副本'],g:'135deg,#4A9A7A,#3A5A8A',i:'🏰'},
+{id:'ad5',title:'燕云十六声试剑副本难点详解与SOLO通关技巧',summary:'试剑本难度较高但奖励丰厚。本文详解每个难点处理和SOLO通关技巧，让独狼玩家也能打通。',s:[{h:'一号BOSS应对',p:['试剑一号BOSS极刃武师以快速连击为主，SOLO关键是格挡时机。BOSS的连击最后一下有红光提示，成功格挡可获得输出窗口。利用这个窗口打一套完整连招后拉开距离等待下一次格挡机会。']},{h:'二号BOSS策略',p:['二号BOSS的难点在于频繁的AOE和召唤物处理。SOLO打法：优先击杀召唤物再输出BOSS。BOSS的AOE技能有地面预警圈，看到立刻闪避出范围。远程武器在这里有优势，保持距离风筝打法更安全。']},{h:'最终BOSS单刷',p:['最终BOSS是纯考验操作的战斗。三个阶段需要不同的应对策略。一阶段正常输出，二阶段注意躲地板技能，三阶段开启所有爆发技能rush。建议带上足够的回复药和增益食物。首次SOLO通关有成就奖励。']}],t:['试剑本','SOLO','单刷','难点详解'],g:'135deg,#C9A04A,#C0392B',i:'⚔️'},
+],
+equipment:[
+{id:'ae1',title:'燕云十六声装备品级与词条属性完全详解',summary:'从白装到金装的装备品级体系、所有词条属性的效果详解和装备筛选技巧。',s:[{h:'装备品级体系',p:['燕云十六声装备分为白、绿、蓝、紫、金五个品级。金色装备是毕业追求，自带高属性上限和额外词条。紫装是过渡阶段主力，性价比最高。蓝色及以下装备可以直接分解。装备评分是衡量综合属性的重要指标。']},{h:'关键词条解析',p:['攻击百分比和会心是输出流派最优先的词条。减伤、气血和格挡是坦克流派的核心属性。会心伤害和破防适合高暴击流派。元素属性伤害特定流派需要关注。套装效果比单件属性更重要。']},{h:'装备筛选技巧',p:['只看金色和紫色装备。同部位优先选高装分的。词条比装分重要——一件低装分但词条完美的装备可能比高装分词条差的更实用。洗练可以调整词条但成本较高，建议先用着等毕业再洗。']}],t:['装备品级','词条属性','装备指南','筛选技巧'],g:'135deg,#C9A04A,#5A4A7A',i:'🛡️'},
+{id:'ae2',title:'燕云十六声金色装备获取途径与洗练攻略',summary:'全地图金装获取方式汇总，包括副本掉落、世界BOSS、任务奖励和交易行购买，附洗练优先级建议。',s:[{h:'金装获取途径',p:['副本掉落（流火袭星、龙骧御六合、武库、试剑本）> 世界BOSS（每日首杀必掉）> 主线任务奖励（部分金色武器）> 交易行购买（价格2000-5000长鸣玉）。每周稳定获取金装数量约3-5件。']},{h:'洗练系统详解',p:['洗练可以改变装备的词条属性，需要消耗洗练石和金币。武器攻击词条洗练优先级最高。防具优先洗减伤和气血。饰品优先洗会心伤害和破防。金色装备洗练成本很高，建议先用紫装过渡。']},{h:'毕业装备规划',p:['先凑齐一套金装再开始洗练。毕业标准：武器词条完美（攻%/会心/会伤），防具词条优秀（减伤/气血/全属性抗性），饰品词条达标（会伤/破防）。不追求每件都完美，整体达标即可毕业。']}],t:['金色装备','获取攻略','洗练','毕业装备'],g:'135deg,#C0392B,#C9A04A',i:'🛡️'},
+{id:'ae3',title:'燕云十六声材料刷取路线与效率收益分析',summary:'全材料刷取路线汇总，含心法经验、洗练石、金币等核心材料的最高效获取方式。',s:[{h:'心法经验获取',p:['心法经验本（每天挂满收益）> 副本掉落 > 周常任务 > 交易行购买。心法经验本每天不限次数但收益递减，建议刷满10次。每周长鸣玉限购的心法经验必须换完。']},{h:'洗练石来源',p:['副本分解装备获得洗练石 > 世界BOSS掉落 > 周末活动奖励 > 交易行。分解紫装给少量洗练石，分解金装给大量。不建议用长鸣玉购买洗练石。每日和每周获取量约200-300个。']},{h:'金币获取技巧',p:['每日任务和副本是金币主要来源。交易行倒卖心法残页（低买高卖）是高手常用手法。团队副本的金币奖励最高。每周金币获取上限约10万，达到上限后金币收益减半。']}],t:['材料刷取','心法经验','洗练石','金币','收益分析'],g:'135deg,#4A9A7A,#8B6914',i:'⛏️'},
+{id:'ae4',title:'燕云十六声心法升级材料获取指南：从1重到9重',summary:'心法升级是角色养成的核心。本文详细列出心法从1重到9重所需材料和最有效的获取方式。',s:[{h:'心法升级材料概览',p:['心法升级需要心法残页和经验。1-3重消耗少量材料，4-6重消耗增加，7-9重消耗大量金色材料。核心心法优先升到6重解锁全部词条，性价比最高。升9重需要大量资源，建议只给T0心法。']},{h:'材料高效获取',p:['心法残页：副本掉落 > 世界BOSS > 交易行 > 周常。心法经验：经验本 > 长鸣玉购买 > 副本掉落。金色心法残页：交易行购买（约500-1000玉每个）> 高难度副本 > 限时活动。']},{h:'升级策略建议',p:['先确定主力心法，集中资源升到6重。再升第二个副心法到6重。平均分配不如集中突破。一个6重心法的战斗力远强于两个3重心法。等主力心法都到6重再考虑冲9重。']}],t:['心法升级','材料','1-9重','升级策略'],g:'135deg,#5A4A7A,#C9A04A',i:'📖'},
+{id:'ae5',title:'燕云十六声装备套装效果汇总与搭配推荐',summary:'全套装效果一览表，含2件套和4件套属性，以及各流派推荐搭配方案。',s:[{h:'攻击套装效果',p:['烈阳套（2件：攻击+5%，4件：暴击触发灼烧）适合唐横刀和鸣金虹。霜月套（2件：会心+8%，4件：暴击冰冻减速）适合九重春色。破军套（2件：破防+10%，4件：破防后增伤）适合无名剑法。']},{h:'防御套装效果',p:['铁壁套（2件：减伤+8%，4件：生命低于30%获得护盾）是坦克首选。玄甲套（2件：气血+10%，4件：受击概率减免）适合PVP。坚韧套（2件：全抗性+6%，4件：负面状态缩短）泛用性高。']},{h:'混搭推荐方案',p:['2+2混搭在很多情况下比4件套更强。推荐组合：烈阳2+破军2（极致输出），铁壁2+坚韧2（全能坦克），霜月2+破军2（PVP）。混搭可以同时获得两个2件套效果，灵活性更高。']}],t:['套装效果','装备搭配','2件套','4件套','混搭'],g:'135deg,#3A5A8A,#C9A04A',i:'🛡️'},
+],
+pvp:[
+{id:'ap1',title:'燕云十六声PVP模式详解与入门指南（2026最新版）',summary:'PVP模式全解析，涵盖竞技场、战场、决斗等模式介绍，以及装备属性和心法选择的差异。',s:[{h:'PVP模式介绍',p:['燕云十六声的PVP分为竞技场（3v3排位）、战场（10v10据点争夺）和决斗（1v1友谊赛）。竞技场是主要的PVP模式，有段位系统。战场偏向休闲，适合熟悉PVP操作。决斗可以进行自定义规则对战。']},{h:'PVP装备与属性',p:['PVP和PVE装备分开，PVP装备有额外的人伤减免属性。PVP属性优先级：减伤 > 气血 > 控制抗性 > 输出。防反（格挡反击）在PVP中的重要性远超PVE，是决定胜负的核心技巧。']},{h:'入门练习建议',p:['先在训练场练防反和连招。再从战场模式开始熟悉PVP节奏。竞技场入门段位不会掉分，可以放心打。推荐在35级后再开始PVP，过早参与体验不好。']}],t:['PVP攻略','竞技场','战场','入门指南','2026'],g:'135deg,#C0392B,#3A5A8A',i:'🏆'},
+{id:'ap2',title:'燕云十六声PVP强势流派推荐：竞技场上分利器',summary:'当前版本PVP强势流派排行，涵盖各流派的PVP优缺点分析和适合的上分分段。',s:[{h:'PVP T0流派',p:['九重春色双刀在PVP中表现极强，高机动性和连招压制力让对手难以应对。青山执笔远程风筝流在竞技场中也有优秀表现，放风筝消耗对手血量后找机会收割。无名剑法在高手手中进可攻退可守，泛用性极强。']},{h:'PVP T1流派',p:['唐横刀的爆发伤害在PVP中能秒人，但技能容易被格挡。鸣金虹PVP强度也不弱，但相比PVE要调整心法配置。陌刀在竞技场中可以扮演控制和肉盾的角色，配合队友击杀。']},{h:'反制与被反制',p:['了解流派的克制关系对PVP很重要。九重春色克远程流派（青山执笔），但被陌刀的控制克制。唐横刀爆发高但技能前摇明显，容易被防反。建议至少练2个流派以应对不同的对手。']}],t:['PVP流派','上分攻略','竞技场','流派推荐'],g:'135deg,#5A4A7A,#C9A04A',i:'🏆'},
+{id:'ap3',title:'燕云十六声竞技场实战技巧与连招教学',summary:'从防反到连招、从走位到意识，全方位提升你的PVP实力。含各流派实用连招和实战场景分析。',s:[{h:'核心机制：防反',p:['防反（格挡反击）是PVP最重要的机制。成功格挡敌人攻击后立即按重击可触发防反，造成高额伤害和击退效果。练习方法：在训练场设置木偶攻击，反复练习格挡时机。实战中注意观察对手的出招前摇，预判格挡。']},{h:'各流派基础连招',p:['九重春色：闪避接近→轻击×2→技能→重击→闪避拉开。青山执笔：远程蓄力→风筝走位→放风筝→近身防反。无名剑法：格挡→重击防反→轻击×3→技能→拉开。唐横刀：蓄力重击起手→轻击×5→爆发技能→收招。']},{h:'进阶意识培养',p:['走位比操作更重要。保持移动不要站桩输出。学会骗招：假装攻击引诱对手格挡，然后绕后攻击。控制技能和爆发技能的组合使用是击杀的关键。注意观察对手的技能CD，在对手关键技能CD期发起进攻。']}],t:['竞技场','实战技巧','连招教学','防反','操作'],g:'135deg,#C9A04A,#C0392B',i:'⚔️'},
+{id:'ap4',title:'燕云十六声PVP防反与骗招进阶教程',summary:'防反是PVP的必修课，骗招是高手的进阶技巧。本文从基础到进阶全面解析燕云十六声的PVP格挡系统。',s:[{h:'防反基础',p:['防反触发条件：在敌人攻击命中前0.3秒内按下格挡。成功防反后敌人会短暂硬直，这是你的输出窗口。不同武器的防反效果不同——剑的防反后摇短适合接连招，枪的防反距离远适合拉开空间。']},{h:'进阶骗招技巧',p:['骗招是高手对战的核心。常见方法：故意露出破绽引诱对手攻击，然后反打。轻点一下攻击键就立即格挡，骗出对手的防反然后反防反。走位压迫逼对手先出手。骗招成功的关键是节奏变化。']},{h:'实战应用场景',p:['开局不建议直接进攻，先观察对手的防反习惯。三局两胜制中第二局改变节奏。骗招成功后不要贪连招，打完一套安全输出就拉开。能量管理很重要，留能量应对突发情况。']}],t:['防反','骗招','PVP进阶','格挡技巧','教程'],g:'135deg,#4A9A7A,#5A4A7A',i:'🛡️'},
+{id:'ap5',title:'燕云十六声PVP赛季奖励与段位系统全解析',summary:'PVP段位系统详解，涵盖段位划分、赛季奖励、上分策略和防掉分机制。',s:[{h:'段位系统',p:['段位从低到高：青铜→白银→黄金→白金→钻石→传说。每个大段分4个小段。连胜可以获得额外段位分加速上分。传说段位全区排名，只有前500名能获得。赛季持续约2个月。']},{h:'赛季奖励',p:['赛季奖励包含：段位称号（永久）、限定外观（赛季内）、长鸣玉（按段位发放）、金色心法残页（传说段位专属）。黄金及以上段位有赛季结算奖励。赛季末冲刺阶段双倍积分。']},{h:'上分策略建议',p:['低分段（青铜-黄金）练好防反就能轻松上分。中分段（白金-钻石）需要熟练的连招和走位。高分段（钻石以上）需要团队配合和临场应变。建议在赛季中后期上分，前期高手多冲分难度大。']}],t:['PVP赛季','段位系统','奖励','上分策略'],g:'135deg,#C9A04A,#3A5A8A',i:'🏅'},
+],
+events:[
+{id:'aev1',title:'燕云十六声2026年5月版本更新内容汇总',summary:'2026年5月版本更新全面解读，新副本、新活动和平衡性调整一览，帮助玩家快速了解新版本变化。',s:[{h:'蓬山版本上线',p:['国内服5/29上线蓬山版本，开放青州子区域蓬山。新增猫咪（4只）和大鹅（3只）伙伴系统，可跟随采集和搜宝箱。蓬山区域有独立的主线剧情和新的世界BOSS。新增伙伴养成系统需要专门的材料。']},{h:'副本更新',p:['流火袭星（5人本）和龙骧御六合（10人团本）已上线。国际服皇宫版本将于5/28上线。新副本有独立的任务线和成就系统。完成副本挑战可获取限定称号和外观。']},{h:'平衡性调整',p:['PVP止戈保底调平上线，低造诣自动推荐调整属性，养成门槛大幅降低。部分流派技能伤害系数调整。心法词条优化。具体调整内容见官方公告原文。']}],t:['版本更新','2026年5月','蓬山','更新汇总'],g:'135deg,#3A5A8A,#C9A04A',i:'📰'},
+{id:'aev2',title:'燕云十六声蓬山版本完整内容详解与新系统攻略',summary:'蓬山版本新增内容全解析，从伙伴系统到新区域探索，带你快速上手新版本所有内容。',s:[{h:'蓬山区域探索',p:['蓬山是青州的子区域，需要通过青州主线解锁入口。区域内有独立的蹊跷收集和隐藏宝箱。蓬山的地形以山地和竹林为主，轻功和攀爬是主要移动方式。全区域探索度奖励包含限定伙伴道具。']},{h:'伙伴系统详解',p:['可收集4只猫咪和3只大鹅作为伙伴。伙伴可以跟随玩家采集资源、搜索宝箱和战斗辅助。伙伴有独立的好感度和等级系统，通过喂食和互动提升。不同伙伴有不同的辅助技能。']},{h:'新装备与心法',p:['蓬山版本新增了两套金色装备和一个新心法。装备偏向防御向，适合坦克流派。新心法目前评价两极分化，建议观望后再决定是否培养。版本更新后会有限时活动获取新装备和材料。']}],t:['蓬山版本','新内容','伙伴系统','新攻略'],g:'135deg,#4A9A7A,#5A4A7A',i:'🏔️'},
+{id:'aev3',title:'燕云十六声国际服最新活动与版本更新一览',summary:'国际服最新活动日历、版本更新计划和限时活动参与方法，国际服玩家必备。',s:[{h:'国际服5月活动',p:['国际服5/28上线皇宫版本，同步更新新副本和新装备。目前正在进行中的活动有：双倍心法经验（每周六日）、登录送长鸣玉（累计7天）、世界BOSS双倍掉落（周三）。具体活动时间以游戏内公告为准。']},{h:'版本规划前瞻',p:['国际服版本落后于国内服约1-2个月。5/28皇宫版本上线后，预计6月底-7月初上线蓬山版本。国际服的版本更新节奏较为稳定，每次大版本间隔约6-8周。官方在Discord定期发布版本规划。']},{h:'活动参与建议',p:['限时活动的奖励通常很丰厚，建议活动期间尽量参与。双倍经验活动期间刷心法经验本收益翻倍。世界BOSS双倍掉落期间组队刷满。登录奖励每天上线领取即可。活动道具不要囤积，及时使用。']}],t:['国际服','活动','版本更新','皇宫版本'],g:'135deg,#8B6914,#3A5A8A',i:'🌍'},
+{id:'aev4',title:'燕云十六声版本历史与未来更新路线图盘点',summary:'从公测到最新版本，燕云十六声的版本演进历史和未来更新计划前瞻。',s:[{h:'公测至2025年',p:['燕云十六声于2025年1月全平台公测。开服版本包含清河和开封两大区域。2025年3月更新不见山版本，开放新区域和5人本。2025年6月河西版本上线，加入PVP竞技场系统。2025年9月青州版本开放新的主线和区域。']},{h:'2026年更新历程',p:['2026年2月更新2.5.0版本：国际服上线Steam/Epic，开启多语言支持。2026年3月2.5.5版本：PVP平衡性大调整。2026年4月2.6.0A版本：新活动和新外观。2026年5月2.6.0B版本：蓬山版本+伙伴系统（国服），皇宫版本（国际服）。']},{h:'未来更新展望',p:['根据官方路线图，2026年下半年计划有新门派、新副本和新地图。国际服追赶国内服进度的计划也在推进中。月度活动和季节活动会持续更新。更多后续计划以官方公告为准。']}],t:['版本历史','更新路线图','未来计划','时间线'],g:'135deg,#C9A04A,#3A5A8A',i:'📅'},
+{id:'aev5',title:'燕云十六声限时活动参与攻略：奖励最大化技巧',summary:'限时活动是获取稀有资源的重要途径。本文总结活动类型和参与技巧，帮助玩家最大化活动收益。',s:[{h:'活动类型分类',p:['登录签到类（每日上线领奖，累计天数给大奖）。副本挑战类（特定时间内完成副本给额外奖励）。收集兑换类（收集活动道具兑换限定物品）。竞技挑战类（PVP限时赛有专属奖励）。限时商店（用活动货币购买限时商品）。']},{h:'活动规划策略',p:['活动开始前预留体力和资源。每日任务和活动任务一起做效率最高。活动货币优先兑换限定的外观和称号，心法残页和装备材料次之。活动最后一天记得清空剩余活动货币。']}],t:['限时活动','参与攻略','奖励最大化','活动指南'],g:'135deg,#C0392B,#C9A04A',i:'🎉'},
+],
+clues:[
+{id:'ac1',title:'燕云十六声蹊跷系统完整指南：从入门到全收集',summary:'蹊跷是燕云十六声的特色收集系统。本文从基础机制到全收集技巧，带你全面了解这个核心玩法。',s:[{h:'蹊跷系统简介',p:['蹊跷是地图上的隐藏收集品，每个地图分布20-32个不等。收集蹊跷可以获得心法残页、装备材料、阅历和长鸣玉。蹊跷通过感知技能探测，靠近后按互动键收集。部分蹊跷需要完成解谜或击败守卫后才能获得。']},{h:'收集技巧',p:['升级感知技能可以增加探测范围。蹊跷在场景中表现为微弱的金色光点，注意观察。部分蹊跷藏在地下或需要特定奇术才能到达。组队状态下队友探测到的蹊跷共享信息。每天清一个地图的蹊跷效率最佳。']},{h:'全收集奖励',p:['每个地图蹊跷收集达到50%/80%/100%有额外奖励。全地图蹊跷100%收集可获得限定称号"寻踪者"和特殊外观。蹊跷是零氪玩家获取心法残页的重要途径，建议优先收集。']}],t:['蹊跷','收集指南','全收集','技巧'],g:'135deg,#C9A04A,#4A9A7A',i:'🔍'},
+{id:'ac2',title:'燕云十六声清河蹊跷全收集位置与路线图',summary:'清河24个蹊跷的精确位置和推荐收集路线，附地图标注和注意事项。',s:[{h:'清河蹊跷分布',p:['清河共24个蹊跷：清河镇6个（建筑内和屋顶）、碧波潭4个（水边和山崖）、林间小道3个（路边树上）、山脚区域5个（洞穴和岩石后）、河岸区域4个（河边和桥下）、废弃村落2个（房屋内）。']},{h:'推荐收集路线',p:['从清河镇出发顺时针收集：清河镇（6）→碧波潭（4）→林间小道（3）→山脚（5）→河岸（4）→废弃村落（2）。沿此路线可覆盖所有蹊跷，全程约30-40分钟。']},{h:'收集注意事项',p:['清河镇屋顶的蹊跷需要轻功才能到达。碧波潭水边的蹊跷注意不要掉入水中。林间小道树上蹊跷需要从高处跳下触碰。部分蹊跷只在夜晚出现？目前没有此设定，任何时间都可以收集。']}],t:['清河','蹊跷全收集','位置','路线'],g:'135deg,#4A9A7A,#3A5A8A',i:'🔍'},
+{id:'ac3',title:'燕云十六声开封蹊跷全收集攻略：32个位置详解',summary:'开封区域32个蹊跷收集攻略，按区域分类详细标注所有收集位置和获取方法。',s:[{h:'内城区域（14个）',p:['内城分布14个蹊跷：主干道4个、建筑内3个、屋顶2个、地道2个、城墙上3个。主干道和建筑内的蹊跷容易找到。屋顶和城墙蹊跷需要轻功才能到达。地道蹊跷需要完成特定任务才能进入，建议先推进主线。']},{h:'外城区域（10个）',p:['外城分布10个蹊跷：商铺区4个、居民区3个、码头2个、仓库1个。商铺区蹊跷多在小巷中。码头蹊跷在船上和水边。仓库蹊跷在商会仓库二楼，需要从外侧攀爬进入。']},{h:'郊野区域（8个）',p:['郊野分布8个蹊跷：河边3个、古墓2个、树林2个、平原1个。古墓蹊跷需要完成前置任务才能进入。河边蹊跷注意水位变化，低水位时更容易收集。']}],t:['开封','蹊跷','全收集','32个位置'],g:'135deg,#8B6914,#5A4A7A',i:'🔍'},
+{id:'ac4',title:'燕云十六声不见山蹊跷位置汇总与收集技巧',summary:'不见山28个蹊跷完整攻略，含高难度蹊跷的特殊获取方法和地形技巧。',s:[{h:'山脚区域（8个）',p:['不见山山脚分布8个蹊跷：入口道路2个、山脚洞穴1个、瀑布后1个、密林4个。瀑布后的蹊跷需要从侧面绕到瀑布后面。密林蹊跷视野较差，建议开启感知技能持续探测。']},{h:'山腰区域（12个）',p:['山腰区域蹊跷最多，共12个：悬崖平台3个、洞穴内部4个、山道旁3个、隐藏区域2个。悬崖蹊跷需要精准的轻功操作。洞穴内部容易迷路，建议先探索完一个洞穴再进入下一个。']},{h:'山顶区域（8个）',p:['山顶分布8个蹊跷：遗迹内3个、后山2个、BOSS区域附近3个。BOSS区的蹊跷建议先击杀BOSS再收集。后山蹊跷需要从山顶跳下使用滑翔到达。全收集28个后可以在地图下方NPC处领取奖励。']}],t:['不见山','蹊跷','收集位置','技巧'],g:'135deg,#5A4A7A,#C0392B',i:'🔍'},
+{id:'ac5',title:'燕云十六声蹊跷奖励与探索效率最大化技巧',summary:'蹊跷收集能获得什么奖励？如何最高效地完成全地图蹊跷收集？本文详细解答。',s:[{h:'蹊跷奖励一览',p:['单个蹊跷奖励：心法残页×1-2、阅历×500-1000、少量长鸣玉、随机绿色材料。地图收集进度奖励：50%给心法残页×5，80%给长鸣玉×100，100%给金装胚子×1。全地图收集额外称号和外观。']},{h:'效率收集策略',p:['每周定一个地图作为收集目标。使用第三方地图工具标注已收集和未收集的蹊跷（社区网站有互动地图）。组队收集可以共享发现但每个玩家需要自己互动。先完成蹊跷数量少的地图增加成就感。']},{h:'蹊跷与角色养成',p:['蹊跷给的心法残页累积起来数量很可观，全地图收集至少30+残页。长鸣玉全收集约2000+足够换一本核心心法。探索过程中顺便完成的成就也会给额外奖励。建议探索等级中后期集中收集。']}],t:['蹊跷奖励','效率','探索','心法残页','长鸣玉'],g:'135deg,#C9A04A,#3A5A8A',i:'🎁'},
+],
+shefu:[
+{id:'as1',title:'燕云十六声射覆玩法全攻略：猜物技巧与题目类型',summary:'射覆是燕云十六声独特的中国传统文化猜物小游戏，本文详细介绍玩法规则和答题技巧。',s:[{h:'射覆玩法介绍',p:['射覆是汉代流传下来的传统猜物游戏，在燕云十六声中作为趣味玩法复现。玩家通过一系列提示猜测被覆盖的物品。游戏会给出物品的类别、颜色、用途等线索，玩家从选项中选择正确答案。每日有固定次数的射覆机会。']},{h:'题目类型',p:['目前有三大类题目：器物类（瓷器、铜器、玉器等）、植物类（草药、花卉等）、食物类（传统糕点、食材等）。每类题目覆盖不同方面的中国古代文化知识。游戏进度推进会解锁更多题目类别。']},{h:'答题技巧',p:['注意题目中的关键字。颜色和材质提示最直接，优先参考。年代提示可以帮助缩小范围。如果拿不准，可以用排除法。错误答案不会扣分，所以可以大胆猜测。全部答对有额外奖励。']}],t:['射覆','玩法','猜物','答题技巧'],g:'135deg,#8B6914,#C9A04A',i:'🎭'},
+{id:'as2',title:'燕云十六声射覆题目答案大全：持续更新',summary:'燕云十六声全部射覆题目的答案汇总，按类别分类整理，方便快速查阅。持续更新最新题目。',s:[{h:'器物类答案',p:['青铜鼎（提示：三足双耳）、青花瓷瓶（提示：白底蓝花）、玉璧（提示：圆形中孔）、铜镜（提示：背面有纹饰）、紫砂壶（提示：泡茶器具）、漆器盒（提示：红色为主）。器物类通常根据材质和特征可以轻松判断。']},{h:'植物类答案',p:['人参（提示：形似人形根茎）、灵芝（提示：伞状菌类）、当归（提示：中药根部）、枸杞（红色小果）、菊花（黄色花瓣泡茶）、甘草（甜味根茎）。植物类题目通常和中医、饮食文化相关。']},{h:'食物类答案',p:['月饼（提示：圆形中秋食品）、粽子（三角叶包）、汤圆（元宵节食品）、年糕（过年食品）、饺子（月牙形包馅）。食物类题目结合传统节日节气，注意题目中的节令提示。']}],t:['射覆答案','题目汇总','持续更新','分类'],g:'135deg,#C9A04A,#4A9A7A',i:'📋'},
+{id:'as3',title:'燕云十六声射覆历史文化来源：汉代猜物游戏探秘',summary:'射覆源于汉代，是中国古代士大夫的娱乐活动。本文介绍射覆的历史渊源和文化意义，以及游戏中的还原程度。',s:[{h:'历史渊源',p:['射覆在汉代已经盛行，是宫廷和士大夫之间流行的猜物游戏。"射"意为猜测，"覆"意为覆盖——即猜测被覆盖的物体。史书记载汉武帝曾与东方朔玩射覆游戏。《汉书·艺文志》收录了多部射覆专著。']},{h:'游戏方式演变',p:['传统射覆需要参与者具备丰富的物品知识和敏捷思维。游戏中通常会给出卦象提示——"覆者"放置物品，"射者"根据提示猜测。射覆不仅是一种游戏，也是锻炼思维和增进知识的方式。']},{h:'在燕云十六声中的呈现',p:['燕云十六声的射覆系统保留了传统猜物的核心机制，同时加入了更适合游戏节奏的设计。题目以选择题形式呈现，降低了参与门槛。游戏中可以学习到大量中国古代器物的知识，寓教于乐。']}],t:['射覆历史','文化','汉代','猜物游戏','传统文化'],g:'135deg,#5A4A7A,#C9A04A',i:'📜'},
+{id:'as4',title:'燕云十六声射覆奖励与解锁条件全攻略',summary:'射覆玩法能获得什么奖励？如何解锁更多射覆题目？本文详细解答射覆系统的奖励机制。',s:[{h:'解锁条件',p:['射覆玩法在完成开封支线任务"古物迷踪"后解锁。该任务在开封内城古董商人处接取。完成后每日可以参与射覆。随着主线进度推进，会解锁更多题目类别和每日次数上限。']},{h:'奖励内容',p:['每次答对获得：阅历×500、长鸣玉×10、随机材料。每日全对额外奖励：心法残页×1、长鸣玉×50。累计答对次数成就给限定称号和外观。50次答对成就给"博闻强识"称号。']},{h:'每日参与建议',p:['射覆每天只能做有限次数，建议每天上线第一时间完成。即使答案不确定也值得尝试，答对奖励远大于惩罚。配合主线进度解锁的内容更多，建议解锁后持续参与。']}],t:['射覆奖励','解锁条件','每日任务','成就'],g:'135deg,#C9A04A,#3A5A8A',i:'🎁'},
+{id:'as5',title:'燕云十六声每日射覆答题技巧与常见问题解答',summary:'每日射覆题目答题技巧汇总，含常见易错题和玩家常见问题解答。',s:[{h:'答题技巧总结',p:['颜色提示最直接：白底蓝花→青花瓷，红色圆形→漆器。用途提示也很重要：泡茶→紫砂壶，盛水→瓷碗。年代提示可以验证判断：唐宋→瓷器，汉代→青铜。如果不能确定，优先选最常见的物品。']},{h:'常见易错题',p:['辨析题："碗"vs"盘"——碗有深度，盘浅而平。"鼎"vs"炉"——鼎三足，炉四足。"壶"vs"瓶"——壶有把手提梁，瓶无。建议仔细看题目描述的细节特征。']},{h:'常见问题',p:['Q：射覆次数用完了怎么办？A：每日凌晨4点重置次数。Q：答错有惩罚吗？A：没有，但答对才能获得奖励。Q：可以和朋友讨论答案吗？A：可以，射覆不是考试模式。Q：所有题目都做完后会出新题吗？A：版本更新可能会增加新题目。']}],t:['射覆答题','技巧','常见问题','易错题'],g:'135deg,#4A9A7A,#8B6914',i:'💡'},
+],
+tools:[
+{id:'at1',title:'燕云十六声伤害计算公式详解与DPS提升指南',summary:'伤害计算公式全解析，从攻击力、会心到元素伤害，教你如何科学提升DPS。附带计算器使用方法。',s:[{h:'基础伤害公式',p:['伤害 = 攻击力 × 技能倍率 × （1 + 伤害加成%） × 会心期望。会心期望 = 1 + 会心率% × 会心伤害%。更精确的公式要考虑目标防御和减伤。总伤害 = 基础伤害 × （1 - 目标减伤%） × 穿透系数。']},{h:'属性收益分析',p:['攻击力是基础，每100点提升约5%伤害。会心率收益在50%前最高，超过60%后递减。会心伤害在会心率够高时收益最大。伤害加成是独立乘区，没有递减。破防属性收益取决于目标防御。']},{h:'DPS提升建议',p:['优先堆攻击力到2000+，再堆会心到50%+，最后堆会心伤害。伤害加成词条尽量多堆。不同流派有不同的属性权重，可以参考流派攻略的主属性推荐。使用工具箱的计算器可以估算不同属性配置的DPS。']}],t:['伤害计算','DPS','公式','属性收益'],g:'135deg,#C0392B,#4A9A7A',i:'📊'},
+{id:'at2',title:'燕云十六声资源规划与每周必做清单',summary:'资源是角色养成的核心。本文提供完整的每周资源规划和必做清单，帮助玩家高效管理游戏时间。',s:[{h:'每周资源总览',p:['每周可获取的免费资源：长鸣玉约500-800、心法残页约10-20、心法经验约50000+、金色装备胚子约3-5件、洗练石约200-300个。这些资源主要来自副本、世界BOSS和周常任务。']},{h:'每周必做优先级',p:['S级（必做）：武库副本×5、试剑副本×5、世界BOSS每日击杀、周常任务全部完成。A级（推荐做）：探索度补全、交易行扫货、门派任务。B级（时间充裕做）：支线任务清理、成就补完。']},{h:'时间管理建议',p:['上班族每日投入30分钟：上线收菜→心法经验本挂机→世界BOSS→下线。周末集中2小时：清副本→做周常→清探索。周三周四是副本刷新日，建议晚上集中打完。']}],t:['资源规划','每周必做','清单','时间管理'],g:'135deg,#3A5A8A,#C9A04A',i:'📅'},
+{id:'at3',title:'燕云十六声心法升级成本计算与资源分配攻略',summary:'心法从1重到9重需要多少资源？本文详细计算各心法等级的升级成本，提供最优资源分配方案。',s:[{h:'升级成本明细',p:['1-3重：心法残页×5/级 + 经验10000/级。4-6重：残页×15/级 + 经验50000/级。7-9重：残页×30/级 + 金色残页×5/级 + 经验100000/级。一个心法从1到9重共需：普通残页约225、金色残页约15、经验约600000。']},{h:'成本对比分析',p:['升一个心法到9重的资源，可以升三个心法到6重。三个6重心法的战斗力远胜于一个9重心法。建议优先级：先1-6重（质变）→再其他心法6重→最后冲9重。核心流派至少3个6重心法后再考虑冲9重。']},{h:'资源分配建议',p:['长鸣玉优先换易水歌和心法经验。交易行购买心法残页时注意比价。金色残页只在有明确目标时购买。心法经验本每天挂满收益。不要为了冲9重拆解其他心法，得不偿失。']}],t:['心法升级','成本计算','资源分配','攻略'],g:'135deg,#5A4A7A,#C9A04A',i:'💰'},
+{id:'at4',title:'燕云十六声交易行价格走势分析与倒卖技巧',summary:'交易行是燕云十六声的经济核心。本文分析常见物品的价格走势和倒卖技巧，帮助玩家赚取更多长鸣玉。',s:[{h:'价格周期规律',p:['心法残页价格波动最大，周一价格最低，周末价格最高。金色残页价格在副本刷新日（周三四）最低。装备胚子价格在版本更新后上涨。外观道具价格随时间缓慢贬值。掌握这些周期规律可以低买高卖。']},{h:'倒卖技巧',p:['关注市场公告和版本更新信息，提前布局热门物品。批量买入低价心法残页，等周末价格上涨时卖出。注意交易税和手续费，高频小额交易利润不高。大额交易（金色心法残页、限定外观）利润率最高。']},{h:'风险提示',p:['价格有波动风险，不要全部资金投入。版本更新可能影响物价。限时活动道具在活动结束后可能升值。不要炒外观（外观有价无市）。建议保留一部分流动资金用于日常开销。']}],t:['交易行','价格走势','倒卖','赚钱技巧'],g:'135deg,#C9A04A,#3A5A8A',i:'💰'},
+{id:'at5',title:'燕云十六声常用攻略工具与网站推荐合集',summary:'玩家社区制作的攻略工具推荐，含互动地图、配装模拟器、心法计算器等实用工具。',s:[{h:'社区工具推荐',p:['互动地图网站提供全地图蹊跷和宝箱标记，支持筛选和进度追踪。配装模拟器可以预览不同装备搭配的属性效果。心法计算器输入当前心法配置可估算DPS。伤害计算器（本站在工具箱提供）可估算不同属性下的伤害。']},{h:'官方与社区资源',p:['B站官方号有最新攻略视频和版本前瞻。Discord社区有国际服讨论和build分享。Steam社区指南有玩家写的详细攻略。TapTap论坛有国服玩家讨论和组队信息。这些资源互相补充，建议同时关注。']},{h:'实用链接汇总',p:['本站在工具箱页面汇总了所有推荐链接。国际服官网：www.wherewindsmeetgame.com。国内服官网：yysls.cn。Steam商店页：steamcommunity.com/app/3173720。Discord社区：discord.gg/wherewindsmeet。']}],t:['攻略工具','推荐网站','互动地图','社区资源'],g:'135deg,#4A9A7A,#5A4A7A',i:'🔗'},
+],
+};
 function initStore(){
   let s=getStore();
   if(!s){s={builds:JSON.parse(JSON.stringify(D_BUILDS)),maps:JSON.parse(JSON.stringify(D_MAPS)),quests:JSON.parse(JSON.stringify(D_QUESTS)),comments:{},ratings:{},userBuilds:[],likes:{},bookmarks:{},completed:{quests:[],maps:[]},views:{}};saveStore(s)}
@@ -887,13 +1034,15 @@ function toast(m,t){
 function navigate(p){window.history.pushState(null,'',p);router()}
 function matchRoute(path){
   if(path.match(/^\/build\/(.+)$/))return'buildDetail';
+  if(path.match(/^\/article\/(.+)$/))return'articleDetail';
+  if(path.match(/^\/articles(\/.+)?$/))return'articles';
   const k=path.replace('/','').split('/')[0]||'home';
-  return['newbie','builds','maps','quests','dungeons','tools','community','admin','clues','shefu'].includes(k)?k:'home';
+  return['newbie','builds','maps','quests','dungeons','equipment','pvp','events','tools','community','admin','clues','shefu'].includes(k)?k:'home';
 }
 
 function updateMeta(route){
-  const t={home:'燕云十六声攻略站 · 国际服/国内服流派攻略、地图探索、配装社区',newbie:'新手入门 · 燕云十六声攻略站 — 从零开始的完整新人指南',builds:'流派攻略 · 燕云十六声攻略站 — 最新Meta配装/心法推荐',buildDetail:'流派详情 · 燕云十六声攻略站',maps:'地图探索 · 燕云十六声攻略站 — 清河/开封/青州/蓬山全区域指南',quests:'任务攻略 · 燕云十六声攻略站 — 主线/支线/副本攻略',dungeons:'副本攻略 · 燕云十六声攻略站 — 流火袭星/龙骧御六合全BOSS机制',tools:'工具箱 · 燕云十六声攻略站 — 伤害计算器/每周重置/常见FAQ',community:'玩家社区 · 燕云十六声攻略站 — 配装分享/Discord/B站/TapTap',admin:'内容管理 · 燕云十六声攻略站 — CMS后台',clues:'抓蹊跷 · 燕云十六声 — 全地图隐藏收集品追踪',shefu:'射覆 · 燕云十六声攻略站 — 传统射覆文化介绍与猜谜'};
-  const d={home:'燕云十六声（Where Winds Meet）中文攻略站，涵盖国际服和国内服最新流派攻略、心法配装、门派介绍、地图探索、社区配装分享。',newbie:'燕云十六声新手入门指南：服务器选择、流派推荐（无名剑/枪新手首选）、1-40级快速升级路线、心法/装备/奇术核心系统详解、新手避坑大全。',builds:'2026年5月最新版本流派排行：鸣金虹、唐横刀、裂石均·陌刀、牵丝玉、破竹鸢。附心法配置和输出循环详解。',maps:'燕云十六声全地图探索指南：清河→开封→不见山→河西→青州→蓬山，优先探索顺序和关键点位一览。',quests:'燕云十六声任务攻略大全：麻布袋、中渡桥之战、流火袭星、龙骧御六合等核心任务攻略。',dungeons:'燕云十六声副本攻略大全：流火袭星（5人）、龙骧御六合（10人）、世界BOSS机制详解、推荐配装和掉落奖励一览。',tools:'燕云十六声玩家工具箱：伤害计算器、每周重置倒计时、装备对比工具、心法升级成本表、常见问题FAQ。',community:'加入燕云十六声玩家社区：Discord国际服讨论、B站视频攻略、TapTap论坛、Steam社区。分享你的配装。',clues:'燕云十六声全地图蹊跷（隐藏收集品）追踪列表：清河、开封、不见山、河西、青州、蓬山。',shefu:'燕云十六声射覆文化介绍——汉代传统猜谜游戏，包含射覆起源、卦象法、推理法及互动猜谜。'};
+  const t={home:'Where Winds Meet Guide · Builds, Maps, Dungeons & Community',newbie:'Newbie Guide · Where Winds Meet — Complete Beginner Guide',builds:'Build Guides · Where Winds Meet — Latest Meta Builds & Xinfa',buildDetail:'Build Detail · Where Winds Meet Guide',maps:'Map Exploration · Where Winds Meet — All Regions Guide',quests:'Quest Guides · Where Winds Meet — Main/Side/Dungeon Quests',dungeons:'Dungeons & Bosses · Where Winds Meet — Full Boss Mechanics Guide',equipment:'Equipment & Materials · Where Winds Meet — Gear Guide',pvp:'PVP Arena · Where Winds Meet — PVP Builds & Strategies',events:'Events & News · Where Winds Meet — Latest Updates & Patch Notes',tools:'Tools & FAQ · Where Winds Meet — Calculator, Timers & FAQ',community:'Community · Where Winds Meet — Build Sharing & Discord',admin:'Content Admin · Where Winds Meet Guide',clues:'Clue Hunting · Where Winds Meet — Hidden Collectibles Tracker',shefu:'She Fu · Where Winds Meet Guide — Culture & Quizzes',articles:'Game Guide Articles · Where Winds Meet — All Guides',articleDetail:'Guide Article · Where Winds Meet — Game Guide Article'};
+  const d={home:'Where Winds Meet (燕云十六声) guide for both International and CN servers. Latest builds, xinfa recommendations, map exploration, and community build sharing.',newbie:'Where Winds Meet beginner guide: server selection, recommended builds (Sword/Spear for beginners), 1-40 fast leveling route, xinfa/gear/qishu systems explained.',builds:'May 2026 latest build tier list: MingJinHong, Tang HengDao, LieShiJun, QianSiYu, PoZhuYuan. Full xinfa setups and rotation guides.',maps:'Where Winds Meet full map exploration guide: Qinhe → Kaifeng → Bujianshan → Hexi → Qingzhou → Pengshan. Priority order and key locations.',quests:'Where Winds Meet quest guide: Sack of Hemp, Zhongdu Bridge Battle, Flowing Fire Starstrike, Dragon Soaring Six Realms and more.',dungeons:'Where Winds Meet dungeon guide: Flowing Fire Starstrike (5P), Dragon Soaring Six Realms (10P), World Boss mechanics, recommended builds and loot tables.',equipment:'Where Winds Meet equipment & materials guide: gear tier list, weapon/armor/accessory stats, material farming routes, refining guide.',pvp:'Where Winds Meet PVP arena guide: PVP mode overview, best PVP builds, arena strategies, ranked rewards.',events:'Where Winds Meet events & news: latest patch notes, version updates, in-game events calendar, version history.',tools:'Where Winds Meet tools: damage calculator, weekly reset timer, gear comparison, xinfa upgrade cost table, FAQ.',community:'Join the Where Winds Meet community: Discord discussion, Bilibili videos, TapTap forum, Steam community. Share your builds.',clues:'Where Winds Meet clue hunting: full map hidden collectibles tracker for Qinhe, Kaifeng, Bujianshan, Hexi, Qingzhou, Pengshan.',shefu:'Where Winds Meet She Fu culture — Han Dynasty tradition of covered-object guessing. Includes origin, divination methods, riddles and interactive quizzes.',articles:'All Where Winds Meet guide articles in one place: newbie guides, build guides, map exploration, dungeon strategies, PVP tips and more.',articleDetail:'Detailed Where Winds Meet game guide article with tips, strategies and comprehensive information for players.'};
   document.title=t[route]||t.home;const desc=d[route]||d.home;
   let me=document.querySelector('meta[name="description"]');if(me)me.setAttribute('content',desc);
   let oe=document.querySelector('meta[property="og:description"]');if(oe)oe.setAttribute('content',desc);
@@ -935,6 +1084,9 @@ function renderHome(){
 <a class="quick-nav-item" onclick="navigate('/newbie')"><div class="q-icon">🌱</div><div class="q-title">${t('navNewbie')}</div><div class="q-desc">${t('qnNewbie')}</div></a>
 <a class="quick-nav-item" onclick="navigate('/builds')"><div class="q-icon">📜</div><div class="q-title">${t('navBuilds')}</div><div class="q-desc">${t('qnBuilds')}</div></a>
 <a class="quick-nav-item" onclick="navigate('/dungeons')"><div class="q-icon">⚔️</div><div class="q-title">${t('navDungeons')}</div><div class="q-desc">${t('qnDungeons')}</div></a>
+<a class="quick-nav-item" onclick="navigate('/equipment')"><div class="q-icon">🛡️</div><div class="q-title">${t('navEquipment')}</div><div class="q-desc">${t('qnEquipment')}</div></a>
+<a class="quick-nav-item" onclick="navigate('/pvp')"><div class="q-icon">🏆</div><div class="q-title">${t('navPVP')}</div><div class="q-desc">${t('qnPVP')}</div></a>
+<a class="quick-nav-item" onclick="navigate('/events')"><div class="q-icon">📰</div><div class="q-title">${t('navEvents')}</div><div class="q-desc">${t('qnEvents')}</div></a>
 <a class="quick-nav-item" onclick="navigate('/maps')"><div class="q-icon">🗺️</div><div class="q-title">${t('navMaps')}</div><div class="q-desc">${t('qnMaps')}</div></a>
 <a class="quick-nav-item" onclick="navigate('/clues')"><div class="q-icon">🔍</div><div class="q-title">${t('navClues')}</div><div class="q-desc">${t('qnClues')}</div></a>
 <a class="quick-nav-item" onclick="navigate('/tools')"><div class="q-icon">🧰</div><div class="q-title">${t('navTools')}</div><div class="q-desc">${t('qnTools')}</div></a>
@@ -1026,7 +1178,7 @@ ${related.length?`<div class="card" style="border-radius:var(--radius);margin-to
 function renderMaps(){
   const store=getStore();const maps=store.maps||[];const done=store.completed?.maps||[];
   document.getElementById('app').innerHTML=`
-<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>🗺️ 地图探索</h2><p>推荐探索顺序：清河 → 开封 → 不见山 → 河西 → 青州 → 蓬山</p></div>
+<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>${t('mapTitle')}</h2><p>${t('mapDesc')}</p></div>
 <div class="progress-stat">${t('mapsCompleted').replace('{done}',done.length).replace('{total}',maps.length)}</div><div class="progress-bar"><div class="progress-bar-inner" style="width:${maps.length?(done.length/maps.length*100).toFixed(0):0}%"></div></div>
 <div class="map-grid">${maps.map(m=>{const dd=done.includes(m.id);return'<div class="map-card"><div class="map-banner" style="background:linear-gradient(135deg,'+m.color+'33,transparent);color:'+m.color+'">'+__t(m.name,m.name_en)+'</div><div class="map-body"><div class="progress-item" style="border:none;padding:0 0 .4rem;margin-bottom:.4rem"><div class="progress-cb'+(dd?' done':'')+'" onclick="toggleComplete(\'maps\',\''+m.id+'\')"></div><span class="progress-text'+(dd?' done':'')+'">'+t('mapExplored')+'</span></div><p>'+__t(m.desc,m.desc_en)+'</p><div class="points">'+m.points.map((p,i)=>'<span class="tag tag-s">'+__t(p,(m.points_en||[])[i]||p)+'</span>').join('')+'</div></div></div>'}).join('')}</div></div></section>`;
 }
@@ -1034,7 +1186,7 @@ function renderMaps(){
 function renderQuests(){
   const store=getStore();const quests=store.quests||[];const done=store.completed?.quests||[];
   document.getElementById('app').innerHTML=`
-<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>📋 任务攻略</h2><p>主线 · 支线 · 副本 · 探索任务指南</p></div>
+<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>${t('questTitle')}</h2><p>${t('questDesc')}</p></div>
 <div class="progress-stat">${t('questsProgress').replace('{done}',done.length).replace('{total}',quests.length)}</div><div class="progress-bar"><div class="progress-bar-inner" style="width:${quests.length?(done.length/quests.length*100).toFixed(0):0}%"></div></div>
 <div class="search-bar"><input type="text" id="questSearch" placeholder="${t('questsSearchPlaceholder')}" oninput="filterQuests()"><select id="questTypeFilter" onchange="filterQuests()"><option value="">${t('questsAllTypes')}</option><option value="主线">${__t('主线','Main')}</option><option value="支线">${__t('支线','Side')}</option><option value="副本">${__t('副本','Dungeon')}</option><option value="探索">${__t('探索','Exploration')}</option></select><select id="questMapFilter" onchange="filterQuests()"><option value="">${t('questsAllMaps')}</option>${[...new Map(quests.map(q=>[q.map,q]))].map(([_,q])=>'<option value="'+q.map+'">'+__t(q.map,q.map_en)+'</option>').join('')}</select></div>
 <div class="tip-list" id="questList">${quests.map(q=>{const dd=done.includes(q.id);return'<div class="tip-item"><div class="tip-num" style="font-size:.65rem">'+__t(q.type,q.type_en)+'</div><div><div class="progress-item" style="border:none;padding:0 0 .2rem"><div class="progress-cb'+(dd?' done':'')+'" onclick="toggleComplete(\'quests\',\''+q.id+'\')"></div><h4 style="margin:0;font-size:.9rem'+(dd?';color:var(--text3);text-decoration:line-through':'')+'">'+__t(q.name,q.name_en)
@@ -1052,12 +1204,12 @@ function filterQuests(){
 function renderCommunity(){
   const store=getStore();const ub=store.userBuilds||[];
   document.getElementById('app').innerHTML=`
-<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>👥 玩家社区</h2><p>加入社区 · 分享你的配装 · 与其他玩家交流</p></div>
+<section class="section" style="padding-top:6rem"><div class="container"><div class="section-header"><h2>${t('communityTitle')}</h2><p>${t('communityDesc')}</p></div>
 <div class="community-grid" style="margin-bottom:2rem">${[
-  ['💬','Discord 国际社区','国际服玩家聚集地，英文/中文频道','https://discord.gg/wherewindsmeet'],
-  ['📺','B站官方','最新视频攻略、版本预告、玩法解析','https://space.bilibili.com/3546787875972964'],
-  ['📱','TapTap 社区','国内玩家评分、论坛讨论、配装分享','https://www.taptap.cn/app/234251'],
-  ['🎮','Steam 社区','国际服讨论、评测、指南','https://steamcommunity.com/app/3173720']
+  ['💬',__t('Discord 国际社区','Discord Intl Community'),__t('国际服玩家聚集地，英文/中文频道','International player hub, EN/CN channels'),'https://discord.gg/wherewindsmeet'],
+  ['📺',__t('B站官方','Bilibili Official'),__t('最新视频攻略、版本预告、玩法解析','Official channel with guides, trailers & analysis'),'https://space.bilibili.com/3546787875972964'],
+  ['📱',__t('TapTap 社区','TapTap Community'),__t('国内玩家评分、论坛讨论、配装分享','CN player reviews, forums & build sharing'),'https://www.taptap.cn/app/234251'],
+  ['🎮',__t('Steam 社区','Steam Community'),__t('国际服讨论、评测、指南','Intl server discussions, reviews & guides'),'https://steamcommunity.com/app/3173720']
 ].map(s=>'<a href="'+s[3]+'" target="_blank" rel="noopener" class="social-card"><div class="sicon">'+s[0]+'</div><div><h4>'+s[1]+'</h4><p>'+s[2]+'</p></div></a>').join('')}</div>
 <div class="share-section"><h3 style="font-size:1.05rem;color:var(--gold);margin-bottom:.75rem">${t('communityShareTitle')}</h3>
 <div class="form-row"><div class="form-group"><label>${t('communityBuildName')}</label><input id="ubName" placeholder="${__t('如：我的冰火流','e.g. My Ice-Fire Build')}"></div><div class="form-group"><label>${t('communityWeapon')}</label><input id="ubWeapons" placeholder="${__t('如：无名剑+无名枪','e.g. Sword + Spear')}"></div></div>
@@ -1346,7 +1498,7 @@ function renderDungeons(){
 </div>
 <div class="map-grid" id="dungeonGrid">${D_DUNGEONS.map(d=>{
   const dc=d.difficulty==='S'?'var(--red)':d.difficulty==='A'?'var(--gold)':'var(--jade-light)';
-  return '<div class="map-card"><div class="map-banner" style="background:linear-gradient(135deg,'+d.banner+'33,transparent);color:'+d.banner+'">'+__t(d.name,d.name_en)+'</div><div class="map-body"><div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem"><span class="tag tag-s">'+d.type+'</span><span class="tag" style="background:rgba(201,160,74,.1);color:'+dc+';border:1px solid '+dc+'44">'+d.difficulty+'级</span><span style="font-size:.72rem;color:var(--text3)">👥 '+d.players+__t('人',' players')+' · Lv.'+d.level+'</span></div><p style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">📍 '+d.map+'</p><p style="font-size:.82rem;color:var(--text2);margin-bottom:.4rem">🎁 '+d.rewards+'</p><div class="guide-section" style="margin-bottom:0"><div class="guide-section-header" style="padding:.5rem .75rem;font-size:.82rem;border-bottom:none" onclick="toggleGuideSection(this)">📋 BOSS详情 <span class="arrow">›</span></div><div class="guide-section-body" style="padding:0 .75rem">'+d.bosses.map((b,bi)=>'<div style="padding:.5rem 0;border-bottom:'+(bi<d.bosses.length-1?'1px solid var(--border)':'none')+'"><div style="font-size:.85rem;font-weight:700;color:var(--gold);margin-bottom:.2rem">'+(bi+1)+'. '+__t(b.name,b.name_en)+'</div><div style="font-size:.72rem;color:var(--text2);line-height:1.6;margin-bottom:.2rem"><strong>'+__t('机制：','Mechanics:')+'</strong>'+(currentLang==='en'?b.mechanics_en:b.mechanics).join(' · ')+'</div><div style="font-size:.72rem;color:var(--jade-light);line-height:1.6"><strong>'+__t('打法：','Strategy:')+'</strong>'+__t(b.tips,b.tips_en)+'</div></div>').join('')+'</div></div></div></div>'
+  return '<div class="map-card"><div class="map-banner" style="background:linear-gradient(135deg,'+d.banner+'33,transparent);color:'+d.banner+'">'+__t(d.name,d.name_en)+'</div><div class="map-body"><div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem"><span class="tag tag-s">'+__t(d.type,d.type_en)+'</span><span class="tag" style="background:rgba(201,160,74,.1);color:'+dc+';border:1px solid '+dc+'44">'+d.difficulty+__t('级',' ')+'</span><span style="font-size:.72rem;color:var(--text3)">👥 '+d.players+__t('人',' players')+' · Lv.'+d.level+'</span></div><p style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">📍 '+__t(d.map,d.map_en)+'</p><p style="font-size:.82rem;color:var(--text2);margin-bottom:.4rem">🎁 '+__t(d.rewards,d.rewards_en)+'</p><div class="guide-section" style="margin-bottom:0"><div class="guide-section-header" style="padding:.5rem .75rem;font-size:.82rem;border-bottom:none" onclick="toggleGuideSection(this)">📋 '+__t('BOSS详情','Boss Details')+' <span class="arrow">›</span></div><div class="guide-section-body" style="padding:0 .75rem">'+d.bosses.map((b,bi)=>'<div style="padding:.5rem 0;border-bottom:'+(bi<d.bosses.length-1?'1px solid var(--border)':'none')+'"><div style="font-size:.85rem;font-weight:700;color:var(--gold);margin-bottom:.2rem">'+(bi+1)+'. '+__t(b.name,b.name_en)+'</div><div style="font-size:.72rem;color:var(--text2);line-height:1.6;margin-bottom:.2rem"><strong>'+__t('机制：','Mechanics:')+'</strong>'+(currentLang==='en'?b.mechanics_en:b.mechanics).join(' · ')+'</div><div style="font-size:.72rem;color:var(--jade-light);line-height:1.6"><strong>'+__t('打法：','Strategy:')+'</strong>'+__t(b.tips,b.tips_en)+'</div></div>').join('')+'</div></div></div></div>'
 }).join('')}</div>
 </div></section>`;
 }
@@ -1355,8 +1507,33 @@ function filterDungeons(){
   const g=document.getElementById('dungeonGrid');if(!g)return;
   g.innerHTML=D_DUNGEONS.filter(d=>{if(t&&d.type!==t)return false;if(m&&d.map!==m)return false;return true}).map(d=>{
     const dc=d.difficulty==='S'?'var(--red)':d.difficulty==='A'?'var(--gold)':'var(--jade-light)';
-    return '<div class="map-card"><div class="map-banner" style="background:linear-gradient(135deg,'+d.banner+'33,transparent);color:'+d.banner+'">'+__t(d.name,d.name_en)+'</div><div class="map-body"><div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem"><span class="tag tag-s">'+d.type+'</span><span class="tag" style="background:rgba(201,160,74,.1);color:'+dc+';border:1px solid '+dc+'44">'+d.difficulty+'级</span><span style="font-size:.72rem;color:var(--text3)">👥 '+d.players+__t('人',' players')+' · Lv.'+d.level+'</span></div><p style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">📍 '+d.map+'</p><p style="font-size:.82rem;color:var(--text2);margin-bottom:.4rem">🎁 '+d.rewards+'</p><div class="guide-section" style="margin-bottom:0"><div class="guide-section-header" style="padding:.5rem .75rem;font-size:.82rem;border-bottom:none" onclick="toggleGuideSection(this)">📋 BOSS详情 <span class="arrow">›</span></div><div class="guide-section-body" style="padding:0 .75rem">'+d.bosses.map((b,bi)=>'<div style="padding:.5rem 0;border-bottom:'+(bi<d.bosses.length-1?'1px solid var(--border)':'none')+'"><div style="font-size:.85rem;font-weight:700;color:var(--gold);margin-bottom:.2rem">'+(bi+1)+'. '+__t(b.name,b.name_en)+'</div><div style="font-size:.72rem;color:var(--text2);line-height:1.6;margin-bottom:.2rem"><strong>'+__t('机制：','Mechanics:')+'</strong>'+(currentLang==='en'?b.mechanics_en:b.mechanics).join(' · ')+'</div><div style="font-size:.72rem;color:var(--jade-light);line-height:1.6"><strong>'+__t('打法：','Strategy:')+'</strong>'+__t(b.tips,b.tips_en)+'</div></div>').join('')+'</div></div></div></div>'
+    return '<div class="map-card"><div class="map-banner" style="background:linear-gradient(135deg,'+d.banner+'33,transparent);color:'+d.banner+'">'+__t(d.name,d.name_en)+'</div><div class="map-body"><div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem"><span class="tag tag-s">'+__t(d.type,d.type_en)+'</span><span class="tag" style="background:rgba(201,160,74,.1);color:'+dc+';border:1px solid '+dc+'44">'+d.difficulty+__t('级',' ')+'</span><span style="font-size:.72rem;color:var(--text3)">👥 '+d.players+__t('人',' players')+' · Lv.'+d.level+'</span></div><p style="font-size:.75rem;color:var(--text3);margin-bottom:.4rem">📍 '+__t(d.map,d.map_en)+'</p><p style="font-size:.82rem;color:var(--text2);margin-bottom:.4rem">🎁 '+__t(d.rewards,d.rewards_en)+'</p><div class="guide-section" style="margin-bottom:0"><div class="guide-section-header" style="padding:.5rem .75rem;font-size:.82rem;border-bottom:none" onclick="toggleGuideSection(this)">📋 '+__t('BOSS详情','Boss Details')+' <span class="arrow">›</span></div><div class="guide-section-body" style="padding:0 .75rem">'+d.bosses.map((b,bi)=>'<div style="padding:.5rem 0;border-bottom:'+(bi<d.bosses.length-1?'1px solid var(--border)':'none')+'"><div style="font-size:.85rem;font-weight:700;color:var(--gold);margin-bottom:.2rem">'+(bi+1)+'. '+__t(b.name,b.name_en)+'</div><div style="font-size:.72rem;color:var(--text2);line-height:1.6;margin-bottom:.2rem"><strong>'+__t('机制：','Mechanics:')+'</strong>'+(currentLang==='en'?b.mechanics_en:b.mechanics).join(' · ')+'</div><div style="font-size:.72rem;color:var(--jade-light);line-height:1.6"><strong>'+__t('打法：','Strategy:')+'</strong>'+__t(b.tips,b.tips_en)+'</div></div>').join('')+'</div></div></div></div>'
   }).join('');
+}
+
+function renderEquipment(){
+  document.getElementById('app').innerHTML=`<section class="section" style="padding-top:6rem"><div class="container">
+<div class="section-header"><h2>⚔️ Equipment & Materials</h2><p>Gear tier list, set bonuses, material farming and refining priority guide</p></div>
+${D_EQUIPMENT.map(cat=>'<div class="guide-section"><div class="guide-section-header" onclick="toggleGuideSection(this)">'+(cat.icon||'📦')+' '+__t(cat.name,cat.name_en)+'<span class="arrow">›</span></div><div class="guide-section-body">'+
+(cat.sets?'<p style="font-size:.78rem;color:var(--text2);margin-bottom:.5rem"><strong>'+__t('槽位：','Slots:')+'</strong> '+(cat.slots||[]).join(' · ')+'</p><p style="font-size:.78rem;color:var(--jade-light);margin-bottom:.75rem"><strong>'+__t('优先级：','Priority:')+'</strong> '+__t(cat.priority,cat.priority_en)+'</p><div class="build-grid">'+cat.sets.map(s=>'<div class="build-card" style="cursor:default"><div class="build-body"><h3>'+__t(s.name,s.name_en)+'</h3><div class="meta">'+s.rating+'-Tier · '+__t('适用：','For:')+' '+__t(s.classes.join(' · '),s.classes.join(' · '))+'</div><p>'+__t(s.bonus,s.bonus_en)+'</p></div></div>').join('')+'</div>':'')+
+(cat.items?'<table class="admin-table"><tr><th>'+__t('材料','Material')+'</th><th>'+__t('用途','Use')+'</th><th>'+__t('来源','Source')+'</th><th>'+__t('稀有度','Rarity')+'</th></tr>'+cat.items.map(i=>'<tr><td>'+i.name+'</td><td>'+__t(i.use,i.use_en)+'</td><td>'+__t(i.source,i.source_en)+'</td><td>'+i.rarity+'</td></tr>').join('')+'</table>':'')+
+(cat.rules?'<ul class="guide-list">'+(currentLang==='en'?cat.rules_en:cat.rules).map(r=>'<li>'+r+'</li>').join('')+'</ul>':'')+
+'</div></div>').join('')}
+</div></section>`;
+}
+
+function renderPVP(){
+  document.getElementById('app').innerHTML=`<section class="section" style="padding-top:6rem"><div class="container">
+<div class="section-header"><h2>⚔️ PVP Arena</h2><p>PVP mode guides, build recommendations, arena strategies and tips</p></div>
+<div class="map-grid">${D_PVP.map(p=>'<div class="map-card"><div class="map-banner" style="background:linear-gradient(135deg,'+(p.id==='p1'?'#8a3a3a':p.id==='p2'?'#3a5a8a':p.id==='p3'?'#5a4a7a':'#4a7a5a')+'33,transparent);color:'+(p.id==='p1'?'#8a3a3a':p.id==='p2'?'#3a5a8a':p.id==='p3'?'#5a4a7a':'#4a7a5a')+'">'+__t(p.name,p.name_en)+'</div><div class="map-body"><div class="meta" style="margin-bottom:.4rem">'+__t(p.type,p.type_en)+' · '+__t(p.tier,p.tier_en)+'</div><p style="font-size:.82rem;color:var(--text2);margin-bottom:.6rem">'+__t(p.desc,p.desc_en)+'</p><div class="guide-section" style="margin-bottom:0"><div class="guide-section-header" style="padding:.5rem .75rem;font-size:.82rem;border-bottom:none" onclick="toggleGuideSection(this)">💡 '+__t('技巧','Tips')+' <span class="arrow">›</span></div><div class="guide-section-body" style="padding:.5rem .75rem"><ul class="guide-list">'+(currentLang==='en'?p.tips_en:p.tips).map(t=>'<li>'+t+'</li>').join('')+'</ul></div></div></div></div>').join('')}
+</div></section>`;
+}
+
+function renderEvents(){
+  document.getElementById('app').innerHTML=`<section class="section" style="padding-top:6rem"><div class="container">
+<div class="section-header"><h2>📰 Events & News</h2><p>Latest patch notes, version updates, in-game events and news</p></div>
+<div class="news-list">${D_EVENTS.map(ev=>'<div class="news-item"><div class="news-date"><span class="d">'+ev.date.split('/')[2]+'</span>'+ev.date+'</div><div><h4>'+__t(ev.title,ev.title_en)+' <span class="tag tag-s" style="font-size:.65rem;background:'+(ev.tag==='最新'||ev.tag==='New'?'rgba(201,160,74,.15)':'rgba(90,138,184,.15)')+';color:'+(ev.tag==='最新'||ev.tag==='New'?'var(--gold)':'var(--text2)')+'">'+__t(ev.tag,ev.tag_en)+'</span></h4><p>'+__t(ev.desc,ev.desc_en)+'</p></div></div>').join('')}
+</div></section>`;
 }
 
 function renderTools(){
@@ -1384,7 +1561,7 @@ function renderTools(){
   </div></div>
   <div class="build-card" style="cursor:default"><div class="build-body">
     <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem"><span style="font-size:1.5rem">📅</span><h3 style="margin:0;font-size:.95rem">${t('toolsChecklistTitle')}</h3></div>
-    <ul class="guide-list">${['副本：武库+试剑本（金装胚子+心法经验）','世界BOSS：每天打，掉落金心法残页','周常任务：长鸣玉+心法经验，奖励大头','心法经验本：每天挂满收益','探索：每周清几个区域的蹊跷','交易行：查看心法残页价格波动'].map(i=>'<li>'+i+'</li>').join('')}</ul>
+    <ul class="guide-list">${[__t('副本：武库+试剑本（金装胚子+心法经验）','Dungeons: Armory + Trial (Gold Gear + Xinfa EXP)'),__t('世界BOSS：每天打，掉落金心法残页','World Bosses: Daily, Gold Xinfa Pages'),__t('周常任务：长鸣玉+心法经验，奖励大头','Weeklies: ChangMingYu + Xinfa EXP, best rewards'),__t('心法经验本：每天挂满收益','Xinfa EXP Dungeon: Max daily runs'),__t('探索：每周清几个区域的蹊跷','Exploration: Clear clues in a few zones weekly'),__t('交易行：查看心法残页价格波动','Auction House: Check xinfa page prices')].map(i=>'<li>'+i+'</li>').join('')}</ul>
   </div></div>
   <div class="build-card" style="cursor:default"><div class="build-body">
     <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem"><span style="font-size:1.5rem">🔗</span><h3 style="margin:0;font-size:.95rem">${t('toolsLinksTitle')}</h3></div>
@@ -1406,11 +1583,56 @@ function calcDmgEstimate(){
   const el=document.getElementById('calcResult');if(el)el.textContent=est.toLocaleString();
 }
 
+// ===== ARTICLE RENDER =====
+function renderArticleList(section){
+  const allSections=['newbie','builds','maps','quests','dungeons','equipment','pvp','events','clues','shefu','tools'];
+  const sections=section?[section]:allSections;
+  let articles=[];
+  sections.forEach(s=>{if(ARTICLES[s])articles=articles.concat(ARTICLES[s].map(a=>({...a,section:s})))});
+  if(!section&&!articles.length){articles=Object.values(ARTICLES).flat().map(a=>({...a,section:'newbie'}))}
+  const sectionNames={newbie:__t('新手入门','Newbie'),builds:__t('流派攻略','Builds'),maps:__t('地图探索','Maps'),quests:__t('任务攻略','Quests'),dungeons:__t('副本BOSS','Dungeons'),equipment:__t('装备材料','Equip'),pvp:__t('PVP竞技','PVP'),events:__t('活动资讯','Events'),clues:__t('蹊跷搜全','Clues'),shefu:__t('射覆','She Fu'),tools:__t('工具箱','Tools')};
+  document.getElementById('app').innerHTML=`
+<section class="article-hero"><h1>${section?sectionNames[section]||__t('攻略文章','Game Guide Articles'):__t('攻略文章大全','All Game Guide Articles')}</h1><p>${__t('精选燕云十六声攻略文章，帮助您更好地体验游戏','Curated guide articles to help you enjoy Where Winds Meet')}</p>
+${!section?`<div class="article-section-nav">${allSections.map(s=>'<a onclick="navigate(\'/articles/'+s+'\')">'+sectionNames[s]+'</a>').join('')}</div>`:''}
+</section>
+<section class="section"><div class="container">
+${section?`<a class="back-link" onclick="navigate('/articles')">${__t('← 返回全部文章','← All Articles')}</a>`:''}
+<div class="article-grid">${articles.map(a=>{
+  const sn=sectionNames[a.section]||'';
+  return `<div class="article-card" onclick="navigate('/article/${a.id}')">
+<img class="article-card-img" src="${articleImg(a.g,a.i)}" alt="${a.title}" loading="lazy">
+<div class="article-card-body"><div class="meta">${sn?sn+' · ':''}${__t('攻略文章','Guide')}</div>
+<h3>${a.title}</h3><p>${a.summary.slice(0,80)}...</p>
+<div class="article-tags">${(a.t||[]).slice(0,3).map(t=>'<span class="tag">'+t+'</span>').join('')}</div></div></div>`
+}).join('')}</div>
+${!articles.length?'<p style="text-align:center;color:var(--text3);padding:3rem 0">'+__t('暂无文章','No articles yet')+'</p>':''}
+</div></section>`;
+}
+
+function renderArticleDetail(id){
+  let article=null,sectionKey='';
+  for(const[s,arts]of Object.entries(ARTICLES)){const f=arts.find(a=>a.id===id);if(f){article=f;sectionKey=s;break}}
+  if(!article){renderArticleList();return}
+  const sectionNames={newbie:__t('新手入门','Newbie'),builds:__t('流派攻略','Builds'),maps:__t('地图探索','Maps'),quests:__t('任务攻略','Quests'),dungeons:__t('副本BOSS','Dungeons'),equipment:__t('装备材料','Equip'),pvp:__t('PVP竞技','PVP'),events:__t('活动资讯','Events'),clues:__t('蹊跷搜全','Clues'),shefu:__t('射覆','She Fu'),tools:__t('工具箱','Tools')};
+  document.getElementById('app').innerHTML=`
+<section class="article-detail">
+<a class="back-link" onclick="navigate('/articles/${sectionKey}')">${__t('← 返回','← Back')} ${sectionNames[sectionKey]||''}</a>
+<div class="article-meta">${sectionNames[sectionKey]||''} · ${__t('攻略文章','Guide')}</div>
+<h1>${article.title}</h1>
+<img class="article-cover" src="${articleImg(article.g,article.i)}" alt="${article.title}" loading="lazy">
+${(article.s||[]).map(sec=>`<h2>${sec.h}</h2>${(sec.p||[]).map(pp=>`<p>${pp}</p>`).join('')}`).join('')}
+${(article.t||[]).length?`<div class="article-tags" style="margin-top:1.5rem">${article.t.map(t=>'<span class="tag">'+t+'</span>').join('')}</div>`:''}
+<div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center">
+<p style="font-size:.78rem;color:var(--text3)">${__t('本文由燕云十六声攻略站原创，转载请注明出处。','Original article by Where Winds Meet Guide. Please credit when sharing.')}</p>
+</div>
+</section>`;
+}
+
 // ===== ROUTER INIT =====
 function router(){
   const path=window.location.pathname;const route=matchRoute(path);initStore();updateMeta(route);
   document.querySelectorAll('.nav-item').forEach(a=>a.classList.toggle('active-link',a.dataset.route===path));
-  switch(route){case'home':renderHome();break;case'builds':renderBuilds();break;case'buildDetail':renderBuildDetail(path.match(/^\/build\/(.+)$/)[1]);break;case'maps':renderMaps();break;case'quests':renderQuests();break;case'community':renderCommunity();break;case'admin':renderAdmin();break;case'clues':renderClues();break;case'shefu':renderShefu();break;case'newbie':renderNewbie();break;case'dungeons':renderDungeons();break;case'tools':renderTools();break;default:renderHome()}
+  switch(route){case'home':renderHome();break;case'builds':renderBuilds();break;case'buildDetail':renderBuildDetail(path.match(/^\/build\/(.+)$/)[1]);break;case'maps':renderMaps();break;case'quests':renderQuests();break;case'community':renderCommunity();break;case'admin':renderAdmin();break;case'clues':renderClues();break;case'shefu':renderShefu();break;case'newbie':renderNewbie();break;case'dungeons':renderDungeons();break;case'equipment':renderEquipment();break;case'pvp':renderPVP();break;case'events':renderEvents();break;case'tools':renderTools();break;case'articles':const m=path.match(/^\/articles\/(.+)/);renderArticleList(m?m[1]:null);break;case'articleDetail':const aid=path.match(/^\/article\/(.+)$/)[1];renderArticleDetail(aid);break;default:renderHome()}
   updateNavbar();
   updateFooter();
   window.scrollTo(0,0);
@@ -1448,46 +1670,49 @@ try{if(window.location.pathname==='/')router()}catch(e){console.error('router er
     <div class="footer-brand">
       <div class="logo" onclick="navigate('/')">
         <svg class="logo-icon" viewBox="0 0 100 100"><defs><linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c9a04a"/><stop offset="100%" style="stop-color:#e0b85a"/></linearGradient></defs><path fill="url(#lg2)" d="M50 12C29 12 12 29 12 50s17 38 38 38 38-17 38-38S71 12 50 12z"/><text x="50" y="62" text-anchor="middle" font-size="42" fill="url(#lg2)" font-family="serif">燕</text></svg>
-        <span>燕云 · 攻略站</span>
+        <span>Where Winds Meet · Guide</span>
       </div>
-      <p id="footerDesc">燕云十六声（Where Winds Meet）非官方玩家攻略社区 · 数据来源于公开信息</p>
+      <p id="footerDesc">Where Winds Meet unofficial fan guide community · Data from public sources</p>
     </div>
     <div class="footer-column">
-      <h4 id="footerGuideTitle">攻略</h4>
+      <h4 id="footerGuideTitle">Guide</h4>
       <ul class="footer-links">
-        <li><a onclick="navigate('/builds')" style="cursor:pointer">流派攻略</a></li>
-        <li><a onclick="navigate('/maps')" style="cursor:pointer">地图探索</a></li>
-        <li><a onclick="navigate('/quests')" style="cursor:pointer">任务攻略</a></li>
-        <li><a onclick="navigate('/community')" style="cursor:pointer">玩家社区</a></li>
+        <li><a onclick="navigate('/builds')" style="cursor:pointer" data-i18n="footerBuilds">Builds</a></li>
+        <li><a onclick="navigate('/maps')" style="cursor:pointer" data-i18n="footerMaps">Maps</a></li>
+        <li><a onclick="navigate('/quests')" style="cursor:pointer" data-i18n="footerQuests">Quests</a></li>
+        <li><a onclick="navigate('/community')" style="cursor:pointer" data-i18n="footerCommunityLink">Community</a></li>
       </ul>
     </div>
     <div class="footer-column">
-      <h4 id="footerCommunityTitle">社区</h4>
+      <h4 id="footerCommunityTitle">Community</h4>
       <ul class="footer-links">
         <li><a href="https://discord.gg/wherewindsmeet" target="_blank" rel="noopener">Discord</a></li>
-        <li><a href="https://space.bilibili.com/3546787875972964" target="_blank" rel="noopener">B站官方</a></li>
-        <li><a href="https://steamcommunity.com/app/3173720" target="_blank" rel="noopener">Steam社区</a></li>
+        <li><a href="https://space.bilibili.com/3546787875972964" target="_blank" rel="noopener">Bilibili</a></li>
+        <li><a href="https://steamcommunity.com/app/3173720" target="_blank" rel="noopener">Steam</a></li>
       </ul>
     </div>
     <div class="footer-column">
-      <h4 id="footerNewTitle">新内容</h4>
+      <h4 id="footerNewTitle">New</h4>
       <ul class="footer-links">
-        <li><a onclick="navigate('/newbie')" style="cursor:pointer" data-i18n="footerNewbie">新手入门</a></li>
-        <li><a onclick="navigate('/dungeons')" style="cursor:pointer" data-i18n="footerDungeons">副本攻略</a></li>
-        <li><a onclick="navigate('/tools')" style="cursor:pointer" data-i18n="footerTools">工具箱</a></li>
+        <li><a onclick="navigate('/newbie')" style="cursor:pointer" data-i18n="footerNewbie">Newbie</a></li>
+        <li><a onclick="navigate('/dungeons')" style="cursor:pointer" data-i18n="footerDungeons">Dungeons</a></li>
+        <li><a onclick="navigate('/equipment')" style="cursor:pointer" data-i18n="footerEquipment">Equip</a></li>
+        <li><a onclick="navigate('/pvp')" style="cursor:pointer" data-i18n="footerPVP">PVP</a></li>
+        <li><a onclick="navigate('/events')" style="cursor:pointer" data-i18n="footerEvents">Events</a></li>
+        <li><a onclick="navigate('/tools')" style="cursor:pointer" data-i18n="footerTools">Tools</a></li>
       </ul>
     </div>
     <div class="footer-column">
-      <h4 id="footerRelatedTitle">相关</h4>
+      <h4 id="footerRelatedTitle">Links</h4>
       <ul class="footer-links">
-        <li><a href="https://www.yysls.cn" target="_blank" rel="noopener">国内服官网</a></li>
+        <li><a href="https://www.yysls.cn" target="_blank" rel="noopener" data-i18n="footerCNSite">国内服官网</a></li>
         <li><a href="https://www.wherewindsmeetgame.com" target="_blank" rel="noopener">International Site</a></li>
-        <li><a onclick="navigate('/admin')" style="cursor:pointer">内容管理</a></li>
+        <li><a onclick="navigate('/admin')" style="cursor:pointer" data-i18n="footerAdmin">Admin</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p id="footerCopyright">© 2026 燕云十六声攻略站 · 非官方玩家社区 · Where Winds Meet Guide · Unofficial Fan Site</p>
+    <p id="footerCopyright">© 2026 Where Winds Meet Guide · Unofficial Fan Site</p>
     <div class="footer-legal">
       <span style="font-size:.72rem;color:var(--text3)">Powered by Claude Code</span>
     </div>
