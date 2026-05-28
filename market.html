@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股智能分析 - 上证深证市场行情与交易机会</title>
+<meta name="description" content="A股市场智能分析工具，实时追踪上证指数、深证成指行情，热点板块资金流向，连板梯队与龙虎榜数据，AI交易信号识别。">
+<style>
+:root{--bg:#0a0e1a;--bg2:#111827;--card:#1a1f35;--card2:#1e243d;--border:#2a3050;--gold:#d4a843;--gold2:#f0c850;--gold3:#b8922e;--red:#e74c3c;--green:#2ecc71;--red2:#ff4444;--green2:#00c853;--text:#e8eaf0;--text2:#8892a8;--text3:#5a6380;--rise:#ff4757;--fall:#2ed573;--font:'"Noto Sans SC"','"PingFang SC"','"Microsoft YaHei"',sans-serif;--font-mono:'"JetBrains Mono"','"Fira Code"','Consolas',monospace;--radius:12px;--radius-sm:8px;--shadow:0 4px 24px rgba(0,0,0,.3)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::selection{background:var(--gold);color:var(--bg)}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:100;background:rgba(10,14,26,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:var(--bg);box-shadow:0 0 20px rgba(212,168,67,.3)}
+.logo-text{font-size:20px;font-weight:700;background:linear-gradient(135deg,var(--gold2),var(--gold),var(--gold3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px}
+.header-right{display:flex;align-items:center;gap:16px}
+.header-date{font-size:13px;color:var(--text2);display:flex;align-items:center;gap:6px}
+.header-date span{color:var(--text);font-weight:500}
+.btn-refresh{padding:8px 18px;border:1px solid var(--gold);background:transparent;color:var(--gold);border-radius:var(--radius-sm);cursor:pointer;font-size:13px;font-family:var(--font);transition:all .25s;display:flex;align-items:center;gap:6px}
+.btn-refresh:hover{background:var(--gold);color:var(--bg)}.btn-refresh.loading{pointer-events:none;opacity:.6}
+
+/* LAYOUT */
+.container{max-width:1400px;margin:0 auto;padding:24px}
+.page-title{margin-bottom:24px}
+.page-title h1{font-size:22px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:10px}
+.page-title h1 small{font-size:13px;font-weight:400;color:var(--text2);-webkit-text-fill-color:var(--text2);background:none}
+.page-title .subtitle{font-size:13px;color:var(--text3);margin-top:4px}
+
+/* INDEX CARDS */
+.index-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:28px}
+.index-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;position:relative;overflow:hidden;transition:border-color .3s}
+.index-card:hover{border-color:var(--gold3)}
+.index-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius) var(--radius) 0 0}
+.index-card.rise::before{background:var(--rise)}
+.index-card.fall::before{background:var(--fall)}
+.index-card.neutral::before{background:var(--gold)}
+.index-label{font-size:12px;color:var(--text2);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.index-value{font-size:26px;font-weight:700;font-family:var(--font-mono);letter-spacing:-.5px}
+.index-change{font-size:14px;font-weight:500;margin-top:4px;display:flex;align-items:center;gap:6px}
+.index-change.up{color:var(--rise)}
+.index-change.down{color:var(--fall)}
+.index-change.flat{color:var(--text2)}
+.index-sub{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* SECTION HEADERS */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;margin-top:32px}
+.section-header h2{font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px}
+.section-header h2 .badge{font-size:11px;font-weight:500;padding:2px 10px;border-radius:20px;background:var(--card2);color:var(--text2)}
+.section-header .more{font-size:12px;color:var(--gold);cursor:pointer;text-decoration:none}
+
+/* GRIDS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:24px}
+@media(max-width:960px){.grid-2,.grid-3{grid-template-columns:1fr}}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+
+/* HEATMAP */
+.heatmap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px}
+.heatmap-item{padding:12px;border-radius:var(--radius-sm);text-align:center;cursor:pointer;transition:transform .2s,box-shadow .2s;min-height:72px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.heatmap-item:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.heatmap-item .sector-name{font-size:13px;font-weight:500;margin-bottom:4px}
+.heatmap-item .sector-change{font-size:15px;font-weight:700;font-family:var(--font-mono)}
+.heatmap-item .sector-flow{font-size:11px;opacity:.7;margin-top:2px}
+.heatmap-item.up{background:linear-gradient(180deg,rgba(255,71,87,.18),rgba(255,71,87,.06))}
+.heatmap-item.down{background:linear-gradient(180deg,rgba(46,213,115,.18),rgba(46,213,115,.06))}
+
+/* NEWS */
+.news-list{display:flex;flex-direction:column;gap:8px}
+.news-item{display:flex;align-items:flex-start;gap:12px;padding:12px;border-radius:var(--radius-sm);transition:background .2s;cursor:pointer}
+.news-item:hover{background:var(--card2)}
+.news-time{font-size:11px;color:var(--text3);white-space:nowrap;min-width:60px;padding-top:2px}
+.news-content{flex:1;font-size:13px;line-height:1.5;color:var(--text)}
+.news-tag{font-size:10px;padding:2px 8px;border-radius:10px;background:var(--card2);color:var(--gold);white-space:nowrap;margin-left:8px}
+
+/* TABLES */
+.table-wrap{overflow-x:auto;border-radius:var(--radius-sm);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead{background:var(--bg2)}
+th{padding:12px 14px;text-align:left;font-weight:500;color:var(--text2);font-size:12px;white-space:nowrap;border-bottom:1px solid var(--border)}
+td{padding:11px 14px;border-bottom:1px solid rgba(42,48,80,.5)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,255,255,.02)}
+td.stock-name{font-weight:500}
+td.code{color:var(--text3);font-family:var(--font-mono);font-size:12px}
+td.up{color:var(--rise);font-weight:600}
+td.down{color:var(--fall);font-weight:600}
+td.flow-in{color:var(--rise)}
+td.flow-out{color:var(--fall)}
+
+/* SIGNAL BOX */
+.signal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.signal-card{background:linear-gradient(135deg,var(--card2),var(--card));border:1px solid var(--border);border-radius:var(--radius);padding:16px;border-left:3px solid}
+.signal-card.bull{border-left-color:var(--rise)}
+.signal-card.bear{border-left-color:var(--fall)}
+.signal-card.neutral{border-left-color:var(--gold)}
+.signal-card .signal-tag{font-size:11px;font-weight:600;text-transform:uppercase;margin-bottom:6px}
+.signal-card.bull .signal-tag{color:var(--rise)}
+.signal-card.bear .signal-tag{color:var(--fall)}
+.signal-card.neutral .signal-tag{color:var(--gold)}
+.signal-card h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.signal-card p{font-size:12px;color:var(--text2);line-height:1.5}
+
+/* TABS */
+.tab-bar{display:flex;gap:4px;margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:0}
+.tab-btn{padding:10px 20px;font-size:13px;font-family:var(--font);background:transparent;border:none;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* FOOTER */
+.footer{margin-top:48px;padding:24px 0;border-top:1px solid var(--border);text-align:center}
+.footer p{font-size:12px;color:var(--text3);line-height:1.8}
+.footer .disclaimer{color:var(--text3);max-width:800px;margin:0 auto;font-size:11px}
+
+/* MOBILE */
+@media(max-width:768px){
+  .header{padding:0 16px}
+  .header-date{display:none}
+  .container{padding:16px}
+  .index-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .index-card{padding:12px 14px}
+  .index-value{font-size:20px}
+  .heatmap-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.animate{animation:fadeUp .5s ease-out forwards}
+.animate:nth-child(1){animation-delay:.05s}
+.animate:nth-child(2){animation-delay:.1s}
+.animate:nth-child(3){animation-delay:.15s}
+.animate:nth-child(4){animation-delay:.2s}
+.animate:nth-child(5){animation-delay:.25s}
+
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.loading-dots{display:inline-flex;gap:4px}
+.loading-dots span{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 1s ease-in-out infinite}
+.loading-dots span:nth-child(2){animation-delay:.2s}
+.loading-dots span:nth-child(3){animation-delay:.4s}
+
+/* STATUS */
+.up-arrow{color:var(--rise)}
+.down-arrow{color:var(--fall)}
+.flow-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.flow-badge.in{background:rgba(255,71,87,.15);color:var(--rise)}
+.flow-badge.out{background:rgba(46,213,115,.15);color:var(--fall)}
+
+/* CYCLE PHASE */
+.cycle-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.cycle-badge{font-size:12px;padding:4px 16px;border-radius:20px;font-weight:600}
+.cycle-badge.ice{background:rgba(100,100,120,.2);color:#8888aa}
+.cycle-badge.repair{background:rgba(255,71,87,.15);color:var(--rise)}
+.cycle-badge.boom{background:rgba(255,200,50,.15);color:var(--gold)}
+.cycle-badge.climax{background:rgba(255,71,87,.3);color:var(--rise)}
+.cycle-badge.fall{background:rgba(46,213,115,.15);color:var(--fall)}
+.cycle-phase-display{background:linear-gradient(135deg,var(--card),var(--card2));border:1px solid var(--gold3);border-radius:var(--radius);padding:24px;margin-bottom:20px;position:relative;overflow:hidden}
+.cycle-phase-display::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold3))}
+.cycle-phase-title{font-size:20px;font-weight:700;color:var(--gold2);margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.cycle-phase-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:12px}
+.cycle-phase-title .phase-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.phase-icon.repair{background:rgba(255,71,87,.2);color:var(--rise)}
+
+/* CYCLE ROADMAP */
+.cycle-roadmap{display:flex;align-items:center;gap:0;margin:16px 0 20px;padding:0 4px}
+.cycle-step{flex:1;text-align:center;padding:10px 6px;border-radius:8px;font-size:12px;transition:all .3s;position:relative}
+.cycle-step.current{background:var(--gold);color:var(--bg);font-weight:700;transform:scale(1.05);box-shadow:0 0 20px rgba(212,168,67,.3)}
+.cycle-step.done{color:var(--text3)}
+.cycle-step.next{color:var(--text2)}
+.cycle-step .step-dot{width:10px;height:10px;border-radius:50%;margin:0 auto 6px;background:var(--border)}
+.cycle-step.current .step-dot{background:var(--bg)}
+.cycle-step.done .step-dot{background:var(--gold3)}
+.cycle-step.next .step-dot{border:2px solid var(--border);background:transparent}
+.cycle-step:not(:last-child)::after{content:'';position:absolute;top:16px;right:-50%;width:100%;height:2px;background:var(--border);z-index:-1}
+.cycle-step.current::after{background:var(--gold)!important}
+
+/* CYCLE METRIX */
+.cycle-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px}
+.cycle-metric{background:var(--bg2);border-radius:8px;padding:14px;text-align:center}
+.cycle-metric .m-value{font-size:22px;font-weight:700;font-family:var(--font-mono)}
+.cycle-metric .m-label{font-size:11px;color:var(--text3);margin-top:4px}
+.cycle-metric .m-value.up{color:var(--rise)}
+.cycle-metric .m-value.down{color:var(--fall)}
+.cycle-metric .m-value.gold{color:var(--gold)}
+
+/* STOCK RECOMMEND */
+.stock-rec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:12px}
+.stock-rec-card{background:var(--card2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:border-color .3s}
+.stock-rec-card:hover{border-color:var(--gold3)}
+.stock-rec-card .rec-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.stock-rec-card .rec-tag{font-size:10px;padding:3px 10px;border-radius:12px;font-weight:600}
+.rec-tag.aggressive{background:rgba(255,71,87,.15);color:var(--rise)}
+.rec-tag.trend{background:rgba(212,168,67,.15);color:var(--gold)}
+.rec-tag.low{background:rgba(46,213,115,.15);color:var(--fall)}
+.stock-rec-card .rec-stock{font-size:18px;font-weight:700;display:flex;align-items:center;gap:8px}
+.stock-rec-card .rec-code{font-size:12px;color:var(--text3);font-family:var(--font-mono)}
+.stock-rec-card .rec-role{font-size:12px;color:var(--gold2);margin-top:2px}
+.stock-rec-card .rec-reason{font-size:12px;color:var(--text2);line-height:1.5;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
+.stock-rec-card .rec-strat{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.strat-tag{font-size:10px;padding:3px 10px;border-radius:10px;background:var(--bg);color:var(--text2)}
+
+/* TABS FOR CYCLE */
+.cycle-tab-bar{display:flex;gap:2px;margin-bottom:16px;background:var(--bg2);border-radius:8px;padding:3px;overflow-x:auto}
+.cycle-tab{padding:8px 18px;font-size:12px;font-family:var(--font);background:transparent;border:none;color:var(--text3);cursor:pointer;border-radius:6px;transition:all .2s;white-space:nowrap}
+.cycle-tab:hover{color:var(--text)}
+.cycle-tab.active{background:var(--card);color:var(--gold2);font-weight:500}
+</style>
+</head>
+<body>
+
+<div class="header">
+<div class="header-inner">
+  <a class="logo" href="/market">
+    <div class="logo-icon">A</div>
+    <span class="logo-text">A股智能分析</span>
+  </a>
+  <div class="header-right">
+    <div class="header-date">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span id="dateDisplay">2026-05-28 周四</span>
+      <span id="tradeStatus" style="color:var(--gold);font-size:12px;margin-left:4px">已收盘</span>
+    </div>
+    <button class="btn-refresh" id="refreshBtn" onclick="refreshData()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+      刷新数据
+    </button>
+  </div>
+</div>
+</div>
+
+<div class="container" id="app">
+<div class="page-title">
+  <h1>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+    A股市场全景
+    <small>2026-05-28 · 先抑后扬 半导体领涨</small>
+  </h1>
+  <div class="subtitle">数据来源：东方财富 · 新浪财经 · 财联社 | 更新于 15:30</div>
+</div>
+
+<!-- INDEX CARDS -->
+<div class="index-grid" id="indexGrid"></div>
+
+<!-- GRID 2-COL: Heatmap + News -->
+<div class="grid-2">
+  <!-- SECTOR HEATMAP -->
+  <div class="card">
+    <div class="section-header" style="margin-top:0">
+      <h2>🔥 行业板块热力图</h2>
+      <span style="font-size:12px;color:var(--text3)">申万一级行业</span>
+    </div>
+    <div class="heatmap-grid" id="heatmapGrid"></div>
+  </div>
+
+  <!-- NEWS FEED -->
+  <div class="card">
+    <div class="section-header" style="margin-top:0">
+      <h2>📰 市场快讯</h2>
+      <a class="more" href="#">更多 →</a>
+    </div>
+    <div class="news-list" id="newsFeed"></div>
+  </div>
+</div>
+
+<!-- LEADING STOCKS + CAPITAL FLOW -->
+<div class="grid-2">
+  <div class="card">
+    <div class="section-header" style="margin-top:0">
+      <h2>🏆 主力资金净流入 TOP10</h2>
+    </div>
+    <div class="table-wrap">
+      <table><thead><tr><th>代码</th><th>名称</th><th style="text-align:right">涨跌幅</th><th style="text-align:right">净流入(亿)</th></tr></thead>
+      <tbody id="flowInTable"></tbody></table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-header" style="margin-top:0">
+      <h2>📉 主力资金净流出 TOP10</h2>
+    </div>
+    <div class="table-wrap">
+      <table><thead><tr><th>代码</th><th>名称</th><th style="text-align:right">涨跌幅</th><th style="text-align:right">净流出(亿)</th></tr></thead>
+      <tbody id="flowOutTable"></tbody></table>
+    </div>
+  </div>
+</div>
+
+<!-- SIGNALS -->
+<div class="section-header"><h2>🎯 AI 智能信号</h2></div>
+<div class="signal-grid" id="signalGrid"></div>
+
+<!-- MARKETS -->
+<div class="grid-2" style="margin-top:16px">
+  <div class="card">
+    <div class="section-header" style="margin-top:0">
+      <h2>📊 涨停板梯队</h2>
+    </div>
+    <div class="table-wrap">
+      <table><thead><tr><th>连板</th><th>个股</th><th>方向</th></tr></thead>
+      <tbody id="limitUpTable"></tbody></table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-header" style="margin-top:0">
+      <h2>⚡ 情绪指标</h2>
+    </div>
+    <div class="index-grid" id="sentimentGrid" style="grid-template-columns:repeat(3,1fr);margin-bottom:0"></div>
+  </div>
+</div>
+
+<!-- CYCLE ANALYSIS -->
+<div class="section-header"><h2>🔄 情绪周期与龙头分析</h2></div>
+<div class="cycle-phase-display" id="cycleDisplay"></div>
+<div class="cycle-tab-bar" id="cycleTabs">
+  <button class="cycle-tab active" data-tab="phase" onclick="switchCycleTab('phase')">📊 周期定位</button>
+  <button class="cycle-tab" data-tab="stocks" onclick="switchCycleTab('stocks')">🏆 龙头股推荐</button>
+  <button class="cycle-tab" data-tab="flow" onclick="switchCycleTab('flow')">📈 连板梯队分析</button>
+</div>
+<div id="cycleContent"></div>
+
+<div class="footer">
+  <p><strong>免责声明：</strong> 本页面所展示的数据仅供参考，不构成任何投资建议。股市有风险，投资需谨慎。数据来源为公开市场信息，可能存在延迟。</p>
+  <p class="disclaimer">A股智能分析 · AI驱动 · 数据来源于东方财富、新浪财经、财联社等公开渠道</p>
+</div>
+</div>
+
+<script>
+// ====== DATA ======
+const DATA = {
+  indices: [
+    {name:'上证指数',code:'000001',value:'4,098.64',change:'+4.00',pct:'+0.12%',status:'rise',sub:'成交1.36万亿'},
+    {name:'深证成指',code:'399001',value:'15,861.89',change:'+125.00',pct:'+0.80%',status:'rise',sub:'成交1.61万亿'},
+    {name:'创业板指',code:'399006',value:'4,125.07',change:'+79.00',pct:'+1.96%',status:'rise',sub:'成交7,682亿'},
+    {name:'科创50',code:'000688',value:'1,844.25',change:'+28.82',pct:'+1.59%',status:'rise',sub:''},
+    {name:'两市成交额',code:'',value:'2.97万亿',change:'-2,704亿',pct:'-8.3%',status:'fall',sub:'缩量调整'}
+  ],
+  sectors: [
+    {name:'通信',pct:'+3.82%',flow:'+83.4亿',up:true},{name:'电力',pct:'+2.15%',flow:'+26.2亿',up:true},
+    {name:'半导体',pct:'+2.89%',flow:'+21.6亿',up:true},{name:'消费电子',pct:'+2.31%',flow:'+21.1亿',up:true},
+    {name:'军工',pct:'+1.56%',flow:'+10.2亿',up:true},{name:'小金属',pct:'+3.12%',flow:'+19.7亿',up:true},
+    {name:'有色金属',pct:'+1.23%',flow:'+2.0亿',up:true},{name:'建筑装饰',pct:'+0.87%',flow:'+2.0亿',up:true},
+    {name:'煤炭',pct:'+0.65%',flow:'+2.0亿',up:true},{name:'建筑材料',pct:'+0.92%',flow:'+2.0亿',up:true},
+    {name:'计算机',pct:'-1.45%',flow:'-38.2亿',up:false},{name:'电子',pct:'-0.32%',flow:'-38.0亿',up:false},
+    {name:'汽车',pct:'-0.78%',flow:'-10.0亿',up:false},{name:'医药生物',pct:'-0.55%',flow:'-10.0亿',up:false},
+    {name:'非银金融',pct:'-0.42%',flow:'-10.0亿',up:false},{name:'食品饮料',pct:'-0.28%',flow:'-5.6亿',up:false}
+  ],
+  news: [
+    {time:'15:10',text:'沪指午后深V回升收涨0.12% 半导体等硬科技板块强势拉升带动翻红',tag:'收盘'},
+    {time:'14:30',text:'\"易中天\"三巨头齐创历史新高 中际旭创涨7.79% 天孚通信涨4.42%',tag:'热点'},
+    {time:'13:50',text:'华为正式提出\"韬(τ)定律\" 时间缩微替代几何缩微 燕东微20cm涨停',tag:'重磅'},
+    {time:'11:30',text:'沪指半日收报4087.86点微跌0.14% 算力硬件PCB方向逆势走强',tag:'午评'},
+    {time:'09:30',text:'央行开展1013亿元7天期逆回购操作 中标利率1.40% 净投放13亿',tag:'政策'},
+    {time:'09:25',text:'三大指数集体低开 沪指跌0.33% 贵金属先进封装板块领跌',tag:'开盘'}
+  ],
+  flowIn: [
+    {code:'000063',name:'中兴通讯',pct:'+9.99%',flow:'22.64',flowIn:true},
+    {code:'300308',name:'中际旭创',pct:'+7.79%',flow:'18.01',flowIn:true},
+    {code:'002428',name:'云南锗业',pct:'+10.00%',flow:'16.05',flowIn:true},
+    {code:'300394',name:'天孚通信',pct:'+4.42%',flow:'11.33',flowIn:true},
+    {code:'002281',name:'光迅科技',pct:'+6.02%',flow:'11.17',flowIn:true},
+    {code:'300408',name:'三环集团',pct:'+7.42%',flow:'9.70',flowIn:true},
+    {code:'300274',name:'阳光电源',pct:'+3.26%',flow:'7.48',flowIn:true},
+    {code:'000636',name:'风华高科',pct:'+10.00%',flow:'7.45',flowIn:true},
+    {code:'002463',name:'沪电股份',pct:'+3.72%',flow:'7.39',flowIn:true},
+    {code:'000657',name:'中钨高新',pct:'+6.39%',flow:'7.29',flowIn:true}
+  ],
+  flowOut: [
+    {code:'300476',name:'胜宏科技',pct:'-1.05%',flow:'-17.00',flowIn:false},
+    {code:'000021',name:'深科技',pct:'-3.02%',flow:'-10.18',flowIn:false},
+    {code:'002050',name:'三花智控',pct:'-4.72%',flow:'-9.66',flowIn:false},
+    {code:'300604',name:'长川科技',pct:'-0.53%',flow:'-8.86',flowIn:false},
+    {code:'002384',name:'东山精密',pct:'-1.96%',flow:'-7.88',flowIn:false},
+    {code:'300750',name:'宁德时代',pct:'+0.21%',flow:'-7.10',flowIn:false},
+    {code:'300059',name:'东方财富',pct:'-2.14%',flow:'-6.78',flowIn:false},
+    {code:'002185',name:'华天科技',pct:'+6.65%',flow:'-6.05',flowIn:false},
+    {code:'002415',name:'海康威视',pct:'-2.81%',flow:'-5.66',flowIn:false},
+    {code:'603986',name:'兆易创新',pct:'-6.06%',flow:'-5.51',flowIn:false}
+  ],
+  limitUp: [
+    {level:'4连板',stock:'华电能源',dir:'电力',hot:true},{level:'4连板',stock:'华塑控股',dir:'PCB钻针',hot:true},
+    {level:'4连板',stock:'香江控股',dir:'房地产'},{level:'3连板',stock:'中京电子',dir:'PCB',hot:true},
+    {level:'2连板',stock:'粤电力A',dir:'电力'},{level:'2连板',stock:'江海股份',dir:'超级电容'},
+    {level:'2连板',stock:'德新科技',dir:'机器人'},{level:'16天10板',stock:'宝鼎科技',dir:'PCB趋势'},
+    {level:'8天4板',stock:'风华高科',dir:'MLCC',hot:true},{level:'5天4板',stock:'黄河旋风',dir:'金刚石散热'}
+  ],
+  sentiment: {
+    stocksUp:3018,stocksDown:2365,limitUp:127,limitDown:13,upPct:'54.81%',
+    topLevel:'4连板',topCount:3,market:'修复期',volume:'2.97万亿'
+  },
+  signals: [
+    {type:'bull',tag:'看多信号',title:'🔥 电力板块主升浪确认',desc:'夏季用电高峰提前，南方电网负荷连续3天刷新纪录。华电能源4连板龙头，粤电力A等批量首板助攻，板块梯队完整。关注低位补涨。'},
+    {type:'bull',tag:'看多信号',title:'📡 光通信/CPO 趋势行情',desc:'\"易中天\"三巨头齐创历史新高，迈威尔科技业绩超预期。中兴通讯22.64亿主力净流入封涨停，磷化铟方向云南锗业4.75亿封单。'},
+    {type:'bull',tag:'看多信号',title:'🔬 半导体\"韬定律\"题材发酵',desc:'华为提出时间缩微新定律，华虹大涨15%创新高，机构5.73亿狂买华天科技。关注晶圆代工和设备材料方向。'},
+    {type:'neutral',tag:'关注信号',title:'⚡ PCB/CCL 涨价链扩散',desc:'建滔积层板年内第四次涨价，英伟达Rubin机架PCB价值量+233%。华塑控股4板、中京电子3板，关注宏和科技低位机会。'},
+    {type:'bull',tag:'看多信号',title:'💎 金刚石散热新题材',desc:'金刚石铜复合材料在郑州超算中心规模化应用，黄河旋风5天4板。散热材料板块整体走强，关注四方达、惠丰钻石。'},
+    {type:'bear',tag:'谨慎信号',title:'⚠️ 大金融大消费持续走弱',desc:'计算机-38亿、非银金融-10亿持续净流出。AI应用题材退潮。注意创业板指虽然+1.96%但主力资金仍净流出9.76亿，结构分化明显。'}
+  ],
+  cycle: {
+    phase: 'repair',
+    phaseName: '修复期',
+    phaseNext: '主升初期',
+    date: '2026-05-28',
+    summary: '5月27日退潮加速（涨停仅47只，最高标压制3板），5月28日暴力修复（涨停127只+170%，最高标突破4板，封板率83%）。当前正处于冰点→修复确认→向主升初期过渡的关键节点。',
+    roadmap: [
+      {name:'冰点期',done:true,current:false,desc:'涨停<30 高度<3板'},
+      {name:'修复期',done:false,current:true,desc:'涨停50-100 高度4-5板'},
+      {name:'主升期',done:false,current:false,desc:'涨停100+ 高度6板+'},
+      {name:'高潮期',done:false,current:false,desc:'涨停150+ 加速赶顶'},
+      {name:'退潮期',done:false,current:false,desc:'涨停骤降 亏钱效应'}
+    ],
+    metrics: [
+      {label:'涨停对比',value:'47→127',cls:'up',sub:'+170% 爆发式增长'},
+      {label:'最高标',value:'4连板',cls:'up',sub:'突破3板压制'},
+      {label:'封板率',value:'83%',cls:'gold',sub:'资金意愿强'},
+      {label:'跌停',value:'13只',cls:'down',sub:'较27日减少9只'},
+      {label:'涨跌比',value:'3018:2365',cls:'up',sub:'涨超54.8%'},
+      {label:'成交额',value:'2.97万亿',cls:'gold',sub:'缩量调整'}
+    ],
+    evidence: [
+      {icon:'✅',text:'最高标从3板突破到4板，空间打开',type:'bull'},
+      {icon:'✅',text:'涨停从47→127只，爆发增长170%',type:'bull'},
+      {icon:'✅',text:'封板率83%，资金封板意愿强',type:'bull'},
+      {icon:'✅',text:'主线清晰（电力+PCB/电子）梯队完整',type:'bull'},
+      {icon:'⚠️',text:'5/29成交缩量，超3200只下跌，结构分歧',type:'warn'},
+      {icon:'⚠️',text:'创业板指虽涨但主力净流出9.76亿',type:'warn'}
+    ]
+  },
+  stockPicks: [
+    {tier:'aggressive',tierName:'🔥 核心打板',stocks:[
+      {name:'华电能源',code:'600726',role:'电力总龙头 · 情绪风向标',reason:'4连板，电力板块空间板。5/28一字晋级盘中分歧回封，5/29面临5板考验。若晋级5板确认主升行情。',strat:['打回封板','5板晋级确认加仓','断板首阴低吸']},
+      {name:'华塑控股',code:'000509',role:'PCB龙一 · 科技线高度',reason:'4连板PCB钻针方向，与华电能源形成双龙格局。筹码结构健康，有板块助攻。',strat:['PK晋级打强','分歧换手低吸','3板以上只做龙头']},
+      {name:'中京电子',code:'002579',role:'PCB龙二 · 3板晋级',reason:'低开高走晋级3板，PCB板块梯队完整。若华塑继续晋级，中京有4板预期。',strat:['板块强势时低吸','不追加速板','不及预期即走']}
+    ]},
+    {tier:'trend',tierName:'🥈 趋势低吸',stocks:[
+      {name:'风华高科',code:'000636',role:'MLCC趋势龙头 · 8天4板',reason:'机构+游资共振，MLCC暂停接单+Rubin机架增量逻辑。趋势为主不连板。',strat:['5日线低吸','断板首日接','趋势持有不追高']},
+      {name:'宝鼎科技',code:'002552',role:'PCB趋势总龙 · 16天10板',reason:'非连板模式但涨幅最大，PCB板块趋势核心。辨识度极高，资金抱团。',strat:['沿5日线低吸','首阴反包博弈','高位控制仓位']},
+      {name:'黄河旋风',code:'600172',role:'金刚石散热 · 5天4板',reason:'新材料题材新有想象力，金刚石铜复合材料量产应用。题材级别较高。',strat:['分歧低吸','板块联动力度','不追一致板']}
+    ]},
+    {tier:'low',tierName:'🥉 轮动潜伏',stocks:[
+      {name:'长电科技',code:'600584',role:'半导体封测 · 反包预期',reason:'韬定律题材发酵，半导体板块走强。机构看好封测方向，有反包预期。',strat:['午后低吸','博弈次日轮动','止损-5%']},
+      {name:'冰山冷热',code:'000530',role:'液冷IDC · 算力配套',reason:'TrendForce预测液冷渗透率2026年达40%，算力硬件行情扩散到液冷配套。',strat:['板块强势时跟随','低吸不追高','波段持有']}
+    ]}
+  ]
+};
+
+// ====== RENDER ======
+function render(){
+  renderIndices();
+  renderHeatmap();
+  renderNews();
+  renderFlowTable('flowInTable',DATA.flowIn);
+  renderFlowTable('flowOutTable',DATA.flowOut);
+  renderSignals();
+  renderLimitUp();
+  renderSentiment();
+  renderCyclePhase();
+  renderCycleTab('phase');
+}
+
+function renderIndices(){
+  const g=document.getElementById('indexGrid');
+  g.innerHTML=DATA.indices.map((idx,i)=>{
+    const cls=idx.status==='rise'?'up':idx.status==='fall'?'down':'flat';
+    const arrow=idx.status==='rise'?'▲':idx.status==='fall'?'▼':'●';
+    return `<div class="index-card ${idx.status} animate" style="animation-delay:${i*0.06}s">
+      <div class="index-label">${idx.name}${idx.code?' <span style="color:var(--text3)">'+idx.code+'</span>':''}</div>
+      <div class="index-value">${idx.value}</div>
+      <div class="index-change ${cls}">${arrow} ${idx.pct}${idx.change?' <span style="font-weight:400;opacity:.7">'+idx.change+'</span>':''}</div>
+      ${idx.sub?'<div class="index-sub">'+idx.sub+'</div>':''}
+    </div>`;
+  }).join('');
+}
+
+function renderHeatmap(){
+  const g=document.getElementById('heatmapGrid');
+  // Scale intensity based on the percentage
+  g.innerHTML=DATA.sectors.map(s=>{
+    const pct=parseFloat(s.pct);
+    const opacity=Math.min(Math.abs(pct)/5,1);
+    const bg=s.up
+      ? `rgba(255,71,87,${0.06+opacity*0.2})`
+      : `rgba(46,213,115,${0.06+opacity*0.2})`;
+    const border=s.up
+      ? `rgba(255,71,87,${0.1+opacity*0.3})`
+      : `rgba(46,213,115,${0.1+opacity*0.3})`;
+    return `<div class="heatmap-item ${s.up?'up':'down'}" style="background:${bg};border:1px solid ${border}">
+      <div class="sector-name">${s.name}</div>
+      <div class="sector-change">${s.pct}</div>
+      <div class="sector-flow">${s.flow}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderNews(){
+  const f=document.getElementById('newsFeed');
+  f.innerHTML=DATA.news.map(n=>`<div class="news-item">
+    <span class="news-time">${n.time}</span>
+    <span class="news-content">${n.text}</span>
+    <span class="news-tag">${n.tag}</span>
+  </div>`).join('');
+}
+
+function renderFlowTable(id,data){
+  const t=document.getElementById(id);
+  t.innerHTML=data.map(d=>`<tr>
+    <td class="code">${d.code}</td>
+    <td class="stock-name">${d.name}</td>
+    <td style="text-align:right" class="${d.flowIn?'up':'down'}">${d.pct}</td>
+    <td style="text-align:right" class="${d.flowIn?'flow-in':'flow-out'}">${d.flow}</td>
+  </tr>`).join('');
+}
+
+function renderSignals(){
+  const g=document.getElementById('signalGrid');
+  g.innerHTML=DATA.signals.map(s=>`<div class="signal-card ${s.type}">
+    <div class="signal-tag">${s.tag}</div>
+    <h4>${s.title}</h4>
+    <p>${s.desc}</p>
+  </div>`).join('');
+}
+
+function renderLimitUp(){
+  const t=document.getElementById('limitUpTable');
+  t.innerHTML=DATA.limitUp.map(d=>`<tr>
+    <td><span class="flow-badge ${parseInt(d.level)>3?'in':'out'}">${d.level}</span></td>
+    <td class="stock-name">${d.stock}${d.hot?' <span style="color:var(--gold)">🔥</span>':''}</td>
+    <td style="color:var(--text2)">${d.dir}</td>
+  </tr>`).join('');
+}
+
+function renderSentiment(){
+  const g=document.getElementById('sentimentGrid');
+  g.innerHTML=`
+    <div class="index-card neutral" style="padding:14px">
+      <div class="index-label">上涨/下跌</div>
+      <div class="index-value" style="font-size:22px">${DATA.sentiment.stocksUp}<span style="color:var(--text3);font-size:14px;font-weight:400"> / ${DATA.sentiment.stocksDown}</span></div>
+      <div class="index-change up">▲ ${DATA.sentiment.upPct}</div>
+    </div>
+    <div class="index-card neutral" style="padding:14px">
+      <div class="index-label">涨停 / 跌停</div>
+      <div class="index-value" style="font-size:22px">${DATA.sentiment.limitUp}<span style="color:var(--rise);font-size:14px">↑</span> <span style="color:var(--text3);font-size:14px">/ ${DATA.sentiment.limitDown}</span><span style="color:var(--fall);font-size:14px">↓</span></div>
+      <div class="index-change up">封板率 83%</div>
+    </div>
+    <div class="index-card neutral" style="padding:14px">
+      <div class="index-label">市场情绪</div>
+      <div class="index-value" style="font-size:22px;color:var(--gold)">${DATA.sentiment.market}</div>
+      <div class="index-change up">最高标 ${DATA.sentiment.topLevel}</div>
+    </div>
+  `;
+}
+
+// ====== CYCLE ANALYSIS ======
+function renderCyclePhase(){
+  const c=DATA.cycle;
+  const phaseIcon=c.phase==='ice'?'🧊':c.phase==='repair'?'🔄':c.phase==='boom'?'🚀':c.phase==='climax'?'🔥':'📉';
+  document.getElementById('cycleDisplay').innerHTML=`
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:12px">
+      <div style="flex:1;min-width:240px">
+        <div class="cycle-phase-title">
+          <span class="phase-icon ${c.phase}">${phaseIcon}</span>
+          ${c.phaseName} · 日内${c.date}
+        </div>
+        <div class="cycle-phase-desc">${c.summary}</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="cycle-badge ${c.phase}" style="font-size:14px">${c.phaseName}确认</span>
+        <span style="color:var(--text3);font-size:13px">→ 过渡中 → </span>
+        <span class="cycle-badge boom" style="font-size:14px;opacity:.6">${c.phaseNext}预期</span>
+      </div>
+    </div>
+    <div class="cycle-roadmap">${c.roadmap.map((r,i)=>`
+      <div class="cycle-step ${r.current?'current':r.done?'done':'next'}">
+        <div class="step-dot"></div>
+        <div style="font-size:13px;font-weight:${r.current?'700':'400'}">${r.name}</div>
+        <div style="font-size:10px;color:var(--text3);margin-top:2px">${r.desc}</div>
+        ${r.current?'<div style="font-size:10px;color:var(--bg);background:var(--gold);border-radius:4px;padding:1px 8px;display:inline-block;margin-top:4px">⬤ 当前</div>':''}
+      </div>`).join('')}</div>
+    <div class="cycle-metrics">${c.metrics.map(m=>`
+      <div class="cycle-metric">
+        <div class="m-value ${m.cls}">${m.value}</div>
+        <div class="m-label">${m.label}</div>
+        <div style="font-size:10px;color:var(--text3);margin-top:2px">${m.sub}</div>
+      </div>`).join('')}</div>
+    <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px">
+      ${c.evidence.map(e=>`<div style="display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:12px;background:${e.type==='bull'?'rgba(255,71,87,.08)':e.type==='warn'?'rgba(212,168,67,.08)':'rgba(46,213,115,.08)'};border:1px solid ${e.type==='bull'?'rgba(255,71,87,.15)':e.type==='warn'?'rgba(212,168,67,.15)':'rgba(46,213,115,.15)'}">
+        <span>${e.icon}</span><span>${e.text}</span>
+      </div>`).join('')}
+    </div>`;
+}
+
+function renderCycleTab(tab){
+  document.querySelectorAll('.cycle-tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab||(!b.dataset.tab&&tab==='phase')));
+  const c=document.getElementById('cycleContent');
+  if(tab==='phase'){
+    c.innerHTML=renderCycleAdvice();
+  } else if(tab==='stocks'){
+    c.innerHTML=renderStockPicks();
+  } else if(tab==='flow'){
+    c.innerHTML=renderLimitUpAnalysis();
+  }
+}
+
+function renderCycleAdvice(){
+  return `<div class="grid-2" style="margin-bottom:0">
+    <div class="card" style="border-left:3px solid var(--rise)">
+      <div style="font-size:13px;color:var(--rise);font-weight:600;margin-bottom:12px">📌 当前策略建议</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.8">
+        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px"><span style="color:var(--gold);font-size:16px">①</span><span><strong style="color:var(--text)">仓位建议：3-5成</strong> — 修复期过渡阶段，不宜满仓。若5板出现+放量可加至5-7成。</span></div>
+        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px"><span style="color:var(--gold);font-size:16px">②</span><span><strong style="color:var(--text)">聚焦龙头，去弱留强</strong> — 只做电力/PCB双主线龙头，中位股容易核按钮。华电能源/华塑控股是情绪核心。</span></div>
+        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px"><span style="color:var(--gold);font-size:16px">③</span><span><strong style="color:var(--text)">龙头断板日 = 减仓日</strong> — 华电/华塑若断板且无新龙头接力，说明修复失败，果断减仓。</span></div>
+        <div style="display:flex;gap:12px;align-items:flex-start"><span style="color:var(--gold);font-size:16px">④</span><span><strong style="color:var(--text)">缩量行情不追高</strong> — 5/29半日缩量2854亿，追高容易被套。分歧低吸优于打板。</span></div>
+      </div>
+    </div>
+    <div class="card" style="border-left:3px solid var(--gold)">
+      <div style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:12px">📋 明日关键观察清单</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        ${['华电能源能否5连板（情绪突破信号）','华塑控股/中京电子晋级情况（科技线强度）','两市成交额是否重回3万亿+','电力板块分歧承接（华电断板时有无补涨）','创业板指/科创50是否继续领涨'].map((item,i)=>`
+          <label style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg2);border-radius:6px;cursor:pointer;font-size:13px;color:var(--text2)">
+            <input type="checkbox" style="accent-color:var(--gold);width:16px;height:16px">
+            <span>${i+1}. ${item}</span>
+          </label>`).join('')}
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderStockPicks(){
+  return DATA.stockPicks.map(tier=>`
+    <div style="margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <span style="font-size:16px;font-weight:600;color:var(--text)">${tier.tierName}</span>
+        <span style="font-size:11px;color:var(--text3)">${tier.tier==='aggressive'?'高风偏 · 打板':tier.tier==='trend'?'中风偏 · 低吸':'低风偏 · 潜伏'}</span>
+      </div>
+      <div class="stock-rec-grid">${tier.stocks.map(s=>`
+        <div class="stock-rec-card">
+          <div class="rec-header">
+            <span class="rec-tag ${tier.tier}">${tier.tier==='aggressive'?'打板标的':tier.tier==='trend'?'趋势低吸':'轮动潜伏'}</span>
+            <span class="rec-code">${s.code}</span>
+          </div>
+          <div class="rec-stock">${s.name}</div>
+          <div class="rec-role">${s.role}</div>
+          <div class="rec-reason">${s.reason}</div>
+          <div class="rec-strat">${s.strat.map(st=>`<span class="strat-tag">${st}</span>`).join('')}</div>
+        </div>`).join('')}
+    </div>`).join('');
+}
+
+function renderLimitUpAnalysis(){
+  return `<div class="grid-2" style="margin-bottom:0">
+    <div class="card">
+      <div class="section-header" style="margin-top:0"><h2>📊 连板晋级分析</h2></div>
+      <div class="table-wrap">
+        <table><thead><tr><th>梯队</th><th>数量</th><th>代表个股</th><th>方向</th></tr></thead>
+        <tbody>
+          <tr><td><span class="flow-badge in" style="font-size:13px;padding:4px 12px">4连板</span></td><td style="font-weight:600;color:var(--rise)">3只</td><td class="stock-name">华电能源 华塑控股 香江控股</td><td>电力/PCB/地产</td></tr>
+          <tr><td><span class="flow-badge out" style="font-size:13px;padding:4px 12px">3连板</span></td><td style="font-weight:600">1只</td><td class="stock-name">中京电子</td><td>PCB</td></tr>
+          <tr><td><span style="font-size:13px;padding:4px 12px">2连板</span></td><td>5只</td><td class="stock-name">粤电力A 江海股份 德新科技 合锻智能 艾华集团</td><td>电力/电容/机器人</td></tr>
+          <tr><td><span style="font-size:13px;padding:4px 12px">首板</span></td><td style="font-weight:600;color:var(--gold)">92只</td><td>批量爆发</td><td>电力/电子/通信</td></tr>
+        </tbody></table>
+      </div>
+      <div style="margin-top:12px;font-size:12px;color:var(--text2);line-height:1.8">
+        <strong style="color:var(--text)">晋级率分析：</strong><br>
+        3进4：<strong style="color:var(--rise)">全部晋级（100%）</strong> — 情绪修复的明确信号<br>
+        2进3：中京电子晋级，其他竞争失败 — 科技线强度确认<br>
+        首板爆发92只 — 资金全面进场，梯队完整
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-header" style="margin-top:0"><h2>📈 趋势龙头分析</h2></div>
+      <div class="table-wrap">
+        <table><thead><tr><th>个股</th><th>累计表现</th><th>方向</th><th>策略</th></tr></thead>
+        <tbody>
+          ${[
+            {name:'宝鼎科技',perf:'16天10板',dir:'PCB趋势龙',strat:'5日线低吸'},
+            {name:'风华高科',perf:'8天4板',dir:'MLCC龙头',strat:'断板低吸'},
+            {name:'艾华集团',perf:'9天5板',dir:'超级电容',strat:'趋势持有'},
+            {name:'黄河旋风',perf:'5天4板',dir:'金刚石散热',strat:'分歧低吸'},
+            {name:'中兴通讯',perf:'涨停+22亿',dir:'通信中军',strat:'大资金做T'}
+          ].map(d=>`<tr><td class="stock-name">${d.name}</td><td style="color:var(--gold)">${d.perf}</td><td style="color:var(--text2)">${d.dir}</td><td>${d.strat}</td></tr>`).join('')}
+        </tbody></table>
+      </div>
+      <div style="margin-top:12px;font-size:12px;color:var(--text2);line-height:1.8">
+        <strong style="color:var(--text)">情绪周期推演：</strong><br>
+        ⬤ 当前 修复期：涨停127只，最高标4板，封板率83%<br>
+        ➤ 若华电能源/华塑控股升级5板 → <strong style="color:var(--gold)">确认进入主升期</strong><br>
+        ➤ 若断板且无接力 → <strong style="color:var(--fall)">可能二次退潮</strong>，注意风险
+      </div>
+    </div>
+  </div>`;
+}
+
+function switchCycleTab(tab){
+  document.querySelectorAll('.cycle-tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
+  renderCycleTab(tab);
+}
+function refreshData(){
+  const btn=document.getElementById('refreshBtn');
+  btn.classList.add('loading');
+  btn.innerHTML='<div class="loading-dots"><span></span><span></span><span></span></div> 刷新中';
+  // Simulate refresh - in production would call public APIs
+  setTimeout(()=>{
+    render();
+    btn.classList.remove('loading');
+    btn.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg> 刷新数据';
+    document.getElementById('dateDisplay').textContent=new Date().toLocaleDateString('zh-CN',{year:'numeric',month:'2-digit',day:'2-digit',weekday:'short'});
+  },800);
+}
+
+// ====== INIT ======
+document.addEventListener('DOMContentLoaded',render);
+</script>
+</body>
+</html>
