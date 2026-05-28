@@ -211,6 +211,40 @@ td.flow-out{color:var(--fall)}
 .cycle-tab{padding:8px 18px;font-size:12px;font-family:var(--font);background:transparent;border:none;color:var(--text3);cursor:pointer;border-radius:6px;transition:all .2s;white-space:nowrap}
 .cycle-tab:hover{color:var(--text)}
 .cycle-tab.active{background:var(--card);color:var(--gold2);font-weight:500}
+
+/* FINANCE REPORT */
+.sec-header{margin-bottom:16px;margin-top:32px;display:flex;align-items:center;gap:12px}
+.sec-header h2{font-size:17px;font-weight:600}
+.sec-header .sub{font-size:12px;color:var(--text3)}
+.finance-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:20px}
+.finance-summary-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+.finance-summary-card .fs-v{font-size:20px;font-weight:700;font-family:var(--font-mono);color:var(--gold2)}
+.finance-summary-card .fs-l{font-size:11px;color:var(--text3);margin-top:4px}
+.finance-summary-card .fs-s{font-size:11px;color:var(--rise);margin-top:2px}
+.finance-tab-bar{display:flex;gap:2px;margin-bottom:16px;background:var(--bg2);border-radius:8px;padding:3px;overflow-x:auto}
+.finance-tab{padding:8px 16px;font-size:12px;font-family:var(--font);background:transparent;border:none;color:var(--text3);cursor:pointer;border-radius:6px;transition:all .2s;white-space:nowrap}
+.finance-tab:hover{color:var(--text)}
+.finance-tab.active{background:var(--card);color:var(--gold2);font-weight:500}
+.finance-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:960px){.finance-grid{grid-template-columns:1fr}}
+.finance-rank{display:flex;flex-direction:column;gap:5px}
+.finance-item{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--bg2);border-radius:8px;transition:background .2s}
+.finance-item:hover{background:var(--card2)}
+.finance-item .r-num{width:22px;text-align:center;font-weight:700;font-size:13px;color:var(--gold);flex-shrink:0}
+.finance-item .r-info{flex:1;min-width:0}
+.finance-item .r-name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.finance-item .r-code{font-size:10px;color:var(--text3);margin-left:4px}
+.finance-item .r-val{font-size:13px;font-weight:600;font-family:var(--font-mono);text-align:right;white-space:nowrap}
+.finance-item .r-val.up{color:var(--rise)}.finance-item .r-val.down{color:var(--fall)}
+.finance-item .r-change{padding:2px 8px;border-radius:4px;font-size:10px;white-space:nowrap}
+.finance-item .r-change.hot{background:rgba(255,71,87,.15);color:var(--rise)}
+.finance-item .r-change.cold{background:rgba(46,213,115,.15);color:var(--fall)}
+.finance-industry-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.finance-industry-item{padding:14px;border-radius:var(--radius-sm);text-align:center;background:var(--card);border:1px solid var(--border)}
+.finance-industry-item .ind-name{font-size:12px;color:var(--text2);margin-bottom:4px}
+.finance-industry-item .ind-val{font-size:16px;font-weight:700;font-family:var(--font-mono)}
+.finance-industry-item .ind-val.boom{color:var(--rise)}.finance-industry-item .ind-val.ok{color:var(--gold)}
+.finance-industry-item .ind-val.meh{color:var(--fall)}.finance-industry-item .ind-val.bad{color:var(--text3)}
 </style>
 </head>
 <body>
@@ -323,6 +357,17 @@ td.flow-out{color:var(--fall)}
   <button class="cycle-tab" data-tab="flow" onclick="switchCycleTab('flow')">📈 连板梯队分析</button>
 </div>
 <div id="cycleContent"></div>
+
+<!-- FINANCE REPORT -->
+<div class="section-header"><h2>📊 2026年一季报财报分析</h2><span class="sub">截至2026-04-30，共5,503家公司披露</span></div>
+<div class="finance-summary-grid" id="financeSummary"></div>
+<div class="finance-tab-bar" id="financeTabs">
+  <button class="finance-tab active" data-ftab="revenue" onclick="switchFinanceTab('revenue')">💰 营收TOP</button>
+  <button class="finance-tab" data-ftab="profit" onclick="switchFinanceTab('profit')">💎 净利TOP</button>
+  <button class="finance-tab" data-ftab="growth" onclick="switchFinanceTab('growth')">🚀 增速TOP</button>
+  <button class="finance-tab" data-ftab="industry" onclick="switchFinanceTab('industry')">🏭 行业增速</button>
+</div>
+<div id="financeContent"></div>
 
 <div class="footer">
   <p><strong>免责声明：</strong> 本页面所展示的数据仅供参考，不构成任何投资建议。股市有风险，投资需谨慎。数据来源为公开市场信息，可能存在延迟。</p>
@@ -446,7 +491,48 @@ const DATA = {
       {name:'长电科技',code:'600584',role:'半导体封测 · 反包预期',reason:'韬定律题材发酵，半导体板块走强。机构看好封测方向，有反包预期。',strat:['午后低吸','博弈次日轮动','止损-5%']},
       {name:'冰山冷热',code:'000530',role:'液冷IDC · 算力配套',reason:'TrendForce预测液冷渗透率2026年达40%，算力硬件行情扩散到液冷配套。',strat:['板块强势时跟随','低吸不追高','波段持有']}
     ]}
-  ]
+  ],
+  finance: {
+    summary:{companies:5503,totalRevenue:'17.44万亿',revenueGrowth:'+4.66%',totalProfit:'1.59万亿',profitGrowth:'+6.54%',profitable:4040,profitRate:'73.42%',growthCount:2846,growthRate:'51.72%'},
+    revenueTop:[
+      {rank:1,name:'中国石油',code:'601857',value:'7,363.83亿',sector:'石油石化'},
+      {rank:2,name:'中国石化',code:'600028',value:'7,066.95亿',sector:'石油石化'},
+      {rank:3,name:'中国建筑',code:'601668',value:'5,118.47亿',sector:'建筑'},
+      {rank:4,name:'中国移动',code:'600941',value:'2,665亿',sector:'通信'},
+      {rank:5,name:'宁德时代',code:'300750',value:'1,291.31亿',sector:'电力设备',hot:true},
+      {rank:6,name:'工业富联',code:'601138',value:'1,205亿',sector:'电子'},
+      {rank:7,name:'中国中铁',code:'601390',value:'2,650亿',sector:'建筑'},
+      {rank:8,name:'中国铁建',code:'601186',value:'2,480亿',sector:'建筑'}
+    ],
+    profitTop:[
+      {rank:1,name:'工商银行',code:'601398',value:'869.41亿',sector:'银行'},
+      {rank:2,name:'建设银行',code:'601939',value:'862.91亿',sector:'银行'},
+      {rank:3,name:'农业银行',code:'601288',value:'751.85亿',sector:'银行'},
+      {rank:4,name:'中国移动',code:'600941',value:'293.42亿',sector:'通信'},
+      {rank:5,name:'贵州茅台',code:'600519',value:'272.43亿',sector:'白酒'},
+      {rank:6,name:'宁德时代',code:'300750',value:'207.38亿',sector:'电力设备',hot:true},
+      {rank:7,name:'紫金矿业',code:'601899',value:'200.79亿',sector:'有色'},
+      {rank:8,name:'招商银行',code:'600036',value:'380亿',sector:'银行'}
+    ],
+    growthTop:[
+      {rank:1,name:'雄塑科技',code:'300599',pct:'+68,902%',val:'0.32亿',sector:'建材'},
+      {rank:2,name:'崧盛股份',code:'301002',pct:'+42,653%',val:'0.15亿',sector:'电力设备'},
+      {rank:3,name:'双杰电气',code:'300444',pct:'+29,615%',val:'2.81亿',sector:'电力设备',hot:true},
+      {rank:4,name:'冠豪高新',code:'600433',pct:'+27,725%',val:'1.80亿',sector:'造纸'},
+      {rank:5,name:'博云新材',code:'002297',pct:'+13,362%',val:'1.32亿',sector:'硬质合金'},
+      {rank:6,name:'香农芯创',code:'300475',pct:'+7,835%',val:'13.27亿',sector:'电子/AI',hot:true},
+      {rank:7,name:'佰维存储',code:'688525',pct:'+1,568%',val:'28.99亿',sector:'存储/AI',hot:true},
+      {rank:8,name:'中际旭创',code:'300308',pct:'+262%',val:'57.35亿',sector:'光模块/AI',hot:true}
+    ],
+    industryGrowth:[
+      {name:'计算机',pct:'+100.56%',cls:'boom'},{name:'有色金属',pct:'+90.61%',cls:'boom'},
+      {name:'综合',pct:'+85.58%',cls:'boom'},{name:'电子',pct:'+40%',cls:'boom'},
+      {name:'国防军工',pct:'+40%',cls:'ok'},{name:'电力设备',pct:'+40%',cls:'ok'},
+      {name:'科创板',pct:'+209%',cls:'boom'},{name:'创业板',pct:'+21.75%',cls:'ok'},
+      {name:'深市主板',pct:'+13.05%',cls:'ok'},{name:'沪市主板',pct:'+3.37%',cls:'meh'},
+      {name:'北证',pct:'-14.79%',cls:'bad'}
+    ]
+  }
 };
 
 // ====== RENDER ======
@@ -461,6 +547,8 @@ function render(){
   renderSentiment();
   renderCyclePhase();
   renderCycleTab('phase');
+  renderFinanceSummary();
+  renderFinanceTab('revenue');
 }
 
 function renderIndices(){
@@ -698,6 +786,39 @@ function renderLimitUpAnalysis(){
 function switchCycleTab(tab){
   document.querySelectorAll('.cycle-tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
   renderCycleTab(tab);
+}
+
+// ====== FINANCE REPORT ======
+function renderFinanceSummary(){
+  const f=DATA.finance.summary;
+  document.getElementById('financeSummary').innerHTML=
+    `<div class="finance-summary-card"><div class="fs-v">${f.totalRevenue}</div><div class="fs-l">总营收</div><div class="fs-s">同比 ${f.revenueGrowth}</div></div>`+
+    `<div class="finance-summary-card"><div class="fs-v">${f.totalProfit}</div><div class="fs-l">总净利润</div><div class="fs-s">同比 ${f.profitGrowth}</div></div>`+
+    `<div class="finance-summary-card"><div class="fs-v" style="color:var(--rise)">${f.companies}</div><div class="fs-l">披露家数</div><div class="fs-s">同比覆盖</div></div>`+
+    `<div class="finance-summary-card"><div class="fs-v">${f.profitable}</div><div class="fs-l">盈利家数</div><div class="fs-s">占比 ${f.profitRate}</div></div>`+
+    `<div class="finance-summary-card"><div class="fs-v" style="color:var(--rise)">${f.growthCount}</div><div class="fs-l">同比增长家数</div><div class="fs-s">占比 ${f.growthRate}</div></div>`;
+}
+
+function renderFinanceTab(tab){
+  document.querySelectorAll('.finance-tab').forEach(b=>b.classList.toggle('active',b.dataset.ftab===tab));
+  const c=document.getElementById('financeContent');
+  if(tab==='revenue')c.innerHTML='<div class="finance-rank">'+DATA.finance.revenueTop.map(d=>
+    `<div class="finance-item"><span class="r-num" style="${d.rank<=3?'color:var(--gold2)':''}">${d.rank}</span><div class="r-info"><div class="r-name">${d.name}<span class="r-code">${d.code}</span></div><div style="font-size:10px;color:var(--text3)">${d.sector}</div></div><div class="r-val up">${d.value}</div>${d.hot?'<span class="r-change hot">🔥</span>':''}</div>`
+  ).join('')+'</div>';
+  else if(tab==='profit')c.innerHTML='<div class="finance-rank">'+DATA.finance.profitTop.map(d=>
+    `<div class="finance-item"><span class="r-num" style="${d.rank<=3?'color:var(--gold2)':''}">${d.rank}</span><div class="r-info"><div class="r-name">${d.name}<span class="r-code">${d.code}</span></div><div style="font-size:10px;color:var(--text3)">${d.sector}</div></div><div class="r-val up">${d.value}</div>${d.hot?'<span class="r-change hot">🔥</span>':''}</div>`
+  ).join('')+'</div>';
+  else if(tab==='growth')c.innerHTML='<div class="finance-rank">'+DATA.finance.growthTop.map(d=>
+    `<div class="finance-item"><span class="r-num">${d.rank}</span><div class="r-info"><div class="r-name">${d.name}<span class="r-code">${d.code}</span></div><div style="font-size:10px;color:var(--text3)">${d.sector}</div></div><div class="r-val up">${d.pct}</div><span class="r-change hot">${d.val}</span></div>`
+  ).join('')+'</div>';
+  else if(tab==='industry')c.innerHTML='<div class="finance-industry-grid">'+DATA.finance.industryGrowth.map(d=>
+    `<div class="finance-industry-item"><div class="ind-name">${d.name}</div><div class="ind-val ${d.cls}">${d.pct}</div></div>`
+  ).join('')+'</div>';
+}
+
+function switchFinanceTab(tab){
+  document.querySelectorAll('.finance-tab').forEach(b=>b.classList.toggle('active',b.dataset.ftab===tab));
+  renderFinanceTab(tab);
 }
 function refreshData(){
   const btn=document.getElementById('refreshBtn');
