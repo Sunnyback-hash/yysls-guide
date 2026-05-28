@@ -1450,6 +1450,121 @@ function calcDmgEstimate(){
 }
 
 // ===== ARTICLE RENDER =====
+
+
+
+const ARTICLES_EN = {
+"alr1":{"title":"Where Winds Meet Main Story Deep Analysis: Century of Jianghu Legacy","summary":"The story spans a century depicting a jianghu epic of legacy and betrayal. Deep analysis of major plot turns and hidden Easter eggs."},
+"alr2":{"title":"Where Winds Meet XiaJi System Complete Guide: Stories Across a Century","summary":"XiaJi is the unique story exploration system. Complete guide to unlocking, walkthrough and hidden story content."},
+"alr3":{"title":"Qinghe Background Story Secrets: Bamboo Forest & General Temple","summary":"Qinghe as a starting area also contains rich story content. Exploring the history of the Bamboo Grove Old Residence and General Temple."},
+"alr4":{"title":"Kaifeng History Story: Song-Jin Battlefield & Iron Flower Craft","summary":"Kaifeng blends Song-Jin war history with iron flower craft heritage. Detailed historical background analysis."},
+"alr5":{"title":"Where Winds Meet Jianghu Factions Complete Analysis: Martial Arts Legacy","summary":"Multiple factions each with unique martial arts legacy. Main faction backgrounds and related quest walkthroughs."},
+"aec1":{"title":"Where Winds Meet Changming Jade Guide: Stable Income & Spending Plan","summary":"Changming Jade is the core currency. Details on acquisition methods, spending priorities and saving strategies before version updates."},
+"aec2":{"title":"BaiYe Guild Economy System: Contribution & Benefits Maximization","summary":"Guild system providing various economic benefits. Contribution acquisition methods and benefit maximization tips."},
+"aec3":{"title":"Material Gathering & Crafting Profit Analysis 2026","summary":"Gathering and crafting are stable income sources. Analysis of material collection points, market prices and crafting profit margins."},
+"aec4":{"title":"F2P Newbie Economy Guide: Enjoying the Game Without Spending","summary":"Where Winds Meets monetization is cosmetic-only. Complete F2P economic planning and resource management guide."},
+"aec5":{"title":"Trading House Advanced Tips: Price Control & Rare Item Investment","summary":"Advanced trading strategies including price manipulation techniques and rare item investment timing."},
+"aac1":{"title":"Where Winds Meet Exploration Achievement Guide: Map Discovery & Collection","summary":"The easiest achievement type. All map exploration related achievement triggers and completion methods."},
+"aac2":{"title":"Combat Achievement Guide: Boss Challenges & No-Hit Clears","summary":"The most challenging achievement type. Boss challenge achievements and no-hit clear techniques."},
+"aac3":{"title":"Social Achievement Guide: Teamwork & Guild Activities","summary":"Social achievements encourage player interaction. Team achievements, guild achievements and friend system completion methods."},
+"aac4":{"title":"Special Achievement Collection: Limited Events & Version Commemoratives","summary":"Limited event achievements and version commemorative achievements since launch."},
+"aac5":{"title":"Achievement Point Rewards Summary: Titles & Cosmetics & Resources","summary":"Achievement points cumulative rewards system. All tier rewards and efficient achievement point farming strategies."},
+"acb1":{"title":"Where Winds Meet Parry Counter System Guide: Timing & Practice","summary":"Parry counter is the most core combat mechanic. Detailed operation methods, timing judgment and efficient practice methods."},
+"acb2":{"title":"Endurance Management Guide: Sustained DPS & Perfect Dodge","summary":"Endurance is the core combat resource. Management techniques and endurance cycle strategies for each build."},
+"acb3":{"title":"Boss Fight Universal Tips: Reading Skill Wind-Ups & Damage Avoidance","summary":"Reading boss skill wind-ups to avoid damage and control battle rhythm. Core techniques for all bosses."},
+"acb4":{"title":"Combo System Guide: True Combos, Fake Combos & Skill Cancels","summary":"Combos are key to maximizing DPS. Differences between true and fake combos, skill cancel techniques and graduate combos."},
+"acb5":{"title":"ShengHai Cosmetic System Complete Guide: Transmog & Collection","summary":"The equipment transmog system. Acquisition methods, popular appearances and collection tips."},
+"acp1":{"title":"Where Winds Meet Companion System Guide: Cats, Geese & Affinity","summary":"The Pengshan version core feature. All 4 cats and 3 geese acquisition, interaction methods and affinity boosting tips."},
+"acp2":{"title":"Companion Battle Guide: Cat vs Goose 1v1 Tactics 2026","summary":"Companion battle mode opens June 12. Battle mechanics, attribute matching and victory strategies."},
+"acp3":{"title":"Cat Collection Guide: 4 Cat Locations & Unlock Conditions","summary":"All 4 launch cats with different appearances and personalities. Unlock conditions and favorite foods."},
+"acp4":{"title":"Goose Collection Guide: 3 Goose Locations & Training","summary":"3 geese with defensive/support roles. Acquisition methods, training tips and battle capabilities."},
+"acp5":{"title":"Pet Equipment & Accessories Collection Guide: Companion Cosmetics","summary":"Complete companion cosmetic collection guide including accessories and outfits."},
+"ahs1":{"title":"Where Winds Meet Housing System Guide: Building & Decoration","summary":"Your private space. Housing unlock conditions, building and decoration tips."},
+"ahs2":{"title":"LiuKeXiang & JiangZaoFenGe Estate System Guide 2026","summary":"Two new estate systems from the summer update. Management tips and profit strategies."},
+"ahs3":{"title":"Housing Decoration Collection Guide: Rare Furniture Acquisition","summary":"Rare furniture for high decoration scores. All acquisition methods and collection tips."},
+"ahs4":{"title":"Housing Level Fast Leveling Guide: Material Collection & Planning","summary":"Housing level affects furniture capacity. Required materials and quick leveling techniques."},
+"ahs5":{"title":"Housing Social Guide: Friend Visits & Housing Rankings","summary":"Housing as social space. Friend visit mechanics and housing competition participation tips."},
+"aav1":{"title":"Level 105 Gear Fast Track Route 2026","summary":"Fastest gear progression from zero to BiS this season. Step-by-step route and resource planning."},
+"aav2":{"title":"Xinfa Level 9 Breakthrough Material Guide 2026","summary":"Ultimate progression target. Required materials, acquisition methods and upgrade priorities."},
+"aav3":{"title":"Combat Power Complete Guide: From Score to Stats","summary":"Combat power calculation and high-value improvement strategies. Target stat references."},
+"aav4":{"title":"Season System Guide: Reset Rules & Catch-Up Mechanics","summary":"Season-based operation system. Reset rules, catch-up mechanics and end-of-season preparation."},
+"aav5":{"title":"Multi-Build Development Guide: Resource Allocation & Universal Xinfa","summary":"Developing multiple builds for richer gameplay. Resource allocation strategies and universal Xinfa recommendations."},
+"acmp1":{"title":"DPS Leaderboard Guide: Damage Stats & Output Optimization 2026","summary":"DPS leaderboard measuring output. Damage stat mechanics and practical DPS boosting tips."},
+"acmp2":{"title":"Speedrun Dungeon Guide: Speedrun Tips & Route Optimization","summary":"Speedrunning as an endgame challenge. Optimal routes, monster skip techniques and DPS burst timing."},
+"acmp3":{"title":"World Boss Spawn Timer Guide & Kill Strategies 2026","summary":"Free gold equipment source. All World Boss spawn times, locations and kill strategies."},
+"acmp4":{"title":"Guild War Guide: Guild Competition & Team Tactics","summary":"Large-scale team PVP activity. Rules, role responsibilities and winning strategies."},
+"acmp5":{"title":"LunJian DengFeng Title Guide: Mindset & Time Management","summary":"Highest PVP honor. DengFeng rank push tips, mindset management and time planning."},
+"aph1":{"title":"Photo Mode Complete Guide: Filters, Composition & Hidden Spots","summary":"Capture beautiful moments. Photo mode functions, composition tips and hidden photo spots across all maps."},
+"aph2":{"title":"Scenic Spot Recommendations: Best Photo Locations 2026","summary":"Most photogenic spots across all maps. Best shooting times and composition suggestions."},
+"aph3":{"title":"Portrait Photography Tips: Character Poses & Lighting","summary":"Most popular photo genre. Pose selection, lighting techniques and background matching tips."},
+"aph4":{"title":"In-Game Photography Contest Guide: Submission Tips & Winning","summary":"Periodic photography contests. Rules, submission tips and winning experience sharing."},
+"aph5":{"title":"Photo Mode Hidden Features: Weather Control & Pose Unlocks","summary":"Hidden features including weather adjustment, secret pose unlocks and special filters."},
+"avr1":{"title":"Where Winds Meet 2026 Update Roadmap: Full Year Version Plan","summary":"Summary of all 2026 version update plans and released content."},
+"avr2":{"title":"May 29 Pengshan Version Full Update Log","summary":"Complete changelog including all new content, adjustments and fixes."},
+"avr3":{"title":"June 26 Summer Update Preview: Hangzhou Map & New Martial Arts","summary":"Biggest update of the year. Preview analysis of all announced content."},
+"avr4":{"title":"JiaZhongZouYa Season Review: Season Journey & Major Events","summary":"Review of the important 2026 season covering core content and major events."},
+"avr5":{"title":"Developer Interview Summary: Future Plans & Player Feedback","summary":"Key points from developer interviews revealing the games future direction."},
+"ask1":{"title":"Where Winds Meet Skill System Guide: Upgrade Order & Combat Combos","summary":"Skills are a key part of combat power. Upgrade mechanics, T0 skill rankings and build matching."},
+"ask2":{"title":"HeShanTu Event Guide: LingWuDan & Xinfa Bond","summary":"Weekly event dropping LingWuDan for Xinfa bond upgrades. Mechanics, efficient completion tips."},
+"ask3":{"title":"QiLongHuiMa Skill Deep Analysis: Level 5 Power Spike & Perfect Dodge","summary":"Most versatile skill in the game. Acquisition, level effects and practical combat combos."},
+"ask4":{"title":"LingYunTa & WeiTuoZhengFa Combo Guide: Exploration & Combat Dual-Use","summary":"Exploration and combat dual-purpose skill combo. Acquisition, mechanics and efficient usage."},
+"ask5":{"title":"BaiGuiDaXueShou Guide: Group CC & Exploration God-Tier","summary":"Area control skill that binds up to 6 enemies. Acquisition location, usage tips and upgrade advice."},
+"awp1":{"title":"Where Winds Meet Full Weapon Encyclopedia: Stats & Build Matching","summary":"All weapons with unique characteristics. Complete stats, acquisition methods and recommended builds."},
+"awp2":{"title":"Nameless Sword Deep Analysis: Sword Qi Mechanics & Output Cycle","summary":"Most basic sword art in the game. Sword Qi mechanics, skill combos and Xinfa matching."},
+"awp3":{"title":"Mo Saber JiFuDaoFa Guide: Tank Core Martial Arts","summary":"Core tank weapon. Skill mechanics, damage reduction system and raid aggro tips."},
+"awp4":{"title":"JiuQuJingShenQiang Guide: Bleed Mechanics & Burst","summary":"Core weapon for MingJinYing build. Fast combo and bleed stacking mechanics."},
+"awp5":{"title":"Dual Blades NiLiSanGou Guide: High-Frequency Output & Mobility","summary":"Core weapon for PoZhuFeng build. High attack speed and mobility focused."},
+"afs1":{"title":"Where Winds Meet Fashion Collection Guide: Free Cosmetics","summary":"Extensive free cosmetics. All free outfit acquisition methods and collection tips."},
+"afs2":{"title":"Pengshan Version Free Cosmetics Guide: 20+ Outfits","summary":"All 20+ Pengshan exploration free outfits. Names, acquisition methods and display effects."},
+"afs3":{"title":"Weapon Transmog Guide: Popular Weapon Appearances","summary":"Most eye-catching cosmetic type. All weapon appearance acquisition methods and popular picks."},
+"afs4":{"title":"Fashion Dye System Guide: Color Schemes & Dye Acquisition","summary":"Custom outfit colors. Dye system mechanics, color scheme recommendations and dye acquisition."},
+"afs5":{"title":"Limited Cosmetic Return Prediction: 2026 Return Schedule","summary":"Most anticipated information. Historical pattern analysis and 2026 return predictions."},
+"ad1":{"title":"FengYuLou Dungeon Complete Guide: Mechanics & Clear Tips","summary":"First high-difficulty dungeon with unique puzzle mechanics and dual-boss fights. Detailed boss mechanisms."},
+"ad2":{"title":"Armory Dungeon Complete Guide: Essential Gear Farm","summary":"Midgame gear dungeon dropping gold equipment blanks. Detailed area monster distribution and boss mechanics."},
+"ad3":{"title":"Trial Dungeon Guide: Xinfa EXP Farm","summary":"Daily Xinfa EXP dungeon. Wave strategies, efficient clearing and EXP maximization tips."},
+"ad4":{"title":"LiuHuoXiXing 5-Player Dungeon Guide: Iron Flower Mechanics","summary":"New 5-player trial dungeon with unique scoring system. Full boss skill analysis and team coordination."},
+"ad5":{"title":"LongXiangYuLiuHe 10-Player Raid Guide: Golden Man & DuFu","summary":"Highest difficulty raid. Core mechanics including the pressure system and split-team phases."},
+"ae1":{"title":"Where Winds Meet Gear Tuning Guide: Stat Selection & Graduation Stats","summary":"Core gear progression system. Blank selection, tuning methods and graduation stat targets."},
+"ae2":{"title":"Left 4-Piece Guide: Weapon Ring Pendant Sets & Effects","summary":"Core output components. Set recommendations for each build and mixing tips."},
+"ae3":{"title":"Right 4-Piece Armor Guide: Damage Reduction Mechanics","summary":"Survivability gear. Armor set recommendations and damage reduction mechanics explained."},
+"ae4":{"title":"Bow & Bow Art Selection Guide: Ranged Equipment","summary":"Independent ranged equipment slot. Bow and bow art selection for each build."},
+"ae5":{"title":"Heirloom Gear Guide: ChengYin Stones & Transfer System","summary":"Ultimate gear direction. ChengYin stone cultivation, transfer system and stat selection."},
+"ap1":{"title":"ZhiGe PVP Rank Push Guide: Meta Builds & Climbing Tips","summary":"Core PVP mode. Rank analysis, push strategies and season-end climbing tips."},
+"ap2":{"title":"YuanShen Build PVP Guide: Dodge & Counter Combos 2026","summary":"Current T0 PVP build with top dodge capability. Full gear, Xinfa and combo guide."},
+"ap3":{"title":"Mo Saber LieShiWei PVP Guide: Parry Mind Games","summary":"Highest survivability PVP build. Parry techniques, psychological gameplay and match-up strategies."},
+"ap4":{"title":"Umbrella+Fan PVP Combo Guide: Control Burst One-Shot","summary":"Ranged control burst build. Acupuncture point start combos and 1v1/3v3 strategies."},
+"ap5":{"title":"3v3 Team PVP Guide: Team Composition & Coordination","summary":"Core PVP team mode. Meta team comps, role responsibilities and tactical coordination."},
+"aev1":{"title":"Summer 2026 Update Preview: Hangzhou Map & New Features","summary":"June 26 update brings massive Hangzhou map, new raids and martial arts. Complete content preview."},
+"aev2":{"title":"Pengshan Version Full Analysis: Companions & Free Cosmetics","summary":"May 29 update analysis covering companions, WenJinGuan academy and 20+ free cosmetics."},
+"aev3":{"title":"Dragon Boat Festival Event Guide: Limited Accessories & Melody","summary":"June 19 event with limited accessories, melody pulls and returning cosmetics."},
+"aev4":{"title":"Childrens Day Event Guide: 100+ Emotes & Returning Items","summary":"June event with 100+ new emotes, melody pulls and returning DongGua headpiece."},
+"aev5":{"title":"FuShen Collab Weapon Appearance Guide: Rope Dart Acquisition","summary":"Limited collab rope dart appearance. Exchange method and display effects."},
+"acl1":{"title":"Qinghe Complete Clue Map Guide: 90 Collection Edition 2026","summary":"Full Qinghe clue collection with exact locations, routes and special tips."},
+"acl2":{"title":"Kaifeng Dynamic Clue Collection Guide: Hidden Areas","summary":"Most complex city map with dynamically changing clue locations. Full sub-region guide."},
+"acl3":{"title":"BuJianShan ShenZeSuiXiang Collection Guide: Chest Puzzles & Hidden Achievements","summary":"Vertical terrain area with complex puzzles. All 7 special chest solutions and hidden achievements."},
+"acl4":{"title":"HeXi Complete Collection Guide: Desert Relic Chests & Monsters","summary":"Endgame region guide. Entry requirements, World Boss tactics and full collection rewards."},
+"acl5":{"title":"WanShiZhi Quest Complete Guide: Mysterious Treasure & Hidden Easter Eggs","summary":"Hidden knowledge quest system. Trigger conditions, quiz answers and hidden easter egg locations."},
+"ash1":{"title":"SheFu Gameplay Complete Guide: Antique Appraisal & Authentication","summary":"Unique historical relic appraisal gameplay. Unlocking conditions, authentication tips and rare item acquisition."},
+"ash2":{"title":"Kaifeng Antique Merchant Guide: Shop Reset & Exchange Tips","summary":"Core SheFu NPC. Location, restock mechanics and optimal exchange strategies."},
+"ash3":{"title":"Relic Encyclopedia Collection Guide: Bronze Porcelain Calligraphy","summary":"Important game encyclopedia for SheFu. All relic types, characteristics and full collection achievements."},
+"ash4":{"title":"Antique Appraisal Advanced Tips: Patterns & Patina Identification","summary":"Advanced skills needing deep knowledge of patterns, inscriptions and patina."},
+"ash5":{"title":"Hidden Relic Collection Guide: Map-Undiscovered Treasures","summary":"Rare relics hidden in unmarked positions. Collection points in Kaifeng and BuJianShan."},
+"ato1":{"title":"Damage Calculator Guide: DPS Simulation & Build Optimization","summary":"Essential build optimization tool. Formula explanation, stat efficiency and practical usage steps."},
+"ato2":{"title":"Weekly Reset Schedule & Daily Planner 2026","summary":"Efficient daily and weekly time management. Routine checklist and long-term planning advice."},
+"ato3":{"title":"Trading House Guide: Buy Low Sell High for Changming Jade","summary":"Player trading market. Mechanics, price fluctuation patterns and profit tips."},
+"ato4":{"title":"Xinfa EXP Farm Guide: EXP Dungeon & Bonus Stacking","summary":"Most core character resource. AFK farming tips, bonus stacking and weekly EXP maximization."},
+"ato5":{"title":"Achievement System Complete Guide: Hidden Achievements & Points","summary":"Game achievement tracking. Category breakdown, hidden achievement triggers and point farming."},
+};
+// ===== ARTICLE I18N HELPERS =====
+function getAT(a){return currentLang==='en'?((ARTICLES_EN||{})[a.id]||{}).title||a.title:a.title}
+function getAS(a){return currentLang==='en'?((ARTICLES_EN||{})[a.id]||{}).summary||a.summary:a.summary}
+function getAH(a){return currentLang==='en'?((ARTICLES_EN||{})[a.id]||{}).h||a.h:a.h}
+function getAP(a){return currentLang==='en'?((ARTICLES_EN||{})[a.id]||{}).p||a.p:a.p}
+function getASec(a){return currentLang==='en'?(((ARTICLES_EN||{})[a.id]||{}).s||a.s):a.s}
+function getArticleTitle(a){var e=currentLang==='en'&&(ARTICLES_EN||{})[a.id];return e&&e.title?e.title:a.title}
+function getArticleSummary(a){var e=currentLang==='en'&&(ARTICLES_EN||{})[a.id];return e&&e.summary?e.summary:a.summary}
+function getArticleSections(a){var e=currentLang==='en'&&(ARTICLES_EN||{})[a.id];return e&&e.s?e.s:a.s}
+
 function renderArticleList(section){
   const allSections=['newbie','builds','maps','dungeons','equipment','pvp','events','clues','shefu','tools','lore','economy','achievement','combat','companion','housing','advanced','competition','photo','version','skill','weapon','fashion'];
   const sections=section?[section]:allSections;
@@ -1466,9 +1581,9 @@ ${section?`<a class="back-link" onclick="navigate('/articles')">${__t('← 返�
 <div class="article-grid">${articles.map(a=>{
   const sn=sectionNames[a.section]||'';
   return `<div class="article-card" onclick="navigate('/article/${a.id}')">
-<img class="article-card-img" src="${articleImg(a.g,a.i)}" alt="${a.title}" loading="lazy">
+<img class="article-card-img" src="${articleImg(a.g,a.i)}" alt="${getArticleTitle(a)}" loading="lazy">
 <div class="article-card-body"><div class="meta">${sn?sn+' · ':''}${__t('攻略文章','Guide')}</div>
-<h3>${a.title}</h3><p>${a.summary.slice(0,80)}...</p>
+<h3>${getArticleTitle(a)}</h3><p>${getArticleSummary(a).slice(0,80)}...</p>
 <div class="article-tags">${(a.t||[]).slice(0,3).map(t=>'<span class="tag">'+t+'</span>').join('')}</div></div></div>`
 }).join('')}</div>
 ${!articles.length?'<p style="text-align:center;color:var(--text3);padding:3rem 0">'+__t('暂无文章','No articles yet')+'</p>':''}
@@ -1484,9 +1599,9 @@ function renderArticleDetail(id){
 <section class="article-detail">
 <a class="back-link" onclick="navigate('/articles/${sectionKey}')">${__t('← 返回','← Back')} ${sectionNames[sectionKey]||''}</a>
 <div class="article-meta">${sectionNames[sectionKey]||''} · ${__t('攻略文章','Guide')}</div>
-<h1>${article.title}</h1>
-<img class="article-cover" src="${articleImg(article.g,article.i)}" alt="${article.title}" loading="lazy">
-${(article.s||[]).map(sec=>`<h2>${sec.h}</h2>${(sec.p||[]).map(pp=>`<p>${pp}</p>`).join('')}`).join('')}
+<h1>${getArticleTitle(article)}</h1>
+<img class="article-cover" src="${articleImg(article.g,article.i)}" alt="${getArticleTitle(article)}" loading="lazy">
+${(getArticleSections(article)||[]).map(sec=>`<h2>${sec.h}</h2>${(sec.p||[]).map(pp=>`<p>${pp}</p>`).join('')}`).join('')}
 ${(article.t||[]).length?`<div class="article-tags" style="margin-top:1.5rem">${article.t.map(t=>'<span class="tag">'+t+'</span>').join('')}</div>`:''}
 <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center">
 <p style="font-size:.78rem;color:var(--text3)">${__t('本文由燕云十六声攻略站原创，转载请注明出处。','Original article by Where Winds Meet Guide. Please credit when sharing.')}</p>
