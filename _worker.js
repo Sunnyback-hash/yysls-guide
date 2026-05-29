@@ -3,6 +3,11 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // Route /market to market.html
+    if (url.pathname === '/market' || url.pathname === '/market/') {
+      return env.ASSETS.fetch(new Request(new URL('/market.html', url.origin)));
+    }
+
     // Let the ASSETS runtime try to serve the file
     try {
       const response = await env.ASSETS.fetch(request);
