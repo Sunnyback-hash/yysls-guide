@@ -258,7 +258,7 @@ td.flow-out{color:var(--fall)}
   <div class="header-right">
     <div class="header-date">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      <span id="dateDisplay">2026-05-28 周四</span>
+      <span id="dateDisplay">2026-05-29 周五</span>
       <span id="tradeStatus" style="color:var(--gold);font-size:12px;margin-left:4px">已收盘</span>
     </div>
     <button class="btn-refresh" id="refreshBtn" onclick="refreshData()">
@@ -274,7 +274,7 @@ td.flow-out{color:var(--fall)}
   <h1>
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
     A股市场全景
-    <small>2026-05-28 · 先抑后扬 半导体领涨</small>
+    <small>2026-05-29 · 高低切换 消费地产大涨</small>
   </h1>
   <div class="subtitle">数据来源：东方财富 · 新浪财经 · 财联社 | 更新于 15:30</div>
 </div>
@@ -378,162 +378,903 @@ td.flow-out{color:var(--fall)}
 <script>
 // ====== DATA ======
 const DATA = {
-  indices: [
-    {name:'上证指数',code:'000001',value:'4,098.64',change:'+4.00',pct:'+0.12%',status:'rise',sub:'成交1.36万亿'},
-    {name:'深证成指',code:'399001',value:'15,861.89',change:'+125.00',pct:'+0.80%',status:'rise',sub:'成交1.61万亿'},
-    {name:'创业板指',code:'399006',value:'4,125.07',change:'+79.00',pct:'+1.96%',status:'rise',sub:'成交7,682亿'},
-    {name:'科创50',code:'000688',value:'1,844.25',change:'+28.82',pct:'+1.59%',status:'rise',sub:''},
-    {name:'两市成交额',code:'',value:'2.97万亿',change:'-2,704亿',pct:'-8.3%',status:'fall',sub:'缩量调整'}
+  "indices": [
+    {
+      "name": "上证指数",
+      "code": "000001",
+      "value": "4,068.57",
+      "change": "-30.07",
+      "pct": "-0.73%",
+      "status": "fall",
+      "sub": "成交1.53万亿"
+    },
+    {
+      "name": "深证成指",
+      "code": "399001",
+      "value": "15,575.13",
+      "change": "-286.76",
+      "pct": "-1.81%",
+      "status": "fall",
+      "sub": "成交1.79万亿"
+    },
+    {
+      "name": "创业板指",
+      "code": "399006",
+      "value": "4,037.95",
+      "change": "-87.12",
+      "pct": "-2.11%",
+      "status": "fall",
+      "sub": "成交8,557亿"
+    },
+    {
+      "name": "科创50",
+      "code": "000688",
+      "value": "1,751.29",
+      "change": "-92.96",
+      "pct": "-5.04%",
+      "status": "fall",
+      "sub": "科技股重灾区"
+    },
+    {
+      "name": "两市成交额",
+      "code": "",
+      "value": "3.34万亿",
+      "change": "+3,537亿",
+      "pct": "+11.8%",
+      "status": "rise",
+      "sub": "放量调整"
+    }
   ],
-  sectors: [
-    {name:'通信',pct:'+3.82%',flow:'+83.4亿',up:true},{name:'电力',pct:'+2.15%',flow:'+26.2亿',up:true},
-    {name:'半导体',pct:'+2.89%',flow:'+21.6亿',up:true},{name:'消费电子',pct:'+2.31%',flow:'+21.1亿',up:true},
-    {name:'军工',pct:'+1.56%',flow:'+10.2亿',up:true},{name:'小金属',pct:'+3.12%',flow:'+19.7亿',up:true},
-    {name:'有色金属',pct:'+1.23%',flow:'+2.0亿',up:true},{name:'建筑装饰',pct:'+0.87%',flow:'+2.0亿',up:true},
-    {name:'煤炭',pct:'+0.65%',flow:'+2.0亿',up:true},{name:'建筑材料',pct:'+0.92%',flow:'+2.0亿',up:true},
-    {name:'计算机',pct:'-1.45%',flow:'-38.2亿',up:false},{name:'电子',pct:'-0.32%',flow:'-38.0亿',up:false},
-    {name:'汽车',pct:'-0.78%',flow:'-10.0亿',up:false},{name:'医药生物',pct:'-0.55%',flow:'-10.0亿',up:false},
-    {name:'非银金融',pct:'-0.42%',flow:'-10.0亿',up:false},{name:'食品饮料',pct:'-0.28%',flow:'-5.6亿',up:false}
+  "sectors": [
+    {
+      "name": "电力",
+      "pct": "+2.15%",
+      "flow": "+55.6亿",
+      "up": true
+    },
+    {
+      "name": "白酒",
+      "pct": "+1.48%",
+      "flow": "+17.2亿",
+      "up": true
+    },
+    {
+      "name": "煤炭",
+      "pct": "+1.19%",
+      "flow": "+14.6亿",
+      "up": true
+    },
+    {
+      "name": "免税店",
+      "pct": "+2.40%",
+      "flow": "+14.8亿",
+      "up": true
+    },
+    {
+      "name": "商贸零售",
+      "pct": "+1.64%",
+      "flow": "+10.5亿",
+      "up": true
+    },
+    {
+      "name": "房地产",
+      "pct": "+0.85%",
+      "flow": "+8.2亿",
+      "up": true
+    },
+    {
+      "name": "银行",
+      "pct": "+0.42%",
+      "flow": "+12.3亿",
+      "up": true
+    },
+    {
+      "name": "通信",
+      "pct": "+0.15%",
+      "flow": "+1.2亿",
+      "up": true
+    },
+    {
+      "name": "半导体",
+      "pct": "-4.82%",
+      "flow": "-286亿",
+      "up": false
+    },
+    {
+      "name": "计算机",
+      "pct": "-2.45%",
+      "flow": "-92.0亿",
+      "up": false
+    },
+    {
+      "name": "电子",
+      "pct": "-3.12%",
+      "flow": "-78.0亿",
+      "up": false
+    },
+    {
+      "name": "军工电子",
+      "pct": "-2.78%",
+      "flow": "-35.0亿",
+      "up": false
+    },
+    {
+      "name": "机械设备",
+      "pct": "-1.85%",
+      "flow": "-22.0亿",
+      "up": false
+    },
+    {
+      "name": "汽车",
+      "pct": "-1.32%",
+      "flow": "-15.0亿",
+      "up": false
+    },
+    {
+      "name": "非银金融",
+      "pct": "-0.38%",
+      "flow": "-8.5亿",
+      "up": false
+    },
+    {
+      "name": "医药生物",
+      "pct": "-0.22%",
+      "flow": "-3.2亿",
+      "up": false
+    }
   ],
-  news: [
-    {time:'15:10',text:'沪指午后深V回升收涨0.12% 半导体等硬科技板块强势拉升带动翻红',tag:'收盘'},
-    {time:'14:30',text:'\"易中天\"三巨头齐创历史新高 中际旭创涨7.79% 天孚通信涨4.42%',tag:'热点'},
-    {time:'13:50',text:'华为正式提出\"韬(τ)定律\" 时间缩微替代几何缩微 燕东微20cm涨停',tag:'重磅'},
-    {time:'11:30',text:'沪指半日收报4087.86点微跌0.14% 算力硬件PCB方向逆势走强',tag:'午评'},
-    {time:'09:30',text:'央行开展1013亿元7天期逆回购操作 中标利率1.40% 净投放13亿',tag:'政策'},
-    {time:'09:25',text:'三大指数集体低开 沪指跌0.33% 贵金属先进封装板块领跌',tag:'开盘'}
+  "news": [
+    {
+      "time": "15:10",
+      "text": "三大指数集体收跌 科创50重挫5% 消费电力逆势走强",
+      "tag": "收盘"
+    },
+    {
+      "time": "14:30",
+      "text": "半导体板块暴跌 华天科技京东方A双双跌停 中芯国际跌近9%",
+      "tag": "热点"
+    },
+    {
+      "time": "13:50",
+      "text": "MSCI调整今日收盘后生效 多股尾盘异动 生益电子佰维存储拉升",
+      "tag": "重磅"
+    },
+    {
+      "time": "11:30",
+      "text": "创业板指半日跌超1% 白酒零售板块逆势爆发 酒鬼酒涨停",
+      "tag": "午评"
+    },
+    {
+      "time": "09:30",
+      "text": "华塑控股上演天地板 此前4连板 公司澄清未从事PCB业务",
+      "tag": "个股"
+    },
+    {
+      "time": "09:25",
+      "text": "三大指数集体低开 半导体算力板块领跌 电力地产高开",
+      "tag": "开盘"
+    }
   ],
-  flowIn: [
-    {code:'000063',name:'中兴通讯',pct:'+9.99%',flow:'22.64',flowIn:true},
-    {code:'300308',name:'中际旭创',pct:'+7.79%',flow:'18.01',flowIn:true},
-    {code:'002428',name:'云南锗业',pct:'+10.00%',flow:'16.05',flowIn:true},
-    {code:'300394',name:'天孚通信',pct:'+4.42%',flow:'11.33',flowIn:true},
-    {code:'002281',name:'光迅科技',pct:'+6.02%',flow:'11.17',flowIn:true},
-    {code:'300408',name:'三环集团',pct:'+7.42%',flow:'9.70',flowIn:true},
-    {code:'300274',name:'阳光电源',pct:'+3.26%',flow:'7.48',flowIn:true},
-    {code:'000636',name:'风华高科',pct:'+10.00%',flow:'7.45',flowIn:true},
-    {code:'002463',name:'沪电股份',pct:'+3.72%',flow:'7.39',flowIn:true},
-    {code:'000657',name:'中钨高新',pct:'+6.39%',flow:'7.29',flowIn:true}
+  "flowIn": [
+    {
+      "code": "600487",
+      "name": "亨通光电",
+      "pct": "+10.00%",
+      "flow": "40.08",
+      "flowIn": true
+    },
+    {
+      "code": "601138",
+      "name": "工业富联",
+      "pct": "+2.15%",
+      "flow": "6.82",
+      "flowIn": true
+    },
+    {
+      "code": "600519",
+      "name": "贵州茅台",
+      "pct": "+1.32%",
+      "flow": "5.64",
+      "flowIn": true
+    },
+    {
+      "code": "000858",
+      "name": "五粮液",
+      "pct": "+2.45%",
+      "flow": "4.82",
+      "flowIn": true
+    },
+    {
+      "code": "002415",
+      "name": "海康威视",
+      "pct": "+1.08%",
+      "flow": "4.21",
+      "flowIn": true
+    },
+    {
+      "code": "000725",
+      "name": "京东方A",
+      "pct": "-10.00%",
+      "flow": "4.00",
+      "flowIn": true,
+      "note": "机构抄底"
+    },
+    {
+      "code": "600900",
+      "name": "长江电力",
+      "pct": "+1.85%",
+      "flow": "3.96",
+      "flowIn": true
+    },
+    {
+      "code": "002185",
+      "name": "华天科技",
+      "pct": "-10.00%",
+      "flow": "5.75",
+      "flowIn": true,
+      "note": "深股通8.5亿买"
+    },
+    {
+      "code": "600036",
+      "name": "招商银行",
+      "pct": "+0.65%",
+      "flow": "3.42",
+      "flowIn": true
+    },
+    {
+      "code": "000651",
+      "name": "格力电器",
+      "pct": "+0.92%",
+      "flow": "3.18",
+      "flowIn": true
+    }
   ],
-  flowOut: [
-    {code:'300476',name:'胜宏科技',pct:'-1.05%',flow:'-17.00',flowIn:false},
-    {code:'000021',name:'深科技',pct:'-3.02%',flow:'-10.18',flowIn:false},
-    {code:'002050',name:'三花智控',pct:'-4.72%',flow:'-9.66',flowIn:false},
-    {code:'300604',name:'长川科技',pct:'-0.53%',flow:'-8.86',flowIn:false},
-    {code:'002384',name:'东山精密',pct:'-1.96%',flow:'-7.88',flowIn:false},
-    {code:'300750',name:'宁德时代',pct:'+0.21%',flow:'-7.10',flowIn:false},
-    {code:'300059',name:'东方财富',pct:'-2.14%',flow:'-6.78',flowIn:false},
-    {code:'002185',name:'华天科技',pct:'+6.65%',flow:'-6.05',flowIn:false},
-    {code:'002415',name:'海康威视',pct:'-2.81%',flow:'-5.66',flowIn:false},
-    {code:'603986',name:'兆易创新',pct:'-6.06%',flow:'-5.51',flowIn:false}
+  "flowOut": [
+    {
+      "code": "688981",
+      "name": "中芯国际",
+      "pct": "-8.97%",
+      "flow": "-27.74",
+      "flowIn": false
+    },
+    {
+      "code": "300308",
+      "name": "中际旭创",
+      "pct": "-6.82%",
+      "flow": "-18.55",
+      "flowIn": false
+    },
+    {
+      "code": "002281",
+      "name": "光迅科技",
+      "pct": "-7.15%",
+      "flow": "-12.36",
+      "flowIn": false
+    },
+    {
+      "code": "300394",
+      "name": "天孚通信",
+      "pct": "-5.42%",
+      "flow": "-9.88",
+      "flowIn": false
+    },
+    {
+      "code": "002463",
+      "name": "沪电股份",
+      "pct": "-4.35%",
+      "flow": "-8.42",
+      "flowIn": false
+    },
+    {
+      "code": "300476",
+      "name": "胜宏科技",
+      "pct": "-3.05%",
+      "flow": "-7.65",
+      "flowIn": false
+    },
+    {
+      "code": "000021",
+      "name": "深科技",
+      "pct": "-6.02%",
+      "flow": "-7.12",
+      "flowIn": false
+    },
+    {
+      "code": "300604",
+      "name": "长川科技",
+      "pct": "-5.53%",
+      "flow": "-6.88",
+      "flowIn": false
+    },
+    {
+      "code": "002050",
+      "name": "三花智控",
+      "pct": "-4.72%",
+      "flow": "-6.21",
+      "flowIn": false
+    },
+    {
+      "code": "688256",
+      "name": "寒武纪",
+      "pct": "-5.86%",
+      "flow": "-5.98",
+      "flowIn": false
+    }
   ],
-  limitUp: [
-    {level:'4连板',stock:'华电能源',dir:'电力',hot:true},{level:'4连板',stock:'华塑控股',dir:'PCB钻针',hot:true},
-    {level:'4连板',stock:'香江控股',dir:'房地产'},{level:'3连板',stock:'中京电子',dir:'PCB',hot:true},
-    {level:'2连板',stock:'粤电力A',dir:'电力'},{level:'2连板',stock:'江海股份',dir:'超级电容'},
-    {level:'2连板',stock:'德新科技',dir:'机器人'},{level:'16天10板',stock:'宝鼎科技',dir:'PCB趋势'},
-    {level:'8天4板',stock:'风华高科',dir:'MLCC',hot:true},{level:'5天4板',stock:'黄河旋风',dir:'金刚石散热'}
+  "limitUp": [
+    {
+      "level": "5连板",
+      "stock": "香江控股",
+      "dir": "房地产",
+      "hot": true
+    },
+    {
+      "level": "5连板",
+      "stock": "华电能源",
+      "dir": "电力",
+      "hot": true
+    },
+    {
+      "level": "3连板",
+      "stock": "粤电力A",
+      "dir": "电力"
+    },
+    {
+      "level": "3连板",
+      "stock": "合锻智能",
+      "dir": "智能装备"
+    },
+    {
+      "level": "4天3板",
+      "stock": "步步高",
+      "dir": "消费"
+    },
+    {
+      "level": "2连板",
+      "stock": "华锋股份",
+      "dir": "汽车"
+    },
+    {
+      "level": "2连板",
+      "stock": "江海股份",
+      "dir": "超级电容"
+    },
+    {
+      "level": "天板",
+      "stock": "华塑控股",
+      "dir": "PCB天地板"
+    },
+    {
+      "level": "5天3板",
+      "stock": "华能蒙电",
+      "dir": "电力"
+    },
+    {
+      "level": "涨停",
+      "stock": "亨通光电",
+      "dir": "光纤光缆"
+    }
   ],
-  sentiment: {
-    stocksUp:3018,stocksDown:2365,limitUp:127,limitDown:13,upPct:'54.81%',
-    topLevel:'4连板',topCount:3,market:'修复期',volume:'2.97万亿'
+  "sentiment": {
+    "stocksUp": 1542,
+    "stocksDown": 3884,
+    "limitUp": 70,
+    "limitDown": 106,
+    "upPct": "28.4%",
+    "topLevel": "5连板",
+    "topCount": 2,
+    "market": "分化调整",
+    "volume": "3.34万亿"
   },
-  signals: [
-    {type:'bull',tag:'看多信号',title:'🔥 电力板块主升浪确认',desc:'夏季用电高峰提前，南方电网负荷连续3天刷新纪录。华电能源4连板龙头，粤电力A等批量首板助攻，板块梯队完整。关注低位补涨。'},
-    {type:'bull',tag:'看多信号',title:'📡 光通信/CPO 趋势行情',desc:'\"易中天\"三巨头齐创历史新高，迈威尔科技业绩超预期。中兴通讯22.64亿主力净流入封涨停，磷化铟方向云南锗业4.75亿封单。'},
-    {type:'bull',tag:'看多信号',title:'🔬 半导体\"韬定律\"题材发酵',desc:'华为提出时间缩微新定律，华虹大涨15%创新高，机构5.73亿狂买华天科技。关注晶圆代工和设备材料方向。'},
-    {type:'neutral',tag:'关注信号',title:'⚡ PCB/CCL 涨价链扩散',desc:'建滔积层板年内第四次涨价，英伟达Rubin机架PCB价值量+233%。华塑控股4板、中京电子3板，关注宏和科技低位机会。'},
-    {type:'bull',tag:'看多信号',title:'💎 金刚石散热新题材',desc:'金刚石铜复合材料在郑州超算中心规模化应用，黄河旋风5天4板。散热材料板块整体走强，关注四方达、惠丰钻石。'},
-    {type:'bear',tag:'谨慎信号',title:'⚠️ 大金融大消费持续走弱',desc:'计算机-38亿、非银金融-10亿持续净流出。AI应用题材退潮。注意创业板指虽然+1.96%但主力资金仍净流出9.76亿，结构分化明显。'}
+  "signals": [
+    {
+      "type": "neutral",
+      "tag": "关注信号",
+      "title": "⚡ 电力板块延续主升",
+      "desc": "南方电网负荷连创历史新高。华电能源5板晋级、粤电力A 3板。板块梯队完整，迎峰度夏逻辑可持续。但5板高位分歧加大，关注低位补涨。"
+    },
+    {
+      "type": "bear",
+      "tag": "谨慎信号",
+      "title": "📉 科技股集体退潮",
+      "desc": "半导体-286亿主力净流出创近期之最。华天科技京东方A双跌停但龙虎榜显示机构+深股通逆势抄底。周一观察修复力度，继续下杀则科技股阶段性见顶。"
+    },
+    {
+      "type": "bull",
+      "tag": "看多信号",
+      "title": "🛍️ 消费板块高低切换",
+      "desc": "白酒+零售逆势走强。酒鬼酒、步步高、东百集团等多股涨停。618即时零售数据亮眼，低位消费有防御价值。关注龙头持续性。"
+    },
+    {
+      "type": "neutral",
+      "tag": "关注信号",
+      "title": "🏠 地产政策催化",
+      "desc": "香江控股5连板，万科A涨停。国务院城市更新十五五规划发布。政策底已现但基本面仍需验证。看短线情绪博弈。"
+    },
+    {
+      "type": "bear",
+      "tag": "谨慎信号",
+      "title": "⚠️ 连板高度压缩风险",
+      "desc": "华塑控股天地板，5板以上晋级分歧加大。全市场仅2只5连板，3进4断层。连板高度受限说明情绪仍在退潮边缘，追高需谨慎。"
+    }
   ],
-  cycle: {
-    phase: 'repair',
-    phaseName: '修复期',
-    phaseNext: '主升初期',
-    date: '2026-05-28',
-    summary: '5月27日退潮加速（涨停仅47只，最高标压制3板），5月28日暴力修复（涨停127只+170%，最高标突破4板，封板率83%）。当前正处于冰点→修复确认→向主升初期过渡的关键节点。',
-    roadmap: [
-      {name:'冰点期',done:true,current:false,desc:'涨停<30 高度<3板'},
-      {name:'修复期',done:false,current:true,desc:'涨停50-100 高度4-5板'},
-      {name:'主升期',done:false,current:false,desc:'涨停100+ 高度6板+'},
-      {name:'高潮期',done:false,current:false,desc:'涨停150+ 加速赶顶'},
-      {name:'退潮期',done:false,current:false,desc:'涨停骤降 亏钱效应'}
+  "cycle": {
+    "phase": "fall",
+    "phaseName": "分化调整期",
+    "phaseNext": "冰点/修复",
+    "date": "2026-05-29",
+    "summary": "5月28日修复期确认后，5月29日科技股遭重创（科创50 -5%、半导体-286亿净流出），电力/消费/地产走强维持结构性格局。华电能源/香江控股5板穿越但华塑天地板警示高位风险。整体处于修复后分化阶段。",
+    "roadmap": [
+      {
+        "name": "冰点期",
+        "done": true,
+        "current": false,
+        "desc": "涨停<30 高度<3板"
+      },
+      {
+        "name": "修复期",
+        "done": true,
+        "current": false,
+        "desc": "涨停50-100 高度4-5板"
+      },
+      {
+        "name": "分化调整",
+        "done": false,
+        "current": true,
+        "desc": "结构分化 高低切换"
+      },
+      {
+        "name": "主升/退潮",
+        "done": false,
+        "current": false,
+        "desc": "等待方向选择"
+      },
+      {
+        "name": "高潮/冰点",
+        "done": false,
+        "current": false,
+        "desc": "极端行情确认"
+      }
     ],
-    metrics: [
-      {label:'涨停对比',value:'47→127',cls:'up',sub:'+170% 爆发式增长'},
-      {label:'最高标',value:'4连板',cls:'up',sub:'突破3板压制'},
-      {label:'封板率',value:'83%',cls:'gold',sub:'资金意愿强'},
-      {label:'跌停',value:'13只',cls:'down',sub:'较27日减少9只'},
-      {label:'涨跌比',value:'3018:2365',cls:'up',sub:'涨超54.8%'},
-      {label:'成交额',value:'2.97万亿',cls:'gold',sub:'缩量调整'}
+    "metrics": [
+      {
+        "label": "涨停数",
+        "value": "70只",
+        "cls": "down",
+        "sub": "较28日减少57只"
+      },
+      {
+        "label": "跌停数",
+        "value": "106只",
+        "cls": "down",
+        "sub": "亏钱效应显著"
+      },
+      {
+        "label": "封板率",
+        "value": "56%",
+        "cls": "down",
+        "sub": "尾盘多股炸板"
+      },
+      {
+        "label": "最高标",
+        "value": "5连板",
+        "cls": "gold",
+        "sub": "香江/华电穿越"
+      },
+      {
+        "label": "涨跌比",
+        "value": "1542:3884",
+        "cls": "down",
+        "sub": "赚钱效应极差"
+      },
+      {
+        "label": "成交额",
+        "value": "3.34万亿",
+        "cls": "up",
+        "sub": "放量3,537亿"
+      }
     ],
-    evidence: [
-      {icon:'✅',text:'最高标从3板突破到4板，空间打开',type:'bull'},
-      {icon:'✅',text:'涨停从47→127只，爆发增长170%',type:'bull'},
-      {icon:'✅',text:'封板率83%，资金封板意愿强',type:'bull'},
-      {icon:'✅',text:'主线清晰（电力+PCB/电子）梯队完整',type:'bull'},
-      {icon:'⚠️',text:'5/29成交缩量，超3200只下跌，结构分歧',type:'warn'},
-      {icon:'⚠️',text:'创业板指虽涨但主力净流出9.76亿',type:'warn'}
+    "evidence": [
+      {
+        "icon": "⚠️",
+        "text": "半导体-286亿净流出，科技股阶段性见顶信号",
+        "type": "warn"
+      },
+      {
+        "icon": "✅",
+        "text": "电力/消费/地产三叉戟承接资金，局部赚钱效应",
+        "type": "bull"
+      },
+      {
+        "icon": "⚠️",
+        "text": "106只跌停 vs 70只涨停，跌停>涨停",
+        "type": "warn"
+      },
+      {
+        "icon": "✅",
+        "text": "香江/华电5板穿越，最高标维持5板",
+        "type": "bull"
+      },
+      {
+        "icon": "⚠️",
+        "text": "华塑天地板，3进4断层，中位股风险加大",
+        "type": "warn"
+      },
+      {
+        "icon": "✅",
+        "text": "机构+深股通跌停抄底华天/京东方，非纯出货",
+        "type": "bull"
+      }
     ]
   },
-  stockPicks: [
-    {tier:'aggressive',tierName:'🔥 核心打板',stocks:[
-      {name:'华电能源',code:'600726',role:'电力总龙头 · 情绪风向标',reason:'4连板，电力板块空间板。5/28一字晋级盘中分歧回封，5/29面临5板考验。若晋级5板确认主升行情。',strat:['打回封板','5板晋级确认加仓','断板首阴低吸']},
-      {name:'华塑控股',code:'000509',role:'PCB龙一 · 科技线高度',reason:'4连板PCB钻针方向，与华电能源形成双龙格局。筹码结构健康，有板块助攻。',strat:['PK晋级打强','分歧换手低吸','3板以上只做龙头']},
-      {name:'中京电子',code:'002579',role:'PCB龙二 · 3板晋级',reason:'低开高走晋级3板，PCB板块梯队完整。若华塑继续晋级，中京有4板预期。',strat:['板块强势时低吸','不追加速板','不及预期即走']}
-    ]},
-    {tier:'trend',tierName:'🥈 趋势低吸',stocks:[
-      {name:'风华高科',code:'000636',role:'MLCC趋势龙头 · 8天4板',reason:'机构+游资共振，MLCC暂停接单+Rubin机架增量逻辑。趋势为主不连板。',strat:['5日线低吸','断板首日接','趋势持有不追高']},
-      {name:'宝鼎科技',code:'002552',role:'PCB趋势总龙 · 16天10板',reason:'非连板模式但涨幅最大，PCB板块趋势核心。辨识度极高，资金抱团。',strat:['沿5日线低吸','首阴反包博弈','高位控制仓位']},
-      {name:'黄河旋风',code:'600172',role:'金刚石散热 · 5天4板',reason:'新材料题材新有想象力，金刚石铜复合材料量产应用。题材级别较高。',strat:['分歧低吸','板块联动力度','不追一致板']}
-    ]},
-    {tier:'low',tierName:'🥉 轮动潜伏',stocks:[
-      {name:'长电科技',code:'600584',role:'半导体封测 · 反包预期',reason:'韬定律题材发酵，半导体板块走强。机构看好封测方向，有反包预期。',strat:['午后低吸','博弈次日轮动','止损-5%']},
-      {name:'冰山冷热',code:'000530',role:'液冷IDC · 算力配套',reason:'TrendForce预测液冷渗透率2026年达40%，算力硬件行情扩散到液冷配套。',strat:['板块强势时跟随','低吸不追高','波段持有']}
-    ]}
+  "stockPicks": [
+    {
+      "tier": "aggressive",
+      "tierName": "🔥 核心打板",
+      "stocks": [
+        {
+          "name": "华电能源",
+          "code": "600726",
+          "role": "电力总龙 · 5板穿越",
+          "reason": "5连板成为市场最高标。迎峰度夏逻辑强，南方电网负荷连续刷新纪录。周一若6板成功则确认电力主升。",
+          "strat": [
+            "打回封板",
+            "6板确认加仓",
+            "断板止盈"
+          ]
+        },
+        {
+          "name": "香江控股",
+          "code": "600162",
+          "role": "地产龙头 · 5板PK",
+          "reason": "与华电能源并列最高标。城市更新政策催化，万科A助攻。周一5进6PK，胜者成为市场总龙头。",
+          "strat": [
+            "PK晋级打强",
+            "输者不低吸",
+            "换手板优先"
+          ]
+        },
+        {
+          "name": "粤电力A",
+          "code": "000539",
+          "role": "电力龙二 · 3连板",
+          "reason": "电力板块龙二，3板晋级。有板块助攻和华电能源带动。梯队完整，有4板预期。",
+          "strat": [
+            "华电强势时低吸",
+            "不追高",
+            "板块首阴出局"
+          ]
+        }
+      ]
+    },
+    {
+      "tier": "trend",
+      "tierName": "🥈 趋势低吸",
+      "stocks": [
+        {
+          "name": "亨通光电",
+          "code": "600487",
+          "role": "光纤龙头 · 涨停突破",
+          "reason": "中国电信启动大规模光缆集采，40亿主力封板。趋势突破形态，有持续催化。",
+          "strat": [
+            "分歧低吸",
+            "5日线上持有",
+            "板块联动确认"
+          ]
+        },
+        {
+          "name": "步步高",
+          "code": "002251",
+          "role": "零售龙头 · 4天3板",
+          "reason": "618即时零售数据亮眼，美团闪购白酒成交额增70倍。低位消费高低切换逻辑。",
+          "strat": [
+            "分歧低吸",
+            "趋势持有",
+            "放量滞涨卖出"
+          ]
+        },
+        {
+          "name": "酒鬼酒",
+          "code": "000799",
+          "role": "白酒反弹先锋",
+          "reason": "消费防御逻辑+超跌反弹。白酒板块整体走强，酒鬼酒涨停领涨。",
+          "strat": [
+            "沿5日线低吸",
+            "板块联动持有",
+            "不追高"
+          ]
+        }
+      ]
+    },
+    {
+      "tier": "low",
+      "tierName": "🥉 轮动潜伏",
+      "stocks": [
+        {
+          "name": "华天科技",
+          "code": "002185",
+          "role": "半导体 · 机构抄底",
+          "reason": "龙虎榜显示深股通净买入8.52亿+机构买入1.01亿，跌停机构逆势吸筹。若科技修复华天是首选。",
+          "strat": [
+            "跌停低吸试错",
+            "止损-5%",
+            "周一观察修复强度"
+          ]
+        },
+        {
+          "name": "万科A",
+          "code": "000002",
+          "role": "地产中军 · 政策催化",
+          "reason": "城市更新规划催化涨停，香江控股5板引领。万科作为地产中军有空间。",
+          "strat": [
+            "回踩5日线低吸",
+            "政策催化持有",
+            "不追高"
+          ]
+        }
+      ]
+    }
   ],
-  finance: {
-    summary:{companies:5503,totalRevenue:'17.44万亿',revenueGrowth:'+4.66%',totalProfit:'1.59万亿',profitGrowth:'+6.54%',profitable:4040,profitRate:'73.42%',growthCount:2846,growthRate:'51.72%'},
-    revenueTop:[
-      {rank:1,name:'中国石油',code:'601857',value:'7,363.83亿',sector:'石油石化'},
-      {rank:2,name:'中国石化',code:'600028',value:'7,066.95亿',sector:'石油石化'},
-      {rank:3,name:'中国建筑',code:'601668',value:'5,118.47亿',sector:'建筑'},
-      {rank:4,name:'中国移动',code:'600941',value:'2,665亿',sector:'通信'},
-      {rank:5,name:'宁德时代',code:'300750',value:'1,291.31亿',sector:'电力设备',hot:true},
-      {rank:6,name:'工业富联',code:'601138',value:'1,205亿',sector:'电子'},
-      {rank:7,name:'中国中铁',code:'601390',value:'2,650亿',sector:'建筑'},
-      {rank:8,name:'中国铁建',code:'601186',value:'2,480亿',sector:'建筑'}
+  "finance": {
+    "summary": {
+      "companies": 5503,
+      "totalRevenue": "17.44万亿",
+      "revenueGrowth": "+4.66%",
+      "totalProfit": "1.59万亿",
+      "profitGrowth": "+6.54%",
+      "profitable": 4040,
+      "profitRate": "73.42%",
+      "growthCount": 2846,
+      "growthRate": "51.72%"
+    },
+    "revenueTop": [
+      {
+        "rank": 1,
+        "name": "中国石油",
+        "code": "601857",
+        "value": "7,363.83亿",
+        "sector": "石油石化"
+      },
+      {
+        "rank": 2,
+        "name": "中国石化",
+        "code": "600028",
+        "value": "7,066.95亿",
+        "sector": "石油石化"
+      },
+      {
+        "rank": 3,
+        "name": "中国建筑",
+        "code": "601668",
+        "value": "5,118.47亿",
+        "sector": "建筑"
+      },
+      {
+        "rank": 4,
+        "name": "中国移动",
+        "code": "600941",
+        "value": "2,665亿",
+        "sector": "通信"
+      },
+      {
+        "rank": 5,
+        "name": "宁德时代",
+        "code": "300750",
+        "value": "1,291.31亿",
+        "sector": "电力设备",
+        "hot": true
+      },
+      {
+        "rank": 6,
+        "name": "工业富联",
+        "code": "601138",
+        "value": "1,205亿",
+        "sector": "电子"
+      },
+      {
+        "rank": 7,
+        "name": "中国中铁",
+        "code": "601390",
+        "value": "2,650亿",
+        "sector": "建筑"
+      },
+      {
+        "rank": 8,
+        "name": "中国铁建",
+        "code": "601186",
+        "value": "2,480亿",
+        "sector": "建筑"
+      }
     ],
-    profitTop:[
-      {rank:1,name:'工商银行',code:'601398',value:'869.41亿',sector:'银行'},
-      {rank:2,name:'建设银行',code:'601939',value:'862.91亿',sector:'银行'},
-      {rank:3,name:'农业银行',code:'601288',value:'751.85亿',sector:'银行'},
-      {rank:4,name:'中国移动',code:'600941',value:'293.42亿',sector:'通信'},
-      {rank:5,name:'贵州茅台',code:'600519',value:'272.43亿',sector:'白酒'},
-      {rank:6,name:'宁德时代',code:'300750',value:'207.38亿',sector:'电力设备',hot:true},
-      {rank:7,name:'紫金矿业',code:'601899',value:'200.79亿',sector:'有色'},
-      {rank:8,name:'招商银行',code:'600036',value:'380亿',sector:'银行'}
+    "profitTop": [
+      {
+        "rank": 1,
+        "name": "工商银行",
+        "code": "601398",
+        "value": "869.41亿",
+        "sector": "银行"
+      },
+      {
+        "rank": 2,
+        "name": "建设银行",
+        "code": "601939",
+        "value": "862.91亿",
+        "sector": "银行"
+      },
+      {
+        "rank": 3,
+        "name": "农业银行",
+        "code": "601288",
+        "value": "751.85亿",
+        "sector": "银行"
+      },
+      {
+        "rank": 4,
+        "name": "中国移动",
+        "code": "600941",
+        "value": "293.42亿",
+        "sector": "通信"
+      },
+      {
+        "rank": 5,
+        "name": "贵州茅台",
+        "code": "600519",
+        "value": "272.43亿",
+        "sector": "白酒"
+      },
+      {
+        "rank": 6,
+        "name": "宁德时代",
+        "code": "300750",
+        "value": "207.38亿",
+        "sector": "电力设备",
+        "hot": true
+      },
+      {
+        "rank": 7,
+        "name": "紫金矿业",
+        "code": "601899",
+        "value": "200.79亿",
+        "sector": "有色"
+      },
+      {
+        "rank": 8,
+        "name": "招商银行",
+        "code": "600036",
+        "value": "380亿",
+        "sector": "银行"
+      }
     ],
-    growthTop:[
-      {rank:1,name:'雄塑科技',code:'300599',pct:'+68,902%',val:'0.32亿',sector:'建材'},
-      {rank:2,name:'崧盛股份',code:'301002',pct:'+42,653%',val:'0.15亿',sector:'电力设备'},
-      {rank:3,name:'双杰电气',code:'300444',pct:'+29,615%',val:'2.81亿',sector:'电力设备',hot:true},
-      {rank:4,name:'冠豪高新',code:'600433',pct:'+27,725%',val:'1.80亿',sector:'造纸'},
-      {rank:5,name:'博云新材',code:'002297',pct:'+13,362%',val:'1.32亿',sector:'硬质合金'},
-      {rank:6,name:'香农芯创',code:'300475',pct:'+7,835%',val:'13.27亿',sector:'电子/AI',hot:true},
-      {rank:7,name:'佰维存储',code:'688525',pct:'+1,568%',val:'28.99亿',sector:'存储/AI',hot:true},
-      {rank:8,name:'中际旭创',code:'300308',pct:'+262%',val:'57.35亿',sector:'光模块/AI',hot:true}
+    "growthTop": [
+      {
+        "rank": 1,
+        "name": "雄塑科技",
+        "code": "300599",
+        "pct": "+68,902%",
+        "val": "0.32亿",
+        "sector": "建材"
+      },
+      {
+        "rank": 2,
+        "name": "双杰电气",
+        "code": "300444",
+        "pct": "+29,615%",
+        "val": "2.81亿",
+        "sector": "电力设备",
+        "hot": true
+      },
+      {
+        "rank": 3,
+        "name": "香农芯创",
+        "code": "300475",
+        "pct": "+7,835%",
+        "val": "13.27亿",
+        "sector": "电子/AI",
+        "hot": true
+      },
+      {
+        "rank": 4,
+        "name": "佰维存储",
+        "code": "688525",
+        "pct": "+1,568%",
+        "val": "28.99亿",
+        "sector": "存储/AI",
+        "hot": true
+      },
+      {
+        "rank": 5,
+        "name": "中际旭创",
+        "code": "300308",
+        "pct": "+262%",
+        "val": "57.35亿",
+        "sector": "光模块/AI",
+        "hot": true
+      },
+      {
+        "rank": 6,
+        "name": "招金黄金",
+        "code": "600489",
+        "pct": "+6,136%",
+        "val": "1.87亿",
+        "sector": "有色"
+      },
+      {
+        "rank": 7,
+        "name": "恒逸石化",
+        "code": "000703",
+        "pct": "+3,773%",
+        "val": "19.95亿",
+        "sector": "石化"
+      },
+      {
+        "rank": 8,
+        "name": "飞南资源",
+        "code": "301500",
+        "pct": "+7,919%",
+        "val": "4.05亿",
+        "sector": "环保"
+      }
     ],
-    industryGrowth:[
-      {name:'计算机',pct:'+100.56%',cls:'boom'},{name:'有色金属',pct:'+90.61%',cls:'boom'},
-      {name:'综合',pct:'+85.58%',cls:'boom'},{name:'电子',pct:'+40%',cls:'boom'},
-      {name:'国防军工',pct:'+40%',cls:'ok'},{name:'电力设备',pct:'+40%',cls:'ok'},
-      {name:'科创板',pct:'+209%',cls:'boom'},{name:'创业板',pct:'+21.75%',cls:'ok'},
-      {name:'深市主板',pct:'+13.05%',cls:'ok'},{name:'沪市主板',pct:'+3.37%',cls:'meh'},
-      {name:'北证',pct:'-14.79%',cls:'bad'}
+    "industryGrowth": [
+      {
+        "name": "计算机",
+        "pct": "+100.56%",
+        "cls": "boom"
+      },
+      {
+        "name": "有色金属",
+        "pct": "+90.61%",
+        "cls": "boom"
+      },
+      {
+        "name": "科创板",
+        "pct": "+209%",
+        "cls": "boom"
+      },
+      {
+        "name": "电子",
+        "pct": "+40%",
+        "cls": "boom"
+      },
+      {
+        "name": "国防军工",
+        "pct": "+40%",
+        "cls": "ok"
+      },
+      {
+        "name": "电力设备",
+        "pct": "+40%",
+        "cls": "ok"
+      },
+      {
+        "name": "综合",
+        "pct": "+85.58%",
+        "cls": "boom"
+      },
+      {
+        "name": "创业板",
+        "pct": "+21.75%",
+        "cls": "ok"
+      },
+      {
+        "name": "深市主板",
+        "pct": "+13.05%",
+        "cls": "ok"
+      },
+      {
+        "name": "沪市主板",
+        "pct": "+3.37%",
+        "cls": "meh"
+      },
+      {
+        "name": "北证",
+        "pct": "-14.79%",
+        "cls": "bad"
+      }
     ]
   }
-};
+}
+
 
 // ====== RENDER ======
 function render(){
