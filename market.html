@@ -1493,9 +1493,10 @@ function renderLimitUpAnalysis(){
     <div class="card">
       <div class="section-header" style="margin-top:0"><h2>📊 涨停板分析</h2></div>
       <div class="table-wrap">
-        <table><thead><tr><th>个股</th><th>方向</th><th>热度</th></tr></thead>
+        <table><thead><tr><th>连板</th><th>个股</th><th>方向</th><th>热度</th></tr></thead>
         <tbody>
-          ${DATA.limitUp.filter(x => x.level === '涨停').slice(0,8).map(d => `<tr>
+          ${DATA.limitUp.slice(0,10).map(d => `<tr>
+            <td><span class="flow-badge ${parseInt(d.level)>3?'in':'out'}">${d.level}</span></td>
             <td class="stock-name">${d.stock}</td>
             <td style="color:var(--text2)">${d.dir}</td>
             <td>${d.hot ? '<span style="color:var(--gold)">🔥 热门</span>' : ''}</td>
