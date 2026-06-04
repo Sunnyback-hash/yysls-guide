@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A股智能分析 - 上证深证市场行情与交易机会</title>
-<meta name="description" content="A股市场智能分析工具，实时追踪上证指数、深证成指行情，热点板块资金流向，连板梯队与龙虎榜数据，AI交易信号识别。">
+<title>A股智能分析 | 2026-06-04 周四 - 上证深证行情与交易机会</title>
+<meta name="description" content="A股市场智能分析工具，实时追踪上证指数、深证成指行情，行业板块资金流向，AI交易信号识别。2026-06-04 周四 光通信主线爆发 极端分化延续">
 <style>
 :root{--bg:#0a0e1a;--bg2:#111827;--card:#1a1f35;--card2:#1e243d;--border:#2a3050;--gold:#d4a843;--gold2:#f0c850;--gold3:#b8922e;--red:#e74c3c;--green:#2ecc71;--red2:#ff4444;--green2:#00c853;--text:#e8eaf0;--text2:#8892a8;--text3:#5a6380;--rise:#ff4757;--fall:#2ed573;--font:'"Noto Sans SC"','"PingFang SC"','"Microsoft YaHei"',sans-serif;--font-mono:'"JetBrains Mono"','"Fira Code"','Consolas',monospace;--radius:12px;--radius-sm:8px;--shadow:0 4px 24px rgba(0,0,0,.3)}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -211,6 +211,40 @@ td.flow-out{color:var(--fall)}
 .cycle-tab{padding:8px 18px;font-size:12px;font-family:var(--font);background:transparent;border:none;color:var(--text3);cursor:pointer;border-radius:6px;transition:all .2s;white-space:nowrap}
 .cycle-tab:hover{color:var(--text)}
 .cycle-tab.active{background:var(--card);color:var(--gold2);font-weight:500}
+
+/* FINANCE REPORT */
+.sec-header{margin-bottom:16px;margin-top:32px;display:flex;align-items:center;gap:12px}
+.sec-header h2{font-size:17px;font-weight:600}
+.sec-header .sub{font-size:12px;color:var(--text3)}
+.finance-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:20px}
+.finance-summary-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center}
+.finance-summary-card .fs-v{font-size:20px;font-weight:700;font-family:var(--font-mono);color:var(--gold2)}
+.finance-summary-card .fs-l{font-size:11px;color:var(--text3);margin-top:4px}
+.finance-summary-card .fs-s{font-size:11px;color:var(--rise);margin-top:2px}
+.finance-tab-bar{display:flex;gap:2px;margin-bottom:16px;background:var(--bg2);border-radius:8px;padding:3px;overflow-x:auto}
+.finance-tab{padding:8px 16px;font-size:12px;font-family:var(--font);background:transparent;border:none;color:var(--text3);cursor:pointer;border-radius:6px;transition:all .2s;white-space:nowrap}
+.finance-tab:hover{color:var(--text)}
+.finance-tab.active{background:var(--card);color:var(--gold2);font-weight:500}
+.finance-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:960px){.finance-grid{grid-template-columns:1fr}}
+.finance-rank{display:flex;flex-direction:column;gap:5px}
+.finance-item{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--bg2);border-radius:8px;transition:background .2s}
+.finance-item:hover{background:var(--card2)}
+.finance-item .r-num{width:22px;text-align:center;font-weight:700;font-size:13px;color:var(--gold);flex-shrink:0}
+.finance-item .r-info{flex:1;min-width:0}
+.finance-item .r-name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.finance-item .r-code{font-size:10px;color:var(--text3);margin-left:4px}
+.finance-item .r-val{font-size:13px;font-weight:600;font-family:var(--font-mono);text-align:right;white-space:nowrap}
+.finance-item .r-val.up{color:var(--rise)}.finance-item .r-val.down{color:var(--fall)}
+.finance-item .r-change{padding:2px 8px;border-radius:4px;font-size:10px;white-space:nowrap}
+.finance-item .r-change.hot{background:rgba(255,71,87,.15);color:var(--rise)}
+.finance-item .r-change.cold{background:rgba(46,213,115,.15);color:var(--fall)}
+.finance-industry-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.finance-industry-item{padding:14px;border-radius:var(--radius-sm);text-align:center;background:var(--card);border:1px solid var(--border)}
+.finance-industry-item .ind-name{font-size:12px;color:var(--text2);margin-bottom:4px}
+.finance-industry-item .ind-val{font-size:16px;font-weight:700;font-family:var(--font-mono)}
+.finance-industry-item .ind-val.boom{color:var(--rise)}.finance-industry-item .ind-val.ok{color:var(--gold)}
+.finance-industry-item .ind-val.meh{color:var(--fall)}.finance-industry-item .ind-val.bad{color:var(--text3)}
 </style>
 </head>
 <body>
@@ -224,8 +258,8 @@ td.flow-out{color:var(--fall)}
   <div class="header-right">
     <div class="header-date">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      <span id="dateDisplay">2026-05-28 周四</span>
-      <span id="tradeStatus" style="color:var(--gold);font-size:12px;margin-left:4px">已收盘</span>
+      <span id="dateDisplay">2026-06-03 周三</span>
+      <span id="tradeStatus" style="color:var(--green2);font-size:12px;margin-left:4px">交易中</span>
     </div>
     <button class="btn-refresh" id="refreshBtn" onclick="refreshData()">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
@@ -237,12 +271,11 @@ td.flow-out{color:var(--fall)}
 
 <div class="container" id="app">
 <div class="page-title">
-  <h1>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
     A股市场全景
-    <small>2026-05-28 · 先抑后扬 半导体领涨</small>
+    <small>2026-06-03 周三 · 三大指数分化 中证煤炭走强</small>
   </h1>
-  <div class="subtitle">数据来源：东方财富 · 新浪财经 · 财联社 | 更新于 15:30</div>
+  <div class="subtitle">数据来源：腾讯财经 · 同花顺 · 东方财富 | 更新于 15:44</div>
 </div>
 
 <!-- INDEX CARDS -->
@@ -324,6 +357,17 @@ td.flow-out{color:var(--fall)}
 </div>
 <div id="cycleContent"></div>
 
+<!-- FINANCE REPORT -->
+<div class="section-header"><h2>📊 2026年一季报财报分析</h2><span class="sub">截至2026-04-30，共5,503家公司披露 · 数据持续有效</span></div>
+<div class="finance-summary-grid" id="financeSummary"></div>
+<div class="finance-tab-bar" id="financeTabs">
+  <button class="finance-tab active" data-ftab="revenue" onclick="switchFinanceTab('revenue')">💰 营收TOP</button>
+  <button class="finance-tab" data-ftab="profit" onclick="switchFinanceTab('profit')">💎 净利TOP</button>
+  <button class="finance-tab" data-ftab="growth" onclick="switchFinanceTab('growth')">🚀 增速TOP</button>
+  <button class="finance-tab" data-ftab="industry" onclick="switchFinanceTab('industry')">🏭 行业增速</button>
+</div>
+<div id="financeContent"></div>
+
 <div class="footer">
   <p><strong>免责声明：</strong> 本页面所展示的数据仅供参考，不构成任何投资建议。股市有风险，投资需谨慎。数据来源为公开市场信息，可能存在延迟。</p>
   <p class="disclaimer">A股智能分析 · AI驱动 · 数据来源于东方财富、新浪财经、财联社等公开渠道</p>
@@ -333,121 +377,904 @@ td.flow-out{color:var(--fall)}
 <script>
 // ====== DATA ======
 const DATA = {
-  indices: [
-    {name:'上证指数',code:'000001',value:'4,098.64',change:'+4.00',pct:'+0.12%',status:'rise',sub:'成交1.36万亿'},
-    {name:'深证成指',code:'399001',value:'15,861.89',change:'+125.00',pct:'+0.80%',status:'rise',sub:'成交1.61万亿'},
-    {name:'创业板指',code:'399006',value:'4,125.07',change:'+79.00',pct:'+1.96%',status:'rise',sub:'成交7,682亿'},
-    {name:'科创50',code:'000688',value:'1,844.25',change:'+28.82',pct:'+1.59%',status:'rise',sub:''},
-    {name:'两市成交额',code:'',value:'2.97万亿',change:'-2,704亿',pct:'-8.3%',status:'fall',sub:'缩量调整'}
+  "indices": [
+    {
+      "name": "上证指数",
+      "code": "000001",
+      "value": "4,083.97",
+      "change": "+8.87",
+      "pct": "+0.22%",
+      "status": "rise",
+      "sub": "成交1.43万亿"
+    },
+    {
+      "name": "深证成指",
+      "code": "399001",
+      "value": "15,704.71",
+      "change": "+113.58",
+      "pct": "+0.73%",
+      "status": "rise",
+      "sub": "成交1.70万亿"
+    },
+    {
+      "name": "创业板指",
+      "code": "399006",
+      "value": "4,122.99",
+      "change": "+67.12",
+      "pct": "+1.65%",
+      "status": "rise",
+      "sub": "成交8030亿"
+    },
+    {
+      "name": "科创50",
+      "code": "000688",
+      "value": "1,726.18",
+      "change": "+35.62",
+      "pct": "+2.11%",
+      "status": "rise",
+      "sub": "成交1663亿"
+    },
+    {
+      "name": "两市成交额",
+      "code": "",
+      "value": "3.13万亿",
+      "change": "",
+      "pct": "",
+      "status": "neutral",
+      "sub": "沪1.43万亿+深1.70万亿"
+    }
   ],
-  sectors: [
-    {name:'通信',pct:'+3.82%',flow:'+83.4亿',up:true},{name:'电力',pct:'+2.15%',flow:'+26.2亿',up:true},
-    {name:'半导体',pct:'+2.89%',flow:'+21.6亿',up:true},{name:'消费电子',pct:'+2.31%',flow:'+21.1亿',up:true},
-    {name:'军工',pct:'+1.56%',flow:'+10.2亿',up:true},{name:'小金属',pct:'+3.12%',flow:'+19.7亿',up:true},
-    {name:'有色金属',pct:'+1.23%',flow:'+2.0亿',up:true},{name:'建筑装饰',pct:'+0.87%',flow:'+2.0亿',up:true},
-    {name:'煤炭',pct:'+0.65%',flow:'+2.0亿',up:true},{name:'建筑材料',pct:'+0.92%',flow:'+2.0亿',up:true},
-    {name:'计算机',pct:'-1.45%',flow:'-38.2亿',up:false},{name:'电子',pct:'-0.32%',flow:'-38.0亿',up:false},
-    {name:'汽车',pct:'-0.78%',flow:'-10.0亿',up:false},{name:'医药生物',pct:'-0.55%',flow:'-10.0亿',up:false},
-    {name:'非银金融',pct:'-0.42%',flow:'-10.0亿',up:false},{name:'食品饮料',pct:'-0.28%',flow:'-5.6亿',up:false}
+  "sectors": [
+    {
+      "name": "通信",
+      "pct": "+4.78%",
+      "flow": "+131.9亿",
+      "up": true
+    },
+    {
+      "name": "煤炭",
+      "pct": "+2.55%",
+      "flow": "+33.7亿",
+      "up": true
+    },
+    {
+      "name": "电子",
+      "pct": "+2.30%",
+      "flow": "+79.7亿",
+      "up": true
+    },
+    {
+      "name": "石油石化",
+      "pct": "+1.59%",
+      "flow": "+15.2亿",
+      "up": true
+    },
+    {
+      "name": "机械设备",
+      "pct": "+0.84%",
+      "flow": "+8.3亿",
+      "up": true
+    },
+    {
+      "name": "通信设备",
+      "pct": "+1.95%",
+      "flow": "+131.9亿",
+      "up": true
+    },
+    {
+      "name": "半导体",
+      "pct": "+2.34%",
+      "flow": "+79.7亿",
+      "up": true
+    },
+    {
+      "name": "小金属",
+      "pct": "+2.46%",
+      "flow": "+33.7亿",
+      "up": true
+    },
+    {
+      "name": "综合",
+      "pct": "-1.82%",
+      "flow": "-8.2亿",
+      "up": false
+    },
+    {
+      "name": "建筑材料",
+      "pct": "-1.69%",
+      "flow": "-7.5亿",
+      "up": false
+    },
+    {
+      "name": "交通运输",
+      "pct": "-1.64%",
+      "flow": "-12.3亿",
+      "up": false
+    },
+    {
+      "name": "食品饮料",
+      "pct": "-1.58%",
+      "flow": "-15.6亿",
+      "up": false
+    },
+    {
+      "name": "电池",
+      "pct": "-1.27%",
+      "flow": "-40.7亿",
+      "up": false
+    },
+    {
+      "name": "软件开发",
+      "pct": "-1.48%",
+      "flow": "-27.2亿",
+      "up": false
+    },
+    {
+      "name": "电网设备",
+      "pct": "-0.98%",
+      "flow": "-18.2亿",
+      "up": false
+    },
+    {
+      "name": "白酒",
+      "pct": "-1.16%",
+      "flow": "-10.5亿",
+      "up": false
+    }
   ],
-  news: [
-    {time:'15:10',text:'沪指午后深V回升收涨0.12% 半导体等硬科技板块强势拉升带动翻红',tag:'收盘'},
-    {time:'14:30',text:'\"易中天\"三巨头齐创历史新高 中际旭创涨7.79% 天孚通信涨4.42%',tag:'热点'},
-    {time:'13:50',text:'华为正式提出\"韬(τ)定律\" 时间缩微替代几何缩微 燕东微20cm涨停',tag:'重磅'},
-    {time:'11:30',text:'沪指半日收报4087.86点微跌0.14% 算力硬件PCB方向逆势走强',tag:'午评'},
-    {time:'09:30',text:'央行开展1013亿元7天期逆回购操作 中标利率1.40% 净投放13亿',tag:'政策'},
-    {time:'09:25',text:'三大指数集体低开 沪指跌0.33% 贵金属先进封装板块领跌',tag:'开盘'}
+  "news": [
+    {
+      "time": "15:40",
+      "text": "A股再登新闻联播：长线外资看好中国硬科技，持有A股流通市值超4万亿",
+      "tag": "要闻"
+    },
+    {
+      "time": "15:30",
+      "text": "光通信爆发：光纤光缆订单排至2027年，亨通光电2连板创历史新高",
+      "tag": "热点"
+    },
+    {
+      "time": "15:20",
+      "text": "富时中国A50指数季度调整：纳入兆易创新、澜起科技、东山精密等",
+      "tag": "市场"
+    },
+    {
+      "time": "15:10",
+      "text": "央行7天逆回购操作量罕见封零，银行间资金面过于宽松需回收流动性",
+      "tag": "要闻"
+    },
+    {
+      "time": "14:50",
+      "text": "北向资金今日净买入33.78亿元，比亚迪获净买入3.71亿居首",
+      "tag": "数据"
+    },
+    {
+      "time": "14:30",
+      "text": "美伊局势牵动能源：WTI原油抖96美元，伊朗同意不拥核但海峡紧张",
+      "tag": "国际"
+    }
   ],
-  flowIn: [
-    {code:'000063',name:'中兴通讯',pct:'+9.99%',flow:'22.64',flowIn:true},
-    {code:'300308',name:'中际旭创',pct:'+7.79%',flow:'18.01',flowIn:true},
-    {code:'002428',name:'云南锗业',pct:'+10.00%',flow:'16.05',flowIn:true},
-    {code:'300394',name:'天孚通信',pct:'+4.42%',flow:'11.33',flowIn:true},
-    {code:'002281',name:'光迅科技',pct:'+6.02%',flow:'11.17',flowIn:true},
-    {code:'300408',name:'三环集团',pct:'+7.42%',flow:'9.70',flowIn:true},
-    {code:'300274',name:'阳光电源',pct:'+3.26%',flow:'7.48',flowIn:true},
-    {code:'000636',name:'风华高科',pct:'+10.00%',flow:'7.45',flowIn:true},
-    {code:'002463',name:'沪电股份',pct:'+3.72%',flow:'7.39',flowIn:true},
-    {code:'000657',name:'中钨高新',pct:'+6.39%',flow:'7.29',flowIn:true}
+  "flowIn": [
+    {
+      "code": "300750",
+      "name": "宁德时代",
+      "pct": "+2.34%",
+      "flow": "14.09",
+      "flowIn": true
+    },
+    {
+      "code": "002241",
+      "name": "歌尔股份",
+      "pct": "+5.12%",
+      "flow": "9.38",
+      "flowIn": true
+    },
+    {
+      "code": "300468",
+      "name": "四方精创",
+      "pct": "+8.72%",
+      "flow": "8.72",
+      "flowIn": true
+    },
+    {
+      "code": "600410",
+      "name": "华胜天成",
+      "pct": "+7.02%",
+      "flow": "7.02",
+      "flowIn": true
+    },
+    {
+      "code": "300188",
+      "name": "国投智能",
+      "pct": "+5.79%",
+      "flow": "5.79",
+      "flowIn": true
+    },
+    {
+      "code": "002463",
+      "name": "沪电股份",
+      "pct": "+3.21%",
+      "flow": "5.41",
+      "flowIn": true
+    },
+    {
+      "code": "002342",
+      "name": "巨力索具",
+      "pct": "+10.06%",
+      "flow": "4.84",
+      "flowIn": true
+    },
+    {
+      "code": "300059",
+      "name": "东方财富",
+      "pct": "+1.85%",
+      "flow": "4.52",
+      "flowIn": true
+    },
+    {
+      "code": "601788",
+      "name": "光大证券",
+      "pct": "+2.13%",
+      "flow": "3.98",
+      "flowIn": true
+    },
+    {
+      "code": "300308",
+      "name": "中际旭创",
+      "pct": "+3.56%",
+      "flow": "3.75",
+      "flowIn": true
+    }
   ],
-  flowOut: [
-    {code:'300476',name:'胜宏科技',pct:'-1.05%',flow:'-17.00',flowIn:false},
-    {code:'000021',name:'深科技',pct:'-3.02%',flow:'-10.18',flowIn:false},
-    {code:'002050',name:'三花智控',pct:'-4.72%',flow:'-9.66',flowIn:false},
-    {code:'300604',name:'长川科技',pct:'-0.53%',flow:'-8.86',flowIn:false},
-    {code:'002384',name:'东山精密',pct:'-1.96%',flow:'-7.88',flowIn:false},
-    {code:'300750',name:'宁德时代',pct:'+0.21%',flow:'-7.10',flowIn:false},
-    {code:'300059',name:'东方财富',pct:'-2.14%',flow:'-6.78',flowIn:false},
-    {code:'002185',name:'华天科技',pct:'+6.65%',flow:'-6.05',flowIn:false},
-    {code:'002415',name:'海康威视',pct:'-2.81%',flow:'-5.66',flowIn:false},
-    {code:'603986',name:'兆易创新',pct:'-6.06%',flow:'-5.51',flowIn:false}
+  "flowOut": [
+    {
+      "code": "000066",
+      "name": "中国长城",
+      "pct": "-4.21%",
+      "flow": "13.13",
+      "flowIn": false
+    },
+    {
+      "code": "000901",
+      "name": "航天科技",
+      "pct": "-3.85%",
+      "flow": "8.85",
+      "flowIn": false
+    },
+    {
+      "code": "300308",
+      "name": "中际旭创",
+      "pct": "-2.12%",
+      "flow": "7.74",
+      "flowIn": false
+    },
+    {
+      "code": "300803",
+      "name": "指南针",
+      "pct": "-5.26%",
+      "flow": "7.26",
+      "flowIn": false
+    },
+    {
+      "code": "300502",
+      "name": "新易盛",
+      "pct": "-2.89%",
+      "flow": "7.23",
+      "flowIn": false
+    },
+    {
+      "code": "300620",
+      "name": "光库科技",
+      "pct": "-4.15%",
+      "flow": "7.21",
+      "flowIn": false
+    },
+    {
+      "code": "601127",
+      "name": "赛力斯",
+      "pct": "-2.63%",
+      "flow": "5.80",
+      "flowIn": false
+    },
+    {
+      "code": "002550",
+      "name": "千红制药",
+      "pct": "-4.52%",
+      "flow": "4.28",
+      "flowIn": false
+    },
+    {
+      "code": "601088",
+      "name": "中国神华",
+      "pct": "-1.35%",
+      "flow": "2.10",
+      "flowIn": false
+    },
+    {
+      "code": "601933",
+      "name": "永辉超市",
+      "pct": "-3.18%",
+      "flow": "2.07",
+      "flowIn": false
+    }
   ],
-  limitUp: [
-    {level:'4连板',stock:'华电能源',dir:'电力',hot:true},{level:'4连板',stock:'华塑控股',dir:'PCB钻针',hot:true},
-    {level:'4连板',stock:'香江控股',dir:'房地产'},{level:'3连板',stock:'中京电子',dir:'PCB',hot:true},
-    {level:'2连板',stock:'粤电力A',dir:'电力'},{level:'2连板',stock:'江海股份',dir:'超级电容'},
-    {level:'2连板',stock:'德新科技',dir:'机器人'},{level:'16天10板',stock:'宝鼎科技',dir:'PCB趋势'},
-    {level:'8天4板',stock:'风华高科',dir:'MLCC',hot:true},{level:'5天4板',stock:'黄河旋风',dir:'金刚石散热'}
+  "limitUp": [
+    {
+      "level": "3连板",
+      "stock": "天洋新材",
+      "dir": "光通信/光纤",
+      "hot": true
+    },
+    {
+      "level": "2连板",
+      "stock": "亨通光电",
+      "dir": "光通信龙头",
+      "hot": true
+    },
+    {
+      "level": "2连板",
+      "stock": "鑫科材料",
+      "dir": "光纤概念",
+      "hot": false
+    },
+    {
+      "level": "2连板",
+      "stock": "模塑科技",
+      "dir": "机器人",
+      "hot": false
+    },
+    {
+      "level": "2连板",
+      "stock": "北投科技",
+      "dir": "机器人",
+      "hot": false
+    },
+    {
+      "level": "涨停",
+      "stock": "通富微电",
+      "dir": "封测/AI芯片",
+      "hot": true
+    },
+    {
+      "level": "涨停",
+      "stock": "一博科技",
+      "dir": "20cm光模块",
+      "hot": true
+    },
+    {
+      "level": "涨停",
+      "stock": "华特气体",
+      "dir": "电子特气",
+      "hot": false
+    },
+    {
+      "level": "涨停",
+      "stock": "环旭电子",
+      "dir": "消费电子",
+      "hot": false
+    },
+    {
+      "level": "涨停",
+      "stock": "青山纸业",
+      "dir": "光纤材料",
+      "hot": false
+    }
   ],
-  sentiment: {
-    stocksUp:3018,stocksDown:2365,limitUp:127,limitDown:13,upPct:'54.81%',
-    topLevel:'4连板',topCount:3,market:'修复期',volume:'2.97万亿'
+  "sentiment": {
+    "stocksUp": 1644,
+    "stocksDown": 3484,
+    "limitUp": 81,
+    "limitDown": 27,
+    "upPct": "32.1%",
+    "topLevel": "3",
+    "topCount": 1,
+    "market": "光通信/CPO + 半导体 + 煤炭 + 机器人",
+    "volume": "3.13万亿"
   },
-  signals: [
-    {type:'bull',tag:'看多信号',title:'🔥 电力板块主升浪确认',desc:'夏季用电高峰提前，南方电网负荷连续3天刷新纪录。华电能源4连板龙头，粤电力A等批量首板助攻，板块梯队完整。关注低位补涨。'},
-    {type:'bull',tag:'看多信号',title:'📡 光通信/CPO 趋势行情',desc:'\"易中天\"三巨头齐创历史新高，迈威尔科技业绩超预期。中兴通讯22.64亿主力净流入封涨停，磷化铟方向云南锗业4.75亿封单。'},
-    {type:'bull',tag:'看多信号',title:'🔬 半导体\"韬定律\"题材发酵',desc:'华为提出时间缩微新定律，华虹大涨15%创新高，机构5.73亿狂买华天科技。关注晶圆代工和设备材料方向。'},
-    {type:'neutral',tag:'关注信号',title:'⚡ PCB/CCL 涨价链扩散',desc:'建滔积层板年内第四次涨价，英伟达Rubin机架PCB价值量+233%。华塑控股4板、中京电子3板，关注宏和科技低位机会。'},
-    {type:'bull',tag:'看多信号',title:'💎 金刚石散热新题材',desc:'金刚石铜复合材料在郑州超算中心规模化应用，黄河旋风5天4板。散热材料板块整体走强，关注四方达、惠丰钻石。'},
-    {type:'bear',tag:'谨慎信号',title:'⚠️ 大金融大消费持续走弱',desc:'计算机-38亿、非银金融-10亿持续净流出。AI应用题材退潮。注意创业板指虽然+1.96%但主力资金仍净流出9.76亿，结构分化明显。'}
+  "signals": [
+    {
+      "type": "bull",
+      "tag": "主线聚焦",
+      "title": "光通信产业链爆发 算力建设驱动强主线",
+      "desc": "英伟达Spectrum-X硅光交换机全面量产催化，光纤光缆订单排至2027年。亨通光电2连板创历史新高，天洋新材3连板领涨。通信板块+4.78%领衔全市场。"
+    },
+    {
+      "type": "bull",
+      "tag": "外资信号",
+      "title": "北向资金今日净买入33.78亿 外资回流",
+      "desc": "北向资金结束近期流出态势，今日净买入33.78亿元。比亚迪获净买入3.71亿居首，宁德时代+3.26亿。A股再登新闻联播：长线外资持续加码中国硬科技。"
+    },
+    {
+      "type": "neutral",
+      "tag": "情绪分析",
+      "title": "极端分化：指数全红 七成个股下跌",
+      "desc": "上证+0.22%但仅1644家上涨、3484家下跌。涨停81家、跌停27家，炸板率约45%。资金高度集中在科技主线，其他板块流动性枯竭。"
+    },
+    {
+      "type": "neutral",
+      "tag": "行业轮动",
+      "title": "通信(+4.78%)领涨 消费承压",
+      "desc": "涨幅居前：通信、煤炭、电子、石油石化。跌幅居前：综合、建材、交通运输、食品饮料、电池。资金从消费/新能源流向科技主线，风格极致分化。"
+    }
   ],
-  cycle: {
-    phase: 'repair',
-    phaseName: '修复期',
-    phaseNext: '主升初期',
-    date: '2026-05-28',
-    summary: '5月27日退潮加速（涨停仅47只，最高标压制3板），5月28日暴力修复（涨停127只+170%，最高标突破4板，封板率83%）。当前正处于冰点→修复确认→向主升初期过渡的关键节点。',
-    roadmap: [
-      {name:'冰点期',done:true,current:false,desc:'涨停<30 高度<3板'},
-      {name:'修复期',done:false,current:true,desc:'涨停50-100 高度4-5板'},
-      {name:'主升期',done:false,current:false,desc:'涨停100+ 高度6板+'},
-      {name:'高潮期',done:false,current:false,desc:'涨停150+ 加速赶顶'},
-      {name:'退潮期',done:false,current:false,desc:'涨停骤降 亏钱效应'}
+  "cycle": {
+    "phase": "rise",
+    "phaseName": "结构性行情",
+    "phaseNext": "高位分歧/分化",
+    "date": "2026-06-04",
+    "summary": "2026-06-04 周四A股三大指数集体收红但极端分化。上证+0.22%、深成+0.73%、创业板指+1.65%。两市成交3.13万亿。光通信主线爆发（通信+4.78%），煤炭+2.55%跟进，但超3400只个股下跌。北向资金净买入33.78亿回流。涨停81家、跌停27家，炸板率~45%，短线情绪高位分歧。",
+    "roadmap": [
+      {
+        "name": "光通信主线爆发",
+        "done": true,
+        "current": false,
+        "desc": "天洋新材3连板 亨通光电2连板"
+      },
+      {
+        "name": "科技扩散/分化",
+        "done": false,
+        "current": true,
+        "desc": "通信+4.78% 半导体+2.34%"
+      },
+      {
+        "name": "风格再均衡",
+        "done": false,
+        "current": false,
+        "desc": "等待消费/新能源企稳信号"
+      },
+      {
+        "name": "方向选择",
+        "done": false,
+        "current": false,
+        "desc": "关注北向持续性和量能"
+      }
     ],
-    metrics: [
-      {label:'涨停对比',value:'47→127',cls:'up',sub:'+170% 爆发式增长'},
-      {label:'最高标',value:'4连板',cls:'up',sub:'突破3板压制'},
-      {label:'封板率',value:'83%',cls:'gold',sub:'资金意愿强'},
-      {label:'跌停',value:'13只',cls:'down',sub:'较27日减少9只'},
-      {label:'涨跌比',value:'3018:2365',cls:'up',sub:'涨超54.8%'},
-      {label:'成交额',value:'2.97万亿',cls:'gold',sub:'缩量调整'}
+    "metrics": [
+      {
+        "label": "涨停数",
+        "value": "81只",
+        "cls": "up",
+        "sub": "天洋新材3连板领涨"
+      },
+      {
+        "label": "跌停数",
+        "value": "27只",
+        "cls": "down",
+        "sub": ""
+      },
+      {
+        "label": "涨跌比",
+        "value": "1644:3484",
+        "cls": "down",
+        "sub": "上涨占比32.1%"
+      },
+      {
+        "label": "成交额",
+        "value": "3.13万亿",
+        "cls": "gold",
+        "sub": "放量3373亿"
+      },
+      {
+        "label": "炸板率",
+        "value": "~45%",
+        "cls": "down",
+        "sub": "打板风险高"
+      },
+      {
+        "label": "北向资金",
+        "value": "↗33.78亿",
+        "cls": "up",
+        "sub": "比亚迪+3.71亿"
+      }
     ],
-    evidence: [
-      {icon:'✅',text:'最高标从3板突破到4板，空间打开',type:'bull'},
-      {icon:'✅',text:'涨停从47→127只，爆发增长170%',type:'bull'},
-      {icon:'✅',text:'封板率83%，资金封板意愿强',type:'bull'},
-      {icon:'✅',text:'主线清晰（电力+PCB/电子）梯队完整',type:'bull'},
-      {icon:'⚠️',text:'5/29成交缩量，超3200只下跌，结构分歧',type:'warn'},
-      {icon:'⚠️',text:'创业板指虽涨但主力净流出9.76亿',type:'warn'}
+    "evidence": [
+      {
+        "icon": "✅",
+        "text": "光通信/CPO产业链爆发，通信板块+4.78%领涨",
+        "type": "bull"
+      },
+      {
+        "icon": "✅",
+        "text": "北向资金净买入33.78亿，外资回流信号",
+        "type": "bull"
+      },
+      {
+        "icon": "✅",
+        "text": "涨停81家，连板梯队完整(3-2-1板)",
+        "type": "bull"
+      },
+      {
+        "icon": "⚠️",
+        "text": "超3400只个股下跌，极端分化行情",
+        "type": "warn"
+      },
+      {
+        "icon": "⚠️",
+        "text": "炸板率~45%，短线情绪高位分歧加大",
+        "type": "warn"
+      },
+      {
+        "icon": "⚠️",
+        "text": "主力资金整体净流出543亿，仅银行微幅净流入",
+        "type": "warn"
+      }
     ]
   },
-  stockPicks: [
-    {tier:'aggressive',tierName:'🔥 核心打板',stocks:[
-      {name:'华电能源',code:'600726',role:'电力总龙头 · 情绪风向标',reason:'4连板，电力板块空间板。5/28一字晋级盘中分歧回封，5/29面临5板考验。若晋级5板确认主升行情。',strat:['打回封板','5板晋级确认加仓','断板首阴低吸']},
-      {name:'华塑控股',code:'000509',role:'PCB龙一 · 科技线高度',reason:'4连板PCB钻针方向，与华电能源形成双龙格局。筹码结构健康，有板块助攻。',strat:['PK晋级打强','分歧换手低吸','3板以上只做龙头']},
-      {name:'中京电子',code:'002579',role:'PCB龙二 · 3板晋级',reason:'低开高走晋级3板，PCB板块梯队完整。若华塑继续晋级，中京有4板预期。',strat:['板块强势时低吸','不追加速板','不及预期即走']}
-    ]},
-    {tier:'trend',tierName:'🥈 趋势低吸',stocks:[
-      {name:'风华高科',code:'000636',role:'MLCC趋势龙头 · 8天4板',reason:'机构+游资共振，MLCC暂停接单+Rubin机架增量逻辑。趋势为主不连板。',strat:['5日线低吸','断板首日接','趋势持有不追高']},
-      {name:'宝鼎科技',code:'002552',role:'PCB趋势总龙 · 16天10板',reason:'非连板模式但涨幅最大，PCB板块趋势核心。辨识度极高，资金抱团。',strat:['沿5日线低吸','首阴反包博弈','高位控制仓位']},
-      {name:'黄河旋风',code:'600172',role:'金刚石散热 · 5天4板',reason:'新材料题材新有想象力，金刚石铜复合材料量产应用。题材级别较高。',strat:['分歧低吸','板块联动力度','不追一致板']}
-    ]},
-    {tier:'low',tierName:'🥉 轮动潜伏',stocks:[
-      {name:'长电科技',code:'600584',role:'半导体封测 · 反包预期',reason:'韬定律题材发酵，半导体板块走强。机构看好封测方向，有反包预期。',strat:['午后低吸','博弈次日轮动','止损-5%']},
-      {name:'冰山冷热',code:'000530',role:'液冷IDC · 算力配套',reason:'TrendForce预测液冷渗透率2026年达40%，算力硬件行情扩散到液冷配套。',strat:['板块强势时跟随','低吸不追高','波段持有']}
-    ]}
-  ]
-};
+  "stockPicks": [
+    {
+      "tier": "aggressive",
+      "tierName": "🔥 核心打板",
+      "stocks": [
+        {
+          "name": "天洋新材",
+          "code": "603330",
+          "role": "光通信 · 3连板龙头",
+          "reason": "光通信板块3连板领涨龙头，一字板封单9011万，板块梯队完整。英伟达Spectrum-X硅光交换机量产催化，光纤光缆满产至2027年。",
+          "strat": [
+            "分歧换手回封确认",
+            "放量T板可打",
+            "断板止盈"
+          ]
+        },
+        {
+          "name": "亨通光电",
+          "code": "600487",
+          "role": "光通信中军 · 2连板",
+          "reason": "2连板创历史新高，封单8.56亿，光纤光缆龙头。一季产出同比+35%、海外发货+55%，订单排至2027年。",
+          "strat": [
+            "高开缩量锁仓",
+            "分歧低吸加仓",
+            "破5日线止盈"
+          ]
+        },
+        {
+          "name": "通富微电",
+          "code": "002156",
+          "role": "封测/AI芯片 · 首板",
+          "reason": "半导体封测龙头，受益于AI芯片需求爆发及台积电涨价传导。主力资金持续流入，半导体产业链协同催化。",
+          "strat": [
+            "竞价达标可打",
+            "观察板块联动",
+            "断板不恋战"
+          ]
+        }
+      ]
+    },
+    {
+      "tier": "trend",
+      "tierName": "🥈 趋势低吸",
+      "stocks": [
+        {
+          "name": "中际旭创",
+          "code": "300308",
+          "role": "光模块龙头 · 趋势中军",
+          "reason": "光模块全球龙头，Q1净利+262%、营收+192%，充分受益于AI算力建设。主力资金介入深，趋势完好。",
+          "strat": [
+            "20日线低吸",
+            "趋势持有",
+            "放量滞涨分批减仓"
+          ]
+        },
+        {
+          "name": "宁德时代",
+          "code": "300750",
+          "role": "新能源龙头 · 资金净流入第一",
+          "reason": "主力资金净流入14.09亿居全市场第一。Q1净利207亿+48.52%，储能+动力双轮驱动。北向资金持续加仓。",
+          "strat": [
+            "回踩5日线低吸",
+            "中线持有",
+            "前高附近减仓"
+          ]
+        },
+        {
+          "name": "兆易创新",
+          "code": "603986",
+          "role": "存储芯片龙头 · 富时A50新纳入",
+          "reason": "新纳入富时中国A50指数（6/18生效）。存储芯片受益于AI服务器需求爆发及涨价周期。趋势走好，机构资金关注。",
+          "strat": [
+            "5日线分批低吸",
+            "跟随存储板块",
+            "利好兑现减仓"
+          ]
+        }
+      ]
+    },
+    {
+      "tier": "low",
+      "tierName": "🥉 轮动潜伏",
+      "stocks": [
+        {
+          "name": "兎矿能源",
+          "code": "600188",
+          "role": "煤炭 · 并购新能源",
+          "reason": "拟164.15亿元收购新能源集团+山能售电100%股权，煤电一体化转型。煤炭板块受印尼出口新政+夏季用电高峰双重催化。",
+          "strat": [
+            "低吸潜伏",
+            "煤炭板块联动持有",
+            "并购落地高抛"
+          ]
+        },
+        {
+          "name": "华虹宏力",
+          "code": "688347",
+          "role": "晶圆代工 · 更名催化",
+          "reason": "6月8日起更名为华虹宏力，晶圆代工产能利用率回升。半导体产业链扩散受益标的。",
+          "strat": [
+            "更名前布局",
+            "半导体联动",
+            "更名落地兑现"
+          ]
+        }
+      ]
+    }
+  ],
+  "finance": {
+    "summary": {
+      "companies": 5503,
+      "totalRevenue": "17.68万亿",
+      "revenueGrowth": "+4.66%",
+      "totalProfit": "1.59万亿",
+      "profitGrowth": "+6.54%",
+      "profitable": 4040,
+      "profitRate": "73.42%",
+      "growthCount": 2846,
+      "growthRate": "51.72%"
+    },
+    "revenueTop": [
+      {
+        "rank": 1,
+        "name": "中国石油",
+        "code": "601857",
+        "value": "7,363.83亿",
+        "sector": "石油石化"
+      },
+      {
+        "rank": 2,
+        "name": "中国石化",
+        "code": "600028",
+        "value": "7,066.95亿",
+        "sector": "石油石化"
+      },
+      {
+        "rank": 3,
+        "name": "中国建筑",
+        "code": "601668",
+        "value": "5,118.47亿",
+        "sector": "建筑"
+      },
+      {
+        "rank": 4,
+        "name": "中国移动",
+        "code": "600941",
+        "value": "2,664.78亿",
+        "sector": "通信"
+      },
+      {
+        "rank": 5,
+        "name": "工业富联",
+        "code": "601138",
+        "value": "2,510.78亿",
+        "sector": "电子",
+        "hot": true
+      },
+      {
+        "rank": 6,
+        "name": "中国中铁",
+        "code": "601390",
+        "value": "2,357.10亿",
+        "sector": "建筑"
+      },
+      {
+        "rank": 7,
+        "name": "中国铁建",
+        "code": "601186",
+        "value": "2,315.82亿",
+        "sector": "建筑"
+      },
+      {
+        "rank": 8,
+        "name": "工商银行",
+        "code": "601398",
+        "value": "2,303.70亿",
+        "sector": "银行"
+      }
+    ],
+    "profitTop": [
+      {
+        "rank": 1,
+        "name": "工商银行",
+        "code": "601398",
+        "value": "869.41亿",
+        "sector": "银行"
+      },
+      {
+        "rank": 2,
+        "name": "建设银行",
+        "code": "601939",
+        "value": "862.91亿",
+        "sector": "银行"
+      },
+      {
+        "rank": 3,
+        "name": "农业银行",
+        "code": "601288",
+        "value": "751.85亿",
+        "sector": "银行"
+      },
+      {
+        "rank": 4,
+        "name": "中国银行",
+        "code": "601988",
+        "value": "566.31亿",
+        "sector": "银行"
+      },
+      {
+        "rank": 5,
+        "name": "中国石油",
+        "code": "601857",
+        "value": "483.32亿",
+        "sector": "石油石化"
+      },
+      {
+        "rank": 6,
+        "name": "中国海油",
+        "code": "600938",
+        "value": "391.44亿",
+        "sector": "石油石化"
+      },
+      {
+        "rank": 7,
+        "name": "招商银行",
+        "code": "600036",
+        "value": "378.52亿",
+        "sector": "银行"
+      },
+      {
+        "rank": 8,
+        "name": "宁德时代",
+        "code": "300750",
+        "value": "207.38亿",
+        "sector": "电力设备",
+        "hot": true
+      }
+    ],
+    "growthTop": [
+      {
+        "rank": 1,
+        "name": "香农芯创",
+        "code": "300475",
+        "pct": "+7,835%",
+        "val": "13.27亿",
+        "sector": "电子/AI",
+        "hot": true
+      },
+      {
+        "rank": 2,
+        "name": "江波龙",
+        "code": "301308",
+        "pct": "+2,644%",
+        "val": "99亿",
+        "sector": "存储/AI",
+        "hot": true
+      },
+      {
+        "rank": 3,
+        "name": "天齐锂业",
+        "code": "002466",
+        "pct": "+1,699%",
+        "val": "48.32亿",
+        "sector": "有色"
+      },
+      {
+        "rank": 4,
+        "name": "湖南裕能",
+        "code": "301358",
+        "pct": "+1,338%",
+        "val": "15.61亿",
+        "sector": "电力设备"
+      },
+      {
+        "rank": 5,
+        "name": "佰维存储",
+        "code": "688525",
+        "pct": "+1,568%",
+        "val": "28.99亿",
+        "sector": "存储/AI",
+        "hot": true
+      },
+      {
+        "rank": 6,
+        "name": "协创数据",
+        "code": "300857",
+        "pct": "+343%",
+        "val": "61亿",
+        "sector": "电子"
+      },
+      {
+        "rank": 7,
+        "name": "中际旭创",
+        "code": "300308",
+        "pct": "+262%",
+        "val": "57.35亿",
+        "sector": "光模块/AI",
+        "hot": true
+      },
+      {
+        "rank": 8,
+        "name": "宁德时代",
+        "code": "300750",
+        "pct": "+48.52%",
+        "val": "207.38亿",
+        "sector": "电力设备",
+        "hot": true
+      }
+    ],
+    "industryGrowth": [
+      {
+        "name": "软件服务",
+        "pct": "+259.57%",
+        "cls": "boom"
+      },
+      {
+        "name": "半导体",
+        "pct": "+148%",
+        "cls": "boom"
+      },
+      {
+        "name": "有色金属",
+        "pct": "+85.79%",
+        "cls": "boom"
+      },
+      {
+        "name": "基础化工",
+        "pct": "+60.64%",
+        "cls": "boom"
+      },
+      {
+        "name": "电子设备",
+        "pct": "+48.03%",
+        "cls": "boom"
+      },
+      {
+        "name": "电气设备",
+        "pct": "+40%",
+        "cls": "ok"
+      },
+      {
+        "name": "国防装备",
+        "pct": "+30%",
+        "cls": "ok"
+      },
+      {
+        "name": "创业板",
+        "pct": "+22.38%",
+        "cls": "ok"
+      },
+      {
+        "name": "计算机",
+        "pct": "+100.56%",
+        "cls": "boom"
+      },
+      {
+        "name": "食品饮料",
+        "pct": "-22.02%",
+        "cls": "bad"
+      },
+      {
+        "name": "房地产",
+        "pct": "-45%",
+        "cls": "bad"
+      },
+      {
+        "name": "钢铁",
+        "pct": "-89.70%",
+        "cls": "bad"
+      }
+    ]
+  }
+}
+
+
 
 // ====== RENDER ======
 function render(){
@@ -461,6 +1288,8 @@ function render(){
   renderSentiment();
   renderCyclePhase();
   renderCycleTab('phase');
+  renderFinanceSummary();
+  renderFinanceTab('revenue');
 }
 
 function renderIndices(){
@@ -545,12 +1374,12 @@ function renderSentiment(){
     <div class="index-card neutral" style="padding:14px">
       <div class="index-label">涨停 / 跌停</div>
       <div class="index-value" style="font-size:22px">${DATA.sentiment.limitUp}<span style="color:var(--rise);font-size:14px">↑</span> <span style="color:var(--text3);font-size:14px">/ ${DATA.sentiment.limitDown}</span><span style="color:var(--fall);font-size:14px">↓</span></div>
-      <div class="index-change up">封板率 83%</div>
+      <div class="index-change up">成交${DATA.sentiment.volume}</div>
     </div>
     <div class="index-card neutral" style="padding:14px">
       <div class="index-label">市场情绪</div>
-      <div class="index-value" style="font-size:22px;color:var(--gold)">${DATA.sentiment.market}</div>
-      <div class="index-change up">最高标 ${DATA.sentiment.topLevel}</div>
+      <div class="index-value" style="font-size:22px;color:var(--gold)">${DATA.sentiment.market || '结构性行情'}</div>
+      <div class="index-change up">上涨占比 ${DATA.sentiment.upPct}</div>
     </div>
   `;
 }
@@ -607,20 +1436,22 @@ function renderCycleTab(tab){
 }
 
 function renderCycleAdvice(){
+  const s = DATA.sentiment;
+  const vol = s.volume;
   return `<div class="grid-2" style="margin-bottom:0">
     <div class="card" style="border-left:3px solid var(--rise)">
       <div style="font-size:13px;color:var(--rise);font-weight:600;margin-bottom:12px">📌 当前策略建议</div>
       <div style="font-size:13px;color:var(--text2);line-height:1.8">
-        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px"><span style="color:var(--gold);font-size:16px">①</span><span><strong style="color:var(--text)">仓位建议：3-5成</strong> — 修复期过渡阶段，不宜满仓。若5板出现+放量可加至5-7成。</span></div>
-        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px"><span style="color:var(--gold);font-size:16px">②</span><span><strong style="color:var(--text)">聚焦龙头，去弱留强</strong> — 只做电力/PCB双主线龙头，中位股容易核按钮。华电能源/华塑控股是情绪核心。</span></div>
-        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px"><span style="color:var(--gold);font-size:16px">③</span><span><strong style="color:var(--text)">龙头断板日 = 减仓日</strong> — 华电/华塑若断板且无新龙头接力，说明修复失败，果断减仓。</span></div>
-        <div style="display:flex;gap:12px;align-items:flex-start"><span style="color:var(--gold);font-size:16px">④</span><span><strong style="color:var(--text)">缩量行情不追高</strong> — 5/29半日缩量2854亿，追高容易被套。分歧低吸优于打板。</span></div>
+        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px"><span style="color:var(--gold);font-size:16px">①</span><span><strong style="color:var(--text)">仓位建议：3-5成</strong> — 结构性分化阶段，不宜满仓。成交${vol}量能水平，合理控制仓位。</span></div>
+        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px"><span style="color:var(--gold);font-size:16px">②</span><span><strong style="color:var(--text)">关注强势板块持续性</strong> — 煤炭/银行等板块走强，关注板块持续性及资金认可度。</span></div>
+        <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:10px"><span style="color:var(--gold);font-size:16px">③</span><span><strong style="color:var(--text)">跟踪北向资金动向</strong> — 北向资金今日净流出，需关注外资是否持续流出。</span></div>
+        <div style="display:flex;gap:12px;align-items:flex-start"><span style="color:var(--gold);font-size:16px">④</span><span><strong style="color:var(--text)">结构性行情不追高，分歧低吸为主</strong> — 上涨${s.stocksUp}家/下跌${s.stocksDown}家，结构性特征明显，追高容易被套。</span></div>
       </div>
     </div>
     <div class="card" style="border-left:3px solid var(--gold)">
-      <div style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:12px">📋 明日关键观察清单</div>
+      <div style="font-size:13px;color:var(--gold);font-weight:600;margin-bottom:12px">📋 关键观察清单</div>
       <div style="display:flex;flex-direction:column;gap:8px">
-        ${['华电能源能否5连板（情绪突破信号）','华塑控股/中京电子晋级情况（科技线强度）','两市成交额是否重回3万亿+','电力板块分歧承接（华电断板时有无补涨）','创业板指/科创50是否继续领涨'].map((item,i)=>`
+        ${['强势板块持续性验证','北向资金能否企稳回流','成交量能否维持3万亿+','热点题材能否持续扩散','涨停家数能否维持高位'].map((item,i)=>`
           <label style="display:flex;align-items:center;gap:10px;padding:8px 12px;background:var(--bg2);border-radius:6px;cursor:pointer;font-size:13px;color:var(--text2)">
             <input type="checkbox" style="accent-color:var(--gold);width:16px;height:16px">
             <span>${i+1}. ${item}</span>
@@ -654,42 +1485,39 @@ function renderStockPicks(){
 function renderLimitUpAnalysis(){
   return `<div class="grid-2" style="margin-bottom:0">
     <div class="card">
-      <div class="section-header" style="margin-top:0"><h2>📊 连板晋级分析</h2></div>
+      <div class="section-header" style="margin-top:0"><h2>📊 涨停板分析</h2></div>
       <div class="table-wrap">
-        <table><thead><tr><th>梯队</th><th>数量</th><th>代表个股</th><th>方向</th></tr></thead>
+        <table><thead><tr><th>个股</th><th>方向</th><th>热度</th></tr></thead>
         <tbody>
-          <tr><td><span class="flow-badge in" style="font-size:13px;padding:4px 12px">4连板</span></td><td style="font-weight:600;color:var(--rise)">3只</td><td class="stock-name">华电能源 华塑控股 香江控股</td><td>电力/PCB/地产</td></tr>
-          <tr><td><span class="flow-badge out" style="font-size:13px;padding:4px 12px">3连板</span></td><td style="font-weight:600">1只</td><td class="stock-name">中京电子</td><td>PCB</td></tr>
-          <tr><td><span style="font-size:13px;padding:4px 12px">2连板</span></td><td>5只</td><td class="stock-name">粤电力A 江海股份 德新科技 合锻智能 艾华集团</td><td>电力/电容/机器人</td></tr>
-          <tr><td><span style="font-size:13px;padding:4px 12px">首板</span></td><td style="font-weight:600;color:var(--gold)">92只</td><td>批量爆发</td><td>电力/电子/通信</td></tr>
+          ${DATA.limitUp.filter(x => x.level === '涨停').slice(0,8).map(d => `<tr>
+            <td class="stock-name">${d.stock}</td>
+            <td style="color:var(--text2)">${d.dir}</td>
+            <td>${d.hot ? '<span style="color:var(--gold)">🔥 热门</span>' : ''}</td>
+          </tr>`).join('')}
         </tbody></table>
       </div>
       <div style="margin-top:12px;font-size:12px;color:var(--text2);line-height:1.8">
-        <strong style="color:var(--text)">晋级率分析：</strong><br>
-        3进4：<strong style="color:var(--rise)">全部晋级（100%）</strong> — 情绪修复的明确信号<br>
-        2进3：中京电子晋级，其他竞争失败 — 科技线强度确认<br>
-        首板爆发92只 — 资金全面进场，梯队完整
+        <strong style="color:var(--text)">涨停概况：</strong><br>
+        涨停约 ${DATA.sentiment.limitUp} 只 · 跌停约 ${DATA.sentiment.limitDown} 只<br>
       </div>
     </div>
     <div class="card">
-      <div class="section-header" style="margin-top:0"><h2>📈 趋势龙头分析</h2></div>
+      <div class="section-header" style="margin-top:0"><h2>📈 行情特征</h2></div>
       <div class="table-wrap">
-        <table><thead><tr><th>个股</th><th>累计表现</th><th>方向</th><th>策略</th></tr></thead>
+        <table><thead><tr><th>指标</th><th>数据</th></tr></thead>
         <tbody>
-          ${[
-            {name:'宝鼎科技',perf:'16天10板',dir:'PCB趋势龙',strat:'5日线低吸'},
-            {name:'风华高科',perf:'8天4板',dir:'MLCC龙头',strat:'断板低吸'},
-            {name:'艾华集团',perf:'9天5板',dir:'超级电容',strat:'趋势持有'},
-            {name:'黄河旋风',perf:'5天4板',dir:'金刚石散热',strat:'分歧低吸'},
-            {name:'中兴通讯',perf:'涨停+22亿',dir:'通信中军',strat:'大资金做T'}
-          ].map(d=>`<tr><td class="stock-name">${d.name}</td><td style="color:var(--gold)">${d.perf}</td><td style="color:var(--text2)">${d.dir}</td><td>${d.strat}</td></tr>`).join('')}
+          <tr><td>上证指数</td><td style="color:var(--gold);font-weight:600">${DATA.indices[0]?.pct||''}</td></tr>
+          <tr><td>创业板指</td><td style="color:var(--gold);font-weight:600">${DATA.indices[2]?.pct||''}</td></tr>
+          <tr><td>涨跌比</td><td class="${DATA.sentiment.stocksUp > DATA.sentiment.stocksDown ? 'up' : 'down'}">${DATA.sentiment.stocksUp} : ${DATA.sentiment.stocksDown}</td></tr>
+          <tr><td>成交额</td><td style="color:var(--gold)">${DATA.sentiment.volume}</td></tr>
+          <tr><td>热门题材</td><td style="color:var(--text2)">${DATA.sentiment.market || '结构性行情'}</td></tr>
         </tbody></table>
       </div>
       <div style="margin-top:12px;font-size:12px;color:var(--text2);line-height:1.8">
-        <strong style="color:var(--text)">情绪周期推演：</strong><br>
-        ⬤ 当前 修复期：涨停127只，最高标4板，封板率83%<br>
-        ➤ 若华电能源/华塑控股升级5板 → <strong style="color:var(--gold)">确认进入主升期</strong><br>
-        ➤ 若断板且无接力 → <strong style="color:var(--fall)">可能二次退潮</strong>，注意风险
+        <strong style="color:var(--text)">行情研判：</strong><br>
+        ⬤ 上涨占比 ${DATA.sentiment.upPct}，涨停${DATA.sentiment.limitUp}只<br>
+        ➤ 成交${DATA.sentiment.volume}，关注持续性<br>
+        ➤ 北向资金动向需持续跟踪
       </div>
     </div>
   </div>`;
@@ -698,6 +1526,39 @@ function renderLimitUpAnalysis(){
 function switchCycleTab(tab){
   document.querySelectorAll('.cycle-tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));
   renderCycleTab(tab);
+}
+
+// ====== FINANCE REPORT ======
+function renderFinanceSummary(){
+  const f=DATA.finance.summary;
+  document.getElementById('financeSummary').innerHTML=
+    `<div class="finance-summary-card"><div class="fs-v">${f.totalRevenue}</div><div class="fs-l">总营收</div><div class="fs-s">同比 ${f.revenueGrowth}</div></div>`+
+    `<div class="finance-summary-card"><div class="fs-v">${f.totalProfit}</div><div class="fs-l">总净利润</div><div class="fs-s">同比 ${f.profitGrowth}</div></div>`+
+    `<div class="finance-summary-card"><div class="fs-v" style="color:var(--rise)">${f.companies}</div><div class="fs-l">披露家数</div><div class="fs-s">同比覆盖</div></div>`+
+    `<div class="finance-summary-card"><div class="fs-v">${f.profitable}</div><div class="fs-l">盈利家数</div><div class="fs-s">占比 ${f.profitRate}</div></div>`+
+    `<div class="finance-summary-card"><div class="fs-v" style="color:var(--rise)">${f.growthCount}</div><div class="fs-l">同比增长家数</div><div class="fs-s">占比 ${f.growthRate}</div></div>`;
+}
+
+function renderFinanceTab(tab){
+  document.querySelectorAll('.finance-tab').forEach(b=>b.classList.toggle('active',b.dataset.ftab===tab));
+  const c=document.getElementById('financeContent');
+  if(tab==='revenue')c.innerHTML='<div class="finance-rank">'+DATA.finance.revenueTop.map(d=>
+    `<div class="finance-item"><span class="r-num" style="${d.rank<=3?'color:var(--gold2)':''}">${d.rank}</span><div class="r-info"><div class="r-name">${d.name}<span class="r-code">${d.code}</span></div><div style="font-size:10px;color:var(--text3)">${d.sector}</div></div><div class="r-val up">${d.value}</div>${d.hot?'<span class="r-change hot">🔥</span>':''}</div>`
+  ).join('')+'</div>';
+  else if(tab==='profit')c.innerHTML='<div class="finance-rank">'+DATA.finance.profitTop.map(d=>
+    `<div class="finance-item"><span class="r-num" style="${d.rank<=3?'color:var(--gold2)':''}">${d.rank}</span><div class="r-info"><div class="r-name">${d.name}<span class="r-code">${d.code}</span></div><div style="font-size:10px;color:var(--text3)">${d.sector}</div></div><div class="r-val up">${d.value}</div>${d.hot?'<span class="r-change hot">🔥</span>':''}</div>`
+  ).join('')+'</div>';
+  else if(tab==='growth')c.innerHTML='<div class="finance-rank">'+DATA.finance.growthTop.map(d=>
+    `<div class="finance-item"><span class="r-num">${d.rank}</span><div class="r-info"><div class="r-name">${d.name}<span class="r-code">${d.code}</span></div><div style="font-size:10px;color:var(--text3)">${d.sector}</div></div><div class="r-val up">${d.pct}</div><span class="r-change hot">${d.val}</span></div>`
+  ).join('')+'</div>';
+  else if(tab==='industry')c.innerHTML='<div class="finance-industry-grid">'+DATA.finance.industryGrowth.map(d=>
+    `<div class="finance-industry-item"><div class="ind-name">${d.name}</div><div class="ind-val ${d.cls}">${d.pct}</div></div>`
+  ).join('')+'</div>';
+}
+
+function switchFinanceTab(tab){
+  document.querySelectorAll('.finance-tab').forEach(b=>b.classList.toggle('active',b.dataset.ftab===tab));
+  renderFinanceTab(tab);
 }
 function refreshData(){
   const btn=document.getElementById('refreshBtn');
