@@ -1,7 +1,43 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch"
+      "WebSearch",
+      "Bash(mkdir -p \"c:/Users/25441/WorkBuddy/2026-05-23-21-23-04/.claude/hooks\")",
+      "Edit(/.claude/skills/research-to-slides/**)",
+      "Bash(mkdir -p \"c:/Users/25441/WorkBuddy/2026-05-23-21-23-04/.claude/skills/pptx\")",
+      "Bash(base64 -d \"c:/Users/25441/WorkBuddy/2026-05-23-21-23-04/__pptx_b64.txt\")",
+      "Bash(mkdir -p .claude/skills/uumit-agent/scripts)",
+      "Edit(/.claude/skills/uumit-agent/**)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\25441\\WorkBuddy\\2026-05-23-21-23-04\\.claude",
+      "C:\\Users\\25441\\WorkBuddy\\2026-05-23-21-23-04\\.claude\\skills\\uumit-agent"
+    ]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rm -f \"$CLAUDE_PROJECT_DIR/.claude/verification_complete\" 2>/dev/null || true",
+            "timeout": 5,
+            "statusMessage": "Resetting verification state..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/stop-check.sh\"",
+            "timeout": 15,
+            "statusMessage": "Running delivery acceptance check..."
+          }
+        ]
+      }
     ]
   }
 }
