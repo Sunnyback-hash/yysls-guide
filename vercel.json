@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/:path(newbie|articles|builds|maps|dungeons|clues|shefu|equipment|pvp|events|tools|community|admin)", "destination": "/index.html" }
+  ]
+}

@@ -1,0 +1,3 @@
+# Explicit routes — bypass SPA mode for static files that crawlers need
+/sitemap.xml  /sitemap.xml  200
+/robots.txt   /robots.txt   200
