@@ -8,10 +8,23 @@ const CONTENT_TYPES = {
   '/BingSiteAuth.xml': 'application/xml; charset=utf-8',
 };
 
-const SPA_ROUTES = new Set([
-  '/newbie', '/articles', '/builds', '/maps', '/clues', '/shefu',
+const SPA_ROUTES = [
+  '/newbie', '/articles', '/builds', '/build', '/maps', '/clues', '/shefu',
   '/equipment', '/pvp', '/events', '/tools', '/community', '/admin', '/dungeons',
-]);
+];
+
+function matchSpa(path) {
+  for (const r of SPA_ROUTES) {
+    if (path === r || path.startsWith(r + '/') || path.startsWith(r + '#')) return true;
+  }
+  return false;
+}
+
+function serveIndex(env) {
+  return env.ASSETS.fetch('https://placeholder/index.html')
+    .then(r => new Response(r.body, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } }))
+    .catch(() => new Response('Not Found', { status: 404 }));
+}
 
 export default {
   async fetch(request, env) {
@@ -22,7 +35,7 @@ export default {
     const ct = CONTENT_TYPES[path];
     if (ct) {
       const asset = await env.ASSETS.fetch(request);
-      if (asset.status !== 404) {
+      if (asset.ok) {
         const h = new Headers(asset.headers);
         h.set('Content-Type', ct);
         return new Response(asset.body, { status: 200, headers: h });
@@ -36,19 +49,17 @@ export default {
     }
 
     // 3) SPA routes: serve index.html
-    if (SPA_ROUTES.has(path) || path.startsWith('/article/') || path.startsWith('/articles/') || path.startsWith('/build/')) {
-      const asset = await env.ASSETS.fetch(new Request(new URL('/index.html', url.origin)));
-      return new Response(asset.body, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+    if (matchSpa(path)) {
+      return serveIndex(env);
     }
 
-    // 4) Default: try static asset
+    // 4) Default: try static asset (catch-all for existing files)
     try {
       const asset = await env.ASSETS.fetch(request);
       if (asset.ok) return asset;
     } catch {}
 
-    // 5) Fallback: index.html
-    const spa = await env.ASSETS.fetch(new Request(new URL('/index.html', url.origin)));
-    return new Response(spa.body, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+    // 5) Fallback: index.html for everything else
+    return serveIndex(env);
   },
 };
