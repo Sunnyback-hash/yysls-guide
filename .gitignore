@@ -5,3 +5,8 @@ node_modules/
 用户操作手册.html
 .wrangler/
 __pycache__/
+
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
