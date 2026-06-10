@@ -4,3 +4,4 @@ node_modules/
 *.zip
 用户操作手册.html
 .wrangler/
+__pycache__/

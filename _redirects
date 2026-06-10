@@ -1,6 +1,19 @@
-# Static files that crawlers need — bypass SPA fallback
-/sitemap.xml    /sitemap-data.xml      200
-/robots.txt     /robots.txt            200
+# SPA routes — serve index.html for client-side routing
+/newbie         /index.html     200
+/articles       /index.html     200
+/articles/*     /index.html     200
+/builds         /index.html     200
+/build/*        /index.html     200
+/maps           /index.html     200
+/clues          /index.html     200
+/shefu          /index.html     200
+/equipment      /index.html     200
+/pvp            /index.html     200
+/events         /index.html     200
+/tools          /index.html     200
+/community      /index.html     200
+/admin          /index.html     200
+/dungeons       /index.html     200
 
-# Clean URL for market page (replaces _worker.js routing)
+# Clean URL for market page
 /market        /market.html   200
