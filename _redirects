@@ -1,6 +1,6 @@
 # Static files that crawlers need — bypass SPA fallback
-/sitemap.xml   /sitemap.xml   200
-/robots.txt    /robots.txt    200
+/sitemap.xml    /sitemap-data.xml      200
+/robots.txt     /robots.txt            200
 
 # Clean URL for market page (replaces _worker.js routing)
 /market        /market.html   200
