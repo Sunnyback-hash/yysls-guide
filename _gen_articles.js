@@ -1,3 +1,8 @@
+// ⚠️ WARNING: This script replaces the ENTIRE ARTICLES object in index.html
+// It only contains newbie/builds/maps sections and will DELETE events/lore/equipment sections added by later updates.
+// Use with caution — consider adding articles to the ARRAY below rather than running this script blindly.
+// Last updated: 2026-06-10. New articles aev7-aev10 were added directly to index.html.
+
 const fs = require('fs');
 
 // ===== 50 REWRITTEN ARTICLES (no quests) =====
