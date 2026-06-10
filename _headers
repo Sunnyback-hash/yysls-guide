@@ -1,0 +1,17 @@
+# Force correct Content-Type for crawler files (SPA mode sets everything to text/html)
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+/ads.txt
+  Content-Type: text/plain; charset=utf-8
+/BingSiteAuth.xml
+  Content-Type: application/xml; charset=utf-8
+
+# Static asset types that should keep original MIME
+*.xml
+  Content-Type: application/xml; charset=utf-8
+*.txt
+  Content-Type: text/plain; charset=utf-8
+*.json
+  Content-Type: application/json; charset=utf-8
