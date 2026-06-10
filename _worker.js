@@ -14,16 +14,29 @@ const SPA_ROUTES = [
 ];
 
 function matchSpa(path) {
+  // Exact match for defined SPA routes
   for (const r of SPA_ROUTES) {
-    if (path === r || path.startsWith(r + '/') || path.startsWith(r + '#')) return true;
+    if (path === r || path.startsWith(r + '/')) return true;
   }
+  // Match article detail routes
+  if (path.startsWith('/article/') || path.startsWith('/articles/')) return true;
+  // Match build detail routes
+  if (path.startsWith('/build/')) return true;
   return false;
 }
 
-function serveIndex(env) {
-  return env.ASSETS.fetch('https://placeholder/index.html')
-    .then(r => new Response(r.body, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } }))
-    .catch(() => new Response('Not Found', { status: 404 }));
+async function serveIndex(env) {
+  try {
+    const r = await env.ASSETS.fetch('/index.html');
+    if (r.ok) return new Response(r.body, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+  } catch {}
+  try {
+    const r = await env.ASSETS.fetch('http://localhost/index.html');
+    if (r.ok) return new Response(r.body, { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+  } catch {}
+  return new Response('<html><body><h1>燕云十六声攻略站</h1><script>location.href=\'/\'</script></body></html>', {
+    status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' }
+  });
 }
 
 export default {
@@ -34,7 +47,8 @@ export default {
     // 1) Static files with correct Content-Type
     const ct = CONTENT_TYPES[path];
     if (ct) {
-      const asset = await env.ASSETS.fetch(request);
+      const assetUrl = new URL(path, url.origin);
+      const asset = await env.ASSETS.fetch(assetUrl);
       if (asset.ok) {
         const h = new Headers(asset.headers);
         h.set('Content-Type', ct);
@@ -42,10 +56,16 @@ export default {
       }
     }
 
-    // 2) Clean URL: /market → /market.html
-    if (path === '/market') {
-      const asset = await env.ASSETS.fetch(new Request(new URL('/market.html', url.origin)));
-      if (asset.ok) return asset;
+    // 2) Market page: /stock → /market.html
+    if (path === '/stock') {
+      try {
+        const asset = await env.ASSETS.fetch('/market.html');
+        if (asset.ok) {
+          const h = new Headers(asset.headers);
+          h.set('Content-Type', 'text/html; charset=utf-8');
+          return new Response(asset.body, { status: 200, headers: h });
+        }
+      } catch {}
     }
 
     // 3) SPA routes: serve index.html
