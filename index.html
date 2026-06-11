@@ -930,7 +930,7 @@ function toast(m,t){
 }
 
 // ===== ROUTER =====
-function navigate(p){window.history.pushState(null,'',p);router()}
+function navigate(p){location.hash='#'+p;router()}
 function matchRoute(path){
   if(path.match(/^\/build\/(.+)$/))return'buildDetail';
   if(path.match(/^\/article\/(.+)$/))return'articleDetail';
@@ -1627,7 +1627,7 @@ ${(article.t||[]).length?`<div class="article-tags" style="margin-top:1.5rem">${
 
 // ===== ROUTER INIT =====
 function router(){
-  const path=window.location.pathname;const route=matchRoute(path);initStore();updateMeta(route);
+  const path=(location.hash||'#/').slice(1)||'/';const route=matchRoute(path);initStore();updateMeta(route);
   document.querySelectorAll('.nav-item').forEach(a=>a.classList.toggle('active-link',a.dataset.route===path));
   switch(route){case'home':renderHome();break;case'builds':renderBuilds();break;case'buildDetail':renderBuildDetail(path.match(/^\/build\/(.+)$/)[1]);break;case'maps':renderMaps();break;case'community':renderCommunity();break;case'admin':renderAdmin();break;case'clues':renderClues();break;case'shefu':renderShefu();break;case'newbie':renderNewbie();break;case'dungeons':renderDungeons();break;case'equipment':renderEquipment();break;case'pvp':renderPVP();break;case'events':renderEvents();break;case'tools':renderTools();break;case'articles':const m=path.match(/^\/articles\/(.+)/);renderArticleList(m?m[1]:null);break;case'articleDetail':const aid=path.match(/^\/article\/(.+)$/)[1];renderArticleDetail(aid);break;default:renderHome()}
   updateNavbar();
@@ -1635,7 +1635,7 @@ function router(){
   window.scrollTo(0,0);
   const l=document.getElementById('loader');if(l)l.classList.add('hidden');
 }
-window.addEventListener('popstate',router);
+window.addEventListener('hashchange',router);
 function hideLoader(){const l=document.getElementById('loader');if(l)l.classList.add('hidden')}
 document.addEventListener('DOMContentLoaded',()=>setTimeout(hideLoader,300));
 window.addEventListener('load',()=>{setTimeout(hideLoader,300);setTimeout(router,350)});
@@ -1659,7 +1659,7 @@ document.addEventListener('click',e=>{
   const mn=document.getElementById('mobileNav');
   if(mn)mn.classList.remove('active');
 });
-try{if(window.location.pathname==='/')router()}catch(e){console.error('router error',e);hideLoader()}
+try{if(location.hash||window.location.pathname==='/')router()}catch(e){console.error('router error',e);hideLoader()}
 </script>
 
 <footer class="footer">
