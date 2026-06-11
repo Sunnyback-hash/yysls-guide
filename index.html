@@ -1607,23 +1607,36 @@ ${!articles.length?'<p style="text-align:center;color:var(--text3);padding:3rem 
 </div></section>`;
 }
 
+function esc(s){return String(s).replace(/[&<>"]/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]||m})}
 function renderArticleDetail(id){
   let article=null,sectionKey='';
   for(const[s,arts]of Object.entries(ARTICLES)){const f=arts.find(a=>a.id===id);if(f){article=f;sectionKey=s;break}}
   if(!article){renderArticleList();return}
   const sectionNames={newbie:__t('新手入门','Newbie'),builds:__t('流派攻略','Builds'),maps:__t('地图探索','Maps'),dungeons:__t('副本BOSS','Dungeons'),equipment:__t('装备材料','Equip'),pvp:__t('PVP竞技','PVP'),events:__t('活动资讯','Events'),clues:__t('蹊跷搜全','Clues'),shefu:__t('射覆','She Fu'),tools:__t('工具箱','Tools'),lore:__t('剧情故事','Lore'),economy:__t('经济交易','Economy'),achievement:__t('成就收集','Achievements'),combat:__t('战斗技巧','Combat'),companion:__t('伙伴养成','Companion'),housing:__t('家园洞府','Housing'),advanced:__t('进阶攻略','Advanced'),competition:__t('竞速排行','Rankings'),photo:__t('风景拍照','Photography'),version:__t('版本更新','Updates'),skill:__t('奇术心法','Skills'),weapon:__t('武器详解','Weapons'),fashion:__t('外观收集','Fashion')};
-  document.getElementById('app').innerHTML=`
-<section class="article-detail">
-<a class="back-link" onclick="navigate('/articles/${sectionKey}')">${__t('← 返回','← Back')} ${sectionNames[sectionKey]||''}</a>
-<div class="article-meta">${sectionNames[sectionKey]||''} · ${__t('攻略文章','Guide')}</div>
-<h1>${getArticleTitle(article)}</h1>
-<img class="article-cover" src="${articleImg(article.g,article.i)}" alt="${getArticleTitle(article)}" loading="lazy">
-${(getArticleSections(article)||[]).map(sec=>`<h2>${sec.h}</h2>${(sec.p||[]).map(pp=>`<p>${pp}</p>`).join('')}${sec.v?`<div class="article-video"><iframe src="https://player.bilibili.com/player.html?bvid=${sec.v}&autoplay=0" allowfullscreen></iframe><p class="video-caption">📺 ${sec.vt||'相关视频攻略'}</p></div>`:''}`).join('')}
-${(article.t||[]).length?`<div class="article-tags" style="margin-top:1.5rem">${article.t.map(t=>'<span class="tag">'+t+'</span>').join('')}</div>`:''}
-<div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center">
-<p style="font-size:.78rem;color:var(--text3)">${__t('本文由燕云十六声攻略站原创，转载请注明出处。','Original article by Where Winds Meet Guide. Please credit when sharing.')}</p>
-</div>
-</section>`;
+  var html='<section class="article-detail">';
+  html+='<a class="back-link" onclick="navigate(\'/articles/'+esc(sectionKey)+'\')">'+__t('← 返回','← Back')+' '+esc(sectionNames[sectionKey]||'')+'</a>';
+  html+='<div class="article-meta">'+esc(sectionNames[sectionKey]||'')+' · '+__t('攻略文章','Guide')+'</div>';
+  html+='<h1>'+esc(getArticleTitle(article))+'</h1>';
+  html+='<img class="article-cover" src="'+articleImg(article.g,article.i)+'" alt="'+esc(getArticleTitle(article))+'" loading="lazy">';
+  var secs=getArticleSections(article)||[];
+  for(var si=0;si<secs.length;si++){
+    var sec=secs[si];
+    html+='<h2>'+esc(sec.h)+'</h2>';
+    for(var pi=0;pi<(sec.p||[]).length;pi++){
+      html+='<p>'+esc(sec.p[pi])+'</p>';
+    }
+    if(sec.v){
+      html+='<div class="article-video"><iframe src="https://player.bilibili.com/player.html?bvid='+esc(sec.v)+'&autoplay=0" allowfullscreen></iframe><p class="video-caption">📺 '+(sec.vt?esc(sec.vt):'相关视频攻略')+'</p></div>';
+    }
+  }
+  if(article.t&&article.t.length){
+    html+='<div class="article-tags" style="margin-top:1.5rem">';
+    for(var ti=0;ti<article.t.length;ti++){html+='<span class="tag">'+esc(article.t[ti])+'</span>';}
+    html+='</div>';
+  }
+  html+='<div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center"><p style="font-size:.78rem;color:var(--text3)">'+__t('本文由燕云十六声攻略站原创，转载请注明出处。','Original article by Where Winds Meet Guide. Please credit when sharing.')+'</p></div>';
+  html+='</section>';
+  document.getElementById('app').innerHTML=html;
 }
 
 // ===== ROUTER INIT =====
