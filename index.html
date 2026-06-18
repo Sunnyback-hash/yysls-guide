@@ -507,6 +507,9 @@ p{margin-bottom:1rem;color:var(--text2)}
 <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
 <script>
+// 立即隐藏loader
+(function(){var l=document.getElementById('loader');if(l)l.classList.add('hidden')})();
+
 // ===== DATA =====
 const STORE_KEY = 'yysls_data';
 const BASE_URL = 'https://yysls-guide.com';
