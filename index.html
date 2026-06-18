@@ -510,6 +510,7 @@ p{margin-bottom:1rem;color:var(--text2)}
 // 立即隐藏loader
 (function(){var l=document.getElementById('loader');if(l)l.classList.add('hidden')})();
 
+try{(function(){
 // ===== DATA =====
 const STORE_KEY = 'yysls_data';
 const BASE_URL = 'https://yysls-guide.com';
@@ -1680,6 +1681,7 @@ document.addEventListener('click',e=>{
   if(mn)mn.classList.remove('active');
 });
 try{if(location.hash||window.location.pathname==='/')router()}catch(e){console.error('router error',e);hideLoader()}
+})();}catch(e){console.error('App error:',e);document.body.innerHTML='<div style="text-align:center;padding:40px;font-family:sans-serif"><h2 style="color:#c9a04a">燕云十六声攻略站</h2><p style="color:#666">页面加载中，请稍后...</p><script>location.href="/"</'+'/script></div>';}
 </script>
 
 <footer class="footer">
