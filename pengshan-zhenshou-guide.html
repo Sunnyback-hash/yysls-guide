@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>燕云十六声 · 蓬山新镇守「风雪岱山」完全攻略</title>
+<meta name="description" content="燕云十六声2026年6月5日最新上线的蓬山新镇守「风雪岱山」全面攻略：剧情背景、侦探办案机制（观析理合）、探索路线、配装建议、限时活动一览。">
+<meta name="keywords" content="燕云十六声,风雪岱山,蓬山镇守,新镇守攻略,观析理合,办案机制,青州蓬山">
+<meta property="og:title" content="燕云十六声 · 蓬山新镇守「风雪岱山」完全攻略">
+<meta property="og:description" content="2026年6月5日最新上线！风雪岱山镇守侦探办案机制全面解析，含探索路线、配装建议与限时活动汇总。">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="zh_CN">
+<style>
+/* ===== Reset & Base ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-size:1rem;line-height:1.8;color:#e8e0d0;background:#0b0a0f;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse 60% 40% at 20% 20%,rgba(201,160,74,.05) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 80% 80%,rgba(74,154,122,.04) 0%,transparent 60%);pointer-events:none;z-index:-1}
+a{color:#c9a04a;text-decoration:none;transition:all .3s}
+a:hover{color:#e0b85a}
+img{max-width:100%;height:auto;display:block;border-radius:8px}
+h1,h2,h3,h4{font-weight:700;line-height:1.4;color:#e8e0d0}
+p{margin-bottom:1rem;color:#8a8478}
+.container{max-width:800px;margin:0 auto;padding:0 1.5rem}
+
+/* ===== Header ===== */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,10,15,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,160,74,.12);padding:0 1.5rem}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:.6rem;font-size:1rem;font-weight:700;color:#c9a04a;letter-spacing:.08em}
+.logo span{color:#e0b85a}
+.back-link{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem 1rem;border-radius:20px;font-size:.82rem;color:#8a8478;border:1px solid #2a2730;transition:all .3s}
+.back-link:hover{color:#c9a04a;border-color:rgba(201,160,74,.3)}
+
+/* ===== Hero ===== */
+.article-hero{padding:8rem 0 3rem;text-align:center;position:relative;overflow:hidden}
+.article-hero::before{content:'';position:absolute;top:-50%;left:-20%;width:140%;height:200%;background:radial-gradient(ellipse at 30% 40%,rgba(74,154,122,.08) 0%,transparent 50%),radial-gradient(ellipse at 70% 60%,rgba(201,160,74,.06) 0%,transparent 50%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(201,160,74,.1);padding:.35rem 1.1rem;border-radius:20px;font-size:.78rem;font-weight:600;color:#c9a04a;margin-bottom:1.2rem;border:1px solid rgba(201,160,74,.2)}
+.hero-badge .dot{width:6px;height:6px;background:#4a9a7a;border-radius:50%;display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.article-hero h1{font-size:clamp(1.4rem,4vw,2.2rem);color:#c9a04a;margin-bottom:.6rem;line-height:1.35}
+.article-hero .meta{font-size:.82rem;color:#5a5548;letter-spacing:.05em;margin-bottom:.5rem}
+.article-hero .meta span{color:#8a8478}
+.article-hero .subtitle{font-size:.95rem;color:#8a8478;max-width:600px;margin:0 auto 1rem;line-height:1.7}
+
+/* ===== TOC ===== */
+.toc{background:#18161c;border:1px solid #2a2730;border-radius:12px;padding:1.5rem;margin:2rem 0}
+.toc-title{font-size:.95rem;color:#c9a04a;margin-bottom:.8rem;font-weight:600}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:.35rem}
+.toc-list li a{display:flex;align-items:center;gap:.5rem;font-size:.84rem;color:#8a8478;padding:.3rem .5rem;border-radius:6px;transition:all .2s}
+.toc-list li a:hover{color:#c9a04a;background:rgba(201,160,74,.06)}
+.toc-list li a .num{flex-shrink:0;width:22px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(201,160,74,.1);color:#c9a04a;font-size:.68rem;font-weight:700}
+
+/* ===== Content ===== */
+.content{padding:1rem 0 4rem}
+.content h2{font-size:1.25rem;color:#e0b85a;margin:2.2rem 0 .8rem;border-left:3px solid #c9a04a;padding-left:.8rem}
+.content h3{font-size:1.05rem;color:#e8e0d0;margin:1.5rem 0 .5rem}
+.content p{font-size:.9rem;color:#8a8478;line-height:1.9;margin-bottom:.7rem}
+.content ul,.content ol{padding-left:1.2rem;margin-bottom:.7rem}
+.content li{font-size:.88rem;color:#8a8478;line-height:1.8;margin-bottom:.3rem}
+.content li strong{color:#e8e0d0}
+.content strong{color:#e8e0d0}
+
+/* ===== Highlight Boxes ===== */
+.highlight-box{padding:.9rem 1.1rem;background:rgba(201,160,74,.06);border-left:3px solid #c9a04a;border-radius:0 8px 8px 0;margin:1rem 0;font-size:.88rem;color:#8a8478}
+.tip-box{padding:.9rem 1.1rem;background:rgba(74,154,122,.08);border-left:3px solid #4a9a7a;border-radius:0 8px 8px 0;margin:1rem 0;font-size:.88rem;color:#8a8478}
+.warn-box{padding:.9rem 1.1rem;background:rgba(192,57,43,.08);border-left:3px solid #c0392b;border-radius:0 8px 8px 0;margin:1rem 0;font-size:.88rem;color:#8a8478}
+
+/* ===== Tables ===== */
+.content table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.84rem}
+.content td,.content th{border:1px solid #2a2730;padding:.55rem .7rem;text-align:left}
+.content th{background:#18161c;color:#c9a04a;font-weight:600}
+.content td{color:#8a8478}
+
+/* ===== Cards ===== */
+.info-card{background:#1f1d26;border:1px solid #2a2730;border-radius:12px;padding:1.2rem;margin:1rem 0}
+.info-card .card-title{font-size:.9rem;color:#c9a04a;font-weight:600;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+.info-card p{font-size:.84rem;color:#8a8478;margin-bottom:.3rem}
+.info-card p:last-child{margin-bottom:0}
+
+/* ===== Tag ===== */
+.tag-list{display:flex;gap:.4rem;flex-wrap:wrap;margin:1.5rem 0}
+.tag{display:inline-flex;padding:3px 10px;border-radius:4px;font-size:.65rem;font-weight:600;background:rgba(201,160,74,.1);color:#c9a04a;border:1px solid rgba(201,160,74,.2)}
+
+/* ===== Footer ===== */
+.article-footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid #2a2730;text-align:center}
+.article-footer p{font-size:.78rem;color:#5a5548}
+.article-footer .footer-links{display:flex;gap:1rem;justify-content:center;margin-top:.8rem;flex-wrap:wrap}
+.article-footer .footer-links a{font-size:.82rem;color:#8a8478}
+.article-footer .footer-links a:hover{color:#c9a04a}
+
+/* ===== Responsive ===== */
+@media(max-width:600px){.article-hero{padding:6rem 0 2rem}.article-hero h1{font-size:1.2rem}.content{padding:.5rem 0 2rem}.content h2{font-size:1.1rem}.container{padding:0 1rem}}
+
+/* ===== Loading Animation ===== */
+.fade-in{animation:fadeUp .6s ease forwards;opacity:0}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.delay-1{animation-delay:.1s}
+.delay-2{animation-delay:.2s}
+.delay-3{animation-delay:.3s}
+.delay-4{animation-delay:.4s}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <svg width="24" height="24" viewBox="0 0 100 100"><defs><linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#c9a04a"/><stop offset="100%" style="stop-color:#e0b85a"/></linearGradient></defs><path fill="url(#lg)" d="M50 12C29 12 12 29 12 50s17 38 38 38 38-17 38-38S71 12 50 12zm0 10c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"/><text x="50" y="62" text-anchor="middle" font-size="42" fill="url(#lg)" font-family="serif">燕</text></svg>
+      燕云 · <span>攻略站</span>
+    </a>
+    <a class="back-link" href="/">← 返回首页</a>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="article-hero">
+  <div class="container">
+    <div class="hero-badge fade-in"><span class="dot"></span> 2026年6月6日 · 攻略站首发</div>
+    <h1 class="fade-in delay-1">🔥 蓬山新镇守「风雪岱山」完全攻略</h1>
+    <p class="subtitle fade-in delay-2">侦探办案 · 观析理合 · 沉浸式追凶 —— 燕云十六声最新镇守玩法全面解析</p>
+    <div class="meta fade-in delay-3">
+      <span>📅 发布：2026-06-06</span> &nbsp;·&nbsp; <span>📂 版本：2.6.5A「千秋同襟抱」</span> &nbsp;·&nbsp; <span>🏔️ 区域：青州 · 蓬山</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Content ===== -->
+<section class="content">
+  <div class="container">
+
+    <!-- TOC -->
+    <div class="toc fade-in delay-4">
+      <div class="toc-title">📖 本文目录</div>
+      <ul class="toc-list">
+        <li><a href="#sec1"><span class="num">1</span>镇守概览：风雪岱山是什么？</a></li>
+        <li><a href="#sec2"><span class="num">2</span>剧情背景：岱山惨案与九幽归来</a></li>
+        <li><a href="#sec3"><span class="num">3</span>核心玩法：观·析·理·合 侦探四步法</a></li>
+        <li><a href="#sec4"><span class="num">4</span>蓬山区域100%探索攻略</a></li>
+        <li><a href="#sec5"><span class="num">5</span>版本同期新内容汇总</a></li>
+        <li><a href="#sec6"><span class="num">6</span>推荐配装与准备建议</a></li>
+        <li><a href="#sec7"><span class="num">7</span>限时活动与外观一览</a></li>
+        <li><a href="#sec8"><span class="num">8</span>常见问题FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Featured Video -->
+    <div class="info-card fade-in" style="margin:1.5rem 0;padding:0;overflow:hidden">
+      <div class="article-video" style="margin:0">
+        <iframe src="https://player.bilibili.com/player.html?bvid=BV1KXV16rEpC&autoplay=0" width="100%" height="400" frameborder="0" allowfullscreen style="display:block;width:100%;height:400px;border:none"></iframe>
+        <p class="video-caption" style="font-size:.78rem;color:#5a5548;text-align:center;padding:.45rem .7rem;margin:0;border-top:1px solid #2a2730;background:rgba(42,39,48,.3)">📺 官方前瞻视频：风雪岱山镇守更新内容预告</p>
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <h2 id="sec1" class="fade-in">🏔️ 一、镇守概览：风雪岱山是什么？</h2>
+    <p><strong>「风雪岱山」</strong>是燕云十六声于 <strong>2026年6月5日</strong> 在青州蓬山区域正式上线的全新镇守玩法。不同于传统副本的纯战斗模式，风雪岱山以 <strong>侦探式办案</strong> 为核心，将推理解谜与动作战斗深度融合，是燕云十六声在玩法创新上的一次大胆尝试。</p>
+
+    <div class="info-card">
+      <div class="card-title">📋 基本信息</div>
+      <p><strong>开放时间：</strong>2026年6月5日</p>
+      <p><strong>所在区域：</strong>青州 · 蓬山</p>
+      <p><strong>解锁条件：</strong>完成青州主线任务，进入蓬山区域</p>
+      <p><strong>关联版本：</strong>2.6.5A「千秋同襟抱」（5月29日上线）</p>
+      <p><strong>玩法类型：</strong>叙事推理 + 战斗挑战（非传统BOSS战模式）</p>
+      <p><strong>核心机制：</strong>观 · 析 · 理 · 合 侦探四步法</p>
+    </div>
+
+    <div class="highlight-box">
+      💡 <strong>一句话概括：</strong>风雪岱山是一场发生在风雪迷蒙山中的客栈惨案，玩家需要扮演侦探，通过勘查现场、分析线索、还原真相来推进剧情、完成镇守挑战。
+    </div>
+
+    <!-- Section 2 -->
+    <h2 id="sec2" class="fade-in">📜 二、剧情背景：岱山惨案与九幽归来</h2>
+    <p>据官方公告，风雪岱山的剧情围绕一个骇人听闻的传说展开：</p>
+
+    <div class="highlight-box">
+      <strong>「传闻有一场发生在风雪迷蒙的岱山的惨案——无人幸免，传闻中有自九幽归来的复仇之人，踏碎了风雪中最后的火光……」</strong>
+    </div>
+
+    <p>风雪封山之夜，岱山中的一座客栈发生了离奇的惨案，无人生还。而传闻中，这场惨案的元凶是从九幽（地狱）归来的复仇者。玩家将置身于这座与世隔绝的雪夜客栈中，通过现场勘查、搜集线索、与相关人物（或亡魂）对话，一步步还原惨案发生的前因后果，揭开九幽归来之谜。</p>
+
+    <div class="tip-box">
+      🎭 <strong>叙事特色：</strong>官方强调了「沉浸式叙事追凶」的设计理念，案件中的每一件散落之物、每个人的行动轨迹，都可能是破案的关键。这种叙事方式让人联想到经典的暴风雪山庄模式，结合中国武侠世界的九幽轮回元素，形成了独特的叙事体验。
+    </div>
+
+    <p>剧情中还将涉及青州文津馆学府的背景故事——文津馆作为千年文脉汇聚之地，其历史中隐藏着不为人知的秘密。风雪岱山的惨案，或许就是文津馆过往恩怨的最终回响。</p>
+
+    <!-- Section 3 -->
+    <h2 id="sec3" class="fade-in">🔍 三、核心玩法：观·析·理·合 侦探四步法</h2>
+    <p>风雪岱山镇守的核心玩法机制被官方概括为四个字：</p>
+
+    <div class="info-card" style="text-align:center;padding:1.5rem">
+      <p style="font-size:1.8rem;color:#c9a04a;font-weight:700;letter-spacing:.4em;margin-bottom:.3rem">观 · 析 · 理 · 合</p>
+      <p style="font-size:.88rem;color:#8a8478;line-height:1.7">
+        <strong style="color:#e0b85a">观</strong>其细 · 不放过任何蛛丝马迹<br>
+        <strong style="color:#e0b85a">析</strong>其要 · 从散落之物中提取关键信息<br>
+        <strong style="color:#e0b85a">理</strong>其序 · 将碎片还原为完整的时间线<br>
+        <strong style="color:#e0b85a">合</strong>其全 · 将所有线索汇聚为最终的真相
+      </p>
+    </div>
+
+    <h3>🔎 观：细致勘查</h3>
+    <p>玩家需要在风雪岱山的客栈场景中进行全面的现场勘查。注意观察每一个交互点：血迹的位置、物品的摆放、门窗的状态、地面上的痕迹等。游戏中可能存在专门的「勘查模式」或视角，帮助玩家聚焦于关键线索。建议在场景中<strong>逐寸移动</strong>，不要放过任何角落。</p>
+
+    <h3>📌 析：线索分析</h3>
+    <p>收集到的线索需要进入分析环节。这可能是一个专门的推理界面，玩家需要将不同线索进行关联和比对。例如：一把带血的匕首 + 某人的指纹 + 匕首的持有者记录 = 锁定嫌疑人。线索分析可能是多步骤的，正确关联才能推进剧情。</p>
+    <div class="tip-box">
+      💡 <strong>技巧提示：</strong>留意线索的描述文本中的细节——时间、地点、人物关系、物品特征等。游戏可能会提供「线索簿」或「推理笔记」，建议随时查看整合信息。
+    </div>
+
+    <h3>📋 理：时间线还原</h3>
+    <p>将分析后的线索按照时间顺序排列，还原惨案发生前后的完整时间线。这一环节可能需要玩家将事件卡片拖拽到正确的时间轴上，或通过对话中的信息推断先后顺序。正确的时序还原是揭示真相的关键。</p>
+
+    <h3>✅ 合：最终推理</h3>
+    <p>集齐所有线索、完成时序还原后，玩家需要做出最终的推理结论——谁是凶手？动机是什么？使用了什么手法？与九幽归来的传说有何关联？做出正确的推理选择将触发不同的剧情走向和结局。</p>
+
+    <div class="highlight-box">
+      🏆 <strong>奖励提示：</strong>完整完成推理过程、做出正确结论，预计将获得丰厚的奖励，包括但不限于：限定配饰、心法残页、金色装备胚子和探索度成就。是否存在「完美推理」的额外奖励尚待验证，建议认真对待每一个推理环节。
+    </div>
+
+    <h3>⚔️ 战斗元素</h3>
+    <p>虽然风雪岱山以推理解谜为核心，但其中必然包含战斗环节。根据官方信息，惨案涉及「自九幽归来的复仇之人」，这意味玩家可能需要面对非人的敌人。战斗可能发生在以下场景：</p>
+    <ul>
+      <li>推理过程中的闪回/回忆战——扮演事件亲历者的战斗</li>
+      <li>真相揭露后的BOSS战——面对九幽归来的真凶</li>
+      <li>保护关键证人或证据的防御战</li>
+    </ul>
+    <p>建议在进入镇守前做好<strong>完整的战斗准备</strong>（详见第六部分配装推荐）。</p>
+
+    <!-- Section 4 -->
+    <h2 id="sec4" class="fade-in">🗺️ 四、蓬山区域100%探索攻略</h2>
+    <p>风雪岱山镇守所在的蓬山区域于5月29日与2.6.5A版本同步开放。蓬山是青州的子区域，以奇峻山地和辽阔海域为特色。以下为蓬山六大子区域的探索攻略：</p>
+
+    <h3>📍 六大子区域一览</h3>
+    <table>
+      <tr><th>子区域</th><th>特色</th><th>关键收集</th></tr>
+      <tr><td><strong>桃子窝</strong></td><td>山林果园区</td><td>蹊跷·以武会友、宝箱</td></tr>
+      <tr><td><strong>仰止坪</strong></td><td>文津馆入口平台</td><td>探游触发点、传送点</td></tr>
+      <tr><td><strong>息游居</strong></td><td>学府宿舍区域</td><td>见闻收集、寝舍系统</td></tr>
+      <tr><td><strong>藏修斋</strong></td><td>文津馆藏书区域</td><td>古籍收集、考试晋升</td></tr>
+      <tr><td><strong>天一楼</strong></td><td>蓬山最高建筑</td><td>奇术·梦幻泡影获取</td></tr>
+      <tr><td><strong>金声岭</strong></td><td>海滨半岛区域</td><td>四海豪客挑战、传送点</td></tr>
+    </table>
+
+    <h3>🏆 飞天残垣7大隐藏成就</h3>
+    <p>蓬山区域包含7个隐藏成就，完成可解锁限定称号和奖励：</p>
+    <ul>
+      <li><strong>渍花蜜糕之味</strong> —— 在指定位置使用特定交互</li>
+      <li><strong>胜天半子</strong> —— 完成某个棋局挑战</li>
+      <li><strong>撼天无悔·心月无缺</strong> —— 完成特定剧情链</li>
+      <li><strong>不要喂食猴子</strong> —— 与蓬山区域的猴群互动</li>
+      <li><strong>宝见旱安</strong> —— 找到隐藏的宝藏</li>
+      <li><strong>不见山的天与地</strong> —— 登顶特定高点</li>
+      <li><strong>桃源山上有三杰</strong> —— 击败特定的三个精英</li>
+    </ul>
+
+    <h3>🎯 探索顺序建议</h3>
+    <div class="tip-box">
+      <strong>推荐路线：</strong>仰止坪（解锁传送）→ 桃子窝（清理收集）→ 息游居（见闻+寝舍）→ 藏修斋（古籍+考试）→ 天一楼（奇术+攀爬）→ 金声岭（四海豪客+宝箱）<br><br>
+      📌 建议优先解锁<strong>仰止坪</strong>的传送点，大幅减少往返时间。每个子区域的探索度达到80%后会有里程碑奖励，100%完成后有额外称号。
+    </div>
+
+    <!-- Section 5 -->
+    <h2 id="sec5" class="fade-in">📦 五、版本同期新内容汇总</h2>
+    <p>风雪岱山镇守是2.6.5A版本「千秋同襟抱」的一部分。该版本同期还推出了以下重要内容：</p>
+
+    <div class="info-card">
+      <div class="card-title">🐱 伙伴系统</div>
+      <p>蓬山版本核心玩法，首批开放4只猫咪和3只大鹅伙伴。伙伴拥有独立性格和配音，可通过「心通百兽」技能进行文字/行为交流。伙伴可协助野外采集、搜寻宝箱、标记资源点。6月12日即将开放伙伴对战玩法（1v1和3v3猫猫vs大鹅）。</p>
+      <p style="margin-top:.4rem;font-size:.8rem;color:#5a5548">🔑 解锁方式：完成清河探游「庙喵不妙」任务</p>
+    </div>
+
+    <div class="info-card">
+      <div class="card-title">📚 文津馆学府</div>
+      <p>首个支持双门派的门派系统——无需退出原有门派即可加入。通过蒙学考试加入，可参加传习及以上阶段考核、经典速诵、临池学书、赶海拾鲜等特色玩法。解锁教授身份后可自主开课积累师者声望。支持邀请好友同住寝庐。</p>
+    </div>
+
+    <div class="info-card">
+      <div class="card-title">✨ 新奇术·梦幻泡影</div>
+      <p>全新奇术「梦幻泡影」，玩家只需指尖轻吐气息，便能凝出泡泡，将敌人或伙伴吹上天空。可用于BOSS战将BOSS定格留念，还能收集105种表情包【溢彩】。获取地点：蓬山天一楼区域。</p>
+    </div>
+
+    <div class="info-card">
+      <div class="card-title">⚔️ 新野外BOSS·花毽魁主</div>
+      <p>青州全新野外BOSS「花毽魁主」祝英晗于5月29日登场，掉落金色心法残页和高级装备胚子。同时蓬山新增5位四海豪客（傲诗、飒词、狂歌、华赋、扫地门童），可通过「以武会友」获取袅袅之音。</p>
+    </div>
+
+    <div class="info-card">
+      <div class="card-title">🎭 全新侠迹·碧波垂钓</div>
+      <p>全新侠迹剧情任务「碧波垂钓」，讲述文津馆过往故事，涉及一位心怀遗憾的学子，包含特殊BOSS战。完成可获得限定配饰和大量阅历奖励。</p>
+    </div>
+
+    <!-- Section 6 -->
+    <h2 id="sec6" class="fade-in">⚔️ 六、推荐配装与准备建议</h2>
+    <p>虽然风雪岱山以推理叙事为核心，但面对九幽归来的敌人，充分的战斗准备必不可少。以下是针对该镇守的推荐配置：</p>
+
+    <h3>🎯 推荐流派</h3>
+    <table>
+      <tr><th>定位</th><th>推荐流派</th><th>理由</th></tr>
+      <tr><td>新手推荐</td><td><strong>鸣金虹</strong>（剑+枪）</td><td>攻守均衡、AOE清怪高效、容错率高</td></tr>
+      <tr><td>高输出</td><td><strong>裂石钧</strong>（横刀+陌刀）</td><td>单体爆发极高，应对BOSS战高效</td></tr>
+      <tr><td>远程安逸</td><td><strong>牵丝玉</strong>（笔+扇）</td><td>远程风筝安全输出，适合探索场景</td></tr>
+      <tr><td>生存坦克</td><td><strong>裂石威</strong>（陌刀）</td><td>高容错率，单人探索最稳选择</td></tr>
+    </table>
+
+    <h3>🧩 核心心法配置</h3>
+    <ul>
+      <li><strong>易水歌</strong>（必带）—— 全流派泛用核心心法，提供续航和增伤</li>
+      <li><strong>无名心法</strong>（鸣金虹核心）—— 解锁三剑气循环</li>
+      <li><strong>霜天白夜</strong>（裂石钧核心）—— 解锁派生技拨雪寻春</li>
+      <li><strong>花上月令</strong>（牵丝玉核心）—— 伞Q储存2次</li>
+      <li>备选：<strong>威猛歌</strong>（增伤）、<strong>千山法</strong>（生存）、<strong>征人归</strong>（免掉层）</li>
+    </ul>
+
+    <h3>🛠️ 装备面板参考</h3>
+    <table>
+      <tr><th>属性</th><th>推荐目标</th><th>优先级</th></tr>
+      <tr><td>精准率</td><td>99%以上</td><td>⭐⭐⭐⭐⭐</td></tr>
+      <tr><td>会心率</td><td>70%以上</td><td>⭐⭐⭐⭐⭐</td></tr>
+      <tr><td>会意率</td><td>人物自带即可</td><td>⭐⭐⭐</td></tr>
+      <tr><td>大外功</td><td>3500+</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>劲</td><td>越高越好</td><td>⭐⭐⭐⭐</td></tr>
+    </table>
+
+    <h3>🎒 其他准备</h3>
+    <ul>
+      <li><strong>奇术推荐：</strong>箫吟千浪（核心输出奇术）、神龙吐火+太白醉月（爆发组合）、骑龙回马（耐力回复）、清风霁月（解控）</li>
+      <li><strong>药品准备：</strong>带足回复药和解毒药（九幽相关敌人可能有特殊debuff）</li>
+      <li><strong>伙伴携带：</strong>建议带上已培养的伙伴，伙伴可协助采集和战斗</li>
+    </ul>
+
+    <div class="warn-box">
+      ⚠️ <strong>注意事项：</strong>风雪岱山为叙事推理+战斗混合玩法，建议预留30-60分钟的完整时间进行体验。推理过程中请仔细阅读每一个线索文本，不要跳过对话。部分线索可能存在时效性，错过可能无法再次获取。
+    </div>
+
+    <!-- Section 7 -->
+    <h2 id="sec7" class="fade-in">🎁 七、限时活动与外观一览</h2>
+    <p>以下为当前版本（2026年6月）有效的限时活动和外观信息，请务必在截止日期前获取：</p>
+
+    <table>
+      <tr><th>活动/外观</th><th>类型</th><th>价格</th><th>截止时间</th></tr>
+      <tr><td>🎯 <strong>「一举夺魁」</strong></td><td>赴考主题套装</td><td>优惠价680长鸣珠（原价1280）</td><td>6月19日 5:00</td></tr>
+      <tr><td>💃 <strong>「茯尘无寄」</strong></td><td>舞蹈合作套装</td><td>优惠价680长鸣珠（原价1280）</td><td>6月26日 4:59</td></tr>
+      <tr><td>🏛️ <strong>曲阜孔庙联动</strong></td><td>限时联动活动</td><td>免费参与</td><td>6月9日</td></tr>
+      <tr><td>🎪 <strong>「竹影旧曾谙」</strong></td><td>限时探游复刻</td><td>免费参与</td><td>6月7日</td></tr>
+      <tr><td>🎂 <strong>生辰祝福邮件</strong></td><td>长期活动</td><td>免费</td><td>生日前后30天</td></tr>
+    </table>
+
+    <div class="tip-box">
+      💰 <strong>省钱提示：</strong>「一举夺魁」和「茯尘无寄」均为限时折扣状态，原价1280长鸣珠现仅680，相当于5.3折。两套外观风格不同——「一举夺魁」为赴考书生风，「茯尘无寄」为医者药客装束，均支持染色系统。建议在折扣期结束前入手。
+    </div>
+
+    <p><strong>前瞻预告：</strong>江南·杭州新地图将于<strong>6月26日</strong>上线，占地超100万平方米，包含西湖、钱塘江等场景，同时推出新武学流派和全新PVE玩法。届时暑期版本将带来更大规模的更新。</p>
+
+    <!-- Section 8 -->
+    <h2 id="sec8" class="fade-in">❓ 八、常见问题FAQ</h2>
+
+    <div class="info-card">
+      <div class="card-title">Q：风雪岱山镇守的推荐等级和装备要求？</div>
+      <p>建议角色等级95+，装备评分4000+，核心心法6重以上。虽然以推理为主，但战斗环节仍有较高难度。</p>
+    </div>
+
+    <div class="info-card">
+      <div class="card-title">Q：风雪岱山镇守可以组队完成吗？</div>
+      <p>推理环节预计以单人体验为主（沉浸式叙事），战斗环节可能支持组队。具体组队规则请以游戏内实际为准。</p>
+    </div>
+
+    <div class="info-card">
+      <div class="card-title">Q：错过风雪岱山的推理线索怎么办？</div>
+      <p>目前不确定是否有回溯机制。建议在推理过程中随时存档（拍照或笔记），或在游戏内使用线索簿功能查看已收集的线索。</p>
+    </div>
+
+    <div class="info-card">
+      <div class="card-title">Q：风雪岱山与蓬山版本的其他新内容有联动吗？</div>
+      <p>是的。风雪岱山的剧情与文津馆学府的背景故事相关联，完成镇守可能会解锁额外的文津馆剧情或成就。建议先完成文津馆的基础内容再挑战风雪岱山，以获得完整的剧情体验。</p>
+    </div>
+
+    <div class="info-card">
+      <div class="card-title">Q：江南新地图（6月26日）上线后，风雪岱山内容会变化吗？</div>
+      <p>风雪岱山作为2.6.5A版本的镇守内容，预计不会随暑期版本更新而变化。但暑期版本可能引入与蓬山区域相关的后续剧情或新挑战。</p>
+    </div>
+
+    <!-- Tags -->
+    <div class="tag-list">
+      <span class="tag">燕云十六声</span>
+      <span class="tag">风雪岱山</span>
+      <span class="tag">蓬山镇守</span>
+      <span class="tag">侦探办案</span>
+      <span class="tag">观析理合</span>
+      <span class="tag">青州蓬山</span>
+      <span class="tag">2.6.5A版本</span>
+      <span class="tag">千秋同襟抱</span>
+      <span class="tag">伙伴系统</span>
+      <span class="tag">文津馆</span>
+      <span class="tag">2026年6月</span>
+    </div>
+
+    <!-- Footer -->
+    <div class="article-footer">
+      <p>📝 本文由燕云十六声攻略站原创，数据来源于官方公告、17173游戏网、B站官方视频及玩家社区。</p>
+      <p style="margin-top:.3rem">📅 最后更新：2026年6月6日 · 版本：2.6.5A「千秋同襟抱」</p>
+      <div class="footer-links">
+        <a href="/">← 返回攻略站首页</a>
+        <a href="/articles/version">📋 更多版本攻略</a>
+        <a href="/builds">📜 流派攻略</a>
+        <a href="/maps">🗺️ 地图探索</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

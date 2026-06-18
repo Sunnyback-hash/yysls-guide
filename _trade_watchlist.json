@@ -1,0 +1,56 @@
+[
+  {
+    "name": "新易盛",
+    "code": "300502",
+    "reason": "AI光模块龙头，1.6T升级+CPO概念，北向资金重仓",
+    "report_season": "中报",
+    "expected_report_date": "2026-08-28",
+    "alert_before_days": 7,
+    "watch_metrics": ["pe", "revenue_growth", "net_profit_growth"]
+  },
+  {
+    "name": "中兴通讯",
+    "code": "000063",
+    "reason": "通信设备龙头，AI算力基建受益，5G-A+6G预期",
+    "report_season": "中报",
+    "expected_report_date": "2026-08-30",
+    "alert_before_days": 7,
+    "watch_metrics": ["pe", "revenue_growth", "net_profit_growth"]
+  },
+  {
+    "name": "亨通光电",
+    "code": "600487",
+    "reason": "光纤光缆龙头，海上风电+光通信双轮驱动，近期资金持续流入",
+    "report_season": "中报",
+    "expected_report_date": "2026-08-25",
+    "alert_before_days": 5,
+    "watch_metrics": ["revenue_growth", "net_profit_growth"]
+  },
+  {
+    "name": "生益科技",
+    "code": "600183",
+    "reason": "PCB/CCL龙头，AI服务器+汽车电子需求拉动，6/9日主力净流入13亿",
+    "report_season": "中报",
+    "expected_report_date": "2026-08-20",
+    "alert_before_days": 5,
+    "watch_metrics": ["revenue_growth", "net_profit_growth"]
+  },
+  {
+    "name": "北方华创",
+    "code": "002371",
+    "reason": "半导体设备龙头，国产替代核心标的，中芯国际扩产受益",
+    "report_season": "中报",
+    "expected_report_date": "2026-08-26",
+    "alert_before_days": 7,
+    "watch_metrics": ["pe", "revenue_growth", "net_profit_growth"]
+  },
+  {
+    "name": "沪硅产业",
+    "code": "688126",
+    "reason": "硅片龙头，半导体材料国产替代，6/9日20CM涨停",
+    "report_season": "中报",
+    "expected_report_date": "2026-08-28",
+    "alert_before_days": 5,
+    "watch_metrics": ["revenue_growth", "net_profit_growth"]
+  }
+]

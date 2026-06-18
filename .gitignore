@@ -1,0 +1,10 @@
+.claude/
+.workbuddy/
+node_modules/
+*.zip
+用户操作手册.html
+.wrangler/
+__pycache__/
+node_modules/
+package.json
+package-lock.json
